@@ -1,0 +1,113 @@
++++
+title = "UpgradeProduct"
+toc = true
++++
+
+Upgrade, or calculate an upgrade on, a product
+
+### Request Parameters
+
+| Parameter | Type | Description | Required |
+| --------- | ---- | ----------- | -------- |
+| action | string | "UpgradeProduct" | Required |
+| serviceid | int | The ID of the service to update | Required |
+| calconly | bool | Only calculate the upgrade amount | Optional |
+| paymentmethod | string | The upgrade payment method in system format (e.g. paypal) | Required |
+| type | string | The type of upgrade ('product', 'configoptions') | Required |
+| newproductid | int | The Id of the new product | Optional |
+| newproductbillingcycle | string | The new products billing cycle | Optional |
+| promocode | string | The promotion code to apply to the upgrade | Optional |
+| configoptions | array | An array of config options to upgrade | Optional |
+| configoptions[id] | int | The id of the config option | Optional |
+| configoptions[optiontype] | int | The config option type | Optional |
+| configoptions[selectedvalue] | int | The config option selected value | Optional |
+| configoptions[selectedqty] | int | The config option quantity selected | Optional |
+
+### Response Parameters
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| result | string | The result of the operation: success or error |
+| upgradeinprogress | bool | Is an upgrade in progress (for calconly) |
+
+
+### Example Request (CURL)
+
+```
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/includes/api.php');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            'action' => 'UpgradeProduct',
+            'username' => 'ADMIN_USERNAME',
+            'password' => 'ADMIN_PASSWORD',
+            'serviceid' => '1',
+            'paymentmethod' => 'paypal',
+            'newproductbillingcycle' => 'monthly',
+            'type' => 'product',
+            'newproductid' => '11',
+            'responsetype' => 'json',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+```
+
+
+### Example Request (Local API)
+
+```
+$command = 'UpgradeProduct';
+$postData = array(
+    'serviceid' => '1',
+    'paymentmethod' => 'paypal',
+    'newproductbillingcycle' => 'monthly',
+    'type' => 'product',
+    'newproductid' => '11',
+);
+$adminUsername = 'ADMIN_USERNAME';
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+```
+
+
+### Example Response JSON
+
+```
+{
+    "result": "success",
+    "oldproductid": "12",
+    "oldproductname": "5 Years",
+    "newproductid": 11,
+    "newproductname": "4 Years",
+    "daysuntilrenewal": 13,
+    "totaldays": 30,
+    "newproductbillingcycle": "monthly",
+    "price": "$-8.67 USD",
+    "id": "44",
+    "orderid": 73,
+    "order_number": "9093331404",
+    "invoiceid": null
+}
+```
+
+
+### Error Responses
+
+Possible error condition responses include:
+
+* Service ID Not Found
+* Unable to accept upgrade order. Previous upgrade invoice for service is still unpaid.
+* Invalid Payment Method. Valid options include xxx
+* Invalid Upgrade Type
+
+
+### Version History
+
+| Version | Changelog |
+| ------- | --------- |
+| 1.0 | Initial Version |

@@ -1,0 +1,85 @@
++++
+title = "DomainUpdateWhoisInfo"
+toc = true
++++
+
+Sends the Save Whois command to the registrar for the domain
+
+Connects to the registrar and attempts to update the WHOIS Information
+
+### Request Parameters
+
+| Parameter | Type | Description | Required |
+| --------- | ---- | ----------- | -------- |
+| action | string | "DomainUpdateWhoisInfo" | Required |
+| domainid | int | The id of the domain to obtain the whois information for | Required |
+| xml | string | The xml of the details to update. See DomainGetWhoisInfo | Required |
+
+### Response Parameters
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| result | string | The result of the operation: success or error |
+
+
+### Example Request (CURL)
+
+```
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/includes/api.php');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            'action' => 'DomainUpdateWhoisInfo',
+            'username' => 'ADMIN_USERNAME',
+            'password' => 'ADMIN_PASSWORD',
+            'domainid' => '1',
+            'xml' => '<contactdetails><Registrant><Name>Test Client</Name><Email>test@testemail.com</Email><Company>WHMCS</Company><Address1>123 Test Street</Address1><Address2></Address2><Address3></Address3><City>Test</City><State>Test</State><Zip>TE5 5ST</Zip><Country>GB</Country><Tel_Country_Code>44</Tel_Country_Code><Telephone>1234567890</Telephone></Registrant></contactdetails>',
+            'responsetype' => 'json',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+```
+
+
+### Example Request (Local API)
+
+```
+$command = 'DomainUpdateWhoisInfo';
+$postData = array(
+    'domainid' => '1',
+    'xml' => '<contactdetails><Registrant><Name>Test Client</Name><Email>test@testemail.com</Email><Company>WHMCS</Company><Address1>123 Test Street</Address1><Address2></Address2><Address3></Address3><City>Test</City><State>Test</State><Zip>TE5 5ST</Zip><Country>GB</Country><Tel_Country_Code>44</Tel_Country_Code><Telephone>1234567890</Telephone></Registrant></contactdetails>',
+);
+$adminUsername = 'ADMIN_USERNAME';
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+```
+
+
+### Example Response JSON
+
+```
+{
+    "result": "success"
+}
+```
+
+
+### Error Responses
+
+Possible error condition responses include:
+
+* Domain ID Not Found
+* XML Required
+* Registrar Error Message
+
+
+### Version History
+
+| Version | Changelog |
+| ------- | --------- |
+| 1.0 | Initial Version |

@@ -1,0 +1,106 @@
++++
+title = "GetTickets"
+toc = true
++++
+
+Obtain tickets matching the passed criteria
+
+### Request Parameters
+
+| Parameter | Type | Description | Required |
+| --------- | ---- | ----------- | -------- |
+| action | string | "GetTickets" | Required |
+| limitstart | int | The offset for the returned quote data (default: 0) | Optional |
+| limitnum | int | The number of records to return (default: 25) | Optional |
+| deptid | int | Obtain tickets in a specific department | Optional |
+| clientid | int | Find tickets for a specific client id | Optional |
+| email | string | Find tickets for a specific non-client email address | Optional |
+| status | string | Find tickets matching a specific status. Any configured status plus: `Awaiting Reply`, `All Active Tickets`, `My Flagged Tickets` | Optional |
+| subject | string | Find tickets containing a specific subject - uses approximate string matching. | Optional |
+| ignore_dept_assignments | bool | Pass as true to not adhere to the departments the API user is a member of. | Optional |
+
+### Response Parameters
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| result | string | The result of the operation: success or error |
+| totalresults | int | The total number of results available |
+| startnumber | int | The starting number for the returned results |
+| numreturned | int | The number of results returned |
+| tickets | array | An array of tickets matching the criteria passed |
+
+
+### Example Request (CURL)
+
+```
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/includes/api.php');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            'action' => 'GetTickets',
+            'username' => 'ADMIN_USERNAME',
+            'password' => 'ADMIN_PASSWORD',
+            'responsetype' => 'json',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+```
+
+
+### Example Request (Local API)
+
+```
+$command = 'GetTickets';
+$postData = array(
+);
+$adminUsername = 'ADMIN_USERNAME';
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+```
+
+
+### Example Response JSON
+
+```
+{
+    "result": "success",
+    "totalresults": "1",
+    "startnumber": 0,
+    "numreturned": 1,
+    "tickets": {
+        "ticket": [
+            {
+                "id": "1",
+                "tid": "516757",
+                "deptid": "1",
+                "userid": "1",
+                "name": "Cynthia Reilly",
+                "email": "testuser@whmcs.com",
+                "cc": "",
+                "c": "KPqH7yG3",
+                "date": "2016-01-01 06:26:29",
+                "subject": "This is a sample ticket",
+                "status": "Answered",
+                "priority": "Medium",
+                "admin": "admin admin",
+                "attachment": "",
+                "lastreply": "2016-01-01 06:30:16",
+                "flag": "0",
+                "service": ""
+            }
+        ]
+    }
+}
+```
+
+
+### Version History
+
+| Version | Changelog |
+| ------- | --------- |
+| 1.0 | Initial Version |
