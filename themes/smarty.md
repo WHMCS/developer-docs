@@ -1,5 +1,6 @@
 +++
-prev = "/themes/testing"
+prev = "/themes/debugging/"
+next = "/themes/github/"
 title = "Smarty"
 toc = true
 weight = 100

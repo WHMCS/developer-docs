@@ -1,5 +1,6 @@
 +++
-prev = "/themes/testing"
+prev = "/themes/variables/"
+next = "/themes/conditionals/"
 title = "Functions"
 toc = true
 weight = 60

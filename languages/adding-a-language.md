@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/languages/locales/"
+prev = "/languages/"
 title = "Adding a Language"
 weight = 10
 

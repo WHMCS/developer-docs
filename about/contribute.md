@@ -1,6 +1,4 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
 title = "Contribute"
 weight = 10
 

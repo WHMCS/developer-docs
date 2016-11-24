@@ -1,8 +1,7 @@
 +++
 chapter = true
 icon = "<i class='fa fa-cube fa-fw'></i>"
-next = "/next/path"
-prev = "/prev/path"
+next = "/modules/getting-started/"
 title = "Modules"
 weight = 0
 

@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/domain-registrars/config-options/"
+prev = "/domain-registrars/"
 title = "Getting Started"
 weight = 10
 

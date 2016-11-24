@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/domain-registrars/hooks/"
+prev = "/domain-registrars/module-functions/"
 title = "Externding Further"
 weight = 70
 

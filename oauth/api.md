@@ -1,6 +1,6 @@
 +++
 next = "/oauth/further-reading"
-prev = "/oauth/introduction"
+prev = "/oauth/auth-workflow/"
 title = "API Commands"
 toc = true
 weight = 12

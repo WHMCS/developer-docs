@@ -1,7 +1,7 @@
 +++
 chapter = true
 icon = "<i class='fa fa-code fa-fw'></i>"
-next = ""
+next = "/advanced/creating-pages/"
 title = "Advanced"
 weight = 0
 

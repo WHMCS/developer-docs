@@ -1,6 +1,6 @@
 +++
-next = "/api/internal-api"
-prev = "/api/getting-started"
+next = "/api/response-types/"
+prev = "/api/authentication/"
 title = "Access Control"
 toc = true
 weight = 30

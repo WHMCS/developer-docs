@@ -1,6 +1,5 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+prev = "/domain-registrars/hooks/"
 title = "Module Logging"
 weight = 90
 

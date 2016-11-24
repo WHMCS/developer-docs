@@ -1,8 +1,7 @@
 +++
 chapter = true
 icon = "<i class='fa fa-language fa-fw'></i>"
-next = "/next/path"
-prev = "/prev/path"
+next = "/languages/adding-a-language/"
 title = "Languages"
 weight = 0
 

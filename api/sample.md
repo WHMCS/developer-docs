@@ -1,6 +1,6 @@
 +++
-next = "/api/internal-api"
-prev = "/api/getting-started"
+next = "/api/internal-api/"
+prev = "/api/response-types/"
 title = "Sample Code"
 toc = true
 weight = 50

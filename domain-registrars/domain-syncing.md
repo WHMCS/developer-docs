@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/domain-registrars/module-parameters/"
+prev = "/domain-registrars/function-index/"
 title = "Domain Syncronisation"
 weight = 40
 

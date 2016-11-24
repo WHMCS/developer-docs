@@ -1,6 +1,6 @@
 +++
-next = "/themes/testing"
-prev = "/themes/getting-started"
+next = "/themes/navigation/"
+prev = "/themes/customising/"
 title = "CSS Styling"
 toc = true
 weight = 30

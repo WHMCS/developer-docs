@@ -1,5 +1,5 @@
 +++
-next = "/api/external-api"
+next = "/api/authentication/"
 prev = "/api"
 title = "Getting Started"
 toc = true

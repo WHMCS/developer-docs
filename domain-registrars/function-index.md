@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/domain-registrars/domain-syncing/"
+prev = "/domain-registrars/config-options/"
 title = "Function Index"
 weight = 30
 

@@ -1,5 +1,6 @@
 +++
-prev = "/api/external-api"
+prev = "/api/sample/"
+next = "/api/api-index/"
 title = "Internal API"
 toc = true
 weight = 60

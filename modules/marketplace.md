@@ -1,6 +1,5 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+prev = "/modules/code-samples/"
 title = "Marketplace"
 weight = 30
 

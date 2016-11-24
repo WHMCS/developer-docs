@@ -1,8 +1,8 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/languages/overrides/"
+prev = "/languages/locales/"
 title = "Encoding"
-weight = 10
+weight = 30
 
 +++
 

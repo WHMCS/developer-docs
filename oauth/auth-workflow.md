@@ -1,5 +1,5 @@
 +++
-next = "/oauth/further-reading"
+next = "/oauth/api/"
 prev = "/oauth/introduction"
 title = "Authentication Workflow"
 toc = true

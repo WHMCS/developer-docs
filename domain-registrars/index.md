@@ -1,8 +1,7 @@
 +++
 chapter = true
 icon = "<i class='fa fa-globe fa-fw'></i>"
-next = "/next/path"
-prev = "/prev/path"
+next = "/domain-registrars/getting-started/"
 title = "Domain Registrars"
 weight = 0
 

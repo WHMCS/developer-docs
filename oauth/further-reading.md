@@ -1,5 +1,5 @@
 +++
-prev = "/oauth/auth-workflow"
+prev = "/oauth/api/"
 title = "Further Reading"
 toc = true
 weight = 15

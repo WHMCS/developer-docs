@@ -1,5 +1,6 @@
 +++
-prev = "/themes/testing"
+prev = "/themes/functions/"
+next = "/themes/php/"
 title = "Conditionals"
 toc = true
 weight = 70

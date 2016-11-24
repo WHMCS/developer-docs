@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/advanced/currency-formatting/"
+prev = "/advanced/db-interaction/"
 title = "Date Functions"
 weight = 30
 

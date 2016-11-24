@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/advanced/date-functions/"
+prev = "/advanced/creating-pages/"
 title = "Interacting with the Database"
 weight = 20
 

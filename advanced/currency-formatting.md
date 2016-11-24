@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/advanced/logging/"
+prev = "/advanced/date-functions/"
 title = "Currency Formatting"
 weight = 40
 

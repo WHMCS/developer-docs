@@ -1,5 +1,6 @@
 +++
-prev = "/themes/testing"
+prev = "/themes/conditionals/"
+next = "/themes/testing/"
 title = "PHP Logic"
 toc = true
 weight = 75

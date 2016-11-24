@@ -1,6 +1,4 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
 title = "Frequently Asked Questions"
 weight = 20
 

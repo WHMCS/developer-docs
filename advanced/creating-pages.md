@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+next = "/advanced/db-interaction/"
+prev = "/advanced/"
 title = "Creating Pages"
 weight = 10
 
