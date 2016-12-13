@@ -8,13 +8,60 @@ weight = 50
 
 The module parameters are the data values passed into each registrar module function when called.
 
-Every registrar module function receives the same parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings from the registrar itself. Additional variables specific to the action may be available depending upon the function running.
+Registrar module functions all receive the same common set of parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings defined for the module itself.
+
+Additional variables specific to the action being performed such as EPP code, nameservers and WHOIS contact information may be available depending upon the function being called.
 
 | Variable | Description |
 | --------- | ----------- |
-| configvalues | the settings defined in your modules configuration function - names as defined
-| domainid | the unique ID of the domain (Database Field: tbldomains.id)
-| sld | the second level domain being managed (eg. google)
-| tld | the top level domain being managed (eg. .com)
-| regperiod | the registration period requested for the domain
-| nsX | the nameserver values for a domain - where X = 1 to 5
+| userid | The client ID who owns the domain
+| domainid | The unique ID of the domain
+| sld | eg. `yourdomain`
+| tld | eg. `.com`
+| regperiod | The registration term for the domain (1-10 years)
+| eppcode | Present only for incoming domain transfer orders (Transfers only)
+| **Nameservers**
+| ns1 | First Nameserver (Registrations, Transfers and Nameserver Updates only)
+| ns2 | Second Nameserver
+| ns3 | Third Nameserver
+| ns4 | Fourth Nameserver
+| ns5 | Fifth Nameserver
+| **Contact Information**
+| firstname |
+| lastname |
+| fullname | First name and last name combined
+| companyname |
+| email |
+| address1 |
+| address2 |
+| city |
+| state | State code eg. TX
+| fullstate | State name eg. Texas
+| postcode | Postcode/Zip code
+| countrycode | Country code eg. GB
+| countryname | Country name eg. United Kingdom
+| phonenumber | Phone number as the user provided it
+| phonecc | Country code determined based on country
+| fullphonenumber | Format: +CC.xxxxxxxxxxxx
+| additionalfields | An array of additional registrant information fields and their values
+| **Admin/Tech/Billing**
+| adminfirstname |
+| adminlastname |
+| admincompanyname |
+| adminemail |
+| adminaddress1 |
+| adminaddress2 |
+| admincity |
+| adminstate | State code eg. TX
+| adminfullstate | State name eg. Texas
+| adminpostcode | Postcode/Zip code
+| admincountry | eg. GB
+| adminphonenumber | Phone number as the user provided it
+| adminfullphonenumber | Format: +CC.xxxxxxxxxxxx
+| **Domain Addons**
+| dnsmanagement | True/false for if DNS Management add-on is active
+| emailforwarding | True/false for if Email Forwarding add-on is active
+| idprotection | True/false for if ID Protection add-on is active
+| **Premium Parameters**
+| premiumEnabled | True if premium domain orders are enabled in WHMCS (Registration/Transfers only)
+| premiumCost | The cost price fetched at the time of the order being placed
