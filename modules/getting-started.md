@@ -6,4 +6,24 @@ weight = 10
 
 +++
 
-Coming soon...
+The first step in creating a module for WHMCS is determining which type of module you wish to create:
+
+* **[Provisioning Modules](/provisioning-modules/)** - Provisioning Modules, also referred to as Product or Server Modules, allow you to create modules to allow for the provisioning and management of products & services. [Learn more](/provisioning-modules/)
+
+* **[Addon Modules](/addon-modules/)** - Addon Modules allow you to create modules and extensions that provide client and/or admin area output and that are not directly linked to individual products/services. [Learn more](/addon-modules/)
+
+* **[Payment Gateway Modules](/payment-gateways/)** - Gateway Module allow you to connect WHMCS with additional payment and credit card processors for processing and capturing payments. Payment gateway modules include:
+    - Third Party Gateways - Where a customer leaves the site to pay and returns when the payment process completes.
+    - Merchant Gateways - Where a customer enters credit card details without leaving WHMCS and payment is processed via an API.
+    - Tokenised Gateways - Where credit card details are entered either within or outside of WHMCS and a token is generated and stored for future billing needs.
+
+* **[Registrar Modules](/domain-registrars/)** - Registrar Modules, also referred to as Domain Modules, allow you to create modules to allow for the registration and management of domains within WHMCS. [Learn more](/domain-registrars/)
+
+Sample modules demonstrating usage and functionality are made available for all types of modules via the [WHMCS Github page](https://github.com/whmcs).
+
+## Recommended Reading
+
+* [Code Samples](/modules/code-samples/) - We make available sample code for each of our module types via Github.
+* [Style Guide](/modules/style-guide/) - Recommended programming style and best practices for developing with WHMCS.
+* [Hooks Guide](/hooks/) - Hooks allow you to execute your own code when events occur inside WHMCS.
+* [API Guide](/api/) - The API allows you to perform operations and actions within WHMCS.
