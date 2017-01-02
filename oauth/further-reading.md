@@ -8,5 +8,5 @@ weight = 15
 
 For more information, please refer to:
 
-* OpenID Connect User Guide
-* OpenID Connect Developer Guide
+* [OpenID Connect User Guide](http://docs.whmcs.com/OpenID_Connect)
+* [OpenID Connect Developer Guide](http://docs.whmcs.com/OpenID_Connect_Developer_Guide)

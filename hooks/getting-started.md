@@ -53,5 +53,5 @@ A selection of variables will be passed into your hook point. The variables you 
 Some hook points will also allow you to return values, and in some cases, the response you provide can alter the program flow to allow you to override default behaviours.
 
 {{% notice info %}}
-We recommend xxx
+When using a named function, we recommend you prefix your function name with something unique to you and your code to prevent potential naming conflicts with future code.
 {{% /notice %}}
