@@ -1,9 +1,9 @@
 +++
-next = "/provisioning-modules/whmcs-marketplace"
-prev = "/provisioning-modules/admin-services-tab"
+next = ""
+prev = "/provisioning-modules/admin-dashboard-widgets"
 title = "Module Logging"
 toc = true
-weight = 100
+weight = 110
 
 +++
 

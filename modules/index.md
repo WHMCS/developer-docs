@@ -22,6 +22,13 @@ A module is a collection of functions that provide additional functionality to t
         </a>
     </div>
     <div class="col-sm-6">
+        <a href="/addon-modules/">
+            <i class="fa fa-cube"></i>
+            <h3>Addon Modules</h3>
+            <p>Create a module that provides additional functionality within WHMCS.</p>
+        </a>
+    </div>
+    <div class="col-sm-6">
         <a href="/domain-registrars/">
             <i class="fa fa-cube"></i>
             <h3>Registrar Modules</h3>
@@ -33,13 +40,6 @@ A module is a collection of functions that provide additional functionality to t
             <i class="fa fa-cube"></i>
             <h3>Gateway Modules</h3>
             <p>Integrate with payment gateway providers to collect and process payments.</p>
-        </a>
-    </div>
-    <div class="col-sm-6">
-        <a href="/provisioning-modules/">
-            <i class="fa fa-cube"></i>
-            <h3>Addon Modules</h3>
-            <p>Create a module that provides additional functionality within WHMCS.</p>
         </a>
     </div>
 </div>

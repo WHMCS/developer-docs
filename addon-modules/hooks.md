@@ -1,5 +1,5 @@
 +++
-next = "/addon-modules/upgrades"
+next = "/addon-modules/admin-dashboard-widgets"
 prev = "/addon-modules/multi-language"
 title = "Hooks"
 toc = true

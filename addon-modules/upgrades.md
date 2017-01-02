@@ -1,9 +1,9 @@
 +++
 next = "/addon-modules/whmcs-marketplace"
-prev = "/addon-modules/hooks"
+prev = "/addon-modules/admin-dashboard-widgets"
 title = "Upgrades"
 toc = true
-weight = 80
+weight = 90
 
 +++
 
@@ -22,20 +22,20 @@ An example of how this function can be used is demonstrated below:
 
 ```
 function demo_upgrade($vars) {
- 
+
     $version = $vars['version'];
- 
+
     # Run SQL Updates for V1.0 to V1.1
     if ($version < 1.1) {
         $query = "ALTER `mod_addonexample` ADD `demo2` TEXT NOT NULL ";
     	$result = mysql_query($query);
     }
- 
+
     # Run SQL Updates for V1.1 to V1.2
     if ($version < 1.2) {
         $query = "ALTER `mod_addonexample` ADD `demo3` TEXT NOT NULL ";
     	$result = mysql_query($query);
     }
- 
+
 }
 ```

@@ -2,7 +2,7 @@
 prev = "/addon-modules/upgrades"
 title = "WHMCS Marketplace"
 toc = true
-weight = 90
+weight = 100
 
 +++
 
