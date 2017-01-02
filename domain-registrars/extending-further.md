@@ -1,7 +1,7 @@
 +++
 next = "/domain-registrars/hooks/"
 prev = "/domain-registrars/module-functions/"
-title = "Externding Further"
+title = "Extending Further"
 weight = 70
 
 +++
