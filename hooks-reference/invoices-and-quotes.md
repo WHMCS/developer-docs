@@ -87,16 +87,17 @@ add_hook('AddTransaction', 1, function($vars) {
 
 ## AdminAreaViewQuotePage
 
-Run this hook before we create the quote below. This has been done to keep the original hook running order.
+Executes as the quote is being viewed.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| quoteid | int |  |
 
 #### Response
 
-No response supported
+An array of HTML to display on the View Quote page
 
 #### Example Code
 
@@ -131,11 +132,13 @@ add_hook('AfterInvoicingGenerateInvoiceItems', 1, function($vars) {
 
 ## InvoiceCancelled
 
+Executes when an invoice is being cancelled
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -152,12 +155,14 @@ add_hook('InvoiceCancelled', 1, function($vars) {
 
 ## InvoiceChangeGateway
 
+Executes when changing the gateway on an invoice if the client area.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
-| paymentmethod | | |
+| invoiceid | int | The id of the invoice being updated. |
+| paymentmethod | string | The new payment method selected. |
 
 #### Response
 
@@ -347,12 +352,14 @@ add_hook('InvoiceRefunded', 1, function($vars) {
 
 ## InvoiceSplit
 
+Executes as an invoice is being split
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| originalinvoiceid | | |
-| newinvoiceid | | |
+| originalinvoiceid | int | The id of the original invoice |
+| newinvoiceid | int | The id of the new invoice |
 
 #### Response
 
@@ -369,11 +376,13 @@ add_hook('InvoiceSplit', 1, function($vars) {
 
 ## InvoiceUnpaid
 
+Executes when an invoice is being marked as Unpaid
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -528,11 +537,13 @@ add_hook('UpdateInvoiceTotal', 1, function($vars) {
 
 ## ViewInvoiceDetailsPage
 
+Executes as the invoice is being viewed as a client
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -549,12 +560,14 @@ add_hook('ViewInvoiceDetailsPage', 1, function($vars) {
 
 ## acceptQuote
 
+Executes when a client is accepting a quote.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| quoteid | | |
-| invoiceid | | |
+| quoteid | int | The id of the quote being accepted. |
+| invoiceid | int | The id of the invoice created for the quote (if applicable). |
 
 #### Response
 

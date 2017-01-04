@@ -29,6 +29,8 @@ add_hook('AdminAreaPage', 1, function($vars) {
 
 ## AdminHomepage
 
+Allows returning of output for display on the admin homepage
+
 #### Parameters
 
 | Variable | Type | Notes |
@@ -36,7 +38,7 @@ add_hook('AdminAreaPage', 1, function($vars) {
 
 #### Response
 
-No response supported
+Return the HTML to be output on the page.
 
 #### Example Code
 
@@ -71,11 +73,13 @@ add_hook('AffiliateActivation', 1, function($vars) {
 
 ## AffiliateClickthru
 
+Executes when a user has clicked an affiliate referral link.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affiliateId | | |
+| affiliateId | int | The unique id of the affiliate that the link belongs to |
 
 #### Response
 
@@ -120,18 +124,20 @@ add_hook('AffiliateCommission', 1, function($vars) {
 
 ## AffiliateWithdrawalRequest
 
+Executes when an affiliate withdrawal request is submitted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affiliateId | | |
-| userId | | |
-| contactId | | |
-| balance | | |
+| affiliateId | int | The unique id of the affiliate making the request |
+| userId | int | The user id of the user making the request |
+| contactId | int | The contact id of the user making the request if logged in as a sub-account |
+| balance | float | The amount of commission the withdrawal request is for |
 
 #### Response
 
-No response supported
+To skip creating a ticket for the request: return array('skipTicket' => true);
 
 #### Example Code
 
@@ -305,15 +311,17 @@ add_hook('EmailPreSend', 1, function($vars) {
 
 ## EmailTplMergeFields
 
+Executes when editing an email template.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| type | | |
+| type | string | The type of email template being edited. |
 
 #### Response
 
-No response supported
+an Array of key -> value pairs of merge fields
 
 #### Example Code
 
@@ -347,14 +355,17 @@ add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
 
 ## IntelligentSearch
 
+Executes as the Intelligent Search is being completed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| searchTerm | string |  |
 
 #### Response
 
-No response supported
+An array of additional responses to be appended to the search results.
 
 #### Example Code
 
@@ -367,11 +378,13 @@ add_hook('IntelligentSearch', 1, function($vars) {
 
 ## LinkTracker
 
+Executes when a link.php link is being used.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| linkid | | |
+| linkid | int | The id of the link being followed |
 
 #### Response
 

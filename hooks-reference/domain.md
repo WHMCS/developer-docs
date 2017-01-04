@@ -8,15 +8,17 @@ The following hooks are provided for Domain related events.
 
 ## AdminClientDomainsTabFields
 
+Executes when a domain is being viewed in the Admin area.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int | the id of the domain being loaded |
 
 #### Response
 
-No response supported
+An array of key -> value parameters to output additional fields as required.
 
 #### Example Code
 
@@ -29,11 +31,12 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 
 ## AdminClientDomainsTabFieldsSave
 
+Executes when the Domains tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| $_REQUEST | | |
 
 #### Response
 
@@ -73,11 +76,14 @@ add_hook('ClientAreaDomainDetails', 1, function($vars) {
 
 ## DomainDelete
 
+Executes when a service is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $domainDetails | | |
+| userid | int |  |
+| domainid | int |  |
 
 #### Response
 
@@ -94,11 +100,14 @@ add_hook('DomainDelete', 1, function($vars) {
 
 ## DomainEdit
 
+Executes as the domain is being saved, before any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $domainDetails | | |
+| userid | int |  |
+| domainid | int |  |
 
 #### Response
 

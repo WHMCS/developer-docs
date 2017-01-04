@@ -54,18 +54,12 @@ add_hook('ContactChangePassword', 1, function($vars) {
 
 ## ContactEdit
 
-Runs when a contact is edited.
+Undocumented
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | int |  |
-| contactid | int |  |
-| firstname | string |  |
-| lastname | string |  |
-| companyname | string |  |
-| olddata | array | An array of the previous contact information |
 
 #### Response
 

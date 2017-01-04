@@ -106,15 +106,17 @@ add_hook('AddonCancelled', 1, function($vars) {
 
 ## AddonConfig
 
+Executes as an addon is being displayed.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int | The id of the created addon (tbladdons). |
 
 #### Response
 
-No response supported
+an array of key -> value pairs to be displayed on the addon configuration.
 
 #### Example Code
 
@@ -127,11 +129,13 @@ add_hook('AddonConfig', 1, function($vars) {
 
 ## AddonConfigSave
 
+Executes as an addon is being saved.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int | The id of the created addon (tbladdons). |
 
 #### Response
 
@@ -148,12 +152,13 @@ add_hook('AddonConfigSave', 1, function($vars) {
 
 ## AddonDeleted
 
-We don't pass all the details for the AddonDeleted hook
+Executes when an addon is being deleted.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| id | int | the id of the addon being removed. tblhostingaddons |
 
 #### Response
 

@@ -18,7 +18,7 @@ Runs when an admin views a ticket.
 
 #### Response
 
-HTML will be output to the page.
+Returned HTML will be output to the page.
 
 #### Example Code
 
@@ -243,13 +243,15 @@ add_hook('TicketPiping', 1, function($vars) {
 
 ## TicketStatusChange
 
+Executes as a ticket status is changed.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| adminid | | |
-| status | | |
-| ticketid | | |
+| adminid | int |  |
+| status | string |  |
+| ticketid | int |  |
 
 #### Response
 

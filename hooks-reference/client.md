@@ -8,15 +8,17 @@ The following hooks are provided for Client related events.
 
 ## AdminAreaClientSummaryActionLinks
 
+Allows returning of links for display on the client summary page in the Action Links section.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int | The id of the user being displayed |
 
 #### Response
 
-No response supported
+An array of links to be displayed.
 
 #### Example Code
 
@@ -29,15 +31,17 @@ add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
 
 ## AdminAreaClientSummaryPage
 
+Allows returning of output for display on the client summary page.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int | The id of the user being displayed |
 
 #### Response
 
-No response supported
+Return the HTML to be output on the page.
 
 #### Example Code
 
@@ -50,15 +54,17 @@ add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
 
 ## AdminClientFileUpload
 
+Executes as a client file is being uploaded from the Client Summary.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
-| title | | |
-| filename | | |
-| origfilename | | |
-| adminonly | | |
+| userid | int |  |
+| title | string |  |
+| filename | string | The filename as stored on the server |
+| origfilename | string | The original filename |
+| adminonly | bool |  |
 
 #### Response
 
@@ -75,11 +81,12 @@ add_hook('AdminClientFileUpload', 1, function($vars) {
 
 ## AdminClientProfileTabFields
 
+Undocumented
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| $clientsdetails | | |
 
 #### Response
 
@@ -96,11 +103,12 @@ add_hook('AdminClientProfileTabFields', 1, function($vars) {
 
 ## AdminClientProfileTabFieldsSave
 
+Executes when the Profile in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| $_REQUEST | | |
 
 #### Response
 
@@ -117,12 +125,14 @@ add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
 
 ## AfterClientMerge
 
+Executes after a client merge has completed.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| toUserID | | |
-| fromUserID | | |
+| toUserID | int | The id of the user being merged into. |
+| fromUserID | int | The id of the user being merged from. |
 
 #### Response
 
@@ -290,11 +300,13 @@ add_hook('ClientAreaProductDetails', 1, function($vars) {
 
 ## ClientAreaRegister
 
+Executes after a client has used the register.php file to create a client account.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int | The id of the newly created client. |
 
 #### Response
 
@@ -374,12 +386,14 @@ add_hook('ClientAreaSidebars', 1, function($vars) {
 
 ## ClientChangePassword
 
+Executed when a change of password occurs for a client.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
-| password | | |
+| userid | int |  |
+| password | string | The new password |
 
 #### Response
 
@@ -417,11 +431,13 @@ add_hook('ClientClose', 1, function($vars) {
 
 ## ClientDelete
 
+Executes as a client is deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int |  |
 
 #### Response
 
@@ -438,11 +454,12 @@ add_hook('ClientDelete', 1, function($vars) {
 
 ## ClientEdit
 
+Undocumented
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $hookValues | | |
 
 #### Response
 

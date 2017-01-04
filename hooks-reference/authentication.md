@@ -50,11 +50,13 @@ add_hook('ClientLogin', 1, function($vars) {
 
 ## ClientLogout
 
+Executes when a client is logging out of the client area
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int |  |
 
 #### Response
 

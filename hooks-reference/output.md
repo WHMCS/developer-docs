@@ -71,25 +71,27 @@ add_hook('AdminAreaHeaderOutput', 1, function($vars) {
 
 ## AdminInvoicesControlsOutput
 
+Allows returning of output for display on the invoice edit page
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
-| userid | | |
-| subtotal | | |
-| tax | | |
-| tax2 | | |
-| credit | | |
-| total | | |
-| balance | | |
-| taxrate | | |
-| taxrate2 | | |
-| paymentmethod | | |
+| invoiceid | int |  |
+| userid | int |  |
+| subtotal | float |  |
+| tax | float |  |
+| tax2 | float |  |
+| credit | float |  |
+| total | float |  |
+| balance | float |  |
+| taxrate | float |  |
+| taxrate2 | float |  |
+| paymentmethod | string |  |
 
 #### Response
 
-No response supported
+Return the HTML to be output on the page.
 
 #### Example Code
 
@@ -211,13 +213,15 @@ add_hook('ClientAreaProductDetailsOutput', 1, function($vars) {
 
 ## ReportViewPostOutput
 
+Executes as a report is being displayed, after the output occurs
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| report | | |
-| moduleType | | |
-| moduleName | | |
+| report | string |  |
+| moduleType | string |  |
+| moduleName | string |  |
 
 #### Response
 
@@ -234,13 +238,15 @@ add_hook('ReportViewPostOutput', 1, function($vars) {
 
 ## ReportViewPreOutput
 
+Executes as a report is being displayed, before the output occurs
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| report | | |
-| moduleType | | |
-| moduleName | | |
+| report | string |  |
+| moduleType | string |  |
+| moduleName | string |  |
 
 #### Response
 

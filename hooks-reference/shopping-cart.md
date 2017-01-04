@@ -55,11 +55,19 @@ add_hook('AddonFraud', 1, function($vars) {
 
 ## AfterFraudCheck
 
+Executes after a fraud check has been completed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| $hookresults | | |
+| orderid | int | The id of the order that has been fraud checked |
+| ordernumber | int | The order number |
+| invoiceid | int | The ID of the invoice generated on order |
+| amount | float | The amount the order was for |
+| fraudresults | array | The full result from the fraud check |
+| isfraud | array | The details of the fraud check if an error occurs |
+| clientdetails | array | The full details of the client the order is for |
 
 #### Response
 
@@ -367,15 +375,23 @@ add_hook('RunFraudCheck', 1, function($vars) {
 
 ## ShoppingCartCheckoutCompletePage
 
+Executes when the Complete Page is displayed on checkout.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $smartyvalues | | |
+| orderid | int | The ID of the order |
+| ordernumber | int | The order number for the order |
+| invoiceid | int | The id of the invoice for the order |
+| ispaid | bool | Indicates whether the order has been paid |
+| amount | float | The amount of order |
+| paymentmethod | string | The payment method of the order |
+| clientdetails | array | The full details for the client the order is for |
 
 #### Response
 
-No response supported
+HTML to be displayed on the order complete page.
 
 #### Example Code
 
@@ -388,17 +404,19 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 
 ## ViewOrderDetailsPage
 
+Executes as the order details page is being displayed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | | |
-| ordernum | | |
-| userid | | |
-| amount | | |
-| paymentmethod | | |
-| invoiceid | | |
-| status | | |
+| orderid | int |  |
+| ordernum | int |  |
+| userid | int |  |
+| amount | float |  |
+| paymentmethod | string |  |
+| invoiceid | int |  |
+|  | string | status |
 
 #### Response
 

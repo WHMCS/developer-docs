@@ -8,15 +8,17 @@ The following hooks are provided for Service related events.
 
 ## AdminClientServicesTabFields
 
+Executes when a service is being viewed in the Admin area.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int | the id of the service being loaded |
 
 #### Response
 
-No response supported
+An array of key -> value parameters to output additional fields as required.
 
 #### Example Code
 
@@ -29,11 +31,12 @@ add_hook('AdminClientServicesTabFields', 1, function($vars) {
 
 ## AdminClientServicesTabFieldsSave
 
+Executes when the Services tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| $_REQUEST | | |
 
 #### Response
 
@@ -50,11 +53,14 @@ add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
 
 ## AdminServiceEdit
 
+Executes as the service is being saved, after any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $serviceDetails | | |
+| userid | int |  |
+| serviceid | int |  |
 
 #### Response
 
@@ -95,11 +101,13 @@ add_hook('CancellationRequest', 1, function($vars) {
 
 ## PreAdminServiceEdit
 
+Executes as the service is being saved, before any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| serviceid | | |
+| serviceid | int |  |
 
 #### Response
 
@@ -116,11 +124,13 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 
 ## PreServiceEdit
 
+Executes as the service is being saved, before any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| serviceid | | |
+| serviceid | int |  |
 
 #### Response
 
@@ -137,11 +147,14 @@ add_hook('PreServiceEdit', 1, function($vars) {
 
 ## ServiceDelete
 
+Executes when a service is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $serviceDetails | | |
+| userid | int |  |
+| serviceid | int |  |
 
 #### Response
 
@@ -158,11 +171,14 @@ add_hook('ServiceDelete', 1, function($vars) {
 
 ## ServiceEdit
 
+Executes as the service is being saved, after any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $serviceDetails | | |
+| userid | int |  |
+| serviceid | int |  |
 
 #### Response
 

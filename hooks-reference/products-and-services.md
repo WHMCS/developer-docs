@@ -8,15 +8,17 @@ The following hooks are provided for Products and Services related events.
 
 ## AdminProductConfigFields
 
+Executes as a product is being edited.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| pid | | |
+| pid | int |  |
 
 #### Response
 
-No response supported
+An array of key -> value pairs to display on the Other tab.
 
 #### Example Code
 
@@ -29,11 +31,13 @@ add_hook('AdminProductConfigFields', 1, function($vars) {
 
 ## AdminProductConfigFieldsSave
 
+Executes as a product is being saved. Access The Request variables to save custom config fields.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| pid | | |
+| pid | int |  |
 
 #### Response
 
@@ -71,11 +75,13 @@ add_hook('AfterProductUpgrade', 1, function($vars) {
 
 ## ProductDelete
 
+Executes a product is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| pid | | |
+| pid | int |  |
 
 #### Response
 
@@ -92,12 +98,12 @@ add_hook('ProductDelete', 1, function($vars) {
 
 ## ProductEdit
 
+Undocumented
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| pid | | |
-| $array | | |
 
 #### Response
 
@@ -135,11 +141,13 @@ add_hook('ServerAdd', 1, function($vars) {
 
 ## ServerDelete
 
+Executes as a server is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| serverid | | |
+| serverid | int |  |
 
 #### Response
 
@@ -156,11 +164,13 @@ add_hook('ServerDelete', 1, function($vars) {
 
 ## ServerEdit
 
+Executes as a server is being edited.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| serverid | | |
+| serverid | int |  |
 
 #### Response
 

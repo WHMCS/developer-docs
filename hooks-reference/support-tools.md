@@ -58,6 +58,8 @@ add_hook('AnnouncementEdit', 1, function($vars) {
 
 ## FileDownload
 
+Executes when a file is being downloaded.
+
 #### Parameters
 
 | Variable | Type | Notes |
@@ -78,12 +80,23 @@ add_hook('FileDownload', 1, function($vars) {
 
 ## NetworkIssueAdd
 
+Executes as a network issue is being crated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| $updatearray | | |
+| id | int |  |
+| startdate | string |  |
+| enddate | string |  |
+| title | string |  |
+| description | string |  |
+| type | string |  |
+| server | int |  |
+| affecting | string |  |
+| priority | string |  |
+| status | string |  |
+| lastupdate | string |  |
 
 #### Response
 
@@ -100,11 +113,13 @@ add_hook('NetworkIssueAdd', 1, function($vars) {
 
 ## NetworkIssueClose
 
+Executes as a network issue is being resolved.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int |  |
 
 #### Response
 
@@ -121,11 +136,13 @@ add_hook('NetworkIssueClose', 1, function($vars) {
 
 ## NetworkIssueDelete
 
+Executes as a network issue is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int |  |
 
 #### Response
 
@@ -142,12 +159,23 @@ add_hook('NetworkIssueDelete', 1, function($vars) {
 
 ## NetworkIssueEdit
 
+Executes as a network issue is being edited.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| $updatearray | | |
+| id | int |  |
+| startdate | string |  |
+| enddate | string |  |
+| title | string |  |
+| description | string |  |
+| type | string |  |
+| server | int |  |
+| affecting | string |  |
+| priority | string |  |
+| status | string |  |
+| lastupdate | string |  |
 
 #### Response
 
@@ -164,11 +192,13 @@ add_hook('NetworkIssueEdit', 1, function($vars) {
 
 ## NetworkIssueReopen
 
+Executes as a network issue is being re-opened.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
+| id | int |  |
 
 #### Response
 
