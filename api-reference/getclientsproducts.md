@@ -1,5 +1,5 @@
 +++
-title = "GetClientsDomains"
+title = "GetClientsProducts"
 toc = true
 +++
 
@@ -42,7 +42,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'GetClientsDomains',
+            'action' => 'GetClientsProducts',
             'username' => 'ADMIN_USERNAME',
             'password' => 'ADMIN_PASSWORD',
             'clientid' => '1',
@@ -59,7 +59,7 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'GetClientsDomains';
+$command = 'GetClientsProducts';
 $postData = array(
     'clientid' => '1',
     'stats' => 'true',
