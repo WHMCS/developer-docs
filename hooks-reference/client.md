@@ -6,123 +6,6 @@ weight = 10
 
 The following hooks are provided for Client related events.
 
-## AdminAreaClientSummaryActionLinks
-
-Allows returning of links for display on the client summary page in the Action Links section.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userid | int | The id of the user being displayed |
-
-#### Response
-
-An array of links to be displayed.
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminAreaClientSummaryPage
-
-Allows returning of output for display on the client summary page.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userid | int | The id of the user being displayed |
-
-#### Response
-
-Return the HTML to be output on the page.
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminClientFileUpload
-
-Executes as a client file is being uploaded from the Client Summary.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userid | int |  |
-| title | string |  |
-| filename | string | The filename as stored on the server |
-| origfilename | string | The original filename |
-| adminonly | bool |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientFileUpload', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminClientProfileTabFields
-
-Undocumented
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientProfileTabFields', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminClientProfileTabFieldsSave
-
-Executes when the Profile in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AfterClientMerge
 
 Executes after a client merge has completed.
@@ -149,238 +32,32 @@ add_hook('AfterClientMerge', 1, function($vars) {
 
 ## ClientAlert
 
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAlert', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaHomepage
-
-Executes on rendering of the client area homepage.
+Executes when Client Alerts are being defined
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| N/A | \WHMCS\User\Client | The client model |
 
 #### Response
 
-Return HTML to be output on the page.
+Return a new alert object for rendering.
 
 #### Example Code
 
 ```
 <?php
-add_hook('ClientAreaHomepage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
 
-## ClientAreaHomepagePanels
-
-Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see Working with ClientArea Homepage Panels
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| item | \MenuItem |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaHomepagePanels', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaNavbars
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-|  null | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaNavbars', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaPrimaryNavbar
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-|  $primaryNavbar | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaPrimarySidebar
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| $primarySidebar | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaPrimarySidebar', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaProductDetails
-
-Executes when the product details page is loaded within the client area. This hook runs regardless of service status, so be sure to check for the appropriate statuses if required.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| service | \Service | A service object representing the service being rendered. |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaProductDetails', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaRegister
-
-Executes after a client has used the register.php file to create a client account.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userid | int | The id of the newly created client. |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaRegister', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaSecondaryNavbar
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-|  $secondaryNavbar | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaSecondarySidebar
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| $secondarySidebar | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaSecondarySidebar', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaSidebars
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-|  null | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaSidebars', 1, function($vars) {
-    // Perform hook code here...
+use WHMCS\User\Alert;
+
+add_hook('ClientAlert', 1, function($client) {
+    $firstName = $client->firstName;
+    $lastName = $client->lastName;
+    return new Alert(
+        "This is a test notification for {$firstName} {$lastName}",
+        'info' //see http://getbootstrap.com/components/#alerts
+    );
 });
 ```
 
@@ -410,11 +87,13 @@ add_hook('ClientChangePassword', 1, function($vars) {
 
 ## ClientClose
 
+Executes after a client has been closed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int |  |
 
 #### Response
 
@@ -454,12 +133,47 @@ add_hook('ClientDelete', 1, function($vars) {
 
 ## ClientEdit
 
-Undocumented
+Executes when a client is edited.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| userid | int |  |
+| uuid | string |  |
+| firstname | string |  |
+| lastname | string |  |
+| companyname | string |  |
+| email | string |  |
+| address1 | string |  |
+| address2 | string |  |
+| city | string |  |
+| state | string |  |
+| postcode | string |  |
+| country | string |  |
+| phonenumber | string |  |
+| password | string | The encrypted password for the user |
+| currency | int | The id of the currency |
+| notes | string |  |
+| status | string |  |
+| taxexempt | bool |  |
+| latefeeoveride | bool |  |
+| overideduenotices | bool |  |
+| separateinvoices | bool |  |
+| disableautocc | bool |  |
+| emailoptout | bool |  |
+| overrideautoclose | bool |  |
+| language | string |  |
+| billingcid | int |  |
+| securityqid | int |  |
+| securityqans | string | The encrypted security question answer |
+| groupid | int | The id of the client group |
+| allow_sso | bool | Is Single Sign on enabled for the client? |
+| olddata | array | An array of the previous contact information |
+| authmodule | string | The 2Factor Auth Module enabled for the user |
+| authdata | string | The 2Factor Auth Data for the user |
+| email_verified | bool |  |
+| olddata | array | An array of the previous user information |
 
 #### Response
 
@@ -499,11 +213,13 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 
 ## PreDeleteClient
 
+Executes immediately before a client is deleted
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int |  |
 
 #### Response
 

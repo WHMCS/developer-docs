@@ -8,14 +8,16 @@ The following hooks are provided for Addon related events.
 
 ## AddonActivated
 
+Executes when an addon is activated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -32,14 +34,16 @@ add_hook('AddonActivated', 1, function($vars) {
 
 ## AddonActivation
 
+Executes when an addon is activated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -82,14 +86,16 @@ add_hook('AddonAdd', 1, function($vars) {
 
 ## AddonCancelled
 
+Executes when an addon is cancelled.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -122,8 +128,12 @@ an array of key -> value pairs to be displayed on the addon configuration.
 
 ```
 <?php
+
 add_hook('AddonConfig', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'Additional Field 1' => '<input type="text" name="additionalFieldOne" class="form-control input-150" />',
+        'Additional Field 2' => '<input type="text" name="additionalFieldTwo" class="form-control input-150" />',
+    ];
 });
 ```
 
@@ -145,8 +155,14 @@ No response supported
 
 ```
 <?php
+
+//Obtain the values defined in the AddonConfig hook point and save them as required
 add_hook('AddonConfigSave', 1, function($vars) {
-    // Perform hook code here...
+    $addonId = $vars['id'];
+    $additionalFieldOne = App::getFromRequest('additionalFieldOne');
+    $additionalFieldTwo = App::getFromRequest('additionalFieldTwo');
+
+    //Save the data here
 });
 ```
 
@@ -175,14 +191,16 @@ add_hook('AddonDeleted', 1, function($vars) {
 
 ## AddonEdit
 
+Executes when an addon is modified or updated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -199,14 +217,16 @@ add_hook('AddonEdit', 1, function($vars) {
 
 ## AddonSuspended
 
+Executes when an addon is suspended.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -223,14 +243,16 @@ add_hook('AddonSuspended', 1, function($vars) {
 
 ## AddonTerminated
 
+Executes when an addon is terminated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -273,14 +295,14 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 
 ## LicensingAddonReissue
 
+Executes as a license is being reissued
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| licenseid | | |
-| id | | |
-| array("serviceid | | |
-| serviceid | | |
+| licenseid | int |  |
+| serviceid | int |  |
 
 #### Response
 
@@ -297,24 +319,30 @@ add_hook('LicensingAddonReissue', 1, function($vars) {
 
 ## LicensingAddonVerify
 
+Executes as a license remote check is being completed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| licenseid | | |
-| serviceid | | |
-| xmlresponse | | |
+| licenseid | int |  |
+| serviceid | int |  |
+| xmlresponse | string | The current XML response |
 
 #### Response
 
-No response supported
+Return key value pairs of additional items to be returned with the response.
 
 #### Example Code
 
 ```
 <?php
+
 add_hook('LicensingAddonVerify', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'myExtraVariable' => 'Yes',
+        'myOtherVariable' => 'Sure',
+    ];
 });
 ```
 

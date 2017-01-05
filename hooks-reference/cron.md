@@ -14,6 +14,7 @@ Runs after all scheduled cron tasks have completed.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -36,6 +37,7 @@ Runs at the very end of the daily automation cron execution.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -58,6 +60,7 @@ Runs after tasks have completed but before email report is sent.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -80,6 +83,7 @@ Runs before any scheduled cron tasks.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 

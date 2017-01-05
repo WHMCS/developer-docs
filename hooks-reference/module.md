@@ -8,12 +8,14 @@ The following hooks are provided for Module related events.
 
 ## AfterModule
 
+Executes after any standard service module function call has failed. Hook name is updated as appropriate.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| failureResponseMessage | | |
-| params | | |
+| failureResponseMessage | string | The response message from the function call. |
+| params | array | The parameters passed to the module function call. |
 
 #### Response
 
@@ -51,47 +53,19 @@ add_hook('AfterModuleChangePassword', 1, function($vars) {
 });
 ```
 
-## ClientAreaProductDetailsPreModuleTemplate
-
-Executes when rendering the client area product details page prior to module template invokation allowing to define additional template parameters.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| serviceid | int |  |
-| groupname | string |  |
-| product | string |  |
-| modulename | string |  |
-| domain | string |  |
-| systemStatus | string |  |
-| username | string |  |
-| password | string |  |
-
-#### Response
-
-Return an array of template parameters to make available to the template.
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## OverrideModuleUsernameGeneration
 
+Executes as a username is being generated on module creation.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| $params | | |
+| N/A | array | The parameters being passed to the module function call |
 
 #### Response
 
-No response supported
+Return the new username to be used. Eg: return array('newusername');
 
 #### Example Code
 
@@ -104,15 +78,17 @@ add_hook('OverrideModuleUsernameGeneration', 1, function($vars) {
 
 ## PreModule
 
+Executes before any standard service module function call. Hook name is updated as appropriate.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| params | | |
+| params | array | The parameters passed to the module function call. |
 
 #### Response
 
-No response supported
+Return boolean abortcmd to stop the command being run. eg: return array('abortcmd' => true,);
 
 #### Example Code
 

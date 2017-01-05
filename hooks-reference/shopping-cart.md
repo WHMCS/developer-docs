@@ -31,14 +31,16 @@ add_hook('AcceptOrder', 1, function($vars) {
 
 ## AddonFraud
 
+Executes when an addon is set as fraud.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | | |
-| userid | | |
-| serviceid | | |
-| addonid | | |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
 
@@ -115,11 +117,13 @@ add_hook('AfterShoppingCartCheckout', 1, function($vars) {
 
 ## CancelOrder
 
+Executes as an order is being cancelled
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | | |
+| orderid | int |  |
 
 #### Response
 
@@ -153,18 +157,43 @@ Return an array consisting of adjustment `description`, `amount` and `taxed` (bo
 
 ```
 <?php
+
 add_hook('CartTotalAdjustment', 1, function($vars) {
-    // Perform hook code here...
+    $cart_adjustments = array();
+
+    $products = $tlds = [];
+
+    foreach ($vars['products'] as $product) {
+        $products[] = $product['pid'];
+    }
+
+    foreach ($vars['domains'] as $domain) {
+        if ($domain['type'] == 'register') {
+            $domainParts = explode('.', $domain['domain'], 2);
+            $tlds[] = $domainParts[1];
+        }
+    }
+
+    if (in_array(1, $products) && in_array('co.uk', $tlds)) {
+        $cart_adjustments = [
+            "description" => "Custom discount for buying product 1 and a co.uk domain",
+            "amount" => "-18.00",
+            "taxed" => false,
+        ];
+    }
+    return $cart_adjustments;
 });
 ```
 
 ## DeleteOrder
 
+Executes as an order is being deleted
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | | |
+| orderid | int |  |
 
 #### Response
 
@@ -181,11 +210,13 @@ add_hook('DeleteOrder', 1, function($vars) {
 
 ## FraudOrder
 
+Executes as an order is being marked fraud
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | | |
+| orderid | int |  |
 
 #### Response
 
@@ -202,99 +233,181 @@ add_hook('FraudOrder', 1, function($vars) {
 
 ## OrderAddonPricingOverride
 
+Executes as an addon price is being calculated in the cart.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| key | | |
-| addonid | | |
-| serviceid | | |
+| key | int | The key for the product in the cart session |
+| pid | int | The product id |
+| addonid | int | The addon id |
+| proddata | array | The product data for an addon with new product purchase |
+| serviceid | int | The service id when purchasing an addon for existing service |
 
 #### Response
 
-No response supported
+Addon pricing can be overridden. Accepts a return of the keys 'setup' and 'recurring'.
 
 #### Example Code
 
 ```
 <?php
+
+use WHMCS\Service\Service;
+
 add_hook('OrderAddonPricingOverride', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+    if (array_key_exists('proddata', $vars)) {
+        /**
+         * This is a product and addon purchase
+         */
+        if ($vars['addonid'] == 1 && $vars['proddata']['pid'] == 1) {
+            $return = ['setup' => '1.00', 'recurring' => '5.00',];
+        }
+    } else {
+        /**
+         * This is an addon only purchase for existing service
+         */
+        $serviceData = Service::find($vars['serviceid']);
+        if ($serviceData && $vars['addonid'] == 1 && $serviceData->packageId == 1) {
+            $return = ['setup' => '1.00', 'recurring' => '5.00',];
+        }
+    }
+    return $return;
 });
 ```
 
 ## OrderProductPricingOverride
 
+Executes as a product price is being calculated in the cart.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| key | | |
-| pid | | |
-| proddata | | |
+| key | int | The key for the product in the cart session |
+| pid | int | The product id |
+| proddata | array | The product data |
 
 #### Response
 
-No response supported
+Product pricing can be overridden. Accepts a return of the keys 'setup' and 'recurring'. eg: return array('setup' => 1.00, 'recurring' => 12.00);
 
 #### Example Code
 
 ```
 <?php
+
+use WHMCS\Session;
+
 add_hook('OrderProductPricingOverride', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    /**
+     * Override the product price when ordering product 1 and the user has the id 10
+     */
+    if ($vars['pid'] == 1 && Session::get('userid') == 10) {
+        $return = ['setup' => '0.00', 'recurring' => '0.00',];
+    }
+
+    /**
+     * Override the product price when user has the id 72
+     */
+    if (Session::get('userid') == 72) {
+        $return = ['setup' => '0.00', 'recurring' => '0.00',];
+    }
+    return $return;
 });
 ```
 
 ## OrderProductUpgradeOverride
 
+Executes as a product upgrade order is being calculated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| 0 | | |
+| oldproductid | int |  |
+| oldproductname | string |  |
+| newproductid | int |  |
+| newproductname | string |  |
+| days | int |  |
+| totaldays | int |  |
+| newproductbillingcycle | string |  |
+| price | float |  |
+| discount | float |  |
+| promoqualifies | bool |  |
 
 #### Response
 
-No response supported
+Return any key -> value pairs of the parameters to override. eg return array('discount' => 10.00,);
 
 #### Example Code
 
 ```
 <?php
+
+use Carbon\Carbon;
+
 add_hook('OrderProductUpgradeOverride', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['newproductid'] == 15) {
+        /**
+         * No promotion should be applied to product 15
+         */
+        $return['promoqualifies'] = false;
+    }
+    if (Carbon::now()->toDateString() == '2016-12-25') {
+        /**
+         * Offer half price upgrade on Christmas Day
+         * This can also be done by halving the $vars['price'] and returning that.
+         */
+        $return['totaldays'] = round($vars['totaldays'] / 2);
+    }
+    return $return;
 });
 ```
 
 ## OverrideOrderNumberGeneration
 
+Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| cart | | |
+| products | array | An indexed array of product information for each product in the cart. |
+| domains | array | An indexed array of domain information for each domain in the cart. |
 
 #### Response
 
-No response supported
+Return an overridden client displayed order number. eg: return array(123456788,);
 
 #### Example Code
 
 ```
 <?php
+
 add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
-    // Perform hook code here...
+    /**
+     * The order number should be validated to ensure it is unique
+     */
+    return [time()];
 });
 ```
 
 ## PendingOrder
 
+Executes as an order is being marked pending
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | | |
+| orderid | int |  |
 
 #### Response
 
@@ -311,11 +424,14 @@ add_hook('PendingOrder', 1, function($vars) {
 
 ## PreCalculateCartTotals
 
+Executes as the cart totals are being calculated. All cart information is passed to the hook. Examples given here.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| cart | | |
+| products | array | An indexed array of product information for each product in the cart. |
+| domains | array | An indexed array of domain information for each domain in the cart. |
 
 #### Response
 
@@ -332,11 +448,14 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 
 ## PreShoppingCartCheckout
 
+Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| cart | | |
+| products | array | An indexed array of product information for each product in the cart. |
+| domains | array | An indexed array of domain information for each domain in the cart. |
 
 #### Response
 
@@ -353,16 +472,18 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 
 ## RunFraudCheck
 
+Executes as the fraud module is being checked for an order.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | | |
-| userid | | |
+| orderid | int |  |
+| userid | int |  |
 
 #### Response
 
-No response supported
+Return any value to skip the fraud check
 
 #### Example Code
 
@@ -397,8 +518,12 @@ HTML to be displayed on the order complete page.
 
 ```
 <?php
+
 add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
-    // Perform hook code here...
+    /**
+     * Redirect all orders to a different page after the order complete page is loaded.
+     */
+    return '<META http-equiv="refresh" content="5;URL=http://www.mydomain.com/ownpage.html" />';
 });
 ```
 

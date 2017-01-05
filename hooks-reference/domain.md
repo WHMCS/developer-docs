@@ -6,74 +6,6 @@ weight = 10
 
 The following hooks are provided for Domain related events.
 
-## AdminClientDomainsTabFields
-
-Executes when a domain is being viewed in the Admin area.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| id | int | the id of the domain being loaded |
-
-#### Response
-
-An array of key -> value parameters to output additional fields as required.
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientDomainsTabFields', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminClientDomainsTabFieldsSave
-
-Executes when the Domains tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientDomainsTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaDomainDetails
-
-Executes when the domain details page is loaded within the client area. This hook runs regardless of domain status, so be sure to check for the appropriate statuses if required.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| domain | \Domain | A domain object representing the domain being rendered. |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaDomainDetails', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## DomainDelete
 
 Executes when a service is being deleted.
@@ -124,12 +56,14 @@ add_hook('DomainEdit', 1, function($vars) {
 
 ## DomainValidation
 
+Executes as domain validation is being run
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| sld | | |
-| tld | | |
+| sld | string | The sld of the domain. eg whmcs in whmcs.com |
+| tld | string | The tld of the domain. eg com in whmcs.com |
 
 #### Response
 
@@ -146,11 +80,13 @@ add_hook('DomainValidation', 1, function($vars) {
 
 ## PreDomainRegister
 
+Executes before a domain register command
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domain | | |
+| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
 
 #### Response
 
@@ -167,11 +103,13 @@ add_hook('PreDomainRegister', 1, function($vars) {
 
 ## PreDomainTransfer
 
+Executes before a domain transfer command
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domain | | |
+| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
 
 #### Response
 

@@ -8,11 +8,13 @@ The following hooks are provided for Invoices and Quotes related events.
 
 ## AddInvoiceLateFee
 
+Executes when a late fee has been added to an invoice
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -85,29 +87,6 @@ add_hook('AddTransaction', 1, function($vars) {
 });
 ```
 
-## AdminAreaViewQuotePage
-
-Executes as the quote is being viewed.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| quoteid | int |  |
-
-#### Response
-
-An array of HTML to display on the View Quote page
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminAreaViewQuotePage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AfterInvoicingGenerateInvoiceItems
 
 Executes after invoice generation allowing for after invoicing clean-up.
@@ -116,6 +95,7 @@ Executes after invoice generation allowing for after invoicing clean-up.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -225,32 +205,6 @@ No response supported
 ```
 <?php
 add_hook('InvoiceCreation', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## InvoiceCreationAdminArea
-
-Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('InvoiceCreationAdminArea', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -454,6 +408,7 @@ Executes prior to invoice generation allowing for manipulation of items prior to
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -470,12 +425,14 @@ add_hook('PreInvoicingGenerateInvoiceItems', 1, function($vars) {
 
 ## QuoteCreated
 
+Executes when a new quote is created.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| quoteid | | |
-| status | | |
+| quoteid | int |  |
+| status | string |  |
 
 #### Response
 
@@ -492,12 +449,14 @@ add_hook('QuoteCreated', 1, function($vars) {
 
 ## QuoteStatusChange
 
+Executes when a quote status is updated
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| quoteid | | |
-| status | | |
+| quoteid | int |  |
+| status | string |  |
 
 #### Response
 

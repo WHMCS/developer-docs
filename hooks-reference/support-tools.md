@@ -8,15 +8,17 @@ The following hooks are provided for Support Tools related events.
 
 ## AnnouncementAdd
 
+Executes as an announcement is being added.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| announcementid | | |
-| date | | |
-| title | | |
-| announcement | | |
-| published | | |
+| announcementid | int |  |
+| date | string |  |
+| title | string |  |
+| announcement | string |  |
+| published | bool |  |
 
 #### Response
 
@@ -33,15 +35,17 @@ add_hook('AnnouncementAdd', 1, function($vars) {
 
 ## AnnouncementEdit
 
+Executes as an announcement is being added.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| announcementid | | |
-| date | | |
-| title | | |
-| announcement | | |
-| published | | |
+| announcementid | int |  |
+| date | string |  |
+| title | string |  |
+| announcement | string |  |
+| published | bool |  |
 
 #### Response
 
@@ -64,6 +68,7 @@ Executes when a file is being downloaded.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 

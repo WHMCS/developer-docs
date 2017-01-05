@@ -8,11 +8,34 @@ The following hooks are provided for Contact related events.
 
 ## ContactAdd
 
+Executes as a contact is being added to WHMCS.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| contactid | | |
+| userid | int |  |
+| contactid | int |  |
+| firstname | string |  |
+| lastname | string |  |
+| companyname | string |  |
+| email | string |  |
+| address1 | string |  |
+| address2 | string |  |
+| city | string |  |
+| state | string |  |
+| postcode | string |  |
+| country | string |  |
+| phonenumber | string |  |
+| subaccount | bool |  |
+| password | string |  |
+| permissions | string | A comma separated list of allowed permissions for a sub-account |
+| generalemails | bool |  |
+| productemails | bool |  |
+| domainemails | bool |  |
+| invoiceemails | bool |  |
+| supportemails | bool |  |
+| affiliateemails | bool |  |
 
 #### Response
 
@@ -54,12 +77,34 @@ add_hook('ContactChangePassword', 1, function($vars) {
 
 ## ContactEdit
 
-Undocumented
+Runs when a contact is edited.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| userid | int |  |
+| contactid | int |  |
+| firstname | string |  |
+| lastname | string |  |
+| companyname | string |  |
+| email | string |  |
+| address1 | string |  |
+| address2 | string |  |
+| city | string |  |
+| state | string |  |
+| postcode | string |  |
+| country | string |  |
+| phonenumber | string |  |
+| subaccount | bool |  |
+| permissions | string | A comma separated list of permissions if the contact is a sub-account |
+| domainemails | bool |  |
+| generalemails | bool |  |
+| invoiceemails | bool |  |
+| productemails | bool |  |
+| supportemails | bool |  |
+| affiliateemails | bool |  |
+| olddata | array | An array of the previous contact information |
 
 #### Response
 

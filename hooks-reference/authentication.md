@@ -6,34 +6,15 @@ weight = 10
 
 The following hooks are provided for Authentication related events.
 
-## AdminLogout
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| adminid | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminLogout', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## ClientLogin
 
+Executes when a client is logging into the Client Area.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
+| userid | int |  |
 
 #### Response
 
