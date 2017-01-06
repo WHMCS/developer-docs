@@ -1,5 +1,5 @@
 +++
-next = "/hooks/reference"
+next = "/hooks/hook-index"
 prev = "/hooks/module-hooks"
 title = "Sample Hook"
 toc = true
