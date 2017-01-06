@@ -2,7 +2,7 @@
 chapter = true
 icon = "<i class='fa fa-money fa-fw'></i>"
 title = "Payment Gateways"
-next = "/gateway-modules/getting-started"
+next = "/payment-gateways/getting-started"
 weight = 0
 
 +++
