@@ -11,13 +11,11 @@ weight = 100
 <ul><li> <a href="/hooks-reference/invoices-and-quotes/#addinvoicelatefee">AddInvoiceLateFee</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#addinvoicepayment">AddInvoicePayment</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#addtransaction">AddTransaction</a>
-<li> <a href="/hooks-reference/invoices-and-quotes/#adminareaviewquotepage">AdminAreaViewQuotePage</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems">AfterInvoicingGenerateInvoiceItems</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicecancelled">InvoiceCancelled</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicechangegateway">InvoiceChangeGateway</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicecreated">InvoiceCreated</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicecreation">InvoiceCreation</a>
-<li> <a href="/hooks-reference/invoices-and-quotes/#invoicecreationadminarea">InvoiceCreationAdminArea</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicecreationpreemail">InvoiceCreationPreEmail</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicepaid">InvoicePaid</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicepaidpreemail">InvoicePaidPreEmail</a>
@@ -56,11 +54,7 @@ weight = 100
 </ul>
 <h3>Service</h3>
 
-<ul><li> <a href="/hooks-reference/service/#adminclientservicestabfields">AdminClientServicesTabFields</a>
-<li> <a href="/hooks-reference/service/#adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</a>
-<li> <a href="/hooks-reference/service/#adminserviceedit">AdminServiceEdit</a>
-<li> <a href="/hooks-reference/service/#cancellationrequest">CancellationRequest</a>
-<li> <a href="/hooks-reference/service/#preadminserviceedit">PreAdminServiceEdit</a>
+<ul><li> <a href="/hooks-reference/service/#cancellationrequest">CancellationRequest</a>
 <li> <a href="/hooks-reference/service/#preserviceedit">PreServiceEdit</a>
 <li> <a href="/hooks-reference/service/#servicedelete">ServiceDelete</a>
 <li> <a href="/hooks-reference/service/#serviceedit">ServiceEdit</a>
@@ -70,16 +64,12 @@ weight = 100
 
 <ul><li> <a href="/hooks-reference/module/#aftermodule">AfterModule</a>
 <li> <a href="/hooks-reference/module/#aftermodulechangepassword">AfterModuleChangePassword</a>
-<li> <a href="/hooks-reference/module/#clientareaproductdetailspremoduletemplate">ClientAreaProductDetailsPreModuleTemplate</a>
 <li> <a href="/hooks-reference/module/#overridemoduleusernamegeneration">OverrideModuleUsernameGeneration</a>
 <li> <a href="/hooks-reference/module/#premodule">PreModule</a>
 </ul>
 <h3>Domain</h3>
 
-<ul><li> <a href="/hooks-reference/domain/#adminclientdomainstabfields">AdminClientDomainsTabFields</a>
-<li> <a href="/hooks-reference/domain/#adminclientdomainstabfieldssave">AdminClientDomainsTabFieldsSave</a>
-<li> <a href="/hooks-reference/domain/#clientareadomaindetails">ClientAreaDomainDetails</a>
-<li> <a href="/hooks-reference/domain/#domaindelete">DomainDelete</a>
+<ul><li> <a href="/hooks-reference/domain/#domaindelete">DomainDelete</a>
 <li> <a href="/hooks-reference/domain/#domainedit">DomainEdit</a>
 <li> <a href="/hooks-reference/domain/#domainvalidation">DomainValidation</a>
 <li> <a href="/hooks-reference/domain/#predomainregister">PreDomainRegister</a>
@@ -114,23 +104,8 @@ weight = 100
 </ul>
 <h3>Client</h3>
 
-<ul><li> <a href="/hooks-reference/client/#adminareaclientsummaryactionlinks">AdminAreaClientSummaryActionLinks</a>
-<li> <a href="/hooks-reference/client/#adminareaclientsummarypage">AdminAreaClientSummaryPage</a>
-<li> <a href="/hooks-reference/client/#adminclientfileupload">AdminClientFileUpload</a>
-<li> <a href="/hooks-reference/client/#adminclientprofiletabfields">AdminClientProfileTabFields</a>
-<li> <a href="/hooks-reference/client/#adminclientprofiletabfieldssave">AdminClientProfileTabFieldsSave</a>
-<li> <a href="/hooks-reference/client/#afterclientmerge">AfterClientMerge</a>
+<ul><li> <a href="/hooks-reference/client/#afterclientmerge">AfterClientMerge</a>
 <li> <a href="/hooks-reference/client/#clientalert">ClientAlert</a>
-<li> <a href="/hooks-reference/client/#clientareahomepage">ClientAreaHomepage</a>
-<li> <a href="/hooks-reference/client/#clientareahomepagepanels">ClientAreaHomepagePanels</a>
-<li> <a href="/hooks-reference/client/#clientareanavbars">ClientAreaNavbars</a>
-<li> <a href="/hooks-reference/client/#clientareaprimarynavbar">ClientAreaPrimaryNavbar</a>
-<li> <a href="/hooks-reference/client/#clientareaprimarysidebar">ClientAreaPrimarySidebar</a>
-<li> <a href="/hooks-reference/client/#clientareaproductdetails">ClientAreaProductDetails</a>
-<li> <a href="/hooks-reference/client/#clientarearegister">ClientAreaRegister</a>
-<li> <a href="/hooks-reference/client/#clientareasecondarynavbar">ClientAreaSecondaryNavbar</a>
-<li> <a href="/hooks-reference/client/#clientareasecondarysidebar">ClientAreaSecondarySidebar</a>
-<li> <a href="/hooks-reference/client/#clientareasidebars">ClientAreaSidebars</a>
 <li> <a href="/hooks-reference/client/#clientchangepassword">ClientChangePassword</a>
 <li> <a href="/hooks-reference/client/#clientclose">ClientClose</a>
 <li> <a href="/hooks-reference/client/#clientdelete">ClientDelete</a>
@@ -146,9 +121,7 @@ weight = 100
 </ul>
 </div><div class="col-sm-6"><h3>Products and Services</h3>
 
-<ul><li> <a href="/hooks-reference/products-and-services/#adminproductconfigfields">AdminProductConfigFields</a>
-<li> <a href="/hooks-reference/products-and-services/#adminproductconfigfieldssave">AdminProductConfigFieldsSave</a>
-<li> <a href="/hooks-reference/products-and-services/#afterproductupgrade">AfterProductUpgrade</a>
+<ul><li> <a href="/hooks-reference/products-and-services/#afterproductupgrade">AfterProductUpgrade</a>
 <li> <a href="/hooks-reference/products-and-services/#productdelete">ProductDelete</a>
 <li> <a href="/hooks-reference/products-and-services/#productedit">ProductEdit</a>
 <li> <a href="/hooks-reference/products-and-services/#serveradd">ServerAdd</a>
@@ -183,13 +156,45 @@ weight = 100
 </ul>
 <h3>Authentication</h3>
 
-<ul><li> <a href="/hooks-reference/authentication/#adminlogout">AdminLogout</a>
-<li> <a href="/hooks-reference/authentication/#clientlogin">ClientLogin</a>
+<ul><li> <a href="/hooks-reference/authentication/#clientlogin">ClientLogin</a>
 <li> <a href="/hooks-reference/authentication/#clientlogout">ClientLogout</a>
 </ul>
 <h3>Client Area Interface</h3>
 
-<ul><li> <a href="/hooks-reference/client-area-interface/#clientareapagelogin">ClientAreaPageLogin</a>
+<ul><li> <a href="/hooks-reference/client-area-interface/#clientareadomaindetails">ClientAreaDomainDetails</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareahomepage">ClientAreaHomepage</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareahomepagepanels">ClientAreaHomepagePanels</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareanavbars">ClientAreaNavbars</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagelogin">ClientAreaPageLogin</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareaprimarynavbar">ClientAreaPrimaryNavbar</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareaprimarysidebar">ClientAreaPrimarySidebar</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareaproductdetails">ClientAreaProductDetails</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareaproductdetailspremoduletemplate">ClientAreaProductDetailsPreModuleTemplate</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientarearegister">ClientAreaRegister</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareasecondarynavbar">ClientAreaSecondaryNavbar</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareasecondarysidebar">ClientAreaSecondarySidebar</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareasidebars">ClientAreaSidebars</a>
+</ul>
+<h3>Admin Area</h3>
+
+<ul><li> <a href="/hooks-reference/admin-area/#adminareaclientsummaryactionlinks">AdminAreaClientSummaryActionLinks</a>
+<li> <a href="/hooks-reference/admin-area/#adminareaclientsummarypage">AdminAreaClientSummaryPage</a>
+<li> <a href="/hooks-reference/admin-area/#adminareapage">AdminAreaPage</a>
+<li> <a href="/hooks-reference/admin-area/#adminareaviewquotepage">AdminAreaViewQuotePage</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientdomainstabfields">AdminClientDomainsTabFields</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientdomainstabfieldssave">AdminClientDomainsTabFieldsSave</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientfileupload">AdminClientFileUpload</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientprofiletabfields">AdminClientProfileTabFields</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientprofiletabfieldssave">AdminClientProfileTabFieldsSave</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientservicestabfields">AdminClientServicesTabFields</a>
+<li> <a href="/hooks-reference/admin-area/#adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</a>
+<li> <a href="/hooks-reference/admin-area/#adminhomepage">AdminHomepage</a>
+<li> <a href="/hooks-reference/admin-area/#adminlogout">AdminLogout</a>
+<li> <a href="/hooks-reference/admin-area/#adminproductconfigfields">AdminProductConfigFields</a>
+<li> <a href="/hooks-reference/admin-area/#adminproductconfigfieldssave">AdminProductConfigFieldsSave</a>
+<li> <a href="/hooks-reference/admin-area/#adminserviceedit">AdminServiceEdit</a>
+<li> <a href="/hooks-reference/admin-area/#invoicecreationadminarea">InvoiceCreationAdminArea</a>
+<li> <a href="/hooks-reference/admin-area/#preadminserviceedit">PreAdminServiceEdit</a>
 </ul>
 <h3>Output</h3>
 
@@ -214,9 +219,7 @@ weight = 100
 </ul>
 <h3>Everything Else</h3>
 
-<ul><li> <a href="/hooks-reference/everything-else/#adminareapage">AdminAreaPage</a>
-<li> <a href="/hooks-reference/everything-else/#adminhomepage">AdminHomepage</a>
-<li> <a href="/hooks-reference/everything-else/#affiliateactivation">AffiliateActivation</a>
+<ul><li> <a href="/hooks-reference/everything-else/#affiliateactivation">AffiliateActivation</a>
 <li> <a href="/hooks-reference/everything-else/#affiliateclickthru">AffiliateClickthru</a>
 <li> <a href="/hooks-reference/everything-else/#affiliatecommission">AffiliateCommission</a>
 <li> <a href="/hooks-reference/everything-else/#affiliatewithdrawalrequest">AffiliateWithdrawalRequest</a>
