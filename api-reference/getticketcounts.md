@@ -33,7 +33,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'ADMIN_USERNAME',
             'password' => 'ADMIN_PASSWORD',
             'ignoreDepartmentAssignments' => 'false',
-            'IncludeCountsByStatus' => 'true',
+            'includeCountsByStatus' => 'true',
             'responsetype' => 'json',
         )
     )
@@ -49,7 +49,7 @@ curl_close($ch);
 $command = 'GetTicketCounts';
 $postData = array(
     'ignoreDepartmentAssignments' => 'false',
-    'IncludeCountsByStatus' => 'true',
+    'includeCountsByStatus' => 'true',
 );
 $adminUsername = 'ADMIN_USERNAME';
 
@@ -63,11 +63,40 @@ print_r($results);
 ```
 {
     "result": "success",
-    "filteredDepartments": "[1, 2, 3]",
-    "allActive": "123",
-    "awaitingReply": "100",
-    "flaggedTickets": "15",
-    "status": "[{\"title\": \"Open\", \"count\": \"60\"}, {\"title\": \"Answered\", \"count\": \"23\"}, {\"title\": \"Customer-Reply\", \"count\": \"40\"}]"
+    "filteredDepartments": [
+        1,
+        2,
+        3
+    ],
+    "allActive": 123,
+    "awaitingReply": 100,
+    "flaggedTickets": 15,
+    "status": {
+        "open": {
+            "title": "Open",
+            "count": 60
+        },
+        "answered": {
+            "title": "Answered",
+            "count": 23
+        },
+        "customerreply": {
+            "title": "Customer-Reply",
+            "count": 40
+        },
+        "closed": {
+            "title": "Closed",
+            "count": 4220
+        },
+        "onhold": {
+            "title": "On Hold",
+            "count": 10
+        },
+        "inprogress": {
+            "title": "In Progress",
+            "count": 0
+        }
+    }
 }
 ```
 

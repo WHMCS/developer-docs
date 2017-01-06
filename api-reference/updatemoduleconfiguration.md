@@ -79,7 +79,7 @@ Possible error condition responses include:
 * Invalid module type provided. Supported module types include: xxx
 * Invalid module name provided.
 * Module activation not supported by module type.
-* Failed to activate: xxx
+* Module Configuration Update Failed: xxx
 * An unexpected error occurred: xxx
 
 
