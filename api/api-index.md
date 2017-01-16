@@ -38,7 +38,7 @@ weight = 100
 <li> <a href="/api-reference/getquotes/">GetQuotes</a>
 <li> <a href="/api-reference/gettransactions/">GetTransactions</a>
 <li> <a href="/api-reference/sendquote/">SendQuote</a>
-<li> <a href="/api-reference/updateinvoice/">CreateInvoice</a>
+<li> <a href="/api-reference/updateinvoice/">UpdateInvoice</a>
 <li> <a href="/api-reference/updatequote/">UpdateQuote</a>
 <li> <a href="/api-reference/updatetransaction/">UpdateTransaction</a>
 </ul>
