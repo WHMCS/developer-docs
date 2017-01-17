@@ -160,7 +160,7 @@ A key/value pair array of additional template variables to define.
 ```
 <?php
 
-add_hook('AdminAreaPage', 1, function($vars) {
+add_hook('ClientAreaPageLogin', 1, function($vars) {
     $extraVariables = [
         'newVariable1' => 'thisValue',
         'newVariable2' => 'thatValue',
