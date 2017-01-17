@@ -1,5 +1,5 @@
 +++
-title = "CreateInvoice"
+title = "UpdateInvoice"
 toc = true
 +++
 
@@ -9,7 +9,7 @@ Create an invoice using the provided parameters.
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "CreateInvoice" | Required |
+| action | string | "UpdateInvoice" | Required |
 | invoiceid | int | The ID of the invoice to update | Required |
 | status | string | The status of the invoice being | Optional |
 | paymentmethod | string | The payment method of the invoice in system format | Optional |
@@ -49,7 +49,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'CreateInvoice',
+            'action' => 'UpdateInvoice',
             'username' => 'ADMIN_USERNAME',
             'password' => 'ADMIN_PASSWORD',
             'status' => 'Unpaid',
@@ -68,7 +68,7 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'CreateInvoice';
+$command = 'UpdateInvoice';
 $postData = array(
     'status' => 'Unpaid',
     'itemdescription[13]' => 'Sample Updated Invoice Item',
