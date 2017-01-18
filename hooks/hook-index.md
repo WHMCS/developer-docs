@@ -8,7 +8,8 @@ weight = 100
 <div class="row"><div class="col-sm-6">
 <h3>Invoices and Quotes</h3>
 
-<ul><li> <a href="/hooks-reference/invoices-and-quotes/#addinvoicelatefee">AddInvoiceLateFee</a>
+<ul><li> <a href="/hooks-reference/invoices-and-quotes/#acceptquote">AcceptQuote</a>
+<li> <a href="/hooks-reference/invoices-and-quotes/#addinvoicelatefee">AddInvoiceLateFee</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#addinvoicepayment">AddInvoicePayment</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#addtransaction">AddTransaction</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems">AfterInvoicingGenerateInvoiceItems</a>
@@ -29,7 +30,6 @@ weight = 100
 <li> <a href="/hooks-reference/invoices-and-quotes/#quotestatuschange">QuoteStatusChange</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#updateinvoicetotal">UpdateInvoiceTotal</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#viewinvoicedetailspage">ViewInvoiceDetailsPage</a>
-<li> <a href="/hooks-reference/invoices-and-quotes/#acceptquote">acceptQuote</a>
 </ul>
 <h3>Shopping Cart</h3>
 
@@ -62,10 +62,25 @@ weight = 100
 </ul>
 <h3>Module</h3>
 
-<ul><li> <a href="/hooks-reference/module/#aftermodule">AfterModule</a>
+<ul><li> <a href="/hooks-reference/module/#aftermodulechangepackage">AfterModuleChangePackage</a>
+<li> <a href="/hooks-reference/module/#aftermodulechangepackagefailed">AfterModuleChangePackageFailed</a>
 <li> <a href="/hooks-reference/module/#aftermodulechangepassword">AfterModuleChangePassword</a>
+<li> <a href="/hooks-reference/module/#aftermodulechangepasswordfailed">AfterModuleChangePasswordFailed</a>
+<li> <a href="/hooks-reference/module/#aftermodulecreate">AfterModuleCreate</a>
+<li> <a href="/hooks-reference/module/#aftermodulecreatefailed">AfterModuleCreateFailed</a>
+<li> <a href="/hooks-reference/module/#aftermodulesuspend">AfterModuleSuspend</a>
+<li> <a href="/hooks-reference/module/#aftermodulesuspendfailed">AfterModuleSuspendFailed</a>
+<li> <a href="/hooks-reference/module/#aftermoduleterminate">AfterModuleTerminate</a>
+<li> <a href="/hooks-reference/module/#aftermoduleterminatefailed">AfterModuleTerminateFailed</a>
+<li> <a href="/hooks-reference/module/#aftermoduleunsuspend">AfterModuleUnsuspend</a>
+<li> <a href="/hooks-reference/module/#aftermoduleunsuspendfailed">AfterModuleUnsuspendFailed</a>
 <li> <a href="/hooks-reference/module/#overridemoduleusernamegeneration">OverrideModuleUsernameGeneration</a>
-<li> <a href="/hooks-reference/module/#premodule">PreModule</a>
+<li> <a href="/hooks-reference/module/#premodulechangepackage">PreModuleChangePackage</a>
+<li> <a href="/hooks-reference/module/#premodulechangepassword">PreModuleChangePassword</a>
+<li> <a href="/hooks-reference/module/#premodulecreate">PreModuleCreate</a>
+<li> <a href="/hooks-reference/module/#premodulesuspend">PreModuleSuspend</a>
+<li> <a href="/hooks-reference/module/#premoduleterminate">PreModuleTerminate</a>
+<li> <a href="/hooks-reference/module/#premoduleunsuspend">PreModuleUnsuspend</a>
 </ul>
 <h3>Domain</h3>
 
@@ -74,17 +89,37 @@ weight = 100
 <li> <a href="/hooks-reference/domain/#domainvalidation">DomainValidation</a>
 <li> <a href="/hooks-reference/domain/#predomainregister">PreDomainRegister</a>
 <li> <a href="/hooks-reference/domain/#predomaintransfer">PreDomainTransfer</a>
+<li> <a href="/hooks-reference/domain/#preregistrarregisterdomain">PreRegistrarRegisterDomain</a>
+<li> <a href="/hooks-reference/domain/#preregistrarrenewdomain">PreRegistrarRenewDomain</a>
+<li> <a href="/hooks-reference/domain/#preregistrartransferdomain">PreRegistrarTransferDomain</a>
 </ul>
 <h3>Registrar Module</h3>
 
-<ul><li> <a href="/hooks-reference/registrar-module/#afterregistrar">AfterRegistrar</a>
+<ul><li> <a href="/hooks-reference/registrar-module/#afterregistrargetcontactdetails">AfterRegistrarGetContactDetails</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrargetdns">AfterRegistrarGetDNS</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrargeteppcode">AfterRegistrarGetEPPCode</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrargetnameservers">AfterRegistrarGetNameservers</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrarregister">AfterRegistrarRegister</a>
 <li> <a href="/hooks-reference/registrar-module/#afterregistrarregistration">AfterRegistrarRegistration</a>
 <li> <a href="/hooks-reference/registrar-module/#afterregistrarregistrationfailed">AfterRegistrarRegistrationFailed</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrarrenew">AfterRegistrarRenew</a>
 <li> <a href="/hooks-reference/registrar-module/#afterregistrarrenewal">AfterRegistrarRenewal</a>
 <li> <a href="/hooks-reference/registrar-module/#afterregistrarrenewalfailed">AfterRegistrarRenewalFailed</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrarrequestdelete">AfterRegistrarRequestDelete</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrarsavecontactdetails">AfterRegistrarSaveContactDetails</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrarsavedns">AfterRegistrarSaveDNS</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrarsavenameservers">AfterRegistrarSaveNameservers</a>
+<li> <a href="/hooks-reference/registrar-module/#afterregistrartransfer">AfterRegistrarTransfer</a>
 <li> <a href="/hooks-reference/registrar-module/#afterregistrartransfer">AfterRegistrarTransfer</a>
 <li> <a href="/hooks-reference/registrar-module/#afterregistrartransferfailed">AfterRegistrarTransferFailed</a>
-<li> <a href="/hooks-reference/registrar-module/#preregistrar">PreRegistrar</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrargetcontactdetails">PreRegistrarGetContactDetails</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrargetdns">PreRegistrarGetDNS</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrargeteppcode">PreRegistrarGetEPPCode</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrargetnameservers">PreRegistrarGetNameservers</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrarrequestdelete">PreRegistrarRequestDelete</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrarsavecontactdetails">PreRegistrarSaveContactDetails</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrarsavedns">PreRegistrarSaveDNS</a>
+<li> <a href="/hooks-reference/registrar-module/#preregistrarsavenameservers">PreRegistrarSaveNameservers</a>
 </ul>
 <h3>Addon</h3>
 
@@ -131,11 +166,15 @@ weight = 100
 <h3>Ticket</h3>
 
 <ul><li> <a href="/hooks-reference/ticket/#adminareaviewticketpage">AdminAreaViewTicketPage</a>
+<li> <a href="/hooks-reference/ticket/#clientareapagesubmitticket">ClientAreaPageSubmitTicket</a>
+<li> <a href="/hooks-reference/ticket/#clientareapagesupporttickets">ClientAreaPageSupportTickets</a>
+<li> <a href="/hooks-reference/ticket/#clientareapageviewticket">ClientAreaPageViewTicket</a>
 <li> <a href="/hooks-reference/ticket/#submitticketanswersuggestions">SubmitTicketAnswerSuggestions</a>
 <li> <a href="/hooks-reference/ticket/#ticketadminreply">TicketAdminReply</a>
 <li> <a href="/hooks-reference/ticket/#ticketclose">TicketClose</a>
 <li> <a href="/hooks-reference/ticket/#ticketdelete">TicketDelete</a>
 <li> <a href="/hooks-reference/ticket/#ticketdeletereply">TicketDeleteReply</a>
+<li> <a href="/hooks-reference/ticket/#ticketdepartmentchange">TicketDepartmentChange</a>
 <li> <a href="/hooks-reference/ticket/#ticketopen">TicketOpen</a>
 <li> <a href="/hooks-reference/ticket/#ticketopenadmin">TicketOpenAdmin</a>
 <li> <a href="/hooks-reference/ticket/#ticketpiping">TicketPiping</a>
@@ -165,7 +204,53 @@ weight = 100
 <li> <a href="/hooks-reference/client-area-interface/#clientareahomepage">ClientAreaHomepage</a>
 <li> <a href="/hooks-reference/client-area-interface/#clientareahomepagepanels">ClientAreaHomepagePanels</a>
 <li> <a href="/hooks-reference/client-area-interface/#clientareanavbars">ClientAreaNavbars</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapage">ClientAreaPage</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageaddcontact">ClientAreaPageAddContact</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageaddfunds">ClientAreaPageAddFunds</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageaffiliates">ClientAreaPageAffiliates</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageannouncements">ClientAreaPageAnnouncements</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagebanned">ClientAreaPageBanned</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagebulkdomainmanagement">ClientAreaPageBulkDomainManagement</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagecancellation">ClientAreaPageCancellation</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagecart">ClientAreaPageCart</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagechangepassword">ClientAreaPageChangePassword</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageconfiguressl">ClientAreaPageConfigureSSL</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagecontact">ClientAreaPageContact</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagecontacts">ClientAreaPageContacts</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagecreditcard">ClientAreaPageCreditCard</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagecreditcardcheckout">ClientAreaPageCreditCardCheckout</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomainaddons">ClientAreaPageDomainAddons</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomainchecker">ClientAreaPageDomainChecker</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomaincontacts">ClientAreaPageDomainContacts</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomaindnsmanagement">ClientAreaPageDomainDNSManagement</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomaindetails">ClientAreaPageDomainDetails</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomaineppcode">ClientAreaPageDomainEPPCode</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomainemailforwarding">ClientAreaPageDomainEmailForwarding</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomainregisternameservers">ClientAreaPageDomainRegisterNameservers</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedomains">ClientAreaPageDomains</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagedownloads">ClientAreaPageDownloads</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageemails">ClientAreaPageEmails</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagehome">ClientAreaPageHome</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageinvoices">ClientAreaPageInvoices</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageknowledgebase">ClientAreaPageKnowledgebase</a>
 <li> <a href="/hooks-reference/client-area-interface/#clientareapagelogin">ClientAreaPageLogin</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagelogout">ClientAreaPageLogout</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagemasspay">ClientAreaPageMassPay</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagenetworkissues">ClientAreaPageNetworkIssues</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagepasswordreset">ClientAreaPagePasswordReset</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageproductdetails">ClientAreaPageProductDetails</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageproductsservices">ClientAreaPageProductsServices</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageprofile">ClientAreaPageProfile</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagequotes">ClientAreaPageQuotes</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageregister">ClientAreaPageRegister</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapagesecurity">ClientAreaPageSecurity</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageserverstatus">ClientAreaPageServerStatus</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageunsubscribe">ClientAreaPageUnsubscribe</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageupgrade">ClientAreaPageUpgrade</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageviewemail">ClientAreaPageViewEmail</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageviewinvoice">ClientAreaPageViewInvoice</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageviewquote">ClientAreaPageViewQuote</a>
+<li> <a href="/hooks-reference/client-area-interface/#clientareapageviewwhois">ClientAreaPageViewWHOIS</a>
 <li> <a href="/hooks-reference/client-area-interface/#clientareaprimarynavbar">ClientAreaPrimaryNavbar</a>
 <li> <a href="/hooks-reference/client-area-interface/#clientareaprimarysidebar">ClientAreaPrimarySidebar</a>
 <li> <a href="/hooks-reference/client-area-interface/#clientareaproductdetails">ClientAreaProductDetails</a>

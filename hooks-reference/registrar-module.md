@@ -6,44 +6,133 @@ weight = 10
 
 The following hooks are provided for Registrar Module related events.
 
-## AfterRegistrar
+## AfterRegistrarGetContactDetails
 
-Executes after any standard registrar module function call. Hook name is updated as appropriate. AfterRegistrarGetNameservers, AfterRegistrarSaveNameservers, AfterRegistrarGetRegistrarLock, AfterRegistrarSaveRegistrarLock, AfterRegistrarGetURLForwarding, AfterRegistrarSaveURLForwarding, AfterRegistrarGetEmailForwarding, AfterRegistrarSaveEmailForwarding, AfterRegistrarGetDNS, AfterRegistrarSaveDNS, AfterRegistrarRenewDomain, AfterRegistrarRegisterDomain, AfterRegistrarTransferDomain, AfterRegistrarGetContactDetails, AfterRegistrarSaveContactDetails, AfterRegistrarGetEPPCode, AfterRegistrarRequestDelete, AfterRegistrarReleaseDomain, AfterRegistrarRegisterNameserver, AfterRegistrarModifyNameserver, AfterRegistrarDeleteNameserver, AfterRegistrarIDProtectToggle, AfterRegistrarGetRegistrantContactEmailAddress
+Executes upon completion of the registrar module function. Will execute regardless of success state.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
-| results | array |  |
-| functionExists | bool |  |
-| functionSuccessful | bool |  |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
 
 #### Response
 
-Return boolean to 'abortWithSuccess' or string 'abortWithError'. Eg: return array('abortWithSuccess' => true,); return array('abortWithError' => 'This is an error',);
+No response supported
 
 #### Example Code
 
 ```
 <?php
+add_hook('AfterRegistrarGetContactDetails', 1, function($vars) {
+    // Perform hook code here...
+});
+```
 
-add_hook('AfterRegistrarGetNameservers', 1, function($vars)
-{
-    if (
-        $vars['functionExists']
-        && !$vars['functionSuccessful']
-    ) {
-        //do something on function existing and failure
-        $domainName = $vars['params']['sld'] . '.' . $vars['params']['tld'];
+## AfterRegistrarGetDNS
 
-        if ($domainName == 'whmcs.com') {
-            return array(
-                'abortWithError' => 'Show this message as an error',
-            );
-        }
-    }
-    return array();
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarGetDNS', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarGetEPPCode
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarGetEPPCode', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarGetNameservers
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarGetNameservers', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarRegister
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarRegister', 1, function($vars) {
+    // Perform hook code here...
 });
 ```
 
@@ -90,6 +179,32 @@ No response supported
 ```
 <?php
 add_hook('AfterRegistrarRegistrationFailed', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarRenew
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarRenew', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -141,13 +256,148 @@ add_hook('AfterRegistrarRenewalFailed', 1, function($vars) {
 });
 ```
 
-## AfterRegistrarTransfer
+## AfterRegistrarRequestDelete
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| params | | |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarRequestDelete', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarSaveContactDetails
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarSaveContactDetails', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarSaveDNS
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarSaveDNS', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarSaveNameservers
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarSaveNameservers', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarTransfer
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterRegistrarTransfer', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterRegistrarTransfer
+
+Executes upon completion of the registrar module function. Will execute regardless of success state.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+| results | array | An array of results returned from the registrar function call |
+| functionExists | bool | Returns true if the registrar module supports the given action |
+| functionSuccessful | bool | Returns true if the registrar function completed without error |
 
 #### Response
 
@@ -186,33 +436,187 @@ add_hook('AfterRegistrarTransferFailed', 1, function($vars) {
 });
 ```
 
-## PreRegistrar
+## PreRegistrarGetContactDetails
 
-Executes before any standard registrar module function call. Hook name is updated as appropriate. PreRegistrarGetNameservers, PreRegistrarSaveNameservers, PreRegistrarGetRegistrarLock, PreRegistrarSaveRegistrarLock, PreRegistrarGetURLForwarding, PreRegistrarSaveURLForwarding, PreRegistrarGetEmailForwarding, PreRegistrarSaveEmailForwarding, PreRegistrarGetDNS, PreRegistrarSaveDNS, PreRegistrarRenewDomain, PreRegistrarRegisterDomain, PreRegistrarTransferDomain, PreRegistrarGetContactDetails, PreRegistrarSaveContactDetails, PreRegistrarGetEPPCode, PreRegistrarRequestDelete, PreRegistrarReleaseDomain, PreRegistrarRegisterNameserver, PreRegistrarModifyNameserver, PreRegistrarDeleteNameserver, PreRegistrarIDProtectToggle, PreRegistrarGetRegistrantContactEmailAddress
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
 
 #### Response
 
-Return boolean to 'abortWithSuccess' or string 'abortWithError'. Eg: return array('abortWithSuccess' => true,); return array('abortWithError' => 'This is an error',);
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
 
 #### Example Code
 
 ```
 <?php
+add_hook('PreRegistrarGetContactDetails', 1, function($vars) {
+    // Perform hook code here...
+});
+```
 
-add_hook('PreRegistrarGetNameservers', 1, function($vars)
-    {
-        $domainName = $vars['params']['sld'] . '.' . $vars['params']['tld'];
-        return array(
-            'abortWithError' => 'Show this message as an error',
-        );
-        //return array('abortWithSuccess' => true);
-    }
-);
+## PreRegistrarGetDNS
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarGetDNS', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarGetEPPCode
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarGetEPPCode', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarGetNameservers
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarGetNameservers', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarRequestDelete
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarRequestDelete', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarSaveContactDetails
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarSaveContactDetails', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarSaveDNS
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarSaveDNS', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarSaveNameservers
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarSaveNameservers', 1, function($vars) {
+    // Perform hook code here...
+});
 ```
 

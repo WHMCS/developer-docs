@@ -6,6 +6,30 @@ weight = 10
 
 The following hooks are provided for Invoices and Quotes related events.
 
+## AcceptQuote
+
+Executes when a client is accepting a quote.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| quoteid | int | The id of the quote being accepted. |
+| invoiceid | int | The id of the invoice created for the quote (if applicable). |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AcceptQuote', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## AddInvoiceLateFee
 
 Executes when a late fee has been added to an invoice
@@ -513,30 +537,6 @@ No response supported
 ```
 <?php
 add_hook('ViewInvoiceDetailsPage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## acceptQuote
-
-Executes when a client is accepting a quote.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| quoteid | int | The id of the quote being accepted. |
-| invoiceid | int | The id of the invoice created for the quote (if applicable). |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('acceptQuote', 1, function($vars) {
     // Perform hook code here...
 });
 ```
