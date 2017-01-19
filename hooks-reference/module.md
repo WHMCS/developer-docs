@@ -55,13 +55,15 @@ add_hook('AfterModuleChangePackageFailed', 1, function($vars) {
 
 ## AfterModuleChangePassword
 
+Executes upon successful completion of a remote module API password change.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| serviceid | | |
-| oldpassword | | |
-| newpassword | | |
+| serviceid | int |  |
+| oldpassword | string |  |
+| newspassword | string |  |
 
 #### Response
 

@@ -196,6 +196,7 @@ weight = 100
 <h3>Authentication</h3>
 
 <ul><li> <a href="/hooks-reference/authentication/#clientlogin">ClientLogin</a>
+<li> <a href="/hooks-reference/authentication/#clientloginshare">ClientLoginShare</a>
 <li> <a href="/hooks-reference/authentication/#clientlogout">ClientLogout</a>
 </ul>
 <h3>Client Area Interface</h3>
