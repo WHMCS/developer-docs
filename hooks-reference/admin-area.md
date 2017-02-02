@@ -374,6 +374,29 @@ add_hook('AdminHomepage', 1, function($vars) {
 });
 ```
 
+## AdminLogin
+
+Executes on Admin log in
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| adminid | int |  |
+
+#### Response
+
+No Response supported
+
+#### Example code
+
+```
+<?php
+add_hook('AdminLogin', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## AdminLogout
 
 Executes on Admin log out
@@ -515,4 +538,3 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
     // Perform hook code here...
 });
 ```
-

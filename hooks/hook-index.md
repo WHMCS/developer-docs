@@ -275,6 +275,7 @@ weight = 100
 <li> <a href="/hooks-reference/admin-area/#adminclientservicestabfields">AdminClientServicesTabFields</a>
 <li> <a href="/hooks-reference/admin-area/#adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</a>
 <li> <a href="/hooks-reference/admin-area/#adminhomepage">AdminHomepage</a>
+<li> <a href="/hooks-reference/admin-area/#adminlogin">AdminLogin</a>
 <li> <a href="/hooks-reference/admin-area/#adminlogout">AdminLogout</a>
 <li> <a href="/hooks-reference/admin-area/#adminproductconfigfields">AdminProductConfigFields</a>
 <li> <a href="/hooks-reference/admin-area/#adminproductconfigfieldssave">AdminProductConfigFieldsSave</a>
