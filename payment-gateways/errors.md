@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/whmcs-marketplace"
-prev = "/gateway-modules/installation-activation"
+next = "/payment-gateways/whmcs-marketplace"
+prev = "/payment-gateways/installation-activation"
 title = "Blank Screen/Errors"
 toc = true
 weight = 80

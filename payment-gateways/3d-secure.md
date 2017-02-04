@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/tokenised-remote-storage"
-prev = "/gateway-modules/callbacks"
+next = "/payment-gateways/tokenised-remote-storage"
+prev = "/payment-gateways/callbacks"
 title = "3D Secure Process"
 toc = true
 weight = 50
@@ -58,4 +58,4 @@ transaction.</div>
 
 
 [callbacks]: /payment-gateways/callbacks "Callback Files"
-[variables]: /gateway-modules/merchant-gateways#variables "Merchant Gateway Variables"
+[variables]: /payment-gateways/merchant-gateways#variables "Merchant Gateway Variables"
