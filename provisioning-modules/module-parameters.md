@@ -20,7 +20,7 @@ The parameters also contains the settings from the product itself.
 | domain | The domain entered by the customer when ordering.<br />Database Field: tblhosting.domain | 
 | username | Username generated for the service. (defaults to first 8 letters of the domain)<br />Database Field: tblhosting.username | 
 | password | Password generated for the service. (10 char generated on first creation consisting of letters & numbers, both upper & lowercase).  <br />Database Field: tblhosting.password | 
-| producttype | The product type which can be one of sharedhosting, reselleraccount, server or other. | 
+| producttype | The product type which can be one of hostingaccount, reselleraccount, server or other. | 
 | moduletype | The module name (will match filename of module). | 
 | configoptionX | with X being from 1 to 24. <br />These fields contain the module settings for the product defined in the ConfigOptions function. | 
 | clientsdetails | Contains an array of all client details service owner. This contains things like firstname, lastname, email, address1, country, etc… | 
