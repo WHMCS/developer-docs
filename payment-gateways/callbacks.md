@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/3d-secure"
-prev = "/gateway-modules/merchant-gateway"
+next = "/payment-gateways/3d-secure"
+prev = "/payment-gateways/merchant-gateway"
 title = "Callback Files"
 toc = true
 weight = 40

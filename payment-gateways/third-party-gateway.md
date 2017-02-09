@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/merchant-gateway"
-prev = "/gateway-modules/getting-started"
+next = "/payment-gateways/merchant-gateway"
+prev = "/payment-gateways/getting-started"
 title = "Third Party Gateway"
 toc = true
 weight = 20
@@ -53,4 +53,4 @@ $params['systemurl'] # the url to the Client Area
 2. If the gateway won't support automated refunds, delete the _refund function.
 Otherwise, refer to the Refund section on page 7 of the sample module.
 
-[callbacks]: /gateway-modules/callbacks "Callback Files"
+[callbacks]: /payment-gateways/callbacks "Callback Files"

@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/callbacks"
-prev = "/gateway-modules/third-party-gateway"
+next = "/payment-gateways/callbacks"
+prev = "/payment-gateways/third-party-gateway"
 title = "Merchant Gateway"
 toc = true
 weight = 30
