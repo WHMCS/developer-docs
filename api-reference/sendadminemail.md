@@ -13,7 +13,7 @@ Send an Admin Email Notification
 | messagename | string | The name of the admin email template to send | Optional |
 | custommessage | string | The HTML message body to send for a custom email | Optional |
 | customsubject | string | The subject to send for a custom email | Optional |
-| type | string | Which type of admin notification will be send ('system', 'account', 'support') | Optional |
+| type | string | Which type of admin notification will be sent ('system', 'account', 'support') | Optional |
 | deptid | int | The Id of the department the notification is for if 'support' $type | Optional |
 | mergefields | array | The merge fields to be used in the email template | Optional |
 
