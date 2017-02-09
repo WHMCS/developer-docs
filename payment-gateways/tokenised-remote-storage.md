@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/installation-activation"
-prev = "/gateway-modules/3d-secure"
+next = "/payment-gateways/installation-activation"
+prev = "/payment-gateways/3d-secure"
 title = "Tokenised Remote Storage"
 toc = true
 weight = 60

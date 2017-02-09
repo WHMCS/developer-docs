@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/errors"
-prev = "/gateway-modules/tokenised-remote-storage"
+next = "/payment-gateways/errors"
+prev = "/payment-gateways/tokenised-remote-storage"
 title = "Installation & Activation"
 toc = true
 weight = 70

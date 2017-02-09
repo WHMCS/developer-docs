@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/third-party-gateway"
-prev = "/gateway-modules"
+next = "/payment-gateways/third-party-gateway"
+prev = "/payment-gateways"
 title = "Getting Started"
 toc = true
 weight = 10
@@ -56,5 +56,5 @@ For a merchant gateway go to [Merchant Gateway][merchant-gateway].
 
 
 [module-type]: #module-type
-[third-party]: /gateway-modules/third-party-gateway "Third Party Gateway"
-[merchant-gateway]: /gateway-modules/merchant-gateway "Merchant Gateway"
+[third-party]: /payment-gateways/third-party-gateway "Third Party Gateway"
+[merchant-gateway]: /payment-gateways/merchant-gateway "Merchant Gateway"
