@@ -57,5 +57,5 @@ transaction.</div>
 
 
 
-[callbacks]: /payment-gateways/callbacks "Callback Files"
+[callbacks]: /gateway-modules/callbacks "Callback Files"
 [variables]: /gateway-modules/merchant-gateways#variables "Merchant Gateway Variables"
