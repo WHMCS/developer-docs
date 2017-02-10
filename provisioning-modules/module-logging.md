@@ -1,5 +1,5 @@
 +++
-next = ""
+next = "/provisioning-modules/meta-data-params"
 prev = "/provisioning-modules/admin-dashboard-widgets"
 title = "Module Logging"
 toc = true
