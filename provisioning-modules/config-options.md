@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/supported-functions"
-prev = "/provisioning-modules"
+prev = "/provisioning-modules/getting-started"
+next = "/provisioning-modules/meta-data-params"
 title = "Configuration Options"
 toc = true
 weight = 15

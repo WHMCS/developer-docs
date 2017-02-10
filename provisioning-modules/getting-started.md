@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/supported-functions"
 prev = "/provisioning-modules"
+next = "/provisioning-modules/config-options"
 title = "Getting Started"
 toc = true
 weight = 10
