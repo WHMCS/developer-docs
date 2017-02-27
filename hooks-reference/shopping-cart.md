@@ -71,6 +71,56 @@ Executes after a fraud check has been completed
 | isfraud | array | The details of the fraud check if an error occurs |
 | clientdetails | array | The full details of the client the order is for |
 
+Note: $vars is formatted as follows for maxmind fraud checking:
+
+[0] => Array ( 
+		[orderid] => 1234 
+		[ordernumber] => 1223456
+		[fraudresults] => Array (
+        	[distance] => 1927 
+			[countryMatch] => Yes 
+			[countryCode] => US 
+			[freeMail] => No 
+			[anonymousProxy] => No 
+			[score] => 5.46 
+			[binMatch] => Yes 
+			[binCountry] => US 
+			[err] => 
+			[proxyScore] => 1.80 
+			[ip_region] => VA 
+			[ip_city] => Herndon 
+			[ip_latitude] => 38.0000 
+			[ip_longitude] => -75.1234 
+			[binName] => 
+			[ip_isp] => Telia Network Services 
+			[ip_org] => Telia Network Services 
+			[binNameMatch] => NA 
+			[binPhoneMatch] => NA 
+			[binPhone] => 
+			[custPhoneInBillingLoc] => NotFound 
+			[highRiskCountry] => No 
+			[queriesRemaining] => 1234 
+			[cityPostalMatch] => Yes 
+			[shipCityPostalMatch] => Yes 
+			[maxmindID] => MMIDNUM1 
+			[carderEmail] => No 
+			[shipForward] => No 
+			[highRiskPassword] => No 
+			[riskScore] => 99.00 
+			[explanation] => You should review this order carefully, as it is considered high risk. We suggest you be very cautious about accepting this order. This order is risky, as it might have come from an open proxy. This order is higher risk because the distance between the billing address and the user's actual location is so great 
+			[error] => Array ( 
+				[title] => MaxMind Error 
+				[description] => MaxMind has deemed your order to be potentially high risk and therefore it has been held for manual review.<br /><br />If you feel you have received this message in error, then please accept our apologies and <a href="submitticket.php">submit a support ticket</a> to our Customer Service Team. Thank you. 
+			) 
+			[fraudoutput] => RAWOUTPUT 
+		) 
+        [invoiceid] => 123456 
+		[amount] => 129.00 
+		[isfraud] => Array ( 
+			[title] => MaxMind Error 
+			[description] => MaxMind has deemed your order to be potentially high risk and therefore it has been held for manual review.<br /><br />If you feel you have received this message in error, then please accept our apologies and <a href="submitticket.php">submit a support ticket</a> to our Customer Service Team. Thank you. 
+		) 
+
 #### Response
 
 No response supported
