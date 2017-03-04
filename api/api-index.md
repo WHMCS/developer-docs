@@ -120,6 +120,7 @@ weight = 100
 <li> <a href="/api-reference/deleteprojecttask/">DeleteProjectTask</a>
 <li> <a href="/api-reference/deletequote/">DeleteProjectTask</a>
 <li> <a href="/api-reference/endtasktimer/">EndTaskTimer</a>
+<li> <a href="/api-reference/starttasktimer/">StartTaskTimer</a>
 <li> <a href="/api-reference/getproject/">GetProject</a>
 <li> <a href="/api-reference/getprojects/">GetProjects</a>
 <li> <a href="/api-reference/starttasktimer/">EndTaskTimer</a>
