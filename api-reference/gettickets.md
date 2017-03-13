@@ -41,7 +41,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         array(
             'action' => 'GetTickets',
             'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            'password' => md5('ADMIN_PASSWORD'),
             'responsetype' => 'json',
         )
     )
