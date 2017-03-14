@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/custom-functions"
 prev = "/provisioning-modules/single-sign-on"
+next = "/provisioning-modules/custom-functions"
 title = "Usage Update"
 toc = true
 weight = 60
@@ -25,7 +25,7 @@ The database update should be a single call for speed and efficiency.
 
 ```
 function mymodule_UsageUpdate($params) {
- 
+
 	$serverid = $params['serverid'];
 	$serverhostname = $params['serverhostname'];
 	$serverip = $params['serverip'];
@@ -33,7 +33,7 @@ function mymodule_UsageUpdate($params) {
 	$serverpassword = $params['serverpassword'];
 	$serveraccesshash = $params['serveraccesshash'];
 	$serversecure = $params['serversecure'];
- 
+
 	# Run connection to retrieve usage for all domains/accounts on $serverid
 
 	# Now loop through results and update DB
@@ -47,6 +47,6 @@ function mymodule_UsageUpdate($params) {
          "lastupdate"=>"now()",
         ),array("server"=>$serverid,"domain"=>$values['domain']));
     }
- 
+
 }
 ```

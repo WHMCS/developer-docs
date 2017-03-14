@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/usage-update"
 prev = "/provisioning-modules/core-module-functions"
+next = "/provisioning-modules/usage-update"
 title = "Single Sign-On"
 toc = true
 weight = 50

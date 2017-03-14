@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/module-logging"
 prev = "/provisioning-modules/admin-services-tab"
+next = "/provisioning-modules/module-logging"
 title = "Admin Dashboard Widgets"
 toc = true
 weight = 100
