@@ -12,12 +12,3 @@ Once uploaded, go to **Setup** > **Payment Gateways** to activate.
 If there is a callback file, that should be uploaded to the `/modules/gateways/callback/` folder.
 **Important**: It is important that the gateway is not activated until step 1 is complete for either the third party or merchant gateway modules.
 This is because the type of module created is stored in the database upon activation.
-
-
-
-
-
-
-
-
-

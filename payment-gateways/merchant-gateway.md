@@ -45,12 +45,12 @@ $params['systemurl'] # the url to the Client Area
 
 ### Card Details <a id="card-details"></a>
 ```
-$params['cardtype'] # the Card Type (Visa, MasterCard, etc…) 
-$params['cardnum'] # the Card Number 
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY) 
-$params['cardstart'] # the Card’s Start Date (Format: MMYY) 
-$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards) 
-$params['cccvv'] # Not always present (recurring transactions) 
+$params['cardtype'] # the Card Type (Visa, MasterCard, etc…)
+$params['cardnum'] # the Card Number
+$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
+$params['cardstart'] # the Card’s Start Date (Format: MMYY)
+$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
+$params['cccvv'] # Not always present (recurring transactions)
 # but would always be present for client initiated attempts
 ```
 

@@ -21,7 +21,7 @@ Included in the sample file are a number of helper functions.
 
 `$GATEWAY = getGatewayVariables(‘yourgatewayname’);`
 
-This function can be used to retrieve the configuration data for a module as specified in the **_config** array. 
+This function can be used to retrieve the configuration data for a module as specified in the **_config** array.
 For example, it might be needed to get a gateway username or secret key to validate a callback.
 
 `$invoiceid = checkCbInvoiceID($invoiceid, $GATEWAY[‘name’]);`
@@ -43,7 +43,3 @@ Use this function can to create a gateway log entry.
 The first variable needs to be the name of the gateway module.
 The second should be an array of data, such as the **$_POST** or **$_REQUEST** super globals.
 The last variable should be the result or status to show in the log.
-
-
-
-
