@@ -484,4 +484,27 @@ add_hook('TransliterateTicketText', 1, function($vars) {
     // Perform hook code here...
 });
 ```
+## TicketAddNote
 
+Executes when a ticket note is added by an admin user.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| adminid | int |  |
+| message | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketAddNote', 1, function($vars) {
+    // Perform hook code here...
+});
+```
