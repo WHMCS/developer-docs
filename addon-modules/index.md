@@ -25,7 +25,7 @@ We have a **Video Tutorial** demonstrating addon module management & access cont
 
 
 
-[gateway-modules]: gateway-modules "Gateway Module Documentation"
-[provisioning-modules]: provisioning-modules "Provisioning Module Developer Documentation"
-[registrar-modules]: registrar-modules "Registrar Module Developer Documentation"
+[gateway-modules]: ../gateway-modules "Gateway Module Documentation"
+[provisioning-modules]: ../provisioning-modules "Provisioning Module Developer Documentation"
+[registrar-modules]: ../registrar-modules "Registrar Module Developer Documentation"
 [video-tutorial]: https://www.youtube.com/watch?v=39TpVTs8onE "Addon Modules"
