@@ -489,6 +489,30 @@ add_hook('LogActivity', 1, function($vars) {
 });
 ```
 
+## PostAutomationTask
+
+Executes after an automation task occurs
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| task | \Collection |  |
+| completed | bool |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PostAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## PreAutomationTask
 
 Executes before an automation task occurs
@@ -508,6 +532,76 @@ No response supported
 ```
 <?php
 add_hook('PreAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PremiumPriceOverride
+
+Executes when searching for a premium domain. The return can alter the registration & renewal costs, stop the domain being available for purchase or force the client to contact support.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainName | string |  |
+| tld | string | eg com in whmcs.com |
+| sld | string | eg whmcs in whmcs.com |
+| register | float | If a registration, the registration price of the premium domain |
+| transfer | float | If a transfer, the transfer price of the premium domain |
+| renew | float | The renewal price of the premium domain |
+
+#### Response
+
+Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages
+
+#### Example Code
+
+```
+<?php
+
+//Stop the Domain Purchase for this Premium Domain
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return ['noSale' => true,];
+});
+
+//Force the Client to Contact Support to Purchase Domain
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return ['contactUs' => true,];
+});
+
+//Override the Register and Renew Pricing & Skip Markup Application
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return [
+        'register' => 150.00,
+        'renew' => 200.00,
+        'skipMarkup' => true,
+    ];
+});
+```
+
+## PremiumPriceRecalculationOverride
+
+Executes when a premium domain price is being automatically recalculated.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainName | string | The full domain name |
+| tld | string | The tld of the domain eg com in whmcs.com |
+| sld | string | The sld of the domain eg whmcs in whmcs.com |
+| renew | float | The current renewal cost of the domain before any applied markup. |
+
+#### Response
+
+Return is accepted to override the renewal price or skip applying markup. eg: return array('renew' => 50.00, 'skipMarkup' => true);
+
+#### Example Code
+
+```
+<?php
+add_hook('PremiumPriceRecalculationOverride', 1, function($vars) {
     // Perform hook code here...
 });
 ```

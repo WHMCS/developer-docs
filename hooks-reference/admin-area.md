@@ -376,19 +376,20 @@ add_hook('AdminHomepage', 1, function($vars) {
 
 ## AdminLogin
 
-Executes on Admin log in
+Executes post successful authentication of an admin user
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | adminid | int |  |
+| username | string |  |
 
 #### Response
 
-No Response supported
+No response supported
 
-#### Example code
+#### Example Code
 
 ```
 <?php
@@ -490,6 +491,82 @@ add_hook('AdminServiceEdit', 1, function($vars) {
 });
 ```
 
+## AuthAdmin
+
+Executes during Admin form-based password authentication
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| userInput | string | The user-provided password value |
+|  | \WHMCS\User\Admin | The admin attempting to authenticate |
+
+#### Response
+
+TRUE on success FALSE on failure
+
+#### Example Code
+
+```
+<?php
+
+// EXAMPLE SERVICE CLASS ONLY; NOT VALID FOR PRODUCTION
+class MyAuthService
+{
+    public static function getAdminHash($adminUniqueId)
+    {
+        $hashes = [
+            'admin@localhost' => '$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO'
+        ];
+
+        if (array_key_exists($adminUniqueId, $hashes)) {
+            return $hashes[$adminUniqueId];
+        }
+
+        return null;
+    }
+}
+
+add_hook(
+    'AuthAdmin',
+    0,
+    function ($userInput, WHMCS\User\Admin $admin) {
+        $adminUniqueId = $admin->email;
+        $adminHash = MyAuthService::getAdminHash($adminUniqueId);
+        if (!$adminHash) {
+            return false;
+        }
+
+        return password_verify($userInput, $adminHash);
+    }
+);
+```
+
+## AuthAdminApi
+
+Executes during Admin API password authentication
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| userInput | string | The user-provided password value |
+|  | \WHMCS\User\Admin | The admin attempting to authenticate |
+
+#### Response
+
+TRUE on success FALSE on failure
+
+#### Example Code
+
+```
+<?php
+add_hook('AuthAdminApi', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## InvoiceCreationAdminArea
 
 Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.
@@ -538,3 +615,4 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
     // Perform hook code here...
 });
 ```
+

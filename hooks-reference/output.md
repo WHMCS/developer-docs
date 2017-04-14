@@ -435,3 +435,91 @@ add_hook('ReportViewPreOutput', 1, function($vars) {
 });
 ```
 
+## ShoppingCartCheckoutOutput
+
+Allows returning of output for display on the Shopping Cart Checkout page.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| cartData | array |  |
+
+#### Response
+
+Return the HTML to be output on the page.
+
+#### Example Code
+
+```
+<?php
+add_hook('ShoppingCartCheckoutOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ShoppingCartViewCartOutput
+
+Allows returning of output for display on the Shopping Cart View Cart page.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| cartData | array |  |
+
+#### Response
+
+Return the HTML to be output on the page.
+
+#### Example Code
+
+```
+<?php
+add_hook('ShoppingCartViewCartOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ShoppingCartViewCategoryAboveProductsOutput
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| cart | | |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ShoppingCartViewCategoryAboveProductsOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ShoppingCartViewCategoryBelowProductsOutput
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| cart | | |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ShoppingCartViewCategoryBelowProductsOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+

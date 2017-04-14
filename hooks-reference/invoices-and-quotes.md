@@ -305,6 +305,30 @@ add_hook('InvoicePaidPreEmail', 1, function($vars) {
 });
 ```
 
+## InvoicePaymentReminder
+
+Executes when an invoice payment reminder is sent
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| invoiceid | int |  |
+| type | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('InvoicePaymentReminder', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## InvoiceRefunded
 
 Executes when an invoice status is changed to Refunded.

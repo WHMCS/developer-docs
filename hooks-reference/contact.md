@@ -75,6 +75,57 @@ add_hook('ContactChangePassword', 1, function($vars) {
 });
 ```
 
+## ContactDelete
+
+Executes on Contact Delete after the contact has been removed.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| userid | int |  |
+| contactid | int |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ContactDelete', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ContactDetailsValidation
+
+Executes on validation of contact details.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| N/A | array | The POSTed variables |
+
+#### Response
+
+Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('ContactDetailsValidation', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
+});
+```
+
 ## ContactEdit
 
 Runs when a contact is edited.

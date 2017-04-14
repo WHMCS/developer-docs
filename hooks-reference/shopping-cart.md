@@ -278,6 +278,38 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 });
 ```
 
+## OrderDomainPricingOverride
+
+Executes as a domain price is being calculated in the cart. This hook is run independelty for each domain added to the cart.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| type | string | Either `register` or `transfer` |
+| domain | string |  |
+| regperiod | int | The registration period of the domain (in years) |
+| dnsmanagement | bool |  |
+| emailforwarding | bool |  |
+| idprotection | bool |  |
+| eppcode | string | Available for transfer only. |
+| isPremium | bool |  |
+
+#### Response
+
+Return a valid price to override the cost of the domain.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('OrderDomainPricingOverride', 1, function($vars) {
+    // Perform operations to determine price
+    return '64.95';
+});
+```
+
 ## OrderProductPricingOverride
 
 Executes as a product price is being calculated in the cart.
@@ -524,6 +556,145 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
      * Redirect all orders to a different page after the order complete page is loaded.
      */
     return '<META http-equiv="refresh" content="5;URL=http://www.mydomain.com/ownpage.html" />';
+});
+```
+
+## ShoppingCartValidateCheckout
+
+Executes on checkout via the shopping cart. The `$_SESSION['cart']` varible contains the products in the cart and associated configuration. See `PreCalculateCartTotals` for more details on cart session data.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| a | string | Value will be checkout |
+| submit | bool | Value will be true |
+| i | int | This is the index of the item in the $_SESSION['cart'] |
+| promocode | string | String  If entered, a promotion code |
+| notes | string | If enabled, additional order notes |
+| paymentmethod | string | The selected payment method |
+| ccinfo | string | Either new or useexisting |
+| cctype | string |  |
+| ccnumber | string |  |
+| ccexpirymonth | string |  |
+| ccexpiryyear | string |  |
+| cccvv | string |  |
+| custtype | string | Possible values are `new` or `existing` |
+| loginemail | string | Existing Clients email address |
+| loginpw | string | Existing Clients password |
+| firstname | string | The following will be present for new clients only |
+| lastname | string |  |
+| companyname | string |  |
+| email | string |  |
+| address1 | string |  |
+| address2 | string |  |
+| city | string |  |
+| state | string |  |
+| country | string |  |
+| phonenumber | string |  |
+| password | string |  |
+| password2 | string |  |
+| securityqid | string |  |
+| securityqans | string |  |
+| customfield | array |  |
+
+#### Response
+
+Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
+});
+```
+
+## ShoppingCartValidateDomain
+
+Executes when Cart Domain Validation is occurring
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainoption | string |  |
+| sld | string | eg whmcs in whmcs.com |
+| tld | string | eg com in whmcs.com |
+
+#### Response
+
+Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('ShoppingCartValidateDomain', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
+});
+```
+
+## ShoppingCartValidateDomainsConfig
+
+Executes when Domain Update is occurring
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| N/A | array | The REQUEST variables |
+
+#### Response
+
+Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('ShoppingCartValidateDomainsConfig', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
+});
+```
+
+## ShoppingCartValidateProductUpdate
+
+Executes when Product Update is occurring
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| N/A | array | The REQUEST variables |
+
+#### Response
+
+Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
 });
 ```
 

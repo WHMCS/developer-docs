@@ -191,6 +191,32 @@ add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
 });
 ```
 
+## TicketAddNote
+
+Executes when a ticket note is added.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| message | string |  |
+| adminid | int |  |
+| attachments | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketAddNote', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## TicketAdminReply
 
 Executes when a reply is added to a ticket by an admin user.
@@ -319,6 +345,31 @@ add_hook('TicketDepartmentChange', 1, function($vars) {
 });
 ```
 
+## TicketFlagged
+
+Executes as a ticket is flagged
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| adminid | int |  |
+| adminname | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketFlagged', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## TicketOpen
 
 Executes when a ticket is opened by an end user.
@@ -405,6 +456,30 @@ add_hook('TicketPiping', 1, function($vars) {
 });
 ```
 
+## TicketPriorityChange
+
+Executes when a ticket priority is changed
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| priority | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketPriorityChange', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## TicketStatusChange
 
 Executes as a ticket status is changed.
@@ -426,6 +501,30 @@ No response supported
 ```
 <?php
 add_hook('TicketStatusChange', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketSubjectChange
+
+Executes when a ticket subject is changed
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| priority | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketSubjectChange', 1, function($vars) {
     // Perform hook code here...
 });
 ```

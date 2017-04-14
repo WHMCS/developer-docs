@@ -30,6 +30,51 @@ add_hook('AfterClientMerge', 1, function($vars) {
 });
 ```
 
+## ClientAdd
+
+Executes as a client is being added to WHMCS.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| userid | int |  |
+| firstname | string |  |
+| lastname | string |  |
+| companyname | string |  |
+| email | string |  |
+| address1 | string |  |
+| address2 | string |  |
+| city | string |  |
+| state | string |  |
+| postcode | string |  |
+| country | string |  |
+| phonenumber | string |  |
+| password | string |  |
+| customFields | array |  |
+| taxexempt | bool |  |
+| latefeeoveride | bool |  |
+| overideduenotices | bool |  |
+| separateinvoices | bool |  |
+| disableautocc | bool |  |
+| emailoptout | bool |  |
+| overrideautoclose | bool |  |
+| notes | string |  |
+| groupid | int |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ClientAdd', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## ClientAlert
 
 Executes when Client Alerts are being defined
@@ -128,6 +173,47 @@ No response supported
 <?php
 add_hook('ClientDelete', 1, function($vars) {
     // Perform hook code here...
+});
+```
+
+## ClientDetailsValidation
+
+Executes before adding a client or updating a client through the Admin or Client area.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| firstname | string | The client's firstname |
+| lastname | string | The client's lastname |
+| companyname | string | The client's company, if entered |
+| email | string | The client's email |
+| address1 | string | The client's address1 |
+| address2 | string | The client's address2, if entered |
+| city | string | The client's city |
+| state | string | The client's state |
+| postcode | string | The client's postcode/zipcode |
+| country | string | The client's country (2 character code) |
+| phonenumber | string | The client's phone number |
+| paymentmethod | string | If selected, the client's default payment method |
+| customfield | string | An array of Key => Value pairs |
+| securityqid | int | Only from Admin Area or when registering |
+| securityqans | string | Only from Admin Area or when registering |
+
+#### Response
+
+Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+
+#### Example Code
+
+```
+<?php
+
+add_hook('ClientDetailsValidation', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
 });
 ```
 

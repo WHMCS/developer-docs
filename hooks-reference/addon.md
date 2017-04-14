@@ -34,7 +34,7 @@ add_hook('AddonActivated', 1, function($vars) {
 
 ## AddonActivation
 
-Executes when an addon is activated.
+Executes when a product addon is being automatically activated as part of an invoice payment or order acceptance. Runs following the welcome email having been sent.
 
 #### Parameters
 
@@ -269,7 +269,7 @@ add_hook('AddonTerminated', 1, function($vars) {
 
 ## AddonUnsuspended
 
-Executes when a product addon is being unsuspended and set to Active status.
+Executes when an addon is unsuspended.
 
 #### Parameters
 
@@ -303,6 +303,7 @@ Executes as a license is being reissued
 | -------- | ---- | ----- |
 | licenseid | int |  |
 | serviceid | int |  |
+| addon_id | int |  |
 
 #### Response
 
