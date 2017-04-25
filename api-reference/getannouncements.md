@@ -35,7 +35,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         array(
             'action' => 'GetAnnouncements',
             'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            'password' => hash('md5', 'ADMIN_PASSWORD'),
             'responsetype' => 'json',
         )
     )
