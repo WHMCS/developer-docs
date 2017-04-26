@@ -14,7 +14,7 @@ Addon modules allow you to create both admin pages and hooks to extend WHMCS fur
 Addon Modules can consist of just an admin page, just hooks, or both.
 They are all managed through the **Setup** > **Addon Modules** interface.
 
-There are other types of module in WHMCS. These are [Payment Gateways][gateway-modules], [Provisioning Modules][provisioning-modules] and [Registrar Modules][registrar-modules].
+There are other types of module in WHMCS. These are [Payment Gateways][/payment-gateways], [Provisioning Modules][/provisioning-modules] and [Registrar Modules][/domain-registrars].
 
 Once activated, modules will display in the "Addons" menu within the admin area for access from any page.
 
