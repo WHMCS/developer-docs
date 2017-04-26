@@ -25,7 +25,7 @@ The parameters also contains the settings from the product itself.
 | configoptionX | with X being from 1 to 24. <br />These fields contain the module settings for the product defined in the ConfigOptions function. |
 | clientsdetails | Contains an array of all client details service owner. This contains things like firstname, lastname, email, address1, country, etc… |
 | customfields | Contains an array of all custom fields defined on the product.  <br />The key is the custom field name - $params\['customfields']\['Field Name']. |
-| configoptions | Contains an array of all the configurable options defined on the product.  <br />Again the key being the option name in this case - $params\['configoption']\['Option Name Here']. |
+| configoptions | Contains an array of all the configurable options defined on the product.  <br />Again the key being the option name in this case - $params\['configoptions']\['Option Name Here']. |
 | server | true/false - Is the product assigned to a server. |
 | serverip | The IP Address of the selected server. |
 | serverhostname | The Hostname of the selected server. |
