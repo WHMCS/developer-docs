@@ -7,12 +7,12 @@ weight = 10
 
 +++
 
-## Introduction <a id="introduction"></a>
+## Introduction
 
 Gateway modules allow a connection between WHMCS and merchants that aren't supported in WHMCS.
 This documentation will explain a module's structure and everything needed to create a gateway module for WHMCS.
 
-## Getting Started <a id="getting-started"></a>
+## Getting Started
 
 To get started, begin by downloading the module development kit from our GitHub site.
 There are two sample modules available, depending upon the [type of gateway][module-type] being developed:
@@ -25,7 +25,7 @@ It should be all lowercase and must start with a letter.
 Prefix all functions within a gateway module with the filename.
 Open the file and replace all occurrences of **template_** with **yourgatewayname_**
 
-## Config Array <a id="config-array"></a>
+## Config Array
 
 Configure the yourgatewayname_config array.
 This function is the primary function required by all gateway modules.
@@ -42,7 +42,7 @@ The general formula:
 Any fields defined here will be available in all gateway module functions in the $params array.
 Avoid common names like currency, invoiceid, etc, as these will conflict with the standard variables.
 
-## Module Type <a id="module-type"></a>
+## Module Type
 
 Determine which type of module needs to be created from the 2 core types:
 

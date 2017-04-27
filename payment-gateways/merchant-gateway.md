@@ -14,16 +14,16 @@ To create one: Delete the _link function before activating the new module in WHM
 2. Enter the gateway-specific code for processing the payment into the _capture function.
 Generally, this takes the format of an HTTP/Curl request to the gateway provider's API.
 
-## Variables <a id="variables"></a>
+## Variables
 
-### Invoice Variables <a id="invoice-variables"></a>
+### Invoice Variables
 ```
 $params['invoiceid'] # Invoice ID Number
 $params['description'] # Description (eg. Company Name - Invoice #xxx)
 $params['amount'] # Format: xxx.xx
 $params['currency'] # Currency Code (eg. GBD, USD, etc...)
 ```
-### Client Variables <a id="client-variables"></a>
+### Client Variables
 ```
 $params['clientdetails']['firstname'] # Client's First Name
 $params['clientdetails']['lastname'] # Client's Last Name
@@ -37,24 +37,24 @@ $params['clientdetails']['country']
 $params['clientdetails']['phonenumber']
 ```
 
-### System Variables <a id="system-variables"></a>
+### System Variables
 ```
 $params['companyname'] # your Company Name setting in WHMCS
 $params['systemurl'] # the url to the Client Area
 ```
 
-### Card Details <a id="card-details"></a>
+### Card Details
 ```
-$params['cardtype'] # the Card Type (Visa, MasterCard, etc…) 
-$params['cardnum'] # the Card Number 
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY) 
-$params['cardstart'] # the Card’s Start Date (Format: MMYY) 
-$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards) 
-$params['cccvv'] # Not always present (recurring transactions) 
+$params['cardtype'] # the Card Type (Visa, MasterCard, etc…)
+$params['cardnum'] # the Card Number
+$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
+$params['cardstart'] # the Card’s Start Date (Format: MMYY)
+$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
+$params['cccvv'] # Not always present (recurring transactions)
 # but would always be present for client initiated attempts
 ```
 
-## Responses <a id="responses"></a>
+## Responses
 
 ### Success
 
@@ -87,7 +87,7 @@ The rawdata key should be an array of the data returned from the gateway for sto
 
 If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer [here][3d-secure].
 
-## Refunds <a id="refunds"></a>
+## Refunds
 
 Code for processing a refund goes into the **_refund** function.
 This receives the same variables as the **_capture** function, but with an added transaction id:

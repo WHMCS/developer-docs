@@ -16,16 +16,16 @@ Delete the _capture function before activating the new gateway module in WHMCS.
 An example of this step is in the gateway module template supplied with the dev kit.
 The code output by this function is HTML, usually for a <**form**> with a post method.
 
-## Variables <a id="variables"></a>
+## Variables
 
-### Invoice Variables <a id="invoice-variables"></a>
+### Invoice Variables
 ```
 $params['invoiceid'] # Invoice ID Number
 $params['description'] # Description (eg. Company Name - Invoice #xxx)
 $params['amount'] # Format: xxx.xx
 $params['currency'] # Currency Code (eg. GBD, USD, etc...)
 ```
-### Client Variables <a id="client-variables"></a>
+### Client Variables
 ```
 $params['clientdetails']['firstname'] # Client's First Name
 $params['clientdetails']['lastname'] # Client's Last Name
@@ -39,13 +39,13 @@ $params['clientdetails']['country']
 $params['clientdetails']['phonenumber']
 ```
 
-### System Variables <a id="system-variables"></a>
+### System Variables
 ```
 $params['companyname'] # your Company Name setting in WHMCS
 $params['systemurl'] # the url to the Client Area
 ```
 
-## Additional Information <a id="additional-information"></a>
+## Additional Information
 
 1. Processing of a payment is in a callback file separate from the module.
 (see [here][callbacks] for more information).

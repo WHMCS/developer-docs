@@ -16,7 +16,7 @@ An example of this is below:
 The **_3dsecure** function is passed all the same [variables][variables] that the **_capture** function is.
 The return url should be a [callback file][callbacks] to handle the response.
 
-## Example Function <a id="example-function"></a>
+## Example Function
 
 ```
 <?php
