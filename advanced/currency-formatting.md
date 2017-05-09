@@ -30,7 +30,7 @@ $currencyData = getCurrency($userId);
  * Format currency
  *
  * @param float $amount
- * @param mixed $currencyData
+ * @param int   $currencyId
  *
  * @return \WHMCS\View\Formatter\Price
  */
