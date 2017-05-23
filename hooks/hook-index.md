@@ -195,6 +195,7 @@ weight = 100
 <li> <a href="/hooks-reference/ticket/#ticketsubjectchange">TicketSubjectChange</a>
 <li> <a href="/hooks-reference/ticket/#ticketuserreply">TicketUserReply</a>
 <li> <a href="/hooks-reference/ticket/#transliteratetickettext">TransliterateTicketText</a>
+<li> <a href="/hooks-reference/ticket/#ticketaddnote">TicketAddNote</a>
 </ul>
 <h3>Support Tools</h3>
 
