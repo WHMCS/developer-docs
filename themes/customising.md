@@ -13,6 +13,10 @@ The header and footer template files that are common to every page and act as a 
 * Navigation bar and Sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.
 * The footer template file includes a number of lines of javascript code immediately prior to the closing </body> tag which are essential to the correct operation of the client area. Please take care not to remove these lines.
 
+## Custom Logo
+
+The Six theme uses a conditional based on the ```$assetLogoPath``` variable to either display a custom logo or the name of the company as defined in Setup > General Settings > Company Name. In order to set a custom logo it must either exist as `/assests/img/logo.png` or `/assests/img/logo.jpg`.
+
 ## Include Files
 
 Include templates are templates that are shared and used by multiple pages. They are located within the `/includes/` sub-directory.
