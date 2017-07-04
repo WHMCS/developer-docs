@@ -1,6 +1,6 @@
 +++
 next = "/payment-gateways/3d-secure"
-prev = "/payment-gateways/callbacks"
+prev = "/payment-gateways/refunds"
 title = "Payment Reversals"
 toc = true
 weight = 45

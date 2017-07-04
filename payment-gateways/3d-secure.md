@@ -49,13 +49,5 @@ transaction.</div>
 }
 ```
 
-
-
-
-
-
-
-
-
 [callbacks]: /payment-gateways/callbacks "Callback Files"
-[variables]: /payment-gateways/merchant-gateways#variables "Merchant Gateway Variables"
+[variables]: /payment-gateways/merchant-gateway#variables "Merchant Gateway Variables"

@@ -1,6 +1,6 @@
 +++
 next = "/payment-gateways/merchant-gateway"
-prev = "/payment-gateways/getting-started"
+prev = "/payment-gateways/configuration"
 title = "Third Party Gateway"
 toc = true
 weight = 20
@@ -8,15 +8,21 @@ weight = 20
 +++
 
 Follow the steps below to create a third party gateway module.
-A module where the customer leaves WHMCS to make the payment.
-Delete the _capture function before activating the new gateway module in WHMCS.
 
-1. Delete the **_capture** function from the module template.
-2. Enter the gateway-specific code for taking the user to the payment process within the _link function.
-An example of this step is in the gateway module template supplied with the dev kit.
-The code output by this function is HTML, usually for a <**form**> with a post method.
+{{% notice info %}}
+A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout
+{{% /notice %}}
+
+## Implementation guide
+
+1. Delete the `yourmodulename_capture` function from the module template since this is only required for [Merchant Gateway][merchantgateways] modules.
+2. Define and return the HTML code that will forward the user to the payment gateway to complete the payment process inside the `yourmodulename_link` function. This is typically done by way of an HTML form utilizing the **POST** method.
+3. Optionally if your payment gateway supports sending notifications upon successful receipt of payments, create a [Callback File][callbacks] to receive and handle those.
+4. If your payment gateway supports refunds, implement support for [Refunds][refunds].
 
 ## Variables
+
+The following parameters are passed to the `_link` function along with all [defined configuration parameters][configuration] and their values.
 
 ### Invoice Variables
 ```
@@ -42,15 +48,36 @@ $params['clientdetails']['phonenumber']
 ### System Variables
 ```
 $params['companyname'] # your Company Name setting in WHMCS
-$params['systemurl'] # the url to the Client Area
+$params['systemurl'] # the url to the WHMCS Client Area
+$params['returnurl'] # the return url to the invoice
+$params['langpaynow'] # Language string for "Pay Now"
+$params['name'] # Module display name
+$params['paymentmethod'] # Module name
+$params['whmcsVersion'] # WHMCS Version Number
 ```
 
-## Additional Information
+## Response Format
 
-1. Processing of a payment is in a callback file separate from the module.
-(see [here][callbacks] for more information).
+The `_link` function should return an HTML code block that can be rendered to the user. This should typically take the format of an HTML form.
 
-2. If the gateway won't support automated refunds, delete the _refund function.
-Otherwise, refer to the Refund section on page 7 of the sample module.
+## Simple Example
 
+Below is a very simple demonstration of a link function that forwards the end user to `https://www.example.com/checkout` using a form post containing the invoice data. For a more complete example, please refer to the [Sample Third Party Gateway module on Github][githubsample].
+
+```
+function yourmodulename_link($params) {
+    return '<form method="post" action="https://www.example.com/checkout">
+        <input type="invoice_number" value="' . $params['invoiceid'] . '" />
+        <input type="description" value="' . $params['description'] . '" />
+        <input type="amount" value="' . $params['amount'] . '" />
+        <input type="currency" value="' . $params['currency'] . '" />
+        <input type="submit" value="' . $params['langpaynow'] . '" />
+        </form>';
+}
+```
+
+[configuration]: /payment-gateways/configuration "Configuration Parameters"
+[merchantgateways]: /payment-gateways/merchant-gateway "Merchant Gateways"
+[githubsample]: https://github.com/WHMCS/sample-gateway-module "Sample Third Party Gateway module on Github"
 [callbacks]: /payment-gateways/callbacks "Callback Files"
+[refunds]: /payment-gateways/refunds "Refunding Transactions"
