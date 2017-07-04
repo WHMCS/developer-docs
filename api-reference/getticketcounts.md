@@ -30,10 +30,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'GetTicketCounts',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
-            'ignoreDepartmentAssignments' => 'false',
-            'includeCountsByStatus' => 'true',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
+            'ignoreDepartmentAssignments' => false,
+            'includeCountsByStatus' => true,
             'responsetype' => 'json',
         )
     )
@@ -48,10 +49,10 @@ curl_close($ch);
 ```
 $command = 'GetTicketCounts';
 $postData = array(
-    'ignoreDepartmentAssignments' => 'false',
-    'includeCountsByStatus' => 'true',
+    'ignoreDepartmentAssignments' => false,
+    'includeCountsByStatus' => true,
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

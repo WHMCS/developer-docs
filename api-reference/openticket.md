@@ -41,14 +41,15 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'OpenTicket',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'deptid' => '1',
             'subject' => 'This is a sample ticket',
             'message' => 'This is a **sample** ticket message',
             'clientid' => '1',
             'priority' => 'Medium',
-            'useMarkdown' => 'true',
+            'useMarkdown' => true,
             'responsetype' => 'json',
         )
     )
@@ -68,9 +69,9 @@ $postData = array(
     'message' => 'This is a **sample** ticket message',
     'clientid' => '1',
     'priority' => 'Medium',
-    'useMarkdown' => 'true',
+    'useMarkdown' => true,
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

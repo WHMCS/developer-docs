@@ -1,5 +1,5 @@
 +++
-title = "StartTaskTimer"
+title = "EndTaskTimer"
 toc = true
 +++
 
@@ -9,8 +9,8 @@ Starts a timer for a project
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "StartTaskTimer" | Required |
-| timerid | int | The id of the task to be started | Required |
+| action | string | "EndTaskTimer" | Required |
+| timerid | int | The id of the task to be ended | Required |
 | projectid | int | The id of the project for the task timer | Required |
 | adminid | int | The admin id to associate the timer with | Optional |
 | start_time | int | The start time as a unix time stamp. Defaults to time() if not provided | Optional |
@@ -33,9 +33,10 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'StartTaskTimer',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            'action' => 'EndTaskTimer',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'projectid' => '1',
             'timerid' => '1',
             'adminid' => '2',
@@ -51,13 +52,13 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'StartTaskTimer';
+$command = 'EndTaskTimer';
 $postData = array(
     'projectid' => '1',
     'timerid' => '1',
     'adminid' => '2',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

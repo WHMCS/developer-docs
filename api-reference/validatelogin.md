@@ -24,7 +24,8 @@ be returned which can be used to create an authenticated session.
 | result | string | The result of the operation: success or error |
 | userid | int | Client ID |
 | contactid | int | Contact ID if credentials match with a Sub-Account |
-| passwordhash | string | Password hash |
+| passwordhash | string | Login session token - returned if Two-Factor Authentication is not required for the account |
+| twoFactorEnabled | bool | True if Two-Factor Authentication is enabled for the given account |
 
 
 ### Example Request (CURL)
@@ -37,8 +38,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'ValidateLogin',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'email' => 'user@example.com',
             'password2' => 'abc123',
             'responsetype' => 'json',
@@ -58,7 +60,7 @@ $postData = array(
     'email' => 'user@example.com',
     'password2' => 'abc123',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -71,7 +73,8 @@ print_r($results);
 {
     "result": "success",
     "userid": "1",
-    "passwordhash": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    "passwordhash": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "twoFactorEnabled": "false"
 }
 ```
 

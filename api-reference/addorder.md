@@ -73,21 +73,22 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'AddOrder',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
             'pid[0]' => '1',
             'domain[0]' => 'domain1.com',
             'billingcycle[0]' => 'monthly',
             'addons[0]' => '1,3,9',
-            'customfields[0]' => 'base64_encode(serialize(array("1"=>"Google")));',
-            'configoptions[0]' => 'base64_encode(serialize(array(1=>999)))',
+            'customfields[0]' => base64_encode(serialize(array(1 => 'Google'))),
+            'configoptions[0]' => base64_encode(serialize(array(1 => 999))),
             'domaintype[0]' => 'register',
             'regperiod[0]' => '1',
             'domain[1]' => 'domain2.com',
             'domaintype[1]' => 'register',
             'regperiod[1]' => '1',
-            'dnsmanagement[1]' => 'true',
+            'dnsmanagement[1]' => true,
             'nameserver1' => 'ns1.demo.com',
             'nameserver2' => 'ns2.demo.com',
             'addonid' => '1',
@@ -118,14 +119,14 @@ $postData = array(
     'domain[0]' => 'domain1.com',
     'billingcycle[0]' => 'monthly',
     'addons[0]' => '1,3,9',
-    'customfields[0]' => 'base64_encode(serialize(array("1"=>"Google")));',
-    'configoptions[0]' => 'base64_encode(serialize(array(1=>999)))',
+    'customfields[0]' => base64_encode(serialize(array(1 => 'Google'))),
+    'configoptions[0]' => base64_encode(serialize(array(1 => 999))),
     'domaintype[0]' => 'register',
     'regperiod[0]' => '1',
     'domain[1]' => 'domain2.com',
     'domaintype[1]' => 'register',
     'regperiod[1]' => '1',
-    'dnsmanagement[1]' => 'true',
+    'dnsmanagement[1]' => true,
     'nameserver1' => 'ns1.demo.com',
     'nameserver2' => 'ns2.demo.com',
     'addonid' => '1',
@@ -138,7 +139,7 @@ $postData = array(
     'domainrenewals[domain4.com]' => '2',
     'paymentmethod' => 'mailin',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

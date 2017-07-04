@@ -43,10 +43,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'GetClientsProducts',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
-            'stats' => 'true',
+            'stats' => true,
             'responsetype' => 'json',
         )
     )
@@ -62,9 +63,9 @@ curl_close($ch);
 $command = 'GetClientsProducts';
 $postData = array(
     'clientid' => '1',
-    'stats' => 'true',
+    'stats' => true,
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

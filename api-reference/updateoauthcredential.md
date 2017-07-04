@@ -40,11 +40,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'UpdateOAuthCredential',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'credentialId' => '1',
             'name' => 'Credential name',
-            'resetSecret' => 'true',
+            'resetSecret' => true,
             'responsetype' => 'json',
         )
     )
@@ -61,9 +62,9 @@ $command = 'UpdateOAuthCredential';
 $postData = array(
     'credentialId' => '1',
     'name' => 'Credential name',
-    'resetSecret' => 'true',
+    'resetSecret' => true,
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
