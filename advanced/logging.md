@@ -1,4 +1,5 @@
 +++
+next = "/advanced/widgets/"
 prev = "/advanced/currency-formatting/"
 title = "Logging"
 weight = 50
