@@ -6,78 +6,16 @@ weight = 10
 
 The following hooks are provided for Domain related events.
 
-## AdminClientDomainsTabFields
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| id | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientDomainsTabFields', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminClientDomainsTabFieldsSave
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| $_REQUEST | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientDomainsTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientAreaDomainDetails
-
-Executes when the domain details page is loaded within the client area. This hook runs regardless of domain status, so be sure to check for the appropriate statuses if required.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| domain | \Domain | A domain object representing the domain being rendered. |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientAreaDomainDetails', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## DomainDelete
 
+Executes when a service is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $domainDetails | | |
+| userid | int |  |
+| domainid | int |  |
 
 #### Response
 
@@ -94,11 +32,14 @@ add_hook('DomainDelete', 1, function($vars) {
 
 ## DomainEdit
 
+Executes as the domain is being saved, before any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $domainDetails | | |
+| userid | int |  |
+| domainid | int |  |
 
 #### Response
 
@@ -115,12 +56,14 @@ add_hook('DomainEdit', 1, function($vars) {
 
 ## DomainValidation
 
+Executes as domain validation is being run
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| sld | | |
-| tld | | |
+| sld | string | The sld of the domain. eg whmcs in whmcs.com |
+| tld | string | The tld of the domain. eg com in whmcs.com |
 
 #### Response
 
@@ -137,11 +80,13 @@ add_hook('DomainValidation', 1, function($vars) {
 
 ## PreDomainRegister
 
+Executes before a domain register command
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domain | | |
+| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
 
 #### Response
 
@@ -158,11 +103,13 @@ add_hook('PreDomainRegister', 1, function($vars) {
 
 ## PreDomainTransfer
 
+Executes before a domain transfer command
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domain | | |
+| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
 
 #### Response
 
@@ -173,6 +120,85 @@ No response supported
 ```
 <?php
 add_hook('PreDomainTransfer', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarRegisterDomain
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarRegisterDomain', 1, function($vars)
+    {
+        $domainName = $vars['params']['sld'] . '.' . $vars['params']['tld'];
+
+        return array(
+            'abortWithError' => 'Error message to display goes here',
+        );
+
+        //return array(
+        //    'abortWithSuccess' => true,
+        //);
+    }
+);
+```
+
+## PreRegistrarRenewDomain
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarRenewDomain', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreRegistrarTransferDomain
+
+Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
+
+#### Response
+
+Accepts an optional array return. Return `abortWithSuccess=true` to abort the action and treat it as successful. Return `abortWithError=Error messages goes here` to abort the action and treat it as failed.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreRegistrarTransferDomain', 1, function($vars) {
     // Perform hook code here...
 });
 ```

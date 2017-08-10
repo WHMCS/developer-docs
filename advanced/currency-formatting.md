@@ -30,11 +30,11 @@ $currencyData = getCurrency($userId);
  * Format currency
  *
  * @param float $amount
- * @param mixed $currencyData
+ * @param int   $currencyId
  *
  * @return \WHMCS\View\Formatter\Price
  */
-$price = formatCurrency($amount, $currencyData);
+$price = formatCurrency($amount, $currencyData['id']);
 ```
 
 The `$price` value returned will be an object. The default `__toString` response format is a fully formatted price output including prefix and suffix.

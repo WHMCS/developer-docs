@@ -25,11 +25,11 @@ For example, the activate and deactivate functions could create and drop a table
 
 ```
 function demo_activate() {
- 
+
     # Create Custom DB Table
     $query = "CREATE TABLE `mod_addonexample` (`id` INT( 1 ) NOT NULL AUTO_INCREMENT ... ";
-	$result = mysql_query($query);
- 
+	$result = full_query($query);
+
     # Return Result
     return array('status'=>'success','description'=>'This is an demo module only. In a real
            module you might instruct a user how to get started with it here...');
@@ -37,7 +37,7 @@ function demo_activate() {
            indicate there was a problem activating the module');
     return array('status'=>'info','description'=>'You can use the info status return to display
            a message to the user');
- 
+
 }
 ```
 
@@ -45,11 +45,11 @@ function demo_activate() {
 
 ```
 function demo_deactivate() {
- 
+
     # Remove Custom DB Table
     $query = "DROP TABLE `mod_addonexample`";
-	$result = mysql_query($query);
- 
+	$result = full_query($query);
+
     # Return Result
     return array('status'=>'success','description'=>'If successful, you can return a message
            to show the user here');
@@ -57,6 +57,6 @@ function demo_deactivate() {
            message for display here');
     return array('status'=>'info','description'=>'If you want to give an info message to a user
            you can return it here');
- 
+
 }
 ```

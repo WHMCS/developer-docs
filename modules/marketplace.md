@@ -1,9 +1,15 @@
 +++
-prev = "/modules/code-samples/"
+prev = "/modules/style-guide/"
 title = "Marketplace"
-weight = 30
+weight = 40
 
 +++
+
+<div class="text-center">
+    <a href="https://marketplace.whmcs.com/" target="_blank">
+        <img src="//www.whmcs.com/images/marketplace/whmcsmarketplacelogo.png" alt="WHMCS Marketplace">
+    </a>
+</div>
 
 The WHMCS Marketplace allows users of WHMCS to connect with, find and discover add-ons and extensions for the WHMCS platform.
 

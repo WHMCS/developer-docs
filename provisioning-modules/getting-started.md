@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/supported-functions"
 prev = "/provisioning-modules"
+next = "/provisioning-modules/config-options"
 title = "Getting Started"
 toc = true
 weight = 10
@@ -9,7 +9,7 @@ weight = 10
 
 ## Github
 
-We make available a sample provisioning module on Github which we recommend using as a basis for your custom module.
+We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.
 
 > https://github.com/WHMCS/sample-provisioning-module
 

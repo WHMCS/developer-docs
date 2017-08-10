@@ -17,10 +17,10 @@ Handling the entire customer lifecycle from initial signup, to provisioning, man
 
 With over 10 years experience and development, a large and active developer community, and our commitment to responding to user requests and leading the way with the latest web hosting technologies and developments, WHMCS is a rich and powerful platform that sets the standard in web host billing automation.
 
-**WHMCS**
-2550 North Loop West
-Suite 500
-Houston, TX 77092
+**WHMCS**<br>
+2550 North Loop West<br>
+Suite 500<br>
+Houston, TX 77092<br>
 United States
 
-Email us sales@whmcs.com
+Email us [sales@whmcs.com](mailto:sales@whmcs.com)

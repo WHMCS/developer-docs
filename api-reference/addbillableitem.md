@@ -38,8 +38,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'AddBillableItem',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
             'description' => 'This is a billable item',
             'amount' => '10.00',
@@ -71,7 +72,7 @@ $postData = array(
     'recurfor' => '12',
     'duedate' => '2016-01-01',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

@@ -6,79 +6,18 @@ weight = 10
 
 The following hooks are provided for Service related events.
 
-## AdminClientServicesTabFields
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| id | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientServicesTabFields', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminClientServicesTabFieldsSave
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| $_REQUEST | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminServiceEdit
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-|  $serviceDetails | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminServiceEdit', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## CancellationRequest
 
+Executes as a cancellation request is being created
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
-| relid | | |
-| reason | | |
-| type | | |
+| userid | int |  |
+| relid | int | The id of the service being cancelled |
+| reason | string |  |
+| type | string |  |
 
 #### Response
 
@@ -93,34 +32,15 @@ add_hook('CancellationRequest', 1, function($vars) {
 });
 ```
 
-## PreAdminServiceEdit
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| serviceid | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('PreAdminServiceEdit', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## PreServiceEdit
 
+Executes as the service is being saved, before any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| serviceid | | |
+| serviceid | int |  |
 
 #### Response
 
@@ -137,11 +57,14 @@ add_hook('PreServiceEdit', 1, function($vars) {
 
 ## ServiceDelete
 
+Executes when a service is being deleted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $serviceDetails | | |
+| userid | int |  |
+| serviceid | int |  |
 
 #### Response
 
@@ -158,11 +81,14 @@ add_hook('ServiceDelete', 1, function($vars) {
 
 ## ServiceEdit
 
+Executes as the service is being saved, after any changes have been made.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $serviceDetails | | |
+| userid | int |  |
+| serviceid | int |  |
 
 #### Response
 

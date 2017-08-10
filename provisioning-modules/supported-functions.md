@@ -1,9 +1,9 @@
 +++
+prev = "/provisioning-modules/meta-data-params"
 next = "/provisioning-modules/module-parameters"
-prev = "/provisioning-modules/getting-started"
 title = "Supported Functions"
 toc = true
-weight = 20
+weight = 25
 
 +++
 

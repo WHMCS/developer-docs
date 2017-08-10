@@ -1,5 +1,5 @@
 +++
-next = "/api/sample/"
+next = "/api/sample-code/"
 prev = "/api/access-control/"
 title = "Response Types"
 toc = true

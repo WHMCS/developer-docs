@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/single-sign-on"
 prev = "/provisioning-modules/module-parameters"
+next = "/provisioning-modules/single-sign-on"
 title = "Core Module Functions"
 toc = true
 weight = 40

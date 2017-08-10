@@ -40,8 +40,8 @@ Updates a Client Service
 | promoid | int | The promotion Id to associate | Optional |
 | unset | array | An array of items to unset. Can be one of: 'domain', 'serviceusername', 'servicepassword', 'subscriptionid', 'ns1', 'ns2', 'dedicatedip', 'assignedips', 'notes', 'suspendreason' | Optional |
 | autorecalc | bool | Should the recurring amount of the service be automatically recalculated (this will ignore any passed $recurringamount) | Optional |
-| customfields | string | Base64 encoded serialized array of custom field values | Optional |
-| configoptions | string | Base64 encoded serialized array of configurable option field values | Optional |
+| customfields | string | Base64 encoded serialized array of custom field values - base64_encode(serialize(array("1"=>"Yahoo"))); | Optional |
+| configoptions | string | Base64 encoded serialized array of configurable option field values - base64_encode(serialize(array(configoptionid => dropdownoptionid, XXX => array('optionid' => YYY, 'qty' => ZZZ)))) - XXX is the ID of the configurable option - YYY is the optionid found in tblhostingconfigoption.optionid - ZZZ is the quantity you want to use for that option | Optional |
 
 ### Response Parameters
 
@@ -61,10 +61,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'UpdateClientProduct',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'serviceid' => '1',
             'status' => 'Terminated',
+            'customfields' => base64_encode(serialize(array("1"=>"Yahoo")));,
+            'configoptions' => base64_encode(serialize(array(configoptionid => dropdownoptionid, XXX => array('optionid' => YYY, 'qty' => ZZZ)))),
             'responsetype' => 'json',
         )
     )
@@ -81,8 +84,10 @@ $command = 'UpdateClientProduct';
 $postData = array(
     'serviceid' => '1',
     'status' => 'Terminated',
+    'customfields' => base64_encode(serialize(array("1"=>"Yahoo")));,
+    'configoptions' => base64_encode(serialize(array(configoptionid => dropdownoptionid, XXX => array('optionid' => YYY, 'qty' => ZZZ)))),
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

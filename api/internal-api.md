@@ -1,5 +1,5 @@
 +++
-prev = "/api/sample/"
+prev = "/api/sample-code/"
 next = "/api/api-index/"
 title = "Internal API"
 toc = true

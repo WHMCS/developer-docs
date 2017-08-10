@@ -18,13 +18,152 @@ Runs when an admin views a ticket.
 
 #### Response
 
-HTML will be output to the page.
+Returned HTML will be output to the page.
 
 #### Example Code
 
 ```
 <?php
+
+use WHMCS\Session;
+use WHMCS\Ticket\Watchers;
+
 add_hook('AdminAreaViewTicketPage', 1, function($vars) {
+    $return = '';
+    $adminId = Session::get('adminid');
+
+    $adminWatchingTickets = Watchers::byAdmin($adminId)->pluck('ticket_id')->toArray();
+
+    if (in_array($vars['ticketid'], $adminWatchingTickets)) {
+        $return = '<div class="alert alert-info" role="alert">You are watching this ticket</div>';
+    }
+    return $return;
+});
+
+```
+
+## ClientAreaPageSubmitTicket
+
+Executes on the client area ticket submission page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| companyname | string |  |
+| logo | string |  |
+| systemurl | string |  |
+| charset | string |  |
+| pagetitle | string |  |
+| filename | string |  |
+| template | string |  |
+| language | string |  |
+| LANG | array | Active language translation strings |
+| todaysdate | string | Human friendly formatted version of todays date |
+| date_day | string | Current day of the month |
+| date_month | string | Current month |
+| date_year | string | Current year |
+| WEB_ROOT | string | The web path to the WHMCS doc root |
+| BASE_PATH_CSS | string |  |
+| BASE_PATH_JS | string |  |
+| BASE_PATH_FONTS | string |  |
+| BASE_PATH_IMG | string |  |
+| token | string | CSRF token value |
+| servedOverSsl | bool | True if page was loaded via `https://` |
+
+#### Response
+
+A key/value pair array of additional template variables to define.
+
+#### Example Code
+
+```
+<?php
+add_hook('ClientAreaPageSubmitTicket', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ClientAreaPageSupportTickets
+
+Executes on the client area support tickets overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| companyname | string |  |
+| logo | string |  |
+| systemurl | string |  |
+| charset | string |  |
+| pagetitle | string |  |
+| filename | string |  |
+| template | string |  |
+| language | string |  |
+| LANG | array | Active language translation strings |
+| todaysdate | string | Human friendly formatted version of todays date |
+| date_day | string | Current day of the month |
+| date_month | string | Current month |
+| date_year | string | Current year |
+| WEB_ROOT | string | The web path to the WHMCS doc root |
+| BASE_PATH_CSS | string |  |
+| BASE_PATH_JS | string |  |
+| BASE_PATH_FONTS | string |  |
+| BASE_PATH_IMG | string |  |
+| token | string | CSRF token value |
+| servedOverSsl | bool | True if page was loaded via `https://` |
+
+#### Response
+
+A key/value pair array of additional template variables to define.
+
+#### Example Code
+
+```
+<?php
+add_hook('ClientAreaPageSupportTickets', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ClientAreaPageViewTicket
+
+Executes on the client area view ticket page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| companyname | string |  |
+| logo | string |  |
+| systemurl | string |  |
+| charset | string |  |
+| pagetitle | string |  |
+| filename | string |  |
+| template | string |  |
+| language | string |  |
+| LANG | array | Active language translation strings |
+| todaysdate | string | Human friendly formatted version of todays date |
+| date_day | string | Current day of the month |
+| date_month | string | Current month |
+| date_year | string | Current year |
+| WEB_ROOT | string | The web path to the WHMCS doc root |
+| BASE_PATH_CSS | string |  |
+| BASE_PATH_JS | string |  |
+| BASE_PATH_FONTS | string |  |
+| BASE_PATH_IMG | string |  |
+| token | string | CSRF token value |
+| servedOverSsl | bool | True if page was loaded via `https://` |
+
+#### Response
+
+A key/value pair array of additional template variables to define.
+
+#### Example Code
+
+```
+<?php
+add_hook('ClientAreaPageViewTicket', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -48,6 +187,32 @@ An array of knowledgebase article IDs.
 ```
 <?php
 add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketAddNote
+
+Executes when a ticket note is added.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| message | string |  |
+| adminid | int |  |
+| attachments | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketAddNote', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -155,6 +320,56 @@ add_hook('TicketDeleteReply', 1, function($vars) {
 });
 ```
 
+## TicketDepartmentChange
+
+Executes as a ticket department is changed
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| deptid | int |  |
+| deptname | int |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketDepartmentChange', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketFlagged
+
+Executes as a ticket is flagged
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| adminid | int |  |
+| adminname | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketFlagged', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## TicketOpen
 
 Executes when a ticket is opened by an end user.
@@ -241,15 +456,41 @@ add_hook('TicketPiping', 1, function($vars) {
 });
 ```
 
-## TicketStatusChange
+## TicketPriorityChange
+
+Executes when a ticket priority is changed
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| adminid | | |
-| status | | |
-| ticketid | | |
+| ticketid | int |  |
+| priority | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketPriorityChange', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketStatusChange
+
+Executes as a ticket status is changed.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| adminid | int |  |
+| status | string |  |
+| ticketid | int |  |
 
 #### Response
 
@@ -260,6 +501,30 @@ No response supported
 ```
 <?php
 add_hook('TicketStatusChange', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketSubjectChange
+
+Executes when a ticket subject is changed
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+| priority | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketSubjectChange', 1, function($vars) {
     // Perform hook code here...
 });
 ```

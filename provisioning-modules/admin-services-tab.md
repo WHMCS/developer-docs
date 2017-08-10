@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/module-logging"
 prev = "/provisioning-modules/client-area-output"
+next = "/provisioning-modules/admin-dashboard-widgets"
 title = "Admin Services Tab"
 toc = true
 weight = 90
@@ -25,7 +25,7 @@ The examples continues to update them in a custom table of the database via the 
 
 ```
 function mymodule_AdminServicesTabFields($params) {
- 
+
     $result = select_query(
         "mod_customtable",
         "",
@@ -36,7 +36,7 @@ function mymodule_AdminServicesTabFields($params) {
     $var2 = $data['var2'];
     $var3 = $data['var3'];
     $var4 = $data['var4'];
- 
+
     $fieldsarray = array(
      'Field 1' => '<input type="text" name="modulefields[0]" size="30" value="'.$var1.'" />',
      'Field 2' => '<select name="modulefields[1]"><option>Val1</option</select>',
@@ -44,9 +44,9 @@ function mymodule_AdminServicesTabFields($params) {
      'Field 4' => $var4, # Info Output Only
     );
     return $fieldsarray;
- 
+
 }
- 
+
 function mymodule_AdminServicesTabFieldsSave($params) {
     update_query("mod_customtable",array(
         "var1"=>$_POST['modulefields'][0],

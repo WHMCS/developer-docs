@@ -38,8 +38,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'CreateOAuthCredential',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'granttype' => 'single_sign_on',
             'scope' => 'clientarea:sso clientarea:billing_info clientarea:announcements',
             'serviceId' => '1',
@@ -63,7 +64,7 @@ $postData = array(
     'serviceId' => '1',
     'description' => 'Billing and Announcements SSO',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

@@ -1,5 +1,5 @@
 +++
-title = "GetClientsDomains"
+title = "GetClientsProducts"
 toc = true
 +++
 
@@ -9,7 +9,7 @@ Obtain a list of Client Purchased Products matching the provided criteria
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "GetClientsDomains" | Required |
+| action | string | "GetClientsProducts" | Required |
 | limitstart | int | The offset for the returned log data (default: 0) | Optional |
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | clientid | int | The client id to obtain the details for. | Optional |
@@ -42,11 +42,12 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'GetClientsDomains',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            'action' => 'GetClientsProducts',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
-            'stats' => 'true',
+            'stats' => true,
             'responsetype' => 'json',
         )
     )
@@ -59,12 +60,12 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'GetClientsDomains';
+$command = 'GetClientsProducts';
 $postData = array(
     'clientid' => '1',
-    'stats' => 'true',
+    'stats' => true,
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -77,50 +78,115 @@ print_r($results);
 {
     "result": "success",
     "clientid": "1",
-    "domainid": "",
-    "totalresults": "1",
-    "startnumber": "0",
-    "numreturned": "1",
-    "products[product][0][id]": "1",
-    "products[product][0][clientid]": "1",
-    "products[product][0][orderid]": "1",
-    "products[product][0][pid]": "1",
-    "products[product][0][regdate]": "2016-01-01",
-    "products[product][0][name]": "Intel Xeon Dual Core 2.3Ghz",
-    "products[product][0][translated_name]": "Intel Xeon Dual Core 2.3Ghz",
-    "products[product][0][groupname]": "Dedicated Servers",
-    "products[product][0][translated_groupname]": "Dedicated Servers",
-    "products[product][0][domain]": "whmcs.rocks",
-    "products[product][0][dedicatedip]": "",
-    "products[product][0][serverid]": "0",
-    "products[product][0][servername]": "",
-    "products[product][0][serverip]": "",
-    "products[product][0][serverhostname]": "",
-    "products[product][0][suspensionreason]": "",
-    "products[product][0][firstpaymentamount]": "174.00",
-    "products[product][0][recurringamount]": "174.00",
-    "products[product][0][paymentmethod]": "authorize",
-    "products[product][0][paymentmethodname]": "Credit Card",
-    "products[product][0][billingcycle]": "Monthly",
-    "products[product][0][nextduedate]": "2016-02-01",
-    "products[product][0][status]": "Active",
-    "products[product][0][username]": "",
-    "products[product][0][password]": "",
-    "products[product][0][subscriptionid]": "",
-    "products[product][0][promoid]": "0",
-    "products[product][0][overideautosuspend]": "0",
-    "products[product][0][overidesuspenduntil]": "0000-00-00",
-    "products[product][0][ns1]": "",
-    "products[product][0][ns2]": "",
-    "products[product][0][assignedips]": "",
-    "products[product][0][notes]": "",
-    "products[product][0][diskusage]": "0",
-    "products[product][0][disklimit]": "0",
-    "products[product][0][bwusage]": "0",
-    "products[product][0][bwlimit]": "0",
-    "products[product][0][lastupdate]": "0000-00-00 00:00:00",
-    "products[product][0][customfields][customfield]": "",
-    "products[product][0][configoptions][configoption]": ""
+    "serviceid": null,
+    "pid": null,
+    "domain": null,
+    "totalresults": "2",
+    "startnumber": 0,
+    "numreturned": 2,
+    "products": {
+        "product": [
+            {
+                "id": "1",
+                "clientid": "1",
+                "orderid": "1",
+                "pid": "1",
+                "regdate": "2015-01-01",
+                "name": "Starter",
+                "translated_name": "Starter",
+                "groupname": "Shared Hosting",
+                "translated_groupname": "Shared Hosting",
+                "domain": "demodomain.com",
+                "dedicatedip": "",
+                "serverid": "1",
+                "servername": "Saturn",
+                "serverip": "1.2.3.4",
+                "serverhostname": "saturn.example.com",
+                "suspensionreason": "",
+                "firstpaymentamount": "12.95",
+                "recurringamount": "12.95",
+                "paymentmethod": "authorize",
+                "paymentmethodname": "Credit Card",
+                "billingcycle": "Monthly",
+                "nextduedate": "2016-11-25",
+                "status": "Terminated",
+                "username": "demodoma",
+                "password": "xxxxxxxx",
+                "subscriptionid": "",
+                "promoid": "0",
+                "overideautosuspend": "",
+                "overidesuspenduntil": "0000-00-00",
+                "ns1": "",
+                "ns2": "",
+                "assignedips": "",
+                "notes": "",
+                "diskusage": "0",
+                "disklimit": "0",
+                "bwusage": "0",
+                "bwlimit": "0",
+                "lastupdate": "0000-00-00 00:00:00",
+                "customfields": {
+                    "customfield": []
+                },
+                "configoptions": {
+                    "configoption": []
+                }
+            },
+            {
+                "id": "2",
+                "clientid": "1",
+                "orderid": "2",
+                "pid": "3",
+                "regdate": "2015-05-20",
+                "name": "Plus",
+                "translated_name": "Plus",
+                "groupname": "Shared Hosting",
+                "translated_groupname": "Shared Hosting",
+                "domain": "demodomain2.net",
+                "dedicatedip": "",
+                "serverid": "2",
+                "servername": "Pluto",
+                "serverip": "2.3.4.5",
+                "serverhostname": "pluto.example.com",
+                "suspensionreason": "",
+                "firstpaymentamount": "24.95",
+                "recurringamount": "24.95",
+                "paymentmethod": "paypal",
+                "paymentmethodname": "PayPal",
+                "billingcycle": "Monthly",
+                "nextduedate": "2017-01-20",
+                "status": "Active",
+                "username": "demodom2",
+                "password": "xxxxxxxx",
+                "subscriptionid": "",
+                "promoid": "0",
+                "overideautosuspend": "",
+                "overidesuspenduntil": "0000-00-00",
+                "ns1": "",
+                "ns2": "",
+                "assignedips": "",
+                "notes": "",
+                "diskusage": "0",
+                "disklimit": "0",
+                "bwusage": "0",
+                "bwlimit": "0",
+                "lastupdate": "0000-00-00 00:00:00",
+                "customfields": {
+                    "customfield": []
+                },
+                "configoptions": {
+                    "configoption": [
+                        {
+                            "id": "1",
+                            "option": "Sample Config Option",
+                            "type": "dropdown",
+                            "value": "Selected option value"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }
 ```
 

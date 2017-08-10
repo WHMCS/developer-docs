@@ -6,55 +6,16 @@ weight = 10
 
 The following hooks are provided for Everything Else related events.
 
-## AdminAreaPage
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-|  $hookvars | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminAreaPage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AdminHomepage
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminHomepage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AffiliateActivation
 
+Executes as an affiliate is being activated.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affid | | |
-| userid | | |
+| affid | int | The new unique id for the affiliate (tblaffiliates). |
+| userid | int |  |
 
 #### Response
 
@@ -71,11 +32,13 @@ add_hook('AffiliateActivation', 1, function($vars) {
 
 ## AffiliateClickthru
 
+Executes when a user has clicked an affiliate referral link.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affiliateId | | |
+| affiliateId | int | The unique id of the affiliate that the link belongs to |
 
 #### Response
 
@@ -92,63 +55,94 @@ add_hook('AffiliateClickthru', 1, function($vars) {
 
 ## AffiliateCommission
 
+Executes as affiliate commission is being applied to an affiliate to clear later.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affiliateId | | |
-| referralId | | |
-| serviceId | | |
-| commissionAmount | | |
-| commissionDelayed | | |
-| clearingDate | | |
-| payout | | |
-| message | | |
+| affiliateId | int |  |
+| referralId | int | The id of the referral |
+| serviceId | int | The id of the referred service |
+| commissionAmount | float | The amount of commission to be appplied |
+| commissionDelayed | bool | Will the commission be delayed |
+| clearingDate | null|string | The date the commission will apply |
+| payout | bool | Will this commission be applied to the affiliate commissions |
+| message | string | The reason commission will not be applied if `payout` is false |
 
 #### Response
 
-No response supported
+Return boolean values to override 'skipCommission' or 'payout'.
 
 #### Example Code
 
 ```
 <?php
+
+//Skip applying the commission for affiliate 2
 add_hook('AffiliateCommission', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['affiliateId'] == 2) {
+        $return['skipCommission'] = true;
+    }
+    return $return;
+});
+
+
+//Ensure commission is applied for affiliate 3
+add_hook('AffiliateCommission', 1, function($vars) {
+    $return = [];
+
+    if ($vars['affiliateId'] == 3) {
+        $return['payout'] = true;
+    }
+    return $return;
 });
 ```
 
 ## AffiliateWithdrawalRequest
 
+Executes when an affiliate withdrawal request is submitted.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affiliateId | | |
-| userId | | |
-| contactId | | |
-| balance | | |
+| affiliateId | int | The unique id of the affiliate making the request |
+| userId | int | The user id of the user making the request |
+| contactId | int | The contact id of the user making the request if logged in as a sub-account |
+| balance | float | The amount of commission the withdrawal request is for |
 
 #### Response
 
-No response supported
+Use the return to skip creating a ticket. Return a boolean value of skipTicket.
 
 #### Example Code
 
 ```
 <?php
+
+//Do not open a ticket for affiliate 2
 add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+    if ($vars['affiliateId'] == 2) {
+        $return['skipTicket'] = true;
+    }
+
+    return $return;
 });
 ```
 
 ## AfterConfigOptionsUpgrade
 
+Executes after a product configurable options upgrade has been processed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| upgradeid | | |
+| upgradeid | int |  |
 
 #### Response
 
@@ -165,17 +159,19 @@ add_hook('AfterConfigOptionsUpgrade', 1, function($vars) {
 
 ## CCUpdate
 
+Executes after CC details have been stored for a client or the remote storage functions completed.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | | |
-| cardtype | | |
-| cardnum | | |
-| cardcvv | | |
-| expdate | | |
-| cardstart | | |
-| issuenumber | | |
+| userid | int |  |
+| cardtype | string |  |
+| cardnum | string | Only if stored locally |
+| cardcvv | string |  |
+| expdate | string |  |
+| cardstart | string |  |
+| cardissue | string |  |
 
 #### Response
 
@@ -192,14 +188,16 @@ add_hook('CCUpdate', 1, function($vars) {
 
 ## CalcAffiliateCommission
 
+Executes as the amount of commission is being calculated
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| affid | | |
-| relid | | |
-| amount | | |
-| commission | | |
+| affid | int |  |
+| relid | int | The id of the referred service |
+| amount | float | The amount the commission is being calculated on |
+| commission | float |  |
 
 #### Response
 
@@ -216,162 +214,241 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 
 ## CustomFieldLoad
 
+Executes when custom fields are being loaded
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| fieldid | | |
-| relid | | |
-| value | | |
+| fieldid | int |  |
+| relid | int | The related id for the field type. |
+| value | string |  |
 
 #### Response
 
-No response supported
+Override the value of the custom field returning the "value" key.
 
 #### Example Code
 
 ```
 <?php
+
 add_hook('CustomFieldLoad', 1, function($vars) {
-    // Perform hook code here...
+    return array('value' => 'overridden value',);
 });
 ```
 
 ## CustomFieldSave
 
+Executes when custom fields are being saved
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| fieldid | | |
-| relid | | |
-| value | | |
+| fieldid | int |  |
+| relid | int | The related id for the field type. |
+| value | string |  |
 
 #### Response
 
-No response supported
+Override the value of the custom field returning the "value" key.
 
 #### Example Code
 
 ```
 <?php
+
 add_hook('CustomFieldSave', 1, function($vars) {
-    // Perform hook code here...
+    return array('value' => 'overridden value',);
 });
 ```
 
 ## EmailPreLog
 
+Runs prior to email being logged.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $emailData | | |
+| userid | int |  |
+| date | string | Can be 'now()' or a specific timestamp |
+| to | string | Comma separated list of recipients |
+| cc | string | Comma separated list of CC recipients |
+| bcc | string | Comma separated list of BCC recipients |
+| subject | string |  |
+| message | string |  |
 
 #### Response
 
-No response supported
+Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return `abortLogging` to abort logging of the email.
 
 #### Example Code
 
 ```
 <?php
+
+//Do not log emails for userid 2
 add_hook('EmailPreLog', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['userid'] == 2) {
+        $return['abortLogging'] = true;
+    }
+
+    return $return;
+});
+
+//Override the saved subject of the email for userid 3
+add_hook('EmailPreLog', 1, function($vars) {
+    $return = [];
+
+    if ($vars['userid'] == 3) {
+        $return['subject'] = 'This subject is overridden';
+    }
+
+    return $return;
 });
 ```
 
 ## EmailPreSend
 
+Runs prior to a client email being sent.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| messagename | | |
-| relid | | |
+| messagename | string | The name of the email template being sent |
+| relid | int | The related entity ID for the email being sent |
 
 #### Response
 
-No response supported
+An array of key/value pairs to be made available as additional email template merged fields. To abort the sending, return the key/value pair `abortsend=true`
 
 #### Example Code
 
 ```
 <?php
+
 add_hook('EmailPreSend', 1, function($vars) {
-    // Perform hook code here...
+    $merge_fields = [];
+    $merge_fields['my_custom_var'] = "My Custom Var";
+    $merge_fields['my_custom_var2'] = "My Custom Var2";
+    if ($vars['messagename'] =='My Message Name' && $vars['relid'] == 2) {
+        //Stop the email from sending a specific message and related id.
+        $merge_fields['abortsend'] = true;
+    }
+    return $merge_fields;
 });
 ```
 
 ## EmailTplMergeFields
 
+Executes when editing an email template.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| type | | |
+| type | string | The type of email template being edited. |
 
 #### Response
 
-No response supported
+an Array of key -> value pairs of merge fields
 
 #### Example Code
 
 ```
 <?php
+
+//Output additional merge fields in the list when editing an email template
 add_hook('EmailTplMergeFields', 1, function($vars) {
-    // Perform hook code here...
+    $merge_fields = [];
+    $merge_fields['my_custom_var'] = "My Custom Var";
+    $merge_fields['my_custom_var2'] = "My Custom Var2";
+    return $merge_fields;
 });
 ```
 
 ## FetchCurrencyExchangeRates
 
+Executes when updating currency exchange rates. All supported automatic update currencies are retured
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  $exchrate | | |
+| USD | float |  |
+| GBP | float |  |
 
 #### Response
 
-No response supported
+An array of key -> value pairs to define or override additional exchange rates. The rate should be appropriate to the EUR currency.
 
 #### Example Code
 
 ```
 <?php
+
+//Return an exchange rate for the XBT currency
 add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
-    // Perform hook code here...
+    //Code here to fetch the the current exchange rate relative to EUR
+
+    //Return exchange rate relative to 1 EUR
+    return ['XBT' => 927.121,];
 });
 ```
 
 ## IntelligentSearch
 
+Executes as the Intelligent Search is being completed
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| searchTerm | string |  |
 
 #### Response
 
-No response supported
+An array of additional responses to be appended to the search results.
 
 #### Example Code
 
 ```
-<?php
 add_hook('IntelligentSearch', 1, function($vars) {
-    // Perform hook code here...
+    $searchResults = array();
+
+    // look for matches in client notes field
+    $result = select_query(
+        'tblclients',
+        'id,firstname,lastname,email',
+        array('notes' => $vars['searchTerm'])
+    );
+    while ($data = mysql_fetch_array($result)) {
+        $searchResults[] = '<div class="searchresult">
+            <a href="clientssummary.php?userid=' . $data['id'] . '">
+                <strong>' . $data['firstname'] . ' ' . $data['lastname'] . '</strong>
+                #' . $data['id'] . '<br />
+                <span class="desc">' . $data['email'] . '</span>
+            </a>
+        </div>';
+    }
+    return $searchResults;
 });
 ```
 
 ## LinkTracker
 
+Executes when a link.php link is being used.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| linkid | | |
+| linkid | int | The id of the link being followed |
 
 #### Response
 
@@ -388,14 +465,16 @@ add_hook('LinkTracker', 1, function($vars) {
 
 ## LogActivity
 
+Executes after an activity log entry has been created.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| description | | |
-| user | | |
-| userid | | |
-| ipaddress | | |
+| description | string |  |
+| user | string |  |
+| userid | int |  |
+| ipaddress | string |  |
 
 #### Response
 
@@ -410,13 +489,39 @@ add_hook('LogActivity', 1, function($vars) {
 });
 ```
 
-## PreAutomationTask
+## PostAutomationTask
+
+Executes after an automation task occurs
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| task | | |
+| task | \Collection |  |
+| completed | bool |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PostAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreAutomationTask
+
+Executes before an automation task occurs
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| task | \Collection |  |
 
 #### Response
 
@@ -427,6 +532,76 @@ No response supported
 ```
 <?php
 add_hook('PreAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PremiumPriceOverride
+
+Executes when searching for a premium domain. The return can alter the registration & renewal costs, stop the domain being available for purchase or force the client to contact support.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainName | string |  |
+| tld | string | eg com in whmcs.com |
+| sld | string | eg whmcs in whmcs.com |
+| register | float | If a registration, the registration price of the premium domain |
+| transfer | float | If a transfer, the transfer price of the premium domain |
+| renew | float | The renewal price of the premium domain |
+
+#### Response
+
+Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages
+
+#### Example Code
+
+```
+<?php
+
+//Stop the Domain Purchase for this Premium Domain
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return ['noSale' => true,];
+});
+
+//Force the Client to Contact Support to Purchase Domain
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return ['contactUs' => true,];
+});
+
+//Override the Register and Renew Pricing & Skip Markup Application
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return [
+        'register' => 150.00,
+        'renew' => 200.00,
+        'skipMarkup' => true,
+    ];
+});
+```
+
+## PremiumPriceRecalculationOverride
+
+Executes when a premium domain price is being automatically recalculated.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainName | string | The full domain name |
+| tld | string | The tld of the domain eg com in whmcs.com |
+| sld | string | The sld of the domain eg whmcs in whmcs.com |
+| renew | float | The current renewal cost of the domain before any applied markup. |
+
+#### Response
+
+Return is accepted to override the renewal price or skip applying markup. eg: return array('renew' => 50.00, 'skipMarkup' => true);
+
+#### Example Code
+
+```
+<?php
+add_hook('PremiumPriceRecalculationOverride', 1, function($vars) {
     // Perform hook code here...
 });
 ```

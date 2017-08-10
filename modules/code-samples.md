@@ -1,5 +1,5 @@
 +++
-next = "/modules/marketplace/"
+next = "/modules/style-guide/"
 prev = "/modules/getting-started/"
 title = "Code Samples"
 weight = 20

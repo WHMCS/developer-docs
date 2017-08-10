@@ -42,8 +42,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'UpdateTicket',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'ticketid' => '1',
             'subject' => 'This is a sample updated ticket subject',
             'clientid' => '1',
@@ -65,7 +66,7 @@ $postData = array(
     'subject' => 'This is a sample updated ticket subject',
     'clientid' => '1',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

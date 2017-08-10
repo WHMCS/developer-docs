@@ -1,5 +1,5 @@
 +++
-title = "SendAdminEmail"
+title = "SendEmail"
 toc = true
 +++
 
@@ -9,7 +9,7 @@ Send a client Email Notification
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "SendAdminEmail" | Required |
+| action | string | "SendEmail" | Required |
 | messagename | string | The name of the client email template to send | Optional |
 | id | int | The related id for the type of email template. Eg this should be the client id for a general type email | Optional |
 | customtype | string | The type of custom email template to send ('general', 'product', 'domain', 'invoice', 'support', 'affiliate') | Optional |
@@ -33,9 +33,10 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'SendAdminEmail',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            'action' => 'SendEmail',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'messagename' => 'Client Signup Email',
             'id' => '1',
             'responsetype' => 'json',
@@ -50,12 +51,12 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'SendAdminEmail';
+$command = 'SendEmail';
 $postData = array(
     'messagename' => 'Client Signup Email',
     'id' => '1',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

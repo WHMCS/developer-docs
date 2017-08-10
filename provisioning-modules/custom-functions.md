@@ -1,6 +1,6 @@
 +++
-next = "/provisioning-modules/client-area-output"
 prev = "/provisioning-modules/usage-update"
+next = "/provisioning-modules/client-area-output"
 title = "Custom Functions"
 toc = true
 weight = 70
@@ -22,7 +22,7 @@ Let’s take an example of a reboot & shutdown function in a VM/VPS system.
 
 ```
 function mymodule_reboot($params) {
- 
+
 	# Code to perform reboot action goes here...
 
     if ($successful) {
@@ -31,11 +31,11 @@ function mymodule_reboot($params) {
 		$result = "Error Message Goes Here...";
 	}
 	return $result;
- 
+
 }
- 
+
 function mymodule_shutdown($params) {
- 
+
 	# Code to perform shutdown action goes here...
 
     if ($successful) {
@@ -44,7 +44,7 @@ function mymodule_shutdown($params) {
 		$result = "Error Message Goes Here...";
 	}
 	return $result;
- 
+
 }
 ```
 
@@ -59,7 +59,7 @@ function mymodule_ClientAreaCustomButtonArray() {
 	);
 	return $buttonarray;
 }
- 
+
 function mymodule_AdminCustomButtonArray() {
     $buttonarray = array(
 	 "Reboot Server" => "reboot",

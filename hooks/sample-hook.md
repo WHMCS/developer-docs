@@ -1,5 +1,5 @@
 +++
-next = "/hooks/reference"
+next = "/hooks/hook-index"
 prev = "/hooks/module-hooks"
 title = "Sample Hook"
 toc = true
@@ -32,5 +32,5 @@ add_hook('ClientAdd', 1, function ($vars)
 ```
 
 {{% notice note %}}
-For a full list of available hooks, please refer to the [Hooks Reference](/hooks-reference/).
+For a full list of available hooks, please refer to the [Hooks Index](/hooks/hook-index/).
 {{% /notice %}}

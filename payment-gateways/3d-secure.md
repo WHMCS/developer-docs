@@ -1,6 +1,6 @@
 +++
-next = "/gateway-modules/tokenised-remote-storage"
-prev = "/gateway-modules/callbacks"
+next = "/payment-gateways/tokenised-remote-storage"
+prev = "/payment-gateways/callbacks"
 title = "3D Secure Process"
 toc = true
 weight = 50
@@ -16,7 +16,7 @@ An example of this is below:
 The **_3dsecure** function is passed all the same [variables][variables] that the **_capture** function is.
 The return url should be a [callback file][callbacks] to handle the response.
 
-## Example Function <a id="example-function"></a>
+## Example Function
 
 ```
 <?php
@@ -49,13 +49,5 @@ transaction.</div>
 }
 ```
 
-
-
-
-
-
-
-
-
-[callbacks]: /gateway-modules/callbacks "Callback Files"
-[variables]: /gateway-modules/merchant-gateways#variables "Merchant Gateway Variables"
+[callbacks]: /payment-gateways/callbacks "Callback Files"
+[variables]: /payment-gateways/merchant-gateway#variables "Merchant Gateway Variables"

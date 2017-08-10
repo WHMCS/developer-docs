@@ -1,5 +1,5 @@
 +++
-next = "/hooks/sample"
+next = "/hooks/sample-hook"
 prev = "/hooks/priority"
 title = "Module Hooks"
 toc = true

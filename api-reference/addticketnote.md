@@ -13,7 +13,7 @@ Add a note to a ticket by Ticket ID or Ticket Number.
 | message | string | The content of the ticket note | Required |
 | ticketnum | string | The Client Ticket Number ID to apply the note to | Optional |
 | ticketid | int | The id of the ticket in the database. Either $ticketnum or $ticketid is required | Optional |
-| useMarkdown | bool | Should markdown be used on the ticket note output | Optional |
+| markdown | bool | Should markdown be used on the ticket note output | Optional |
 
 ### Response Parameters
 
@@ -32,11 +32,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' => 'AddTicketNote',
-            'username' => 'ADMIN_USERNAME',
-            'password' => 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' => 'SECRET_OR_HASHED_PASSWORD',
             'ticketid' => '1',
             'message' => 'This is a sample ticket note',
-            'useMarkdown' => 'true',
+            'markdown' => true,
             'responsetype' => 'json',
         )
     )
@@ -53,9 +54,9 @@ $command = 'AddTicketNote';
 $postData = array(
     'ticketid' => '1',
     'message' => 'This is a sample ticket note',
-    'useMarkdown' => 'true',
+    'markdown' => true,
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

@@ -6,13 +6,39 @@ weight = 10
 
 The following hooks are provided for Invoices and Quotes related events.
 
-## AddInvoiceLateFee
+## AcceptQuote
+
+Executes when a client is accepting a quote.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| quoteid | int | The id of the quote being accepted. |
+| invoiceid | int | The id of the invoice created for the quote (if applicable). |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AcceptQuote', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AddInvoiceLateFee
+
+Executes when a late fee has been added to an invoice
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| invoiceid | int |  |
 
 #### Response
 
@@ -85,28 +111,6 @@ add_hook('AddTransaction', 1, function($vars) {
 });
 ```
 
-## AdminAreaViewQuotePage
-
-Run this hook before we create the quote below. This has been done to keep the original hook running order.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AdminAreaViewQuotePage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AfterInvoicingGenerateInvoiceItems
 
 Executes after invoice generation allowing for after invoicing clean-up.
@@ -115,6 +119,7 @@ Executes after invoice generation allowing for after invoicing clean-up.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -131,11 +136,13 @@ add_hook('AfterInvoicingGenerateInvoiceItems', 1, function($vars) {
 
 ## InvoiceCancelled
 
+Executes when an invoice is being cancelled
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -152,12 +159,14 @@ add_hook('InvoiceCancelled', 1, function($vars) {
 
 ## InvoiceChangeGateway
 
+Executes when changing the gateway on an invoice if the client area.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
-| paymentmethod | | |
+| invoiceid | int | The id of the invoice being updated. |
+| paymentmethod | string | The new payment method selected. |
 
 #### Response
 
@@ -220,32 +229,6 @@ No response supported
 ```
 <?php
 add_hook('InvoiceCreation', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## InvoiceCreationAdminArea
-
-Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('InvoiceCreationAdminArea', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -322,6 +305,30 @@ add_hook('InvoicePaidPreEmail', 1, function($vars) {
 });
 ```
 
+## InvoicePaymentReminder
+
+Executes when an invoice payment reminder is sent
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| invoiceid | int |  |
+| type | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('InvoicePaymentReminder', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## InvoiceRefunded
 
 Executes when an invoice status is changed to Refunded.
@@ -347,12 +354,14 @@ add_hook('InvoiceRefunded', 1, function($vars) {
 
 ## InvoiceSplit
 
+Executes as an invoice is being split
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| originalinvoiceid | | |
-| newinvoiceid | | |
+| originalinvoiceid | int | The id of the original invoice |
+| newinvoiceid | int | The id of the new invoice |
 
 #### Response
 
@@ -369,11 +378,13 @@ add_hook('InvoiceSplit', 1, function($vars) {
 
 ## InvoiceUnpaid
 
+Executes when an invoice is being marked as Unpaid
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -445,6 +456,7 @@ Executes prior to invoice generation allowing for manipulation of items prior to
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
+| No input parameters for this hook point. |
 
 #### Response
 
@@ -461,12 +473,14 @@ add_hook('PreInvoicingGenerateInvoiceItems', 1, function($vars) {
 
 ## QuoteCreated
 
+Executes when a new quote is created.
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| quoteid | | |
-| status | | |
+| quoteid | int |  |
+| status | string |  |
 
 #### Response
 
@@ -483,12 +497,14 @@ add_hook('QuoteCreated', 1, function($vars) {
 
 ## QuoteStatusChange
 
+Executes when a quote status is updated
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| quoteid | | |
-| status | | |
+| quoteid | int |  |
+| status | string |  |
 
 #### Response
 
@@ -528,11 +544,13 @@ add_hook('UpdateInvoiceTotal', 1, function($vars) {
 
 ## ViewInvoiceDetailsPage
 
+Executes as the invoice is being viewed as a client
+
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | | |
+| invoiceid | int |  |
 
 #### Response
 
@@ -543,28 +561,6 @@ No response supported
 ```
 <?php
 add_hook('ViewInvoiceDetailsPage', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## acceptQuote
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| quoteid | | |
-| invoiceid | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('acceptQuote', 1, function($vars) {
     // Perform hook code here...
 });
 ```
