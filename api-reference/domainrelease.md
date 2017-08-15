@@ -12,8 +12,8 @@ Connects to the registrar and attempts to release the domain.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainRelease" | Required |
-| domainid | int | The id of the domain to obtain the whois information for *recommended* | Optional |
-| domain | string | The domain name to be registered. This or $domainid is required | Optional |
+| domainid | int | The id of the domain to be released *recommended* | Optional |
+| domain | string | The domain name to be released. This or $domainid is required | Optional |
 | newtag | string | The receiving tag for the domain | Required |
 
 ### Response Parameters

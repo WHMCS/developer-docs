@@ -12,7 +12,7 @@ Connects to the registrar and attempts to toggle the ID Protect state
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainToggleIdProtect" | Required |
-| domainid | int | The id of the domain to obtain the whois information for | Required |
+| domainid | int | The id of the domain to toggle ID Protection for | Required |
 | idprotect | bool | Should ID Protection be turned on | Optional |
 
 ### Response Parameters

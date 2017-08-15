@@ -12,7 +12,7 @@ Connects to the registrar and attempts to register the domain.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainRegister" | Required |
-| domainid | int | The id of the domain to obtain the whois information for *recommended* | Optional |
+| domainid | int | The id of the domain to register *recommended* | Optional |
 | domain | string | The domain name to be registered. This or $domainid is required | Optional |
 
 ### Response Parameters

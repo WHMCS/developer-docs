@@ -12,8 +12,8 @@ Connects to the registrar and attempts to start the transfer process.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainTransfer" | Required |
-| domainid | int | The id of the domain to obtain the whois information for *recommended* | Optional |
-| domain | string | The domain name to be registered. This or $domainid is required | Optional |
+| domainid | int | The id of the domain to be transferred *recommended* | Optional |
+| domain | string | The domain name to be transferred. This or $domainid is required | Optional |
 | eppcode | int | Provide a new EPP Code for the Transfer Request | Optional |
 
 ### Response Parameters

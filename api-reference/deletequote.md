@@ -1,5 +1,5 @@
 +++
-title = "DeleteProjectTask"
+title = "DeleteQuote"
 toc = true
 +++
 
@@ -11,16 +11,15 @@ Removes a quote from the system. This cannot be undone
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "DeleteProjectTask" | Required |
+| action | string | "DeleteQuote" | Required |
 | quoteid | int | The quote id to be deleted | Required |
-| taskid | int | The task to be deleted | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| message | string | Task has been deleted |
+| result | string | success |
 
 
 ### Example Request (CURL)
@@ -32,11 +31,11 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'DeleteProjectTask',
+            'action' => 'DeleteQuote',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'orderid' => '1',
+            'quoteid' => '1',
             'responsetype' => 'json',
         )
     )
@@ -49,9 +48,9 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'DeleteProjectTask';
+$command = 'DeleteQuote';
 $postData = array(
-    'orderid' => '1',
+    'quoteid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -64,8 +63,7 @@ print_r($results);
 
 ```
 {
-    "result": "success",
-    "message": "Task has been deleted"
+    "result": "error"
 }
 ```
 
@@ -74,10 +72,7 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Project ID is Required
-* Task ID is Required
-* Project ID Not Found
-* Task ID Not Found
+* Quote ID Not Found
 
 
 ### Version History

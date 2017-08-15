@@ -12,7 +12,7 @@ Connects to the registrar and attempts to update the lock
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainUpdateLockingStatus" | Required |
-| domainid | int | The id of the domain to obtain the whois information for | Required |
+| domainid | int | The id of the domain to update the locking status for | Required |
 | lockstatus | bool | Should the domain lock be turned on | Optional |
 
 ### Response Parameters

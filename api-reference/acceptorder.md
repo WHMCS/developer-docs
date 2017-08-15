@@ -41,8 +41,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'orderid' => '1',
             'registrar' => 'enom',
-            'autosetup' => true,
-            'sendemail' => true,
+            'autosetup' => '1',
+            'sendemail' => '1',
             'responsetype' => 'json',
         )
     )
@@ -59,8 +59,8 @@ $command = 'AcceptOrder';
 $postData = array(
     'orderid' => '1',
     'registrar' => 'enom',
-    'autosetup' => true,
-    'sendemail' => true,
+    'autosetup' => '1',
+    'sendemail' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

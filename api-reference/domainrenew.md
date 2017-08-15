@@ -12,8 +12,8 @@ Connects to the registrar and attempts to renew the domain.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainRenew" | Required |
-| domainid | int | The id of the domain to obtain the whois information for *recommended* | Optional |
-| domain | string | The domain name to be registered. This or $domainid is required | Optional |
+| domainid | int | The id of the domain to be renewed *recommended* | Optional |
+| domain | string | The domain name to be renewed. This or $domainid is required | Optional |
 | regperiod | int | How long to renew the domain for. Defaults to the current stored value. | Optional |
 
 ### Response Parameters

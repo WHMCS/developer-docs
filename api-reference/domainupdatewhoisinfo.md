@@ -12,7 +12,7 @@ Connects to the registrar and attempts to update the WHOIS Information
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainUpdateWhoisInfo" | Required |
-| domainid | int | The id of the domain to obtain the whois information for | Required |
+| domainid | int | The id of the domain to update the whois information for | Required |
 | xml | string | The xml of the details to update. See DomainGetWhoisInfo | Required |
 
 ### Response Parameters

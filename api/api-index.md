@@ -31,6 +31,7 @@ weight = 100
 <li> <a href="/api-reference/capturepayment/">CapturePayment</a>
 <li> <a href="/api-reference/createinvoice/">CreateInvoice</a>
 <li> <a href="/api-reference/createquote/">CreateQuote</a>
+<li> <a href="/api-reference/deletequote/">DeleteQuote</a>
 <li> <a href="/api-reference/geninvoices/">GenInvoices</a>
 <li> <a href="/api-reference/getcredits/">GetCredits</a>
 <li> <a href="/api-reference/getinvoice/">GetInvoice</a>
@@ -118,12 +119,10 @@ weight = 100
 <li> <a href="/api-reference/addprojecttask/">AddProjectTask</a>
 <li> <a href="/api-reference/createproject/">CreateProject</a>
 <li> <a href="/api-reference/deleteprojecttask/">DeleteProjectTask</a>
-<li> <a href="/api-reference/deletequote/">DeleteProjectTask</a>
 <li> <a href="/api-reference/endtasktimer/">EndTaskTimer</a>
-<li> <a href="/api-reference/starttasktimer/">StartTaskTimer</a>
 <li> <a href="/api-reference/getproject/">GetProject</a>
 <li> <a href="/api-reference/getprojects/">GetProjects</a>
-<li> <a href="/api-reference/starttasktimer/">EndTaskTimer</a>
+<li> <a href="/api-reference/starttasktimer/">StartTaskTimer</a>
 <li> <a href="/api-reference/updateproject/">UpdateProject</a>
 <li> <a href="/api-reference/updateprojecttask/">UpdateProjectTask</a>
 </ul>
@@ -155,6 +154,7 @@ weight = 100
 <li> <a href="/api-reference/domainupdatenameservers/">DomainUpdateNameservers</a>
 <li> <a href="/api-reference/domainupdatewhoisinfo/">DomainUpdateWhoisInfo</a>
 <li> <a href="/api-reference/domainwhois/">DomainWhois</a>
+<li> <a href="/api-reference/gettldpricing/">GetTLDPricing</a>
 <li> <a href="/api-reference/updateclientdomain/">UpdateClientDomain</a>
 </ul>
 <h3>Servers</h3>

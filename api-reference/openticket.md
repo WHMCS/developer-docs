@@ -21,7 +21,7 @@ Open a new ticket
 | serviceid | int | The service to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | domainid | int | The domain to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | admin | bool | Is an Admin opening the ticket | Optional |
-| useMarkdown | bool | Should markdown be used on the ticket output | Optional |
+| markdown | bool | Should markdown be used on the ticket output | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
 
 ### Response Parameters
@@ -49,7 +49,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'message' => 'This is a **sample** ticket message',
             'clientid' => '1',
             'priority' => 'Medium',
-            'useMarkdown' => true,
+            'markdown' => true,
             'responsetype' => 'json',
         )
     )
@@ -69,7 +69,7 @@ $postData = array(
     'message' => 'This is a **sample** ticket message',
     'clientid' => '1',
     'priority' => 'Medium',
-    'useMarkdown' => true,
+    'markdown' => true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
