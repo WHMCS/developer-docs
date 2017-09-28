@@ -42,6 +42,8 @@ Config Options are set on a per product basis.
 Supplied as a numbered list: $params\[‘configoption1’], $params\[‘configoption2’], etc.
 Defined by the order specified in the ConfigOptions function of the module.
 
+**Note:** Every module function except the \_ConfigOptions function receives the $params array. The \_ConfigOptions function is unique because it is the only function that is not called in relation to a specific client instance of a product or service.
+
 ## Custom Fields & Configurable Options <a id="custom-fields-configurable-options"></a>
 
 Values from any custom fields & configurable options are passed into modules as parameters.
