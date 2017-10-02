@@ -38,10 +38,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'messagename' => 'Service Unsuspension Successful',
-            'mergefields[client_id]' => '1',
-            'mergefields[service_id]' => '1',
-            'mergefields[service_product]' => 'This is a product',
-            'mergefields[service_domain]' => 'sampledomain.com',
+            'mergefields' => array(
+                'client_id' => 1,
+                'service_id' => 1,
+                'service_product' => 'This is a product',
+                'service_domain' => sampledomain.com
+            ),
             'responsetype' => 'json',
         )
     )
@@ -57,10 +59,12 @@ curl_close($ch);
 $command = 'SendAdminEmail';
 $postData = array(
     'messagename' => 'Service Unsuspension Successful',
-    'mergefields[client_id]' => '1',
-    'mergefields[service_id]' => '1',
-    'mergefields[service_product]' => 'This is a product',
-    'mergefields[service_domain]' => 'sampledomain.com',
+    'mergefields' => array(
+        'client_id' => 1,
+        'service_id' => 1,
+        'service_product' => 'This is a product',
+        'service_domain' => sampledomain.com
+    )
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
