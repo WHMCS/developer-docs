@@ -15,6 +15,7 @@ Executes when a client is logging into the Client Area.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userid | int |  |
+| contactid| int | optional|
 
 #### Response
 
