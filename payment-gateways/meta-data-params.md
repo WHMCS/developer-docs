@@ -1,6 +1,6 @@
 +++
-prev = "/provisioning-modules/getting-started"
-next = "/provisioning-modules/configuration"
+prev = "/payment-gateways/getting-started"
+next = "/payment-gateways/configuration"
 title = "Meta Data Parameters"
 toc = true
 weight = 15
