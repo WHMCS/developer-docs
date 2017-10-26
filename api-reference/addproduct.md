@@ -64,10 +64,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'name' => 'Sample Product',
             'welcomeemail' => '5',
             'paytype' => 'recurring',
-            'pricing[1][monthly]' => '5.00',
-            'pricing[1][annually]' => '50.00',
-            'pricing[2][monthly]' => '8.00',
-            'pricing[2][annually]' => '80.00',
+            'pricing' => array(2 => array('monthly' => 8.00, 'annually' => 80.00)),
             'responsetype' => 'json',
         )
     )
@@ -87,10 +84,7 @@ $postData = array(
     'name' => 'Sample Product',
     'welcomeemail' => '5',
     'paytype' => 'recurring',
-    'pricing[1][monthly]' => '5.00',
-    'pricing[1][annually]' => '50.00',
-    'pricing[2][monthly]' => '8.00',
-    'pricing[2][annually]' => '80.00',
+    'pricing' => array(2 => array('monthly' => 8.00, 'annually' => 80.00)),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

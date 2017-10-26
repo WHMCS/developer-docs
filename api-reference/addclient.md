@@ -64,7 +64,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'email' => 'john.doe@example.com',
             'address1' => '123 Main Street',
             'city' => 'Anytown',
-            'state' => 'ST',
+            'state' => 'State',
             'postcode' => '12345',
             'country' => 'US',
             'phonenumber' => '800-555-1234',
@@ -92,7 +92,7 @@ $postData = array(
     'email' => 'john.doe@example.com',
     'address1' => '123 Main Street',
     'city' => 'Anytown',
-    'state' => 'ST',
+    'state' => 'State',
     'postcode' => '12345',
     'country' => 'US',
     'phonenumber' => '800-555-1234',
@@ -135,6 +135,7 @@ Possible error condition responses include:
 * You did not enter your country
 * You did not enter your phone number
 * Invalid telephone phone number
+* You did not provide required custom field value for
 
 
 ### Version History

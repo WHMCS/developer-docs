@@ -15,7 +15,7 @@ Updates a project
 | userid | int | The user that the project is for | Optional |
 | status | string | The status of the project as defined in Project Management Settings | Optional |
 | created | \Carbon\Carbon | The created date of the project in Y-m-d format | Optional |
-| duedate | \Carbon\Carbon | The duedate date of the project in Y-m-d format | Optional |
+| duedate | \Carbon\Carbon | The due date of the project in Y-m-d format | Optional |
 | completed | bool | Is the project completed | Optional |
 | title | string | The title of the project | Optional |
 | ticketids | string | A comma separated list of ticket IDs to associate with the project | Optional |
@@ -83,7 +83,7 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Project ID Not SET
+* Project ID Not Set
 * Project ID Not Found
 * Client ID Not Found
 * Admin ID Not Found

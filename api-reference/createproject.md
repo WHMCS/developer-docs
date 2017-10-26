@@ -72,7 +72,8 @@ print_r($results);
 ```
 {
     "result": "success",
-    "message": "Project has been created"
+    "message": "Project has been created",
+    "projectid": "1"
 }
 ```
 

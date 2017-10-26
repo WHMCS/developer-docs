@@ -5,6 +5,9 @@ toc = true
 
 Obtain the Clients Details for a specific client
 
+Note this function returns the client information in the top level array. This information
+is deprecated and may be removed in a future version of WHMCS.
+
 ### Request Parameters
 
 | Parameter | Type | Description | Required |

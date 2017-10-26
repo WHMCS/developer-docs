@@ -1,5 +1,5 @@
 +++
-title = "GetToDoList"
+title = "GetToDoItems"
 toc = true
 +++
 
@@ -9,7 +9,7 @@ Get To-Do List Items.
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "GetToDoList" | Required |
+| action | string | "GetToDoItems" | Required |
 | limitstart | int | The offset for the returned log data (default: 0) | Optional |
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | status | string | Status to filter for. Possible values include: Incomplete, New, Pending, In Progress, Completed | Optional |
@@ -33,7 +33,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'GetToDoList',
+            'action' => 'GetToDoItems',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
@@ -50,7 +50,7 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'GetToDoList';
+$command = 'GetToDoItems';
 $postData = array(
     'status' => 'Incomplete',
 );

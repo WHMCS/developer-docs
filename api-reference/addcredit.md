@@ -78,6 +78,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Client ID Not Found
+* No Amount Provided
 
 
 ### Version History

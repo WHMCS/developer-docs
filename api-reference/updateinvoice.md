@@ -54,9 +54,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'status' => 'Unpaid',
-            'itemdescription[13]' => 'Sample Updated Invoice Item',
-            'itemamount[13]' => '16.95',
-            'itemtaxed[13]' => '0',
+            'itemdescription' => array(13 => 'Sample Updated Invoice Item'),
+            'itemamount' => array(13 => 16.95),
+            'itemtaxed' => array(13 => false),
             'responsetype' => 'json',
         )
     )
@@ -72,9 +72,9 @@ curl_close($ch);
 $command = 'UpdateInvoice';
 $postData = array(
     'status' => 'Unpaid',
-    'itemdescription[13]' => 'Sample Updated Invoice Item',
-    'itemamount[13]' => '16.95',
-    'itemtaxed[13]' => '0',
+    'itemdescription' => array(13 => 'Sample Updated Invoice Item'),
+    'itemamount' => array(13 => 16.95),
+    'itemtaxed' => array(13 => false),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
