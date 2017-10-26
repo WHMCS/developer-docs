@@ -62,8 +62,8 @@ print_r($results);
 {
     "result": "success",
     "totalresults": 1,
-    "paymentmethods": {
-        "paymentmethod": [
+    "promotions": {
+        "promotion": [
             {
                 "id": 1,
                 "code": "sample",
