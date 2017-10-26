@@ -250,7 +250,7 @@ add_hook('TicketAdminReply', 1, function($vars) {
 
 ## TicketClose
 
-Executes when a ticket is closed.
+Executes as a ticket is closed.
 
 #### Parameters
 
@@ -379,6 +379,7 @@ Executes when a ticket is opened by an end user.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | ticketid | int |  |
+| ticketmask | string |  |
 | userid | int |  |
 | deptid | int |  |
 | deptname | string |  |
@@ -408,6 +409,7 @@ Executes when a ticket is opened by an admin user.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | ticketid | int |  |
+| ticketmask | string |  |
 | userid | int |  |
 | deptid | int |  |
 | deptname | string |  |
@@ -482,7 +484,7 @@ add_hook('TicketPriorityChange', 1, function($vars) {
 
 ## TicketStatusChange
 
-Executes as a ticket status is changed.
+Executes as a ticket status is changed manually by an admin.
 
 #### Parameters
 
@@ -507,13 +509,14 @@ add_hook('TicketStatusChange', 1, function($vars) {
 
 ## TicketSubjectChange
 
-Executes when a ticket subject is changed
+Executes when a ticket subject is changed. The 'subject' variable now contains the new subject.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | ticketid | int |  |
+| subject | string |  |
 | priority | string |  |
 
 #### Response

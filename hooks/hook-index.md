@@ -13,6 +13,7 @@ weight = 100
 <li> <a href="/hooks-reference/invoices-and-quotes/#addinvoicepayment">AddInvoicePayment</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#addtransaction">AddTransaction</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems">AfterInvoicingGenerateInvoiceItems</a>
+<li> <a href="/hooks-reference/invoices-and-quotes/#cancelandrefundorder">CancelAndRefundOrder</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicecancelled">InvoiceCancelled</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicechangegateway">InvoiceChangeGateway</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoicecreated">InvoiceCreated</a>
@@ -36,14 +37,19 @@ weight = 100
 
 <ul><li> <a href="/hooks-reference/shopping-cart/#acceptorder">AcceptOrder</a>
 <li> <a href="/hooks-reference/shopping-cart/#addonfraud">AddonFraud</a>
+<li> <a href="/hooks-reference/shopping-cart/#aftercalculatecarttotals">AfterCalculateCartTotals</a>
 <li> <a href="/hooks-reference/shopping-cart/#afterfraudcheck">AfterFraudCheck</a>
 <li> <a href="/hooks-reference/shopping-cart/#aftershoppingcartcheckout">AfterShoppingCartCheckout</a>
 <li> <a href="/hooks-reference/shopping-cart/#cancelorder">CancelOrder</a>
 <li> <a href="/hooks-reference/shopping-cart/#carttotaladjustment">CartTotalAdjustment</a>
 <li> <a href="/hooks-reference/shopping-cart/#deleteorder">DeleteOrder</a>
+<li> <a href="/hooks-reference/shopping-cart/#fraudcheckawaitinguserinput">FraudCheckAwaitingUserInput</a>
+<li> <a href="/hooks-reference/shopping-cart/#fraudcheckfailed">FraudCheckFailed</a>
+<li> <a href="/hooks-reference/shopping-cart/#fraudcheckpassed">FraudCheckPassed</a>
 <li> <a href="/hooks-reference/shopping-cart/#fraudorder">FraudOrder</a>
 <li> <a href="/hooks-reference/shopping-cart/#orderaddonpricingoverride">OrderAddonPricingOverride</a>
 <li> <a href="/hooks-reference/shopping-cart/#orderdomainpricingoverride">OrderDomainPricingOverride</a>
+<li> <a href="/hooks-reference/shopping-cart/#orderpaid">OrderPaid</a>
 <li> <a href="/hooks-reference/shopping-cart/#orderproductpricingoverride">OrderProductPricingOverride</a>
 <li> <a href="/hooks-reference/shopping-cart/#orderproductupgradeoverride">OrderProductUpgradeOverride</a>
 <li> <a href="/hooks-reference/shopping-cart/#overrideordernumbergeneration">OverrideOrderNumberGeneration</a>
@@ -92,12 +98,18 @@ weight = 100
 
 <ul><li> <a href="/hooks-reference/domain/#domaindelete">DomainDelete</a>
 <li> <a href="/hooks-reference/domain/#domainedit">DomainEdit</a>
+<li> <a href="/hooks-reference/domain/#domaintransfercompleted">DomainTransferCompleted</a>
+<li> <a href="/hooks-reference/domain/#domaintransferfailed">DomainTransferFailed</a>
 <li> <a href="/hooks-reference/domain/#domainvalidation">DomainValidation</a>
 <li> <a href="/hooks-reference/domain/#predomainregister">PreDomainRegister</a>
 <li> <a href="/hooks-reference/domain/#predomaintransfer">PreDomainTransfer</a>
 <li> <a href="/hooks-reference/domain/#preregistrarregisterdomain">PreRegistrarRegisterDomain</a>
 <li> <a href="/hooks-reference/domain/#preregistrarrenewdomain">PreRegistrarRenewDomain</a>
 <li> <a href="/hooks-reference/domain/#preregistrartransferdomain">PreRegistrarTransferDomain</a>
+<li> <a href="/hooks-reference/domain/#topleveldomainadd">TopLevelDomainAdd</a>
+<li> <a href="/hooks-reference/domain/#topleveldomaindelete">TopLevelDomainDelete</a>
+<li> <a href="/hooks-reference/domain/#topleveldomainpricingupdate">TopLevelDomainPricingUpdate</a>
+<li> <a href="/hooks-reference/domain/#topleveldomainupdate">TopLevelDomainUpdate</a>
 </ul>
 <h3>Registrar Module</h3>
 
@@ -137,11 +149,14 @@ weight = 100
 <li> <a href="/hooks-reference/addon/#addonconfigsave">AddonConfigSave</a>
 <li> <a href="/hooks-reference/addon/#addondeleted">AddonDeleted</a>
 <li> <a href="/hooks-reference/addon/#addonedit">AddonEdit</a>
+<li> <a href="/hooks-reference/addon/#addonrenewal">AddonRenewal</a>
 <li> <a href="/hooks-reference/addon/#addonsuspended">AddonSuspended</a>
 <li> <a href="/hooks-reference/addon/#addonterminated">AddonTerminated</a>
 <li> <a href="/hooks-reference/addon/#addonunsuspended">AddonUnsuspended</a>
+<li> <a href="/hooks-reference/addon/#afteraddonupgrade">AfterAddonUpgrade</a>
 <li> <a href="/hooks-reference/addon/#licensingaddonreissue">LicensingAddonReissue</a>
 <li> <a href="/hooks-reference/addon/#licensingaddonverify">LicensingAddonVerify</a>
+<li> <a href="/hooks-reference/addon/#productaddondelete">ProductAddonDelete</a>
 </ul>
 <h3>Client</h3>
 
@@ -313,6 +328,7 @@ weight = 100
 <li> <a href="/hooks-reference/output/#reportviewpostoutput">ReportViewPostOutput</a>
 <li> <a href="/hooks-reference/output/#reportviewpreoutput">ReportViewPreOutput</a>
 <li> <a href="/hooks-reference/output/#shoppingcartcheckoutoutput">ShoppingCartCheckoutOutput</a>
+<li> <a href="/hooks-reference/output/#shoppingcartconfigureproductaddonsoutput">ShoppingCartConfigureProductAddonsOutput</a>
 <li> <a href="/hooks-reference/output/#shoppingcartviewcartoutput">ShoppingCartViewCartOutput</a>
 <li> <a href="/hooks-reference/output/#shoppingcartviewcategoryaboveproductsoutput">ShoppingCartViewCategoryAboveProductsOutput</a>
 <li> <a href="/hooks-reference/output/#shoppingcartviewcategorybelowproductsoutput">ShoppingCartViewCategoryBelowProductsOutput</a>

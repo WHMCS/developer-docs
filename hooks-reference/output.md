@@ -458,6 +458,28 @@ add_hook('ShoppingCartCheckoutOutput', 1, function($vars) {
 });
 ```
 
+## ShoppingCartConfigureProductAddonsOutput
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| billingCycle | | |
+| selectedAddons | | |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ShoppingCartConfigureProductAddonsOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## ShoppingCartViewCartOutput
 
 Allows returning of output for display on the Shopping Cart View Cart page.

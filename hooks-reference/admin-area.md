@@ -469,7 +469,7 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 
 ## AdminServiceEdit
 
-Executes as the service is being saved, after any changes have been made.
+Executes when the Service has been edited. After the changes have been made.
 
 #### Parameters
 
@@ -569,16 +569,16 @@ add_hook('AuthAdminApi', 1, function($vars) {
 
 ## InvoiceCreationAdminArea
 
-Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.
+Executes as an invoice is being created in the admin area
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
+| source | string | When the invoice is being created |
+| user | int|string | The id of the user completing the action dependant on source |
+| invoiceid | int | The id of the newly created invoice |
+| status | string | The status of the newly created invoice |
 
 #### Response
 

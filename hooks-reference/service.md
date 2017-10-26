@@ -57,7 +57,7 @@ add_hook('PreServiceEdit', 1, function($vars) {
 
 ## ServiceDelete
 
-Executes when a service is being deleted.
+Executes when the Service has been deleted.
 
 #### Parameters
 
@@ -81,7 +81,7 @@ add_hook('ServiceDelete', 1, function($vars) {
 
 ## ServiceEdit
 
-Executes as the service is being saved, after any changes have been made.
+Executes when the Service has been edited. After the changes have been made.
 
 #### Parameters
 

@@ -34,7 +34,7 @@ add_hook('AddonActivated', 1, function($vars) {
 
 ## AddonActivation
 
-Executes when a product addon is being automatically activated as part of an invoice payment or order acceptance. Runs following the welcome email having been sent.
+Executes when an addon is activated.
 
 #### Parameters
 
@@ -168,13 +168,13 @@ add_hook('AddonConfigSave', 1, function($vars) {
 
 ## AddonDeleted
 
-Executes when an addon is being deleted.
+Executes when an addon has been deleted.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | int | the id of the addon being removed. tblhostingaddons |
+| id | int | The id of the addong that has been deleted. tblhostingaddons |
 
 #### Response
 
@@ -211,6 +211,32 @@ No response supported
 ```
 <?php
 add_hook('AddonEdit', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AddonRenewal
+
+Executes when a product addon is being automatically renewed as part of an invoice payment.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| id | int | The addon ID (tblhostingaddons) |
+| userid | int |  |
+| serviceid | int |  |
+| addonid | int | The predefined addon ID (tbladdons) |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AddonRenewal', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -293,6 +319,29 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 });
 ```
 
+## AfterAddonUpgrade
+
+Executes after an addon upgrade has been processed.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| upgradeid | int |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterAddonUpgrade', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## LicensingAddonReissue
 
 Executes as a license is being reissued
@@ -344,6 +393,29 @@ add_hook('LicensingAddonVerify', 1, function($vars) {
         'myExtraVariable' => 'Yes',
         'myOtherVariable' => 'Sure',
     ];
+});
+```
+
+## ProductAddonDelete
+
+Executes when a product addon is being deleted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| addonId | int |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ProductAddonDelete', 1, function($vars) {
+    // Perform hook code here...
 });
 ```
 

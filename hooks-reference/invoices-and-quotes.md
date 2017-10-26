@@ -134,6 +134,29 @@ add_hook('AfterInvoicingGenerateInvoiceItems', 1, function($vars) {
 });
 ```
 
+## CancelAndRefundOrder
+
+Runs when an order is requested to be cancelled and refunded, prior to the change of status actually occurring.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderid | int | The order ID |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('CancelAndRefundOrder', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## InvoiceCancelled
 
 Executes when an invoice is being cancelled
@@ -159,7 +182,7 @@ add_hook('InvoiceCancelled', 1, function($vars) {
 
 ## InvoiceChangeGateway
 
-Executes when changing the gateway on an invoice if the client area.
+Executes when changing the gateway on an invoice.
 
 #### Parameters
 
@@ -209,16 +232,16 @@ add_hook('InvoiceCreated', 1, function($vars) {
 
 ## InvoiceCreation
 
-Executes when an invoice is first created. The invoice has not been delivered to the client at this point.
+Executes as an invoice is being created in the admin area
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
+| source | string | When the invoice is being created |
+| user | int|string | The id of the user completing the action dependant on source |
+| invoiceid | int | The id of the newly created invoice |
+| status | string | The status of the newly created invoice |
 
 #### Response
 
@@ -235,16 +258,16 @@ add_hook('InvoiceCreation', 1, function($vars) {
 
 ## InvoiceCreationPreEmail
 
-Executes when an invoice is created immediately prior to sending the Invoice Created email.
+Executes as an invoice is being created in the admin area before the email is being sent
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
+| source | string | When the invoice is being created |
+| user | int|string | The id of the user completing the action dependant on source |
+| invoiceid | int | The id of the newly created invoice |
+| status | string | The status of the newly created invoice |
 
 #### Response
 
