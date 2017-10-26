@@ -60,7 +60,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'itemdescription2' => 'Sample Second Invoice Item',
             'itemamount2' => '1.00',
             'itemtaxed2' => '1',
-            'autoappliedcredit' => '0',
+            'autoapplycredit' => '0',
             'responsetype' => 'json',
         )
     )
@@ -88,7 +88,7 @@ $postData = array(
     'itemdescription2' => 'Sample Second Invoice Item',
     'itemamount2' => '1.00',
     'itemtaxed2' => '1',
-    'autoappliedcredit' => '0',
+    'autoapplycredit' => '0',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
