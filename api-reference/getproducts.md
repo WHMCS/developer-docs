@@ -38,7 +38,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'id' => '1',
+            'pid' => '1',
             'responsetype' => 'json',
         )
     )
@@ -53,7 +53,7 @@ curl_close($ch);
 ```
 $command = 'GetProducts';
 $postData = array(
-    'id' => '1',
+    'pid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
