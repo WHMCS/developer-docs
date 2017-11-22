@@ -84,6 +84,7 @@ weight = 100
 <li> <a href="/api-reference/sendadminemail/">SendAdminEmail</a>
 <li> <a href="/api-reference/sendemail/">SendEmail</a>
 <li> <a href="/api-reference/setconfigurationvalue/">SetConfigurationValue</a>
+<li> <a href="/api-reference/triggernotificationevent/">TriggerNotificationEvent</a>
 <li> <a href="/api-reference/updateadminnotes/">UpdateAdminNotes</a>
 <li> <a href="/api-reference/updateannouncement/">UpdateAnnouncement</a>
 <li> <a href="/api-reference/updatetodoitem/">UpdateToDoItem</a>
