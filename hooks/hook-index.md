@@ -358,6 +358,7 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#intelligentsearch">IntelligentSearch</a>
 <li> <a href="/hooks-reference/everything-else/#linktracker">LinkTracker</a>
 <li> <a href="/hooks-reference/everything-else/#logactivity">LogActivity</a>
+<li> <a href="/hooks-reference/everything-else/#notificationpresend">NotificationPreSend</a>
 <li> <a href="/hooks-reference/everything-else/#postautomationtask">PostAutomationTask</a>
 <li> <a href="/hooks-reference/everything-else/#preautomationtask">PreAutomationTask</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>

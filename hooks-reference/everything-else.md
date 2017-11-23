@@ -489,6 +489,55 @@ add_hook('LogActivity', 1, function($vars) {
 });
 ```
 
+## NotificationPreSend
+
+Executes prior to a notification being sent to allow for additional conditional criteria to be applied and manipulation of the notification message.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| eventType | string | Event type eg. Ticket, Invoice, Order, Service or Domain |
+| eventName | string | Event name. |
+| rule | \WHMCS\Notification\Rule | Notification rule model that has been matched. |
+| hookParameters | array | Array of hook parameters. Will vary depending on the trigger. |
+| notification | \WHMCS\Notification\Notification | Notification object. See class documentation at https://docs.whmcs.com/classes |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+
+add_hook('NotificationPreSend', 1, function($vars) {
+
+    $eventType = $vars['eventType'];
+    $eventName = $vars['eventName'];
+    $rule = $vars['rule'];
+    $hookParameters = $vars['hookParameters'];
+    $notification = $vars['notification'];
+
+    // Perform additional conditional logic and throw the AbortNotification
+    // exception to prevent the notification from sending.
+    if ($eventType == 'Invoice'
+        && $eventName == 'created'
+        && (isset($hookParameters['invoiceid'])
+            && $hookParameters['invoiceid'] > 1000)
+    ) {
+        throw new \WHMCS\Notification\Exception\AbortNotification();
+    }
+
+    // If allowing the notification to continue, you can manipulate the
+    // notification using the \WHMCS\Notification\Notification object.
+    $notification->setTitle('Override notification title');
+    $notification->setMessage('Override notification message body');
+
+});
+```
+
 ## PostAutomationTask
 
 Executes after an automation task occurs
