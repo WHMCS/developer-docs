@@ -35,4 +35,4 @@ public function notificationSettings()
 }
 ```
 
-See also [Dyanmic Fields](/notification-providers/dynamic-fields)
+See also [Dynamic Fields](/notification-providers/dynamic-fields)
