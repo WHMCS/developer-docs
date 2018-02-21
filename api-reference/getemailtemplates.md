@@ -11,7 +11,7 @@ Obtain a list of email templates from the system
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetEmailTemplates" | Required |
 | type | string | The type of email template to retrieve | Optional |
-| language | string | The language of the email template to retrieve | Optional |
+| language | string | The language of the email template to retrieve, if none provided will return default language templates. | Optional |
 
 ### Response Parameters
 
@@ -40,6 +40,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

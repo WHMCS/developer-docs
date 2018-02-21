@@ -14,6 +14,7 @@ Add a note to a ticket by Ticket ID or Ticket Number.
 | ticketnum | string | The Client Ticket Number ID to apply the note to | Optional |
 | ticketid | int | The id of the ticket in the database. Either $ticketnum or $ticketid is required | Optional |
 | markdown | bool | Should markdown be used on the ticket note output | Optional |
+| attachments | array | Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below). | Optional |
 
 ### Response Parameters
 
@@ -38,10 +39,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'ticketid' => '1',
             'message' => 'This is a sample ticket note',
             'markdown' => true,
+            'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -55,6 +58,7 @@ $postData = array(
     'ticketid' => '1',
     'message' => 'This is a sample ticket note',
     'markdown' => true,
+    'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -77,6 +81,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Ticket ID not found
+* Message is required
 
 
 ### Version History
@@ -84,3 +89,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.5 | Added support for attachments |

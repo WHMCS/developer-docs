@@ -41,7 +41,7 @@ Updates a client with the passed parameters.
 | clientip | string | IP address of the user | Optional |
 | notes | string | Admin only notes | Optional |
 | paymentmethod | string | The default payment method | Optional |
-| noemail | bool | Pass as true to skip sending welcome email | Optional |
+| marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
 | clearcreditcard | bool | Pass as true to clear the stored CC details | Optional |
 | skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
 
@@ -73,6 +73,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

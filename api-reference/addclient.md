@@ -36,6 +36,7 @@ Adds a client.
 | language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
 | clientip | string | IP address of the user | Optional |
 | notes | string | Admin only notes | Optional |
+| marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
 | noemail | bool | Pass as true to skip sending welcome email | Optional |
 | skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
 
@@ -77,6 +78,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

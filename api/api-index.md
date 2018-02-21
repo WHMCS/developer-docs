@@ -75,6 +75,7 @@ weight = 100
 <li> <a href="/api-reference/getautomationlog/">GetAutomationLog</a>
 <li> <a href="/api-reference/getconfigurationvalue/">GetConfigurationValue</a>
 <li> <a href="/api-reference/getcurrencies/">GetCurrencies</a>
+<li> <a href="/api-reference/getemailtemplates/">GetEmailTemplates</a>
 <li> <a href="/api-reference/getpaymentmethods/">GetPaymentMethods</a>
 <li> <a href="/api-reference/getstaffonline/">GetStaffOnline</a>
 <li> <a href="/api-reference/getstats/">GetStats</a>
@@ -106,7 +107,6 @@ weight = 100
 <li> <a href="/api-reference/getclientsproducts/">GetClientsProducts</a>
 <li> <a href="/api-reference/getcontacts/">GetContacts</a>
 <li> <a href="/api-reference/getemails/">GetEmails</a>
-<li> <a href="/api-reference/getemailtemplates/">GetEmailTemplates</a>
 <li> <a href="/api-reference/updateclient/">UpdateClient</a>
 <li> <a href="/api-reference/updatecontact/">UpdateContact</a>
 </ul>
