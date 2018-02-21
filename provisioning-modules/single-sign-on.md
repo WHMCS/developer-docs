@@ -31,14 +31,14 @@ Service single sign-on is to allow admin and client users to login to the contro
  *
  * @param array $params common module parameters
  *
- * @see http://docs.whmcs.com/Provisioning_Module_SDK_Parameters
+ * @see https://developers.whmcs.com/provisioning-modules/module-parameters/
  *
  * @return array
  */
 function mymodule_ServiceSingleSignOn(array $params)
 {
 	$return = array(
-		'success' = false,
+		'success' => false,
 	);
 	try {
         /**
@@ -92,14 +92,14 @@ Server single sign-on allows for Admin users to login to the associated server m
  *
  * @param array $params common module parameters
  *
- * @see http://docs.whmcs.com/Provisioning_Module_SDK_Parameters
+ * @see https://developers.whmcs.com/provisioning-modules/module-parameters/
  *
  * @return array
  */
 function mymodule_AdminSingleSignOn(array $params)
 {
 	$return = array(
-		'success' = false,
+		'success' => false,
 	);
 	try {
         /**
