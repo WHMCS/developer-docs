@@ -1,13 +1,11 @@
 +++
-prev = "/provisioning-modules/loader-functions"
+prev = "/provisioning-modules/simple-mode"
 next = "/provisioning-modules/meta-data-params"
 title = "Loader Functions"
 toc = true
 weight = 19
 
 +++
-
-**Loader Functions**
 
 Setting a loader function allows you to create a field that offers a dropdown of options for an end user to choose from.
 
@@ -40,7 +38,7 @@ The loader function you define must be created and should return an array of key
 
 The key should be the value that your module expects to receive, and the value should be a human friendly display label for the key value. In many cases these may be the same.
 
-**Error Handling**
+##Error Handling##
 
 If the connection to the remote API service needed to fetch the dynamically loaded values fails, your code should throw an Exception.
 

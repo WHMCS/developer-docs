@@ -7,19 +7,17 @@ weight = 18
 
 +++
 
-**Simple Configuration Mode**
-
 Simple Configuration Mode is a feature available to module developers to simplify the configuration process for a module.
 
 Using Simple Mode allows you to reduce the number of Module Setting fields that are shown to end users by default.  For example, you can restrict the default Module Settings view to just the most common fields that a user needs to customise when creating a product assigned to your module, and have the other less commonly used fields only be shown if the user switches to Advanced Mode.
 
 The screenshots below shows the difference in Simple and Advanced Modes for the cPanel module.
 
-**Simple Mode**
+##Simple Mode##
 
 ![Simple Mode](cpanel-simple-mode.png)
 
-**Advanced Mode**
+##Advanced Mode##
 
 ![Advanced Mode](cpanel-advanced-mode.png)
 
