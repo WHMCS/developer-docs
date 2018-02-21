@@ -1,6 +1,6 @@
 +++
 prev = "/provisioning-modules/getting-started"
-next = "/provisioning-modules/meta-data-params"
+next = "/provisioning-modules/simple-mode"
 title = "Configuration Options"
 toc = true
 weight = 15
