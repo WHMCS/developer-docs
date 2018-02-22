@@ -13,11 +13,11 @@ Using Simple Mode allows you to reduce the number of Module Setting fields that 
 
 The screenshots below shows the difference in Simple and Advanced Modes for the cPanel module.
 
-##Simple Mode##
+## Simple Mode
 
 ![Simple Mode](cpanel-simple-mode.png)
 
-##Advanced Mode##
+## Advanced Mode
 
 ![Advanced Mode](cpanel-advanced-mode.png)
 

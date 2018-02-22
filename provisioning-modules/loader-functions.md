@@ -38,7 +38,7 @@ The loader function you define must be created and should return an array of key
 
 The key should be the value that your module expects to receive, and the value should be a human friendly display label for the key value. In many cases these may be the same.
 
-##Error Handling##
+## Error Handling
 
 If the connection to the remote API service needed to fetch the dynamically loaded values fails, your code should throw an Exception.
 
