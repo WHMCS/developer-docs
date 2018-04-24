@@ -1,3 +1,4 @@
+{noformat}
 +++
 next = "/domain-registrars/module-functions/"
 prev = "/domain-registrars/domain-syncing/"
@@ -65,3 +66,7 @@ Additional variables specific to the action being performed such as EPP code, na
 | **Premium Parameters**
 | premiumEnabled | True if premium domain orders are enabled in WHMCS (Registration/Transfers only)
 | premiumCost | The cost price fetched at the time of the order being placed
+| **Grace/Redemption Parameters**
+| isInGracePeriod | True if domain is within the renewal grace period. Available in the module renewal function only
+| isInRedemptionGracePeriod | True if the domain is within the redemption grace period. Available in the module renewal function only
+{noformat}
