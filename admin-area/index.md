@@ -22,8 +22,9 @@ Now it’s time to customise your theme.
 
 The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.
 
-    * We strongly recommend you maintain all of the output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install
-    * The footer template file includes a number of lines of code which are essential to the correct operation of the admin area, particularly the client limit notifications. admin user notes, and the intelligent search option on each page. Please take care not to remove these lines.
+* We strongly recommend you maintain all of the output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install
+
+* The footer template file includes a number of lines of code which are essential to the correct operation of the admin area, particularly the client limit notifications. admin user notes, and the intelligent search option on each page. Please take care not to remove these lines.
 
 ## Logo
 
