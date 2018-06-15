@@ -42,35 +42,35 @@ In order to make changes to any of the CSS that is applied by default, it is bes
 
 All admin templates contain the following template files:
 
-authconfirm.tpl - This template file is used to display the Password Confirmation prompt on any admin area page that requires it. For example: Setup > General Settings.
+* authconfirm.tpl - This template file is used to display the Password Confirmation prompt on any admin area page that requires it. For example: Setup > General Settings.
 
-clientssummary.tpl - Controls the display of the Summary Tab and associated information within an individual Clients Profile.
+* clientssummary.tpl - Controls the display of the Summary Tab and associated information within an individual Clients Profile.
 
-footer.tpl - This template file controls the footer of each admin area page.
+* footer.tpl - This template file controls the footer of each admin area page.
 
-header.tpl - This template file controls the header of each admin area page.
+* header.tpl - This template file controls the header of each admin area page.
 
-homepage.tpl - Controls the display of the Admin Dashboard. Widgets(link) are the building blocks of the admin dashboard and are the recommended way to add additional data and information. We have documentation on creating and working with widgets available here.
+* homepage.tpl - Controls the display of the Admin Dashboard. Widgets(link) are the building blocks of the admin dashboard and are the recommended way to add additional data and information. We have documentation on creating and working with widgets available here.
 
-menu.tpl - Controls the primary navigation dropdown menu bar.
+* menu.tpl - Controls the primary navigation dropdown menu bar.
 
-sidebar.tpl - This template file controls the left sidebar menu of each admin area page.
+* sidebar.tpl - This template file controls the left sidebar menu of each admin area page.
 
-systemhealthandupdates.tpl - Controls the display and styling of the System Health Status page.
+* systemhealthandupdates.tpl - Controls the display and styling of the System Health Status page.
 
-viewticket.tpl - Controls the display of the view for an individual support ticket when viewed within the admin area.
+* viewticket.tpl - Controls the display of the view for an individual support ticket when viewed within the admin area.
 
-viewticketcustomfields.tpl - Controls the display of custom fields and their data when viewing an individual support ticket within the admin area.
+* viewticketcustomfields.tpl - Controls the display of custom fields and their data when viewing an individual support ticket within the admin area.
 
 # Non-Theme Templates
 
 Some admin area pages are templated but are located outside of a theme, instead residing in the /admin/templates folder itself. We do not recommend customising these templates.
 
-licenseerror.tpl - This template file is used to show various licensing error messages as needed.
+* licenseerror.tpl - This template file is used to show various licensing error messages as needed.
 
-login.tpl - This template file used to show the admin area login form when not logged in.
+* login.tpl - This template file used to show the admin area login form when not logged in.
 
-whatsnew_modal.tpl - This template file is used to control the look and feel of the Whats New modal that is displayed when logging into the admin area for the first time after performing an update.
+* whatsnew_modal.tpl - This template file is used to control the look and feel of the Whats New modal that is displayed when logging into the admin area for the first time after performing an update.
 
 # Further Customisation via Hooks
 
