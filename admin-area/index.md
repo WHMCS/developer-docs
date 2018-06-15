@@ -8,13 +8,15 @@ Before you begin customising it for your needs, the first step is to create your
 
 Make a copy of the Blend template directory.
 
-* Copy the ~/admin/templates/blend/ directory to ~/admin/templates/yourname/
+* Copy the `~/admin/templates/blend/` directory to `~/admin/templates/yourname/`
 
  
 
 If the admin directory name has been customised, adjust the path accordingly.
 
+{{% notice info %}}
 Template names should be a single word, consisting of only lowercase letters and numbers.
+{{% /notice %}}
 
 Now it’s time to customise your theme.
 
@@ -30,7 +32,7 @@ The header and footer template files that are common to every page and act as a 
 
 In order to make changes to the logo displayed on the admin area login page and the top left corner of admin area pages, there are 2 changes that need to be made.
 
-First, replace the /assets/img/whmcs.png with your desired logo. Then duplicate the currently selected admin template in the /admin/templates folder and replace the ~/admin/templates/<template>/images/logo.gif file, replacing <template> with your admin template name. Any admin users would then need to be edited and set to use the new template. This is recommended to ensure any changes are not overwritten during upgrades.
+First, replace the /assets/img/whmcs.png with your desired logo. Then duplicate the currently selected admin template in the /admin/templates folder and replace the `~/admin/templates/<template>/images/logo.gif` file, replacing <template> with your admin template name. Any admin users would then need to be edited and set to use the new template. This is recommended to ensure any changes are not overwritten during upgrades.
 
 # CSS Styling
 
