@@ -32,7 +32,7 @@ The header and footer template files that are common to every page and act as a 
 
 In order to make changes to the logo displayed on the admin area login page and the top left corner of admin area pages, there are 2 changes that need to be made.
 
-First, replace the `~/assets/img/whmcs.png` with your desired logo. Then in the custom admin template in the `~/admin/templates` folder, replace the `images/logo.gif` file. This method is recommended to ensure any changes are not overwritten during upgrades. Once this is done, please switch any desired admin users to the new template using the steps at [Making your template live](#Making your template live) below.
+First, replace the `~/assets/img/whmcs.png` with your desired logo. Then in the custom admin template in the `~/admin/templates` folder, replace the `images/logo.gif` file. This method is recommended to ensure any changes are not overwritten during upgrades. Once this is done, please switch any desired admin users to the new template using the steps at [Making your template live](#making-your-template-live) below.
 
 # CSS Styling
 
