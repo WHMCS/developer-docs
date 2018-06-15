@@ -32,7 +32,7 @@ The header and footer template files that are common to every page and act as a 
 
 In order to make changes to the logo displayed on the admin area login page and the top left corner of admin area pages, there are 2 changes that need to be made.
 
-First, replace the `~/assets/img/whmcs.png` with your desired logo. Then in the custom admin template in the `~/admin/templates` folder, replace the `images/logo.gif` file. Any admin users would then need to be edited and set to use this template. This method is recommended to ensure any changes are not overwritten during upgrades.
+First, replace the `~/assets/img/whmcs.png` with your desired logo. Then in the custom admin template in the `~/admin/templates` folder, replace the `images/logo.gif` file. This method is recommended to ensure any changes are not overwritten during upgrades. Once this is done, please switch any desired admin users to the new template using the steps at [Making your template live](#Making your template live) below.
 
 # CSS Styling
 
@@ -71,6 +71,19 @@ Some admin area pages are templated but are located outside of a theme, instead 
 * login.tpl - This template file used to show the admin area login form when not logged in.
 
 * whatsnew_modal.tpl - This template file is used to control the look and feel of the Whats New modal that is displayed when logging into the admin area for the first time after performing an update.
+
+# Making your template live
+
+Once you’re happy with your new template and are ready to make it live, follow the steps below:
+
+* Login to the Admin Area
+
+* Click the "My Account" link at the top of any page. If you want to apply the changes to other admins, please edit their settings under Setup > Staff Management > Administrators.
+
+* Under the Template setting, select the name of the template you created above
+
+* Hit Save Changes and you will immediately begin seeing your new template
+
 
 # Further Customisation via Hooks
 
