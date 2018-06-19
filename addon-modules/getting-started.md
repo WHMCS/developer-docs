@@ -21,3 +21,7 @@ Once you have chosen your name, you need to create a directory and module file f
 Addon modules are found in the `/modules/addons/` directory.
 Each module can be found within it's own directory **/your_module_name/**.
 Then the core module file within it should be "**your_module_name**.php" to match the folder. 
+
+We make available a sample addon module on Github. We recommend using this as a starting point for a custom addon module.
+
+> https://github.com/WHMCS/sample-addon-module
