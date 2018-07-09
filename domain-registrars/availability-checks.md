@@ -1,6 +1,6 @@
 +++
 next = "/domain-registrars/premium-domains/"
-prev = "/domain-registrars/module-functions/"
+prev = "/domain-registrars/domain-information/"
 title = "Availability Checks"
 weight = 65
 
