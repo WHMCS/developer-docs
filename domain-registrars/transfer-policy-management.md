@@ -16,7 +16,7 @@ WHMCS supports display of informational banners and messaging when contact verif
 
 For these informational alerts to be displayed, the appropriate attributes need to be set via the `GetDomainInformation` method within a registrar module.
 
-A description of the methods used in WHOIS Contact Verification method is provided below:
+A description of the methods used in WHOIS Contact Verification messaging are provided below:
 
 | Function | Type | Description |
 | --------- | ----------- | ------ |
