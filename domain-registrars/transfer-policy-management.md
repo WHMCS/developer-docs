@@ -2,7 +2,7 @@
 prev = "/domain-registrars/premium-domains/"
 next = "/domain-registrars/extending-further/"
 title = "Transfer Policy (IRTP) Management"
-weight = 200
+weight = 68
 
 +++
 
