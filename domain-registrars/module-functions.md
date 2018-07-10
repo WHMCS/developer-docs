@@ -1,5 +1,5 @@
 +++
-next = "/domain-registrars/extending-further/"
+next = "/domain-registrars/domain-information/"
 prev = "/domain-registrars/module-parameters/"
 title = "Module Functions"
 weight = 60
