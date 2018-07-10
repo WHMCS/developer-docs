@@ -20,7 +20,7 @@ Obtain a specific ticket
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
 | ticketid | int | The unique Id of the ticket |
-| ticketnum | string | The client unique id of the ticket |
+| ticketnum | string | The unique ticket number string displayed to end users |
 | c | string | The client unique access of the ticket |
 | deptid | int | The id of the department the ticket belongs to |
 | deptname | string | The name of the department the ticket belongs to |

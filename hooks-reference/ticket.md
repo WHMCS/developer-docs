@@ -8,7 +8,7 @@ The following hooks are provided for Ticket related events.
 
 ## AdminAreaViewTicketPage
 
-Runs when an admin views a ticket.
+Executes when an admin views a support ticket within the admin area.
 
 #### Parameters
 
@@ -40,6 +40,52 @@ add_hook('AdminAreaViewTicketPage', 1, function($vars) {
     return $return;
 });
 
+```
+
+## AdminAreaViewTicketPageSidebar
+
+Executes when an admin views a support ticket within the admin area.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+
+#### Response
+
+Returned HTML will be output to the sidebar.
+
+#### Example Code
+
+```
+<?php
+add_hook('AdminAreaViewTicketPageSidebar', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AdminSupportTicketPagePreTickets
+
+Executes prior to aggregation and output of the support tickets listing page within the admin area.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| No input parameters for this hook point. |
+
+#### Response
+
+Returned HTML will be output to the page.
+
+#### Example Code
+
+```
+<?php
+add_hook('AdminSupportTicketPagePreTickets', 1, function($vars) {
+    // Perform hook code here...
+});
 ```
 
 ## ClientAreaPageSubmitTicket
@@ -517,7 +563,6 @@ Executes when a ticket subject is changed. The 'subject' variable now contains t
 | -------- | ---- | ----- |
 | ticketid | int |  |
 | subject | string |  |
-| priority | string |  |
 
 #### Response
 

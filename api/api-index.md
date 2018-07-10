@@ -107,6 +107,7 @@ weight = 100
 <li> <a href="/api-reference/getclientsproducts/">GetClientsProducts</a>
 <li> <a href="/api-reference/getcontacts/">GetContacts</a>
 <li> <a href="/api-reference/getemails/">GetEmails</a>
+<li> <a href="/api-reference/resetpassword/">ResetPassword</a>
 <li> <a href="/api-reference/updateclient/">UpdateClient</a>
 <li> <a href="/api-reference/updatecontact/">UpdateContact</a>
 </ul>

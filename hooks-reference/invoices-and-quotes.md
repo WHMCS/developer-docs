@@ -473,7 +473,7 @@ add_hook('ManualRefund', 1, function($vars) {
 
 ## PreInvoicingGenerateInvoiceItems
 
-Executes prior to invoice generation allowing for manipulation of items prior to invoice generation.
+Executes prior to invoice generation to allow for manipulation of stored data prior to aggregation of due items.
 
 #### Parameters
 
@@ -489,8 +489,22 @@ No response supported
 
 ```
 <?php
-add_hook('PreInvoicingGenerateInvoiceItems', 1, function($vars) {
-    // Perform hook code here...
+
+use WHMCS\Service\Service;
+
+/**
+ * Prevent invoicing of any new services added to clientID 5
+ */
+
+add_hook('PreInvoicingGenerateInvoiceItems', 1, function() {
+    $services = Service::where('userid', 5)
+        ->where('billingcycle', '!=', 'Free Account')
+        ->get();
+
+    foreach ($services as $service) {
+        $service->billingcycle = 'Free Account';
+        $service->save();
+    }
 });
 ```
 

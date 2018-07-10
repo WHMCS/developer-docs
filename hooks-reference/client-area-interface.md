@@ -77,7 +77,7 @@ add_hook('ClientAreaHomepagePanels', 1, function($homePagePanels) {
         array(
             'name' => 'Friendly Name',
             'label' => 'Translated Language String',
-            'icon' => 'fa-calendar-o', //see http://fortawesome.github.io/Font-Awesome/icons/
+            'icon' => 'fas fa-calendar-alt', //see http://fortawesome.github.io/Font-Awesome/icons/
             'order' => '99',
             'extras' => array(
                 'color' => 'pomegranate', //see Panel Accents in template styles.css
@@ -2129,7 +2129,7 @@ add_hook('ClientAreaPrimaryNavbar', 1, function($primaryNavbar) {
             'label' => Lang::trans('languageStringVariable'),
             'uri' => 'clientarea.php',
             'order' => 99,
-            'icon' => 'fa-calendar-o',
+            'icon' => 'fas fa-calendar-alt',
         )
     );
     $newMenu->addChild(
@@ -2173,7 +2173,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function($primarySidebar) {
             'label' => Lang::trans('languageStringVariable'),
             'uri' => 'clientarea.php',
             'order' => 99,
-            'icon' => 'fa-calendar-o',
+            'icon' => 'fas fa-calendar-alt',
         )
     );
     $newMenu->addChild(
@@ -2293,7 +2293,7 @@ add_hook('ClientAreaSecondaryNavbar', 1, function($secondaryNavbar) {
             'label' => Lang::trans('languageStringVariable'),
             'uri' => 'clientarea.php',
             'order' => 99,
-            'icon' => 'fa-calendar-o',
+            'icon' => 'fas fa-calendar-alt',
         )
     );
     $newMenu->addChild(
@@ -2337,7 +2337,7 @@ add_hook('ClientAreaSecondarySidebar', 1, function($secondarySidebar) {
             'label' => Lang::trans('languageStringVariable'),
             'uri' => 'clientarea.php',
             'order' => 99,
-            'icon' => 'fa-calendar-o',
+            'icon' => 'fas fa-calendar-alt',
         )
     );
     $newMenu->addChild(

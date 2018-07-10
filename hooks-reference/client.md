@@ -58,6 +58,7 @@ Executes as a client is being added to WHMCS.
 | separateinvoices | bool |  |
 | disableautocc | bool |  |
 | emailoptout | bool |  |
+| marketing_emails_opt_in | bool |  |
 | overrideautoclose | bool |  |
 | notes | string |  |
 | groupid | int |  |
@@ -248,6 +249,7 @@ Executes when a client is edited.
 | separateinvoices | bool |  |
 | disableautocc | bool |  |
 | emailoptout | bool |  |
+| marketing_emails_opt_in | bool |  |
 | overrideautoclose | bool |  |
 | language | string |  |
 | billingcid | int |  |

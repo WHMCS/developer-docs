@@ -247,6 +247,7 @@ Executes when a client profile is being viewed in the Admin area.
 | separateinvoices | bool |  |
 | disableautocc | bool |  |
 | emailoptout | bool |  |
+| marketing_emails_opt_in | bool |  |
 | overrideautoclose | bool |  |
 | language | string |  |
 | billingcid | int |  |
