@@ -43,7 +43,7 @@ function modulename_GetDomainInformation($params) {
         ->getDnsManagementStatus($response['addons']['hasdnsmanagement'])
         ->setEmailForwardingStatus($response['addons']['hasemailforwarding'])
         ->setIsIrtpEnabled(in_array($response['tld'], ['.com']))
-        ->setIrtpOptOutStatus($response['irtp']['outoutstatus'])
+        ->setIrtpOptOutStatus($response['irtp']['optoutstatus'])
         ->setIrtpTransferLock($response['irtp']['lockstatus'])
         ->IrtpTransferLockExpiryDate($irtpTransferLockExpiryDate)
         ->setDomainContactChangePending($response['status']['contactpending'])
