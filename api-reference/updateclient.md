@@ -40,6 +40,7 @@ Updates a client with the passed parameters.
 | language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
 | clientip | string | IP address of the user | Optional |
 | notes | string | Admin only notes | Optional |
+| status | string | Status, e.g. "Active" | Optional |
 | paymentmethod | string | The default payment method | Optional |
 | marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
 | clearcreditcard | bool | Pass as true to clear the stored CC details | Optional |

@@ -585,6 +585,31 @@ add_hook('PreAutomationTask', 1, function($vars) {
 });
 ```
 
+## PreEmailSendReduceRecipients
+
+Runs prior to a client email being sent and allows selective removal of CC and BCC recipients.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| messagename | string | The name of the email template being sent |
+| relid | int | The related entity ID for the email being sent |
+| recipients | array | Array containing 'cc' and 'bcc' recipients. Each recipient will be an array containing 'email' and 'fullname' indices |
+
+#### Response
+
+An array with a 'cc' and 'bcc' list of recipients. Each recipient in those lists should be indexed with the original index hash as provided by $recipients argument. If an empty 'cc' or 'bcc' list provided, it will remove all 'cc' or 'bcc' recipients respectively. If the 'cc' or 'bcc' is omitted in the return, the original list will remain unaltered
+
+#### Example Code
+
+```
+<?php
+add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## PremiumPriceOverride
 
 Executes when searching for a premium domain. The return can alter the registration & renewal costs, stop the domain being available for purchase or force the client to contact support.
