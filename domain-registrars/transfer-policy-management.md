@@ -20,7 +20,7 @@ A description of the methods used in WHOIS Contact Verification messaging are pr
 
 | Function | Type | Description |
 | --------- | ----------- | ------ |
-| setIsIrtpEnabled | Boolean | Must be set to true to enable the IRTP Transfer Policy handling. |
+| setIsIrtpEnabled | Boolean | Must be set to true to enable Transfer Policy functionality. |
 | setIrtpOptOutStatus | Boolean | True or false depending on the current opt-out status for the Inter Registry Transfer Policy (optional) |
 | setIrtpTransferLock | Boolean | True or false depending on the current IRTP Transfer Lock status for the given domain (optional) |
 | IrtpTransferLockExpiryDate | Date/Carbon | The expiry date of the transfer lock (optional) |
