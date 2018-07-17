@@ -28,6 +28,7 @@ The parameters also contains the settings from the product itself.
 | configoptions | Contains an array of all the configurable options defined on the product.  <br />Again the key being the option name in this case - $params\['configoptions']\['Option Name Here']. |
 | server | true/false - Is the product assigned to a server. |
 | serverip | The IP Address of the selected server. |
+| serverport | The configured Port of the selected server. |
 | serverhostname | The Hostname of the selected server. |
 | serverusername | The Username of the selected server. |
 | serverpassword | The Password of the selected server. |
