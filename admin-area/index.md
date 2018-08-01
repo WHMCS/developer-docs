@@ -60,9 +60,9 @@ All admin themes contain the following template files:
 
 * viewticketcustomfields.tpl - Controls the display of custom fields and their data when viewing an individual support ticket within the admin area.
 
-# Making your template live
+# Testing
 
-Whent you are ready with your new template and are ready to make it live, follow the steps below:
+When you are ready with your new template and wish to test it, follow the steps below:
 
 * Login to the Admin Area
 
@@ -72,10 +72,9 @@ Whent you are ready with your new template and are ready to make it live, follow
 
 * Hit Save Changes and you will immediately begin seeing your new template
 
-{{% notice info %}}
-To apply the change to other admin users, please navigate to Setup > Staff Management > Administrators and edit the Template setting the applicable admin users.
-{{% /notice %}}
+# Making your template live
 
+To apply the change to other admin users, please navigate to Setup > Staff Management > Administrators and edit the Template setting the applicable admin users.
 
 # Further Customisation via Hooks
 
@@ -95,15 +94,16 @@ If you wish to output custom javascript, we recommend using the AdminAreaFooterO
 */
 
 if (!defined('WHMCS')) {
- die('This hook should not be run directly');
+    die('This hook should not be run directly');
 }
- 
-add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
+
+add_hook('AdminAreaClientSummaryActionLinks', 1, function ($vars) {
     $userid = $vars['userid'];
     $return = [];
     $return[] = '<a href="addonmodules.php?module=addon_module&userid=$userid">Custom addon link for this client</a>';
     return $return;
 });
+
 ```
 
 ## Adding link to view ticket page
@@ -118,30 +118,30 @@ Displays a box on the ticket details page in the admin area that could be used t
 */
 
 use WHMCS\Config\Setting;
- 
+
 if (!defined('WHMCS')) {
- die('This hook should not be run directly');
+    die('This hook should not be run directly');
 }
 
-add_hook('AdminAreaViewTicketPage', 1, function($vars) {
- $payLoad = localAPI('getticket', array(
- 'ticketid' => $vars['ticketid']
- ));
- 
- $systemUrl = Setting::getValue('SystemURL');
- 
- $ticketUrl = $systemUrl . '/viewticket.php?tid=' . $payLoad['tid'] . '&c=' . $payLoad['c'];
- 
- $jQuery = '<script>
- 
+add_hook('AdminAreaViewTicketPage', 1, function ($vars) {
+    $payLoad = localAPI('getticket', array(
+        'ticketid' => $vars['ticketid']
+    ));
+
+    $systemUrl = Setting::getValue('SystemURL');
+
+    $ticketUrl = $systemUrl . '/viewticket.php?tid=' . $payLoad['tid'] . '&c=' . $payLoad['c'];
+
+    $jQuery = '<script>
+
 $( document ).ready(function() {
  $(\'<div class="alert alert-info text-center"><a href="' . $ticketUrl . '" target="_blank">' . $ticketUrl . '</a></div>\').prependTo("#contentarea");
  });
  </script>';
- 
- return $jQuery;
- 
+
+    return $jQuery;
 });
+
 ```
 
 ## Manipulating the dom to hide options or settings
@@ -154,13 +154,14 @@ In the below example, it shows how to use jQuery to untick the box to send the w
  * This hook will untick the checkbox to send new account information on the clientadd.php page
 */
 
-add_hook('AdminAreaFooterOutput', 1, function($vars) {
-    if (strpos($_SERVER['REQUEST_URI'], 'clientsadd.php') !== false ) {
- return '<script>
+add_hook('AdminAreaFooterOutput', 1, function ($vars) {
+    if (strpos($_SERVER['REQUEST_URI'], 'clientsadd.php') !== false) {
+        return '<script>
         $( document ).ready(function() {
             $("input[name=sendemail]").attr("checked", false);
         });
     </script>';
     }
 });
+
 ```
