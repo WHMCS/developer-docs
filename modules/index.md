@@ -17,7 +17,7 @@ A module is a collection of functions that provide additional functionality to t
     <div class="col-sm-6">
         <a href="/provisioning-modules/">
             <i class="fa fa-cog"></i>
-            <h3>Provisoning Modules</h3>
+            <h3>Provisioning Modules</h3>
             <p>For modules that enable provisioning and management of products &amp; services via API.</p>
         </a>
     </div>
