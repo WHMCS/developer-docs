@@ -11,7 +11,7 @@ weight = 10
 
 We make available a sample Email notification module via WHMCS. We recommend using this as a starting point for a custom module. This can be located in your WHMCS ZIP file (whmcs/modules/notifications/Email).
 
-You can download a fresh, up to date copy of WHMCS, including this sample module from [our members area](https://download.whmcs.com)
+You can download a fresh, up to date copy of WHMCS, including this sample module from [our members area](https://download.whmcs.com).
 
 ## Choosing a Name
 
