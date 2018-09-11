@@ -390,7 +390,7 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 
 ## OrderDomainPricingOverride
 
-Executes as a domain price is being calculated in the cart. This hook is run independelty for each domain added to the cart.
+Executes as a domain price is being calculated in the cart. This hook is run independently for each domain added to the cart.
 
 #### Parameters
 
@@ -407,7 +407,7 @@ Executes as a domain price is being calculated in the cart. This hook is run ind
 
 #### Response
 
-Return a valid price to override the cost of the domain.
+Return a valid price to override the First Payment Amount value of the domain.
 
 #### Example Code
 
