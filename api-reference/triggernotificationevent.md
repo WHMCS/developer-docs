@@ -47,7 +47,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'attributes[0][label]' => 'example',
             'attributes[0][value]' => 'example',
             'attributes[0][url]' => 'https://whmcs.example.test/admin/configservers.php?action=manage&id=3',
-            'attributes[0][style]' => 'example',
+            'attributes[0][style]' => 'success',
             'attributes[0][icon]' => 'example',
             'responsetype' => 'json',
         )
@@ -73,7 +73,7 @@ $postData = array(
     'attributes[0][label]' => 'example',
     'attributes[0][value]' => 'example',
     'attributes[0][url]' => 'https://whmcs.example.test/admin/configservers.php?action=manage&id=3',
-    'attributes[0][style]' => 'example',
+    'attributes[0][style]' => 'success',
     'attributes[0][icon]' => 'example',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later

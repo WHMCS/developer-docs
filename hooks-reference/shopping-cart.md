@@ -459,7 +459,7 @@ Executes as a product price is being calculated in the cart.
 
 #### Response
 
-Product pricing can be overridden. Accepts a return of the keys 'setup' and 'recurring'. eg: return array('setup' => 1.00, 'recurring' => 12.00);
+Product pricing can be overridden - exclusive of configurable option cost. Accepts a return of the keys 'setup' and 'recurring'. eg: return array('setup' => 1.00, 'recurring' => 12.00);
 
 #### Example Code
 
@@ -474,14 +474,14 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
     /**
      * Override the product price when ordering product 1 and the user has the id 10
      */
-    if ($vars['pid'] == 1 && Session::get('userid') == 10) {
+    if ($vars['pid'] == 1 && Session::get('uid') == 10) {
         $return = ['setup' => '0.00', 'recurring' => '0.00',];
     }
 
     /**
      * Override the product price when user has the id 72
      */
-    if (Session::get('userid') == 72) {
+    if (Session::get('uid') == 72) {
         $return = ['setup' => '0.00', 'recurring' => '0.00',];
     }
     return $return;
@@ -516,7 +516,7 @@ Return any key -> value pairs of the parameters to override. eg return array('di
 ```
 <?php
 
-use Carbon\Carbon;
+use WHMCS\Carbon;
 
 add_hook('OrderProductUpgradeOverride', 1, function($vars) {
     $return = [];
@@ -609,6 +609,27 @@ No response supported
 ```
 <?php
 add_hook('PreCalculateCartTotals', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreFraudCheck
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+|  $params | | |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PreFraudCheck', 1, function($vars) {
     // Perform hook code here...
 });
 ```

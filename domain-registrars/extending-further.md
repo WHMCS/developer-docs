@@ -1,6 +1,6 @@
 +++
 next = "/domain-registrars/hooks/"
-prev = "/domain-registrars/module-functions/"
+prev = "/domain-registrars/transfer-policy-management/"
 title = "Extending Further"
 weight = 70
 

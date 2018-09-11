@@ -55,6 +55,7 @@ weight = 100
 <li> <a href="/hooks-reference/shopping-cart/#overrideordernumbergeneration">OverrideOrderNumberGeneration</a>
 <li> <a href="/hooks-reference/shopping-cart/#pendingorder">PendingOrder</a>
 <li> <a href="/hooks-reference/shopping-cart/#precalculatecarttotals">PreCalculateCartTotals</a>
+<li> <a href="/hooks-reference/shopping-cart/#prefraudcheck">PreFraudCheck</a>
 <li> <a href="/hooks-reference/shopping-cart/#preshoppingcartcheckout">PreShoppingCartCheckout</a>
 <li> <a href="/hooks-reference/shopping-cart/#runfraudcheck">RunFraudCheck</a>
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartcheckoutcompletepage">ShoppingCartCheckoutCompletePage</a>
@@ -191,6 +192,8 @@ weight = 100
 <h3>Ticket</h3>
 
 <ul><li> <a href="/hooks-reference/ticket/#adminareaviewticketpage">AdminAreaViewTicketPage</a>
+<li> <a href="/hooks-reference/ticket/#adminareaviewticketpagesidebar">AdminAreaViewTicketPageSidebar</a>
+<li> <a href="/hooks-reference/ticket/#adminsupportticketpagepretickets">AdminSupportTicketPagePreTickets</a>
 <li> <a href="/hooks-reference/ticket/#clientareapagesubmitticket">ClientAreaPageSubmitTicket</a>
 <li> <a href="/hooks-reference/ticket/#clientareapagesupporttickets">ClientAreaPageSupportTickets</a>
 <li> <a href="/hooks-reference/ticket/#clientareapageviewticket">ClientAreaPageViewTicket</a>
@@ -361,6 +364,7 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#notificationpresend">NotificationPreSend</a>
 <li> <a href="/hooks-reference/everything-else/#postautomationtask">PostAutomationTask</a>
 <li> <a href="/hooks-reference/everything-else/#preautomationtask">PreAutomationTask</a>
+<li> <a href="/hooks-reference/everything-else/#preemailsendreducerecipients">PreEmailSendReduceRecipients</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpricerecalculationoverride">PremiumPriceRecalculationOverride</a>
 </ul>

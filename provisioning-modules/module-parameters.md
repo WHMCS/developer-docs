@@ -33,6 +33,7 @@ The parameters also contains the settings from the product itself.
 | serverpassword | The Password of the selected server. |
 | serveraccesshash | The Access Hash of the selected server. |
 | serversecure | true/false - Is an SSL connection enabled in the Server Configuration. |
+| serverport | The server port if module supports override with custom port |
 
 ## Config Options <a id="config-options"></a>
 
