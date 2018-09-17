@@ -35,10 +35,16 @@ function modulename_Sync($params) {
 
     // Perform code to fetch domain status here
 
+    //If the Sync is successful, return the following:
     return array(
         'active' => true, // Return true if the domain is active
         'expired' => false, // Return true if the domain has expired
         'expirydate' => '2016-11-01', // Return the current expiry date for the domain
+    );
+    
+    //If the Sync is unsuccessful (e.g. a server timeout), return an error to block any changes
+    return array(
+        'error' => "Could not connect to modulename.", // Return an error message as a string
     );
 }
 ```
