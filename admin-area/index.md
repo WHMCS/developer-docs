@@ -40,7 +40,7 @@ In order to make changes to any of the CSS that is applied by default, please cr
 
 All admin themes contain the following template files:
 
-* authconfirm.tpl - This template file is used to display the Password Confirmation prompt on any admin area page that requires it. For example: Setup > General Settings.
+* authconfirm.tpl - This template file is used to display the Password Confirmation prompt on any admin area page that requires it. For example: *Setup > General Settings*.
 
 * clientssummary.tpl - Controls the display of the Summary Tab and associated information within an individual Clients Profile.
 
@@ -70,11 +70,11 @@ When you are ready with your new template and wish to test it, follow the steps 
 
 * Under the Template setting, select the name of the template you created above
 
-* Hit Save Changes and you will immediately begin seeing your new template
+* Hit *Save Changes* and you will immediately begin seeing your new template
 
 # Making your template live
 
-To apply the change to other admin users, please navigate to Setup > Staff Management > Administrators and edit the Template setting the applicable admin users.
+To apply the change to other admin users, please navigate to *Setup > Staff Management > Administrators* and edit the Template setting for the applicable admin users.
 
 # Further Customisation via Hooks
 
