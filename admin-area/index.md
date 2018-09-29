@@ -66,7 +66,7 @@ When you are ready with your new template and wish to test it, follow the steps 
 
 * Login to the Admin Area
 
-* Navigate to My Account using the menu located at the top of any page
+* Navigate to *My Account* using the menu located at the top of any page
 
 * Under the Template setting, select the name of the template you created above
 
