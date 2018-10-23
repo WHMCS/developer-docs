@@ -72,7 +72,7 @@ return array(
     'status' => 'success',
     'rawdata' => $responseData,
     'transid' => $transactionId,
-    'fees' => $feeAmount,
+    'fee' => $feeAmount,
 );
 ```
 
@@ -110,7 +110,7 @@ function yourmodulename_capture($params) {
         'status' => ($data->success == 1) ? 'success' : 'declined',
         'rawdata' => $data,
         'transid' => $data->transaction_id,
-        'fees' => $data->fees,
+        'fee' => $data->fees,
     );
 }
 ```
