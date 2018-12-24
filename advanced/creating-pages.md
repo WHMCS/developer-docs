@@ -6,7 +6,7 @@ weight = 10
 
 +++
 
-Creating your own client area pages should orindarily be done by creating an Addon Module with client area output.
+Creating your own client area pages should ordinarily be done by creating an Addon Module with client area output.
 
 However, if you wish to, you can create a standalone page using the following template.
 
