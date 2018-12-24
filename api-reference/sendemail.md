@@ -20,6 +20,7 @@ The following email templates cannot be sent in this way:
 
 What you must provide for the Related ID depends upon the type of email being sent.
 The available options are:
+
 * General Email Type = Client ID (tblclients.id)
 * Product Email Type = Service ID (tblhosting.id)
 * Domain Email Type = Domain ID (tbldomains.id)
@@ -30,6 +31,7 @@ The available options are:
 **Sending Failed**
 
 The generic Sending Failed error response can be caused by one of five possible conditions. They are:
+
 * Invalid related ID
 * Email template contains no body content after processing (typically a Smarty error)
 * Welcome email requested for product which has none set
