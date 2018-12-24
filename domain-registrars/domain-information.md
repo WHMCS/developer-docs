@@ -16,7 +16,7 @@ Note this function is only available in WHMCS 7.6.0 and later.
 
 ## Example Usage
 
-The function expects a return of a [WHMCS Registrar Domain object](https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain_ns.html).
+The function expects a return of a [WHMCS Registrar Domain object](https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain.html).
 
 The example below demonstrates setting all supported domain attributes at the time of writing.
 
@@ -66,4 +66,4 @@ function modulename_GetDomainInformation($params) {
 If an error is encountered while attempting to fetch the domain information, you should throw an exception. All exceptions will be caught by WHMCS and the exception message displayed to the end user.
 
 Method signatures for the `WHMCS\Domain\Registrar\Domain` class can be found in the
-[WHMCS Class Documention](https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain_ns.html).
+[WHMCS Class Documention](https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain.html).
