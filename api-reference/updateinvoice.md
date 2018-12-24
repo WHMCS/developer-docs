@@ -53,6 +53,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
+            'invoiceid' => 1,
             'status' => 'Unpaid',
             'itemdescription' => array(13 => 'Sample Updated Invoice Item'),
             'itemamount' => array(13 => 16.95),
@@ -72,6 +73,7 @@ curl_close($ch);
 ```
 $command = 'UpdateInvoice';
 $postData = array(
+    'invoiceid' => 1,
     'status' => 'Unpaid',
     'itemdescription' => array(13 => 'Sample Updated Invoice Item'),
     'itemamount' => array(13 => 16.95),
