@@ -13,8 +13,8 @@ Add a reply to a ticket by Ticket ID.
 | ticketid | int | The id of the ticket in the database. Either $ticketnum or $ticketid is required | Required |
 | message | string | The content of the ticket reply | Required |
 | markdown | bool | Should markdown be used on the ticket reply output | Optional |
-| userid | int | Pass a userid to associate the ticket reply with a specific client | Optional |
-| contactid | int | Pass a contactid to associate the ticket reply with a specific contact belonging to $userid | Optional |
+| clientid | int | Pass a clientid to associate the ticket reply with a specific client | Optional |
+| contactid | int | Pass a contactid to associate the ticket reply with a specific contact belonging to $clientid | Optional |
 | adminusername | string | The admin username to associate the ticket reply with | Optional |
 | name | string | The name to associate with the ticket reply if not an admin or client response | Optional |
 | email | string | The email to associate with the ticket reply if not an admin or client response | Optional |

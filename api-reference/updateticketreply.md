@@ -1,22 +1,25 @@
 +++
-title = "ModuleChangePackage"
+title = "UpdateTicketReply"
 toc = true
 +++
 
-Runs a change package action for a given service.
+Updates a ticket reply message.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "ModuleChangePackage" | Required |
-| serviceid | int | The service ID to run the action for | Required |
+| action | string | "UpdateTicketReply" | Required |
+| replyid | int | The reply id to update. | Required |
+| message | string | The message to be updated | Required |
+| markdown | bool | Should markdown be used on the ticket message. Existing value is used if not supplied. | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| replyid | int | The reply id that has been updated |
 
 
 ### Example Request (CURL)
@@ -28,11 +31,12 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'ModuleChangePackage',
+            'action' => 'UpdateTicketReply',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'serviceid' => '1',
+            'replyid' => '1',
+            'message' => 'This is a sample updated ticket reply',
             'responsetype' => 'json',
         )
     )
@@ -46,9 +50,10 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'ModuleChangePackage';
+$command = 'UpdateTicketReply';
 $postData = array(
-    'serviceid' => '1',
+    'replyid' => '1',
+    'message' => 'This is a sample updated ticket reply',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -61,7 +66,8 @@ print_r($results);
 
 ```
 {
-    "result": "success"
+    "result": "success",
+    "replyid": "1"
 }
 ```
 
@@ -70,15 +76,13 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Service ID is required
-* Service ID not found
-* Service not assigned to a module
-* Server response message
+* Reply ID Required
+* Message is Required
+* Reply ID Not Found
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 1.0 | Initial Version |
-| 7.7 | Renamed `accountid` parameter to `serviceid`. Backwards compatibility preserved for `accountid`. |
+| 7.7 | Initial Version |

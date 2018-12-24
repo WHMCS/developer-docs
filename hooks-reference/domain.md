@@ -140,7 +140,7 @@ Executes before a domain register command
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
+| domain | string | The domain being registered |
 
 #### Response
 

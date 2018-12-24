@@ -1,22 +1,28 @@
 +++
-title = "ModuleChangePackage"
+title = "GetAdminUsers"
 toc = true
 +++
 
-Runs a change package action for a given service.
+Retrieve a list of administrator user accounts.
+
+phpcs:disable
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "ModuleChangePackage" | Required |
-| serviceid | int | The service ID to run the action for | Required |
+| action | string | "GetAdminUsers" | Required |
+| roleid | int | An administrative role ID to filter for. | Optional |
+| email | string | An email address to filter for. Partial matching supported. | Optional |
+| include_disabled | bool | Pass as true to include disabled administrator user accounts in response. | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| count | int | Total number of administrative users matching supplied criteria. |
+| admin_users | array | An array of administrator users and their attributes. |
 
 
 ### Example Request (CURL)
@@ -28,11 +34,10 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'ModuleChangePackage',
+            'action' => 'GetAdminUsers',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'serviceid' => '1',
             'responsetype' => 'json',
         )
     )
@@ -46,9 +51,8 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'ModuleChangePackage';
+$command = 'GetAdminUsers';
 $postData = array(
-    'serviceid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -60,25 +64,12 @@ print_r($results);
 ### Example Response JSON
 
 ```
-{
-    "result": "success"
-}
+null
 ```
-
-
-### Error Responses
-
-Possible error condition responses include:
-
-* Service ID is required
-* Service ID not found
-* Service not assigned to a module
-* Server response message
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 1.0 | Initial Version |
-| 7.7 | Renamed `accountid` parameter to `serviceid`. Backwards compatibility preserved for `accountid`. |
+| 7.7 | Initial Version |

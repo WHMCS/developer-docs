@@ -22,6 +22,7 @@ Adds a contact to a client account.
 | postcode | string |  | Optional |
 | country | string | 2 character ISO country code | Optional |
 | phonenumber | string |  | Optional |
+| tax_id | string |  | Optional |
 | password2 | string | if creating a sub-account | Optional |
 | generalemails | bool | set true to receive general email types | Optional |
 | productemails | bool | set true to receive product related emails | Optional |
@@ -105,3 +106,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Added `tax_id` parameter. |

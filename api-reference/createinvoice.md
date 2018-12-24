@@ -17,8 +17,8 @@ Create an invoice using the provided parameters.
 | paymentmethod | string | The payment method of the created invoice in system format | Optional |
 | taxrate | float | The first level tax rate to apply to the invoice to override the system default | Optional |
 | taxrate2 | float | The second level tax rate to apply to the invoice to override the system default | Optional |
-| date | \Carbon\Carbon | The date that the invoice should show as created YYYY-mm-dd | Optional |
-| duedate | \Carbon\Carbon | The due date of the newly created invoice YYYY-mm-dd | Optional |
+| date | \Carbon | The date that the invoice should show as created YYYY-mm-dd | Optional |
+| duedate | \Carbon | The due date of the newly created invoice YYYY-mm-dd | Optional |
 | notes | string | The notes to appear on the created invoice | Optional |
 | itemdescriptionx | string | The line items description X is an integer to add multiple invoice items | Optional |
 | itemamountx | float | The line items amount | Optional |

@@ -21,6 +21,7 @@ Adds a client.
 | postcode | string |  | Required |
 | country | string | 2 character ISO country code | Required |
 | phonenumber | string |  | Required |
+| tax_id | string | The client Tax ID | Optional |
 | password2 | string |  | Required |
 | securityqid | int | Security Question ID from tbladminsecurityquestions | Optional |
 | securityqans | string | Security Question Answer | Optional |
@@ -145,3 +146,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Added `tax_id` parameter. |

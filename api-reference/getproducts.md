@@ -5,6 +5,10 @@ toc = true
 
 Retrieve configured products matching provided criteria
 
+NOTE: This API method is designed to be used in the building of custom order
+forms. As a result, only custom fields that have the 'Show on Order Form'
+setting enabled will be returned for a given product.
+
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
