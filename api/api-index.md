@@ -64,6 +64,7 @@ weight = 100
 <li> <a href="/api-reference/getannouncements/">GetAnnouncements</a>
 <li> <a href="/api-reference/openticket/">OpenTicket</a>
 <li> <a href="/api-reference/updateticket/">UpdateTicket</a>
+<li> <a href="/api-reference/updateticketreply/">UpdateTicketReply</a>
 </ul>
 <h3>System</h3>
 
@@ -72,6 +73,7 @@ weight = 100
 <li> <a href="/api-reference/encryptpassword/">EncryptPassword</a>
 <li> <a href="/api-reference/getactivitylog/">GetActivityLog</a>
 <li> <a href="/api-reference/getadmindetails/">GetAdminDetails</a>
+<li> <a href="/api-reference/getadminusers/">GetAdminUsers</a>
 <li> <a href="/api-reference/getautomationlog/">GetAutomationLog</a>
 <li> <a href="/api-reference/getconfigurationvalue/">GetConfigurationValue</a>
 <li> <a href="/api-reference/getcurrencies/">GetCurrencies</a>

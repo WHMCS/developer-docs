@@ -10,7 +10,7 @@ Runs a custom module action for a given service.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "ModuleCustom" | Required |
-| accountid | int | The service ID to run the action for | Required |
+| serviceid | int | The service ID to run the action for | Required |
 | func_name | string | The name of the custom function to run | Required |
 
 ### Response Parameters
@@ -33,7 +33,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'accountid' => '1',
+            'serviceid' => '1',
             'func_name' => 'reboot',
             'responsetype' => 'json',
         )
@@ -50,7 +50,7 @@ curl_close($ch);
 ```
 $command = 'ModuleCustom';
 $postData = array(
-    'accountid' => '1',
+    'serviceid' => '1',
     'func_name' => 'reboot',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -73,6 +73,9 @@ print_r($results);
 
 Possible error condition responses include:
 
+* Service ID is required
+* Service ID not found
+* Service not assigned to a module
 * Server response message
 
 
@@ -81,3 +84,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Renamed `accountid` parameter to `serviceid`. Backwards compatibility preserved for `accountid`. |

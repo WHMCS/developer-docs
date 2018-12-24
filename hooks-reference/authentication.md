@@ -87,7 +87,7 @@ add_hook('ClientLoginShare', 1, function($vars) {
 
 ## ClientLogout
 
-Executes when a client is logging into the Client Area.
+Executes when a client logs out of the Client Area.
 
 #### Parameters
 

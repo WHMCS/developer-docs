@@ -20,6 +20,7 @@ Updates a Client Service
 | firstpaymentamount | float | The first payment amount on the service | Optional |
 | recurringamount | float | The recurring amount for automatic renewal invoices | Optional |
 | paymentmethod | string | The payment method to associate in system format (eg paypal) | Optional |
+| billingcycle | string | The term in which the product is billed on (eg One-Time, Monthly, Quarterly, etc) | Optional |
 | subscriptionid | string | The subscription ID to associate with the service | Optional |
 | status | string | The status to change the service to | Optional |
 | notes | string | The admin notes for the service | Optional |

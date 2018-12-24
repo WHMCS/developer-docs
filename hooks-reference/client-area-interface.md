@@ -54,7 +54,7 @@ add_hook('ClientAreaHomepage', 1, function($vars) {
 
 ## ClientAreaHomepagePanels
 
-Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see [Working with ClientArea Homepage Panels](http://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels)
+Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see [Working with ClientArea Homepage Panels](https://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels)
 
 #### Parameters
 
@@ -81,9 +81,9 @@ add_hook('ClientAreaHomepagePanels', 1, function($homePagePanels) {
             'order' => '99',
             'extras' => array(
                 'color' => 'pomegranate', //see Panel Accents in template styles.css
-                'btn-link' => 'http://www.whmcs.com',
+                'btn-link' => 'https://www.whmcs.com',
                 'btn-text' => Lang::trans('go'),
-                'btn-icon' => 'fa-arrow-right',
+                'btn-icon' => 'fas fa-arrow-right',
             ),
         )
     );

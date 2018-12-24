@@ -31,6 +31,7 @@ Creates a new quote
 | state | string | The state of the client the quote is for if no $userid | Optional |
 | country | string | The country of the client the quote is for if no $userid | Optional |
 | phonenumber | string | The phone number of the client (no country code) the quote is for if no $userid. Local format eg 4035551234 | Optional |
+| tax_id | string | The tax id of the client | Optional |
 | currency | int | The id of the currency for the quote is for if no $userid | Optional |
 | proposal | string | The proposal text displayed to the end user | Optional |
 | customernotes | string | The notes on the quote displayed to the end user | Optional |
@@ -118,3 +119,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Added `tax_id` parameter. |

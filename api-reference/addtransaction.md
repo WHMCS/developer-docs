@@ -97,6 +97,10 @@ Possible error condition responses include:
 
 * Client ID Not Found
 * Invoice ID Not Found
+* User ID does not own the given Invoice ID
+* Currency ID Not Found
+* Currency ID does not match Client currency
+* A Currency ID is required for non-customer related transactions
 * Payment Method is required
 * Transaction ID must be Unique
 

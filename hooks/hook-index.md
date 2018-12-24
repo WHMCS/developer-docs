@@ -341,6 +341,7 @@ weight = 100
 <ul><li> <a href="/hooks-reference/cron/#aftercronjob">AfterCronJob</a>
 <li> <a href="/hooks-reference/cron/#dailycronjob">DailyCronJob</a>
 <li> <a href="/hooks-reference/cron/#dailycronjobpreemail">DailyCronJobPreEmail</a>
+<li> <a href="/hooks-reference/cron/#popemailcollectioncroncompleted">PopEmailCollectionCronCompleted</a>
 <li> <a href="/hooks-reference/cron/#precronjob">PreCronJob</a>
 </ul>
 <h3>Everything Else</h3>
