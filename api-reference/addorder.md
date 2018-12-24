@@ -30,13 +30,13 @@ Adds an order to a client.
 | promooverride | bool | Should the promotion apply to the order even without matching promotional products | Optional |
 | affid | int | The affiliate id to associate with the order | Optional |
 | noinvoice | bool | Set to true to suppress the invoice generating for the whole order | Optional |
-| noinvoiceemail | bool | Set to try to suppress the Invoice Created email being sent for the order | Optional |
+| noinvoiceemail | bool | Set to true to suppress the Invoice Created email being sent for the order | Optional |
 | noemail | bool | Set to true to suppress the Order Confirmation email being sent | Optional |
 | addons | string[] | A comma separated list of addons to create on order with the products | Optional |
 | hostname | string[] | The hostname of the server for VPS/Dedicated Server orders | Optional |
 | ns1prefix | string[] | The first nameserver prefix for the VPS/Dedicated server. Eg. ns1 in ns1.hostname.com | Optional |
 | ns2prefix | string[] | The second nameserver prefix for the VPS/Dedicated server. Eg. ns2 in ns2.hostname.com | Optional |
-| rootpw | string[] | The second nameserver prefix for the VPS/Dedicated server. Eg. ns2 in ns2.hostname.com | Optional |
+| rootpw | string[] | The desired root password for the VPS/Dedicated server. | Optional |
 | contactid | int | The id of the contact, associated with the client, that should apply to all domains in the order | Optional |
 | dnsmanagement | bool[] | Add DNS Management to the Domain Order | Optional |
 | domainfields | string[] | an array of base64 encoded serialized array of TLD Specific Field Values | Optional |
