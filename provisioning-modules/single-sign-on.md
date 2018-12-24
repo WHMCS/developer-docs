@@ -74,6 +74,19 @@ function mymodule_ServiceSingleSignOn(array $params)
 }
 ```
 
+In order to call your **_ServiceSingleSignOn** function from the Client Area, create a button or link that uses the following URL format:
+
+```
+/clientarea.php?action=productdetails&id=SERVICE_ID_HERE&dosinglesignon=1
+```
+
+Replace **SERVICE_ID_HERE** with the ID of the client's service that you wish to perform the single sign-on with.
+
+The most common methods of displaying the link are; in the sidebar, or a button in the client area output of the module. The following resources go into further detail on how to use the WHMCS hooks system or client area output in a module:
+
+https://developers.whmcs.com/themes/sidebars/
+https://developers.whmcs.com/provisioning-modules/client-area-output/
+
 ## Server Single Sign-On <a id="server-sso"></a>
 
 Server single sign-on allows for Admin users to login to the associated server management panel (like WHM for cPanel) automatically.
@@ -134,5 +147,7 @@ function mymodule_AdminSingleSignOn(array $params)
 
 }
 ```
+
+
 
 [boolean-glossary]: http://docs.whmcs.com/Glossary#Boolean
