@@ -7,12 +7,6 @@ weight = 10
 
 +++
 
-## Sample Module
-
-We make available a sample notification module on Github. We recommend using this as a starting point for a custom module.
-
-> https://github.com/WHMCS/sample-notification-module
-
 ## Choosing a Name
 
 Notification Modules are stored in the `/modules/notifications/` directory.
