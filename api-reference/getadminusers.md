@@ -5,8 +5,6 @@ toc = true
 
 Retrieve a list of administrator user accounts.
 
-phpcs:disable
-
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
@@ -64,7 +62,71 @@ print_r($results);
 ### Example Response JSON
 
 ```
-null
+{
+    "count": 2,
+    "admin_users": [
+        {
+            "id": 1,
+            "uuid": "41dac92c-2f1a-474b-bef8-5e9a7e46e101",
+            "roleId": 1,
+            "username": "Admin",
+            "twoFactorAuthModule": "",
+            "firstname": "Demo",
+            "lastname": "User",
+            "email": "demo@whmcs.com",
+            "signature": "",
+            "notes": "",
+            "template": "blend",
+            "language": "english",
+            "isDisabled": 0,
+            "loginAttempts": 0,
+            "supportDepartmentIds": [
+                "1",
+                "2",
+                "3"
+            ],
+            "receivesTicketNotifications": [
+                "1",
+                "2"
+            ],
+            "homepageWidgetsConfig": "",
+            "hiddenHomepageWidgets": "",
+            "created_at": "2018-01-01 00:00:00",
+            "updated_at": "2018-09-04 09:51:26",
+            "fullName": "Demo User",
+            "gravatarHash": "56487cdd284a735449d029e062d654d7"
+        },
+        {
+            "id": 2,
+            "uuid": "",
+            "roleId": 2,
+            "username": "Georgina",
+            "twoFactorAuthModule": "",
+            "firstname": "Georgina",
+            "lastname": "Williams",
+            "email": "georgina.williams@whmcs.com",
+            "signature": "",
+            "notes": "",
+            "template": "blend",
+            "language": "english",
+            "isDisabled": 0,
+            "loginAttempts": 0,
+            "supportDepartmentIds": [
+                "2",
+                "3"
+            ],
+            "receivesTicketNotifications": [
+                ""
+            ],
+            "homepageWidgetsConfig": "",
+            "hiddenHomepageWidgets": "",
+            "created_at": "2018-01-01 00:00:00",
+            "updated_at": "2018-05-01 12:54:16",
+            "fullName": "Georgina Williams",
+            "gravatarHash": "f8c28cf89551c390ae43938167d35cb8"
+        }
+    ]
+}
 ```
 
 
