@@ -617,3 +617,32 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 });
 ```
 
+## ViewOrderDetailsPage
+
+Executes as the order details page is being displayed
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderid | int |  |
+| ordernum | int |  |
+| userid | int |  |
+| amount | float |  |
+| paymentmethod | string |  |
+| invoiceid | int |  |
+|  | string | status |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ViewOrderDetailsPage', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+

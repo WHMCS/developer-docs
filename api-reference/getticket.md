@@ -97,44 +97,47 @@ print_r($results);
     "cc": "",
     "date": "2016-01-01 06:26:29",
     "subject": "This is a sample ticket",
-    "status": "Answered",
+    "status": "Closed",
     "priority": "Medium",
-    "admin": "admin admin",
+    "admin": "",
     "lastreply": "2016-01-01 06:30:16",
     "flag": "0",
     "service": "",
     "replies": {
         "reply": [
             {
+                "replyid": "0",
                 "userid": "1",
                 "contactid": "0",
                 "name": "Cynthia Reilly",
                 "email": "testuser@whmcs.com",
                 "date": "2016-01-01 06:26:29",
-                "message": "Hey, \r\n\r\nThis is the ticket message!\r\n\r\nThanks\r\n\r\nAdmin",
+                "message": "Hey, \r\n\r\nThis is the first ticket message!\r\n\r\nThanks\r\n\r\nCynthia",
                 "attachment": "",
-                "admin": "admin admin"
+                "admin": ""
             },
             {
-                "userid": "0",
+                "replyid": "1",
+                "userid": "1",
                 "contactid": "0",
                 "name": "",
                 "email": "",
                 "date": "2016-01-01 06:27:01",
-                "message": "Hello, \r\n\r\nThis is the first ticket reply!\r\n\r\nThanks",
+                "message": "Hello, \r\n\r\nThis is the first ticket reply by an admin user!\r\n\r\nThanks\r\n\r\nDemo Admin",
                 "attachment": "",
-                "admin": "admin admin",
+                "admin": "Demo Admin",
                 "rating": "0"
             },
             {
-                "userid": "0",
+                "replyid": "2",
+                "userid": "1",
                 "contactid": "0",
                 "name": "",
                 "email": "",
                 "date": "2016-01-01 06:30:16",
-                "message": "Hey, \r\n\r\nThis is a second reply!\r\n\r\nthanks",
+                "message": "Hey, \r\n\r\nThis is a second reply!\r\n\r\nThanks\r\n\r\nCynthia",
                 "attachment": "",
-                "admin": "admin admin",
+                "admin": "",
                 "rating": "0"
             }
         ]
@@ -145,7 +148,7 @@ print_r($results);
                 "noteid": "1",
                 "date": "2016-01-01 06:26:42",
                 "message": "This is a ticket note",
-                "admin": "admin admin"
+                "admin": "Demo Admin"
             }
         ]
     }
