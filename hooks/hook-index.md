@@ -41,6 +41,7 @@ weight = 100
 <li> <a href="/hooks-reference/shopping-cart/#afterfraudcheck">AfterFraudCheck</a>
 <li> <a href="/hooks-reference/shopping-cart/#aftershoppingcartcheckout">AfterShoppingCartCheckout</a>
 <li> <a href="/hooks-reference/shopping-cart/#cancelorder">CancelOrder</a>
+<li> <a href="/hooks-reference/shopping-cart/#cartsubdomainvalidation">CartSubdomainValidation</a>
 <li> <a href="/hooks-reference/shopping-cart/#carttotaladjustment">CartTotalAdjustment</a>
 <li> <a href="/hooks-reference/shopping-cart/#deleteorder">DeleteOrder</a>
 <li> <a href="/hooks-reference/shopping-cart/#fraudcheckawaitinguserinput">FraudCheckAwaitingUserInput</a>
@@ -63,7 +64,6 @@ weight = 100
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidatedomain">ShoppingCartValidateDomain</a>
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidatedomainsconfig">ShoppingCartValidateDomainsConfig</a>
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidateproductupdate">ShoppingCartValidateProductUpdate</a>
-<li> <a href="/hooks-reference/shopping-cart/#vieworderdetailspage">ViewOrderDetailsPage</a>
 </ul>
 <h3>Service</h3>
 
@@ -316,6 +316,7 @@ weight = 100
 <li> <a href="/hooks-reference/admin-area/#authadminapi">AuthAdminApi</a>
 <li> <a href="/hooks-reference/admin-area/#invoicecreationadminarea">InvoiceCreationAdminArea</a>
 <li> <a href="/hooks-reference/admin-area/#preadminserviceedit">PreAdminServiceEdit</a>
+<li> <a href="/hooks-reference/admin-area/#vieworderdetailspage">ViewOrderDetailsPage</a>
 </ul>
 <h3>Output</h3>
 

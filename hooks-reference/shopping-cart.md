@@ -162,6 +162,30 @@ add_hook('CancelOrder', 1, function($vars) {
 });
 ```
 
+## CartSubdomainValidation
+
+Executes when Cart Subdomain Validation is occurring
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| subdomain | string | eg sub in sub.whmcs.com |
+| domain | string | eg whmcs.com in sub.whmcs.com |
+
+#### Response
+
+Return any validation errors. eg: return array('error1', 'error2',);
+
+#### Example Code
+
+```
+<?php
+add_hook('CartSubdomainValidation', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## CartTotalAdjustment
 
 Invoked as the order total is being calculated, this can be used to manipulate the final total.
@@ -853,35 +877,6 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
         'Error message feedback error 1',
         'Error message feedback error 2',
     ];
-});
-```
-
-## ViewOrderDetailsPage
-
-Executes as the order details page is being displayed
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| orderid | int |  |
-| ordernum | int |  |
-| userid | int |  |
-| amount | float |  |
-| paymentmethod | string |  |
-| invoiceid | int |  |
-|  | string | status |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ViewOrderDetailsPage', 1, function($vars) {
-    // Perform hook code here...
 });
 ```
 
