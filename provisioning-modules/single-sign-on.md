@@ -19,7 +19,7 @@ The return from either function should always be an array and contain two keys o
 
 ## Service Single Sign-On <a id="service-sso"></a>
 
-Service single sign-on is to allow admin and client users to login to the control panel of the service automatically.
+Service single sign-on can be used to allow admin and client users to login to the control panel or dashboard for a given service automatically.
 
 ```
 /**
@@ -76,13 +76,15 @@ function mymodule_ServiceSingleSignOn(array $params)
 
 In order to call your **_ServiceSingleSignOn** function from the Client Area, create a button or link that uses the following URL format:
 
-```
-/clientarea.php?action=productdetails&id=SERVICE_ID_HERE&dosinglesignon=1
-```
+`/clientarea.php?action=productdetails&id=SERVICE_ID_HERE&dosinglesignon=1`
 
 Replace **SERVICE_ID_HERE** with the ID of the client's service that you wish to perform the single sign-on with.
 
-The most common methods of displaying the link are; in the sidebar, or a button in the client area output of the module. The following resources go into further detail on how to use the WHMCS hooks system or client area output in a module:
+The most common methods of displaying the link are:
+
+- In the sidebar of the client area
+- In a button in the client area
+- In the client area output of the module
 
 https://developers.whmcs.com/themes/sidebars/
 https://developers.whmcs.com/provisioning-modules/client-area-output/
@@ -116,8 +118,8 @@ function mymodule_AdminSingleSignOn(array $params)
 	);
 	try {
         /**
-         * all the service's single sign-on token retrieval function, using the
-         * values provided by WHMCS in `$params`.
+         * All the service's single sign-on token retrieval functions
+         * use the values provided by WHMCS in $params.
          * The variables and response format would depend on your server API
          */
 
