@@ -10,7 +10,7 @@ Our developer documentation portal is designed for developers wishing to work wi
 
 ### Q. Who can I contact if I need support?
 
-We have a developers forum available @ https://forum.whmcs.com/forumdisplay.php?15-Developer-Corner
+We have a developers community available @ https://whmcs.community/forum/41-developer-corner/
 
 Basic development support is offered by our Technical Support Team.
 
