@@ -82,12 +82,28 @@ Replace **SERVICE_ID_HERE** with the ID of the client's service that you wish to
 
 The most common methods of displaying the link are:
 
-- In the sidebar of the client area
+- [In the sidebar of the client area][display-sidebar]
 - In a button in the client area
-- In the client area output of the module
+- [In the client area output of the module][display-module]
 
-https://developers.whmcs.com/themes/sidebars/
-https://developers.whmcs.com/provisioning-modules/client-area-output/
+Example of displaying a sidebar link:
+```
+<?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar)
+{
+    $singleSignOnUrl = '/clientarea.php?action=productdetails&id=SERVICE_ID_HERE&dosinglesignon=1';
+    if (!is_null($primarySidebar->getChild('My Account'))) {
+        $primarySidebar->getChild('My Account')
+            ->addChild('Module Single Sign-On')
+                ->setLabel('Log In')
+                ->setUri($singleSignOnUrl)
+                ->setOrder(100);
+    }
+});
+```
 
 ## Server Single Sign-On <a id="server-sso"></a>
 
@@ -153,3 +169,6 @@ function mymodule_AdminSingleSignOn(array $params)
 
 
 [boolean-glossary]: http://docs.whmcs.com/Glossary#Boolean
+
+[display-sidebar]: /themes/sidebars
+[display-module]: /provisioning-modules/client-area-output/
