@@ -36,6 +36,8 @@ Take the gateway module example file within the repo and rename it to `yourgatew
 
 The filename should be all lowercase and must start with a letter.
 
+All files within the "gateways" directory should contain code that adheres to the expected format/functions found within a gateway module. Any custom .php files should be located within the modules directory itself, for example `/modules/gateways/MODULE-NAME/customfile.php`
+
 After renaming it, open the file and replace all occurrences of `gatewaymodule_` with `yourgatewayname_`.
 
 {{% notice info %}}
