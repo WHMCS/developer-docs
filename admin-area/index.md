@@ -10,8 +10,6 @@ Make a copy of the Blend theme directory.
 
 * Copy the `~/admin/templates/blend/` directory to `~/admin/templates/yourname/`
 
- 
-
 If the admin directory name has been customised, adjust the path accordingly.
 
 {{% notice info %}}
@@ -86,12 +84,12 @@ Some example hook use cases are provided below.
 If you wish to output custom javascript, we recommend using the AdminAreaFooterOutput hook point for best performance.
 {{% /notice %}}
 
-## Adding a link to the Actions section on the Client Summary page
+## Adding a link to the Actions section of the Client Summary page
 ```
 <?php
 /**
- * Hook that will link directly to an addon module with the userid, useful if the addon needs to do a client-specific task
-*/
+ * Provide a link to an addon module from the client summary page.
+ */
 
 if (!defined('WHMCS')) {
     die('This hook should not be run directly');
@@ -99,23 +97,24 @@ if (!defined('WHMCS')) {
 
 add_hook('AdminAreaClientSummaryActionLinks', 1, function ($vars) {
     $userid = $vars['userid'];
-    $return = [];
-    $return[] = '<a href="addonmodules.php?module=addon_module&userid=$userid">Custom addon link for this client</a>';
-    return $return;
-});
 
+    $url = addonmodules.php?module=addon_module&userid=' . $userid;
+
+    return [
+        '<a href="' . $url . '">My custom addon link</a>',
+    ];
+});
 ```
 
-## Adding link to view ticket page
+## Adding a link to View Ticket page within the admin area
 
-Displays a box on the ticket details page in the admin area that could be used to includes any URL or just standard text. In this example, it includes the unique URL WHMCS gives to clients to view their ticket directly in the client area. Useful if they don't have it already (or lost it) and it needs to be provided to them in a ticket reply. 
+Displays a banner on the View Ticket page within the admin area that can be used to provide additional information. In this example, it includes the unique URL needed to view the current ticket within the client area.
 
 ```
 <?php
 /**
- * Hook that will display the Direct ticket
- * link for the client area of WHMCS.
-*/
+ * Display a banner on the admin area view ticket page.
+ */
 
 use WHMCS\Config\Setting;
 
@@ -124,44 +123,46 @@ if (!defined('WHMCS')) {
 }
 
 add_hook('AdminAreaViewTicketPage', 1, function ($vars) {
-    $payLoad = localAPI('getticket', array(
+    $systemUrl = Setting::getValue('SystemURL');
+
+    $ticketData = localAPI('getticket', array(
         'ticketid' => $vars['ticketid']
     ));
 
-    $systemUrl = Setting::getValue('SystemURL');
+    $clientTicketUrl = $systemUrl . '/viewticket.php?tid='
+        . $ticketData['tid'] . '&c=' . $ticketData['c'];
 
-    $ticketUrl = $systemUrl . '/viewticket.php?tid=' . $payLoad['tid'] . '&c=' . $payLoad['c'];
-
-    $jQuery = '<script>
-
-$( document ).ready(function() {
- $(\'<div class="alert alert-info text-center"><a href="' . $ticketUrl . '" target="_blank">' . $ticketUrl . '</a></div>\').prependTo("#contentarea");
- });
- </script>';
-
-    return $jQuery;
+    return <<<EOT
+<script>
+$(document).ready(function() {
+    $('<div class="alert alert-info text-center"><a href="' . $clientTicketUrl . '" target="_blank">' . $clientTicketUrl . '</a></div>').prependTo('#contentarea');
 });
-
+</script>
+EOT;
+});
 ```
 
-## Manipulating the dom to hide options or settings
+## Manipulating the dom to change product behaviour
 
-In the below example, it shows how to use jQuery to untick the box to send the welcome e-mail when adding a client via the Clients > Add New Client page in the admin area.
+The below example demonstrates how you can use hooks and javascript to modify the behaviour of the admin area. In this specific example, we demonstrate how to disable the send welcome email option by default when creating a new client via the admin area.
 
 ```
 <?php
 /**
- * This hook will untick the checkbox to send new account information on the clientadd.php page
-*/
+ * Disable the send welcome email checkbox by default when creating a new client.
+ */
+
+if (!defined('WHMCS')) {
+    die('This hook should not be run directly');
+}
 
 add_hook('AdminAreaFooterOutput', 1, function ($vars) {
     if (strpos($_SERVER['REQUEST_URI'], 'clientsadd.php') !== false) {
         return '<script>
-        $( document ).ready(function() {
+        $(document).ready(function() {
             $("input[name=sendemail]").attr("checked", false);
         });
     </script>';
     }
 });
-
 ```
