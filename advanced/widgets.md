@@ -1,5 +1,5 @@
 +++
-prev = "/advanced/logging/"
+prev = "/advanced/using-models/"
 title = "Widgets"
 weight = 60
 
@@ -37,32 +37,32 @@ class SampleWidget extends \WHMCS\Module\AbstractWidget
      * @type string The title of the widget
      */
     protected $title = 'Hello World';
-    
+
     /**
      * @type string A description/purpose of the widget
      */
     protected $description = '';
-    
+
     /**
      * @type int The sort weighting that determines the output position on the page
      */
     protected $weight = 150;
-    
+
     /**
      * @type int The number of columns the widget should span (1, 2 or 3)
      */
     protected $columns = 1;
-    
+
     /**
      * @type bool Set true to enable data caching
      */
     protected $cache = false;
-    
+
     /**
      * @type int The length of time to cache data for (in seconds)
      */
     protected $cacheExpiry = 120;
-    
+
     /**
      * @type string The access control permission required to view this widget. Leave blank for no permission.
      * @see Permissions section below.
@@ -85,7 +85,7 @@ class SampleWidget extends \WHMCS\Module\AbstractWidget
     public function getData()
     {
         $clients = localAPI('getclients', []);
-        
+
         return array(
             'welcome' => 'Hello World!',
             'clients' => $clients['clients'],
@@ -107,13 +107,13 @@ class SampleWidget extends \WHMCS\Module\AbstractWidget
         foreach ($data['clients']['client'] as $client) {
             $clientOutput[] = "<a href=\"clientsprofile.php?id={$client['id']}\">{$client['firstname']} {$client['lastname']}</a>";
         }
-        
+
         if (count($clientOutput) == 0) {
             $clientOutput[] = 'No Clients Found';
         }
-        
+
         $clientOutput = implode('<br>', $clientOutput);
-        
+
         return <<<EOF
 <div class="widget-content-padded">
     <div>{$data['welcome']}</div>
