@@ -25,6 +25,14 @@ Most callback files should use the following workflow:
 4. Log the transaction to the WHMCS Gateway Log using the `logTransaction` helper method.
 5. Apply the payment to the invoice using the `addInvoicePayment` helper method.
 
+## Callback Redirection
+
+When a payment is received, a payment notification must be sent to the gateway module's callback file containing the transaction details. The URL of the callback file would be considered your `Callback URL`. Eg. `https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php` which should be configured at your payment gateway's website, not in the WHMCS module itself.
+
+Some payment gateways require a URL to return the client upon completion of a payment (ie. a success/failure page or redirect to the paid invoice). Create these files as required and locate them at `/modules/gateways/yourgatewayname/`
+
+The URL of this redirect file would be considered the Return URL. Eg. `https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php` which should be configured at your payment gateway's website, not in the WHMCS module itself.
+
 ## Helper Functions
 
 The following helper functions are made available for use in payment gateway callback files.
