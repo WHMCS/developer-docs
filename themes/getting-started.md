@@ -24,7 +24,7 @@ $ cd ~/whmcs/templates/
 Clone the Six template theme repo into your new template directory:
 
 ```
-$ git clone git@github.com:WHMCS/templates-six.git my-template-name
+git clone https://github.com/WHMCS/templates-six.git my-template-name
 ```
 
 Now begin making your changes
