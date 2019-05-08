@@ -38,6 +38,8 @@ The filename should be all lowercase and must start with a letter.
 
 After renaming it, open the file and replace all occurrences of `gatewaymodule_` with `yourgatewayname_`.
 
+All files within the `/modules/gateways/` directory should contain code that adheres to the expected format/functions found within a WHMCS gateway module. Non-WHMCS related files, such as success/failure return pages or library files, should be located within a directory dedicated to the gateway module itself, for example, `/modules/gateways/yourgatewayname`.
+
 {{% notice info %}}
 We recommend prefixing all functions within a gateway module with the filename to avoid naming conflicts.
 {{% /notice %}}
