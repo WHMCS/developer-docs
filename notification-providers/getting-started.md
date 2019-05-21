@@ -9,9 +9,7 @@ weight = 10
 
 ## Sample Module
 
-We make available a sample notification module on Github. We recommend using this as a starting point for a custom module.
-
-> https://github.com/WHMCS/sample-notification-module
+The `Email` notification module that ships with WHMCS is not encoded so the source code is viewable. We recommend using this as a starting point for a custom module. This module can be found in the `/modules/notifications/Email` directory.
 
 ## Choosing a Name
 
