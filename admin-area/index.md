@@ -28,7 +28,7 @@ The header and footer template files that are common to every page and act as a 
 
 ## Logo
 
-In order to make changes to the logo displayed on the top left corner of admin area pages, in the `~/admin/templates` folder, replace the `images/logo.gif` file.
+In order to make changes to the logo displayed on the top left corner of admin area pages, replace the `logo.gif` file in the `~/admin/templates/yourname/images` folder.
 
 # CSS Styling
 
@@ -125,7 +125,7 @@ if (!defined('WHMCS')) {
 add_hook('AdminAreaViewTicketPage', 1, function ($vars) {
     $systemUrl = Setting::getValue('SystemURL');
 
-    $ticketData = localAPI('getticket', array(
+    $ticketData = localAPI('GetTicket', array(
         'ticketid' => $vars['ticketid']
     ));
 
