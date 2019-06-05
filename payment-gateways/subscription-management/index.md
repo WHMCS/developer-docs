@@ -2,11 +2,11 @@
 
 Subscription Management is an optional function that can be defined within a gateway module. Its purpose is to remotely cancel a recurring subscription agreement with a payment gateway, manually and automatically. The stored Subscription ID value in WHMCS is then removed.
 
-When a service is assigned to a payment gateway that implements this function (for example PayPal Subscriptions) and a Subscription ID is set, a *Cancel Subscription* button is displayed under the Products/Services tab in the admin area. Clicking it will trigger the API call defined in the _cancelSubscription function.
+When a service is assigned to a payment gateway that implements this function (for example PayPal Subscriptions) and a Subscription ID is set, a **Cancel Subscription** button is displayed under the Products/Services tab in the admin area. Clicking it will trigger the API call defined in the _cancelSubscription function.
 
 # Automatic Cancellation
 
-When the *Automatic Subscription Management* feature is enabled under *Setup > General Settings > Invoices tab*, a subscription will be cancelled automatically under the following circumstances:
+When the **Automatic Subscription Management** feature is enabled under *Setup > General Settings > Invoices tab*, a subscription will be cancelled automatically under the following circumstances:
 
 * A cancellation request is submitted
 * The order is cancelled or set to fraud via the admin interface of WHMCS
