@@ -19,7 +19,7 @@ This feature should only be defined for payment gateways which create automatic 
 
 Implementation is a two-step process:
 
-1. A subscription ID must be stored in tblhosting.subscriptionid for the given service in order for the cancel subscription function to be invokable. Typically this value should be set as part of a payment gateway callback routine (see callbacks)
+1. A subscription ID must be stored in tblhosting.subscriptionid for the given service in order for the cancel subscription function to be invokable. Typically this value should be set as part of a payment gateway callback routine (see [callbacks](https://developers.whmcs.com/payment-gateways/callbacks/))
 
 2. Define the _cancelSubscription function in the gateway module file.
 
