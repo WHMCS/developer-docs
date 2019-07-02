@@ -22,6 +22,7 @@ The example below demonstrates setting all supported domain attributes at the ti
 
 
 ```
+use WHMCS\Carbon;
 use WHMCS\Domain\Registrar\Domain;
 
 function modulename_GetDomainInformation($params) {
@@ -37,7 +38,7 @@ function modulename_GetDomainInformation($params) {
         ->setRegistrationStatus($response['status'])
         ->setTransferLock($response['transferlock'])
         ->setTransferLockExpiryDate(null)
-        ->setExpiryDate($response['expirydate'])
+        ->setExpiryDate(Carbon::createFromFormat('Y-m-d', $response['expirydate'])) // $response['expirydate'] = YYYY-MM-DD
         ->setRestorable(false)
         ->setIdProtectionStatus($response['addons']['hasidprotect'])
         ->getDnsManagementStatus($response['addons']['hasdnsmanagement'])
