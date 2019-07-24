@@ -26,14 +26,14 @@ Updates a client with the passed parameters.
 | password2 | string |  | Optional |
 | securityqid | int | Security Question ID from tbladminsecurityquestions | Optional |
 | securityqans | string | Security Question Answer | Optional |
-| cardtype | string | Credit card type. Provide full name: Visa, Mastercard, American Express, etc... | Optional |
-| cardnum | string | Credit card number | Optional |
-| expdate | string | Format: MMYY | Optional |
-| startdate | string | Format: MMYY (if applicable) | Optional |
-| issuenumber | string | Credit card issue number (if applicable) | Optional |
-| bankcode | string | Client Bank Account Code (if applicable) | Optional |
-| bankacct | string | Client bank Account number (if applicable) | Optional |
-| cvv | string | Credit card CVV number (will not be stored) | Optional |
+| ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
+| ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
+| ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |
+| ~~startdate~~ | ~~string~~ | ~~Format: MMYY (if applicable)~~ | Deprecated |
+| ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable)~~ | Deprecated |
+| ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored)~~ | Deprecated |
+| ~~bankcode~~ | ~~string~~ | ~~Client Bank Account Code (if applicable)~~ | Deprecated |
+| ~~bankacct~~ | ~~string~~ | ~~Client bank Account number (if applicable)~~ | Deprecated |
 | currency | int | Currency ID from tblcurrencies | Optional |
 | groupid | int | Client Group ID from tblclientgroups | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
@@ -107,12 +107,25 @@ print_r($results);
 ```
 
 
+### Warning Responses
+
+Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.
+
+Possible warning messages include:
+
+* Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod or UpdatePayMethod instead.
+* Credit card related parameters are now deprecated and may be removed in a future version. Use DeletePayMethod instead.
+
+
 ### Error Responses
 
 Possible error condition responses include:
 
 * Client ID Not Found
 * Duplicate Email Address
+* Multiple Credit Card Pay Methods Found
+* Multiple Bank Account Pay Methods Found
 
 
 ### Version History
@@ -120,3 +133,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.8 | Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod, DeletePayMethod or UpdatePayMethod instead. |

@@ -99,8 +99,6 @@ print_r($results);
     "client[twofaenabled]": "",
     "client[currency]": "1",
     "client[defaultgateway]": "",
-    "client[cctype]": "",
-    "client[cclastfour]": "",
     "client[securityqid]": "0",
     "client[securityqans]": "",
     "client[groupid]": "0",
@@ -159,6 +157,16 @@ print_r($results);
 ```
 
 
+### Warning Responses
+
+Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.
+
+Possible warning messages include:
+
+* Credit Card related parameters are now deprecated and have been removed. Use GetPayMethods instead.
+
+
 ### Error Responses
 
 Possible error condition responses include:
@@ -172,3 +180,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.8 | Credit Card related parameters have been removed due to the introduction of support for multiple credit cards per client. Use GetPayMethods instead. |

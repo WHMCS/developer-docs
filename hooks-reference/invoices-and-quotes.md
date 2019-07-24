@@ -212,8 +212,8 @@ Executes when an invoice is created following sending the Invoice Created email.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
+| source | string | Indicates where the invoice creation action originated, can be one of `adminarea`, `api` or `autogen` |
+| user | int|string | User who initiated the invoice creation, either `system` or an admin ID value |
 | invoiceid | int | The invoice ID that was created |
 | status | string | The status of the new invoice |
 
@@ -238,8 +238,8 @@ Executes as an invoice is being created in the admin area
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| source | string | When the invoice is being created |
-| user | int|string | The id of the user completing the action dependant on source |
+| source | string | Indicates where the invoice creation action originated, can be one of `adminarea`, `api` or `autogen` |
+| user | int|string | User who initiated the invoice creation, either `system` or an admin ID value |
 | invoiceid | int | The id of the newly created invoice |
 | status | string | The status of the newly created invoice |
 

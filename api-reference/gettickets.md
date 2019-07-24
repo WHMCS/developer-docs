@@ -90,7 +90,8 @@ print_r($results);
                 "status": "Answered",
                 "priority": "Medium",
                 "admin": "admin admin",
-                "attachment": "",
+                "attachment": "123456_attachment_name.png",
+                "attachments_removed": true,
                 "lastreply": "2016-01-01 06:30:16",
                 "flag": "0",
                 "service": ""

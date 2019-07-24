@@ -25,12 +25,12 @@ Adds a client.
 | password2 | string |  | Required |
 | securityqid | int | Security Question ID from tbladminsecurityquestions | Optional |
 | securityqans | string | Security Question Answer | Optional |
-| cardtype | string | Credit card type. Provide full name: Visa, Mastercard, American Express, etc... | Optional |
-| cardnum | string | Credit card number | Optional |
-| expdate | string | Format: MMYY | Optional |
-| startdate | string | Format: MMYY (if applicable) | Optional |
-| issuenumber | string | Credit card issue number (if applicable) | Optional |
-| cvv | string | Credit card CVV number (will not be stored) | Optional |
+| ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
+| ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
+| ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |
+| ~~startdate~~ | ~~string~~ | ~~Format: MMYY (if applicable)~~ | Deprecated |
+| ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable)~~ | Deprecated |
+| ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored)~~ | Deprecated |
 | currency | int | Currency ID from tblcurrencies | Optional |
 | groupid | int | Client Group ID from tblclientgroups | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
@@ -71,9 +71,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'country' => 'US',
             'phonenumber' => '800-555-1234',
             'password2' => 'password',
-            'cardtype' => 'Visa',
-            'cardnum' => '4111111111111111',
-            'expdate' => '0721',
             'clientip' => '1.2.3.4',
             'responsetype' => 'json',
         )
@@ -100,9 +97,6 @@ $postData = array(
     'country' => 'US',
     'phonenumber' => '800-555-1234',
     'password2' => 'password',
-    'cardtype' => 'Visa',
-    'cardnum' => '4111111111111111',
-    'expdate' => '0721',
     'clientip' => '1.2.3.4',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -120,6 +114,16 @@ print_r($results);
     "clientid": "1"
 }
 ```
+
+
+### Warning Responses
+
+Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.
+
+Possible warning messages include:
+
+* Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.
 
 
 ### Error Responses
@@ -147,3 +151,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.7 | Added `tax_id` parameter. |
+| 7.8 | Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead. |

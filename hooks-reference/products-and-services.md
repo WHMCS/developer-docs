@@ -8,13 +8,11 @@ The following hooks are provided for Products and Services related events.
 
 ## AfterProductUpgrade
 
-Executes after a product upgrade has been processed
-
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| upgradeid | int |  |
+| upgradeid | | |
 
 #### Response
 

@@ -57,7 +57,7 @@ Adds an order to a client.
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
 | orderid | int | The Order ID for the created order |
-| productids | string | The Product/Service ID(s) created by the order |
+| serviceids | string | The Service ID(s) created by the order |
 | addonids | string | The Addon ID(s) created by the order |
 | domainids | string | The Domain ID(s) created by the order |
 | invoiceid | int | The Invoice ID created for the order |
@@ -131,7 +131,7 @@ print_r($results);
 {
     "result": "success",
     "orderid": "1",
-    "productids": "1,2",
+    "serviceids": "1,2",
     "addonids": "1,2,3",
     "domainids": "1,2",
     "invoiceid": "1"

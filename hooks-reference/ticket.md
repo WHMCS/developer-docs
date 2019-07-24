@@ -476,6 +476,39 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 });
 ```
 
+## TicketOpenValidation
+
+Executes when an end user provides data for a new ticket submission.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+|  | int | clientId Client ID if associated with a client |
+|  | int | contactId Contact ID if associated with a contact |
+| name | string | Name from email envelope if not a client |
+| email | string | Email from email envelope if not a client |
+| isAdmin | bool | TRUE if initiated within Admin Area or via API with input $admin=TRUE |
+| departmentId | int |  |
+| subject | string |  |
+| message | string |  |
+| priority | string |  |
+| relatedService | string |  |
+| customfields | array |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketOpenValidation', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## TicketPiping
 
 Executes when a ticket is being imported via email.

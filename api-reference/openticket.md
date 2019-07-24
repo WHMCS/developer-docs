@@ -30,6 +30,9 @@ Open a new ticket
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| id | int | The unique id of the newly created ticket |
+| tid | string | The unique ticket id displayed to the client, and to load the ticket in the client area |
+| c | string | The code to access the ticket in the client area |
 
 
 ### Example Request (CURL)

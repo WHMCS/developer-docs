@@ -75,6 +75,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Client ID Not Found
+* Client Delete Failed: xxxxxx
 
 
 ### Version History
