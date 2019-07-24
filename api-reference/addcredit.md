@@ -12,7 +12,10 @@ Adds credit to a given client.
 | action | string | "AddCredit" | Required |
 | clientid | int |  | Required |
 | description | string | Admin only notes for credit justification | Required |
-| amount | float |  | Required |
+| amount | float | The amount of credit to add or remove. Must be a positive value. | Required |
+| date | string | The date the credit was added. YYYY-mm-dd format. | Optional |
+| adminid | int | The active admin id to be associated with the credit record. Defaults to current admin. | Optional |
+| type | string | Whether to add or remove credit. One of 'add' or 'remove' | Optional |
 
 ### Response Parameters
 
@@ -38,6 +41,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'clientid' => '1',
             'description' => 'Adding funds via api',
             'amount' => '12.34',
+            'adminid' => '1',
             'responsetype' => 'json',
         )
     )
@@ -56,6 +60,7 @@ $postData = array(
     'clientid' => '1',
     'description' => 'Adding funds via api',
     'amount' => '12.34',
+    'adminid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -78,8 +83,12 @@ print_r($results);
 
 Possible error condition responses include:
 
+* Type can only be add or remove
 * Client ID Not Found
+* Admin ID Not Found
 * No Amount Provided
+* Amount must be in decimal format: ### or ###.##
+* Date Format is not Valid
 
 
 ### Version History

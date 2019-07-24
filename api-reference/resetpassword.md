@@ -12,7 +12,6 @@ Starts the password reset process for a client or contact.
 | action | string | "ResetPassword" | Required |
 | id | int | The id of the client to reset. The id can only belong to a client. | Optional |
 | email | string | The email address of the client or contact to update. Either $id or $email is required | Optional |
-| answer | string | The answer to the client security question if appropriate | Optional |
 
 ### Response Parameters
 
@@ -35,7 +34,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'email' => 'john.doe@example.com',
-            'answer' => 'alphabet',
             'responsetype' => 'json',
         )
     )
@@ -52,7 +50,6 @@ curl_close($ch);
 $command = 'ResetPassword';
 $postData = array(
     'email' => 'john.doe@example.com',
-    'answer' => 'alphabet',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -77,8 +74,6 @@ Possible error condition responses include:
 * Client ID Not Found
 * Please enter the email address or provide the id
 * No account was found with the email address you entered
-* The security question answer entered does not match the answer set in the account
-* The security question answer must be provided for this account
 
 
 ### Version History

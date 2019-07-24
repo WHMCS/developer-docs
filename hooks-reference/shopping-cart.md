@@ -415,9 +415,7 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 
 ## OrderDomainPricingOverride
 
-Executes as a domain price is being calculated in the cart. This hook is run independently for each
-domain added to the cart. To override first payment only, return a float. To override first payment and/or
-recurring amount, return an array:
+Executes as a domain price is being calculated in the cart.
 
 #### Parameters
 
@@ -439,11 +437,15 @@ A float to override the first payment, or an array to override first and/or recu
 #### Example Code
 
 ```
+
 <?php
 
 add_hook('OrderDomainPricingOverride', 1, function($vars) {
-    // Perform operations to determine price
+    // Perform operations to determine price.
+    // To override the first payment amount only simply return a float
     return '64.95';
+    // To override the first payment and recurring amount, return an array as follows
+    return ['firstPaymentAmount' => 64.95, 'recurringAmount' => 14.45];
 });
 ```
 
