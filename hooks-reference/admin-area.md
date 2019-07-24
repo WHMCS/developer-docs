@@ -518,7 +518,7 @@ class MyAuthService
     public static function getAdminHash($adminUniqueId)
     {
         $hashes = [
-            'admin@localhost' => '$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO'
+            'admin@localhost.local' => '$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO'
         ];
 
         if (array_key_exists($adminUniqueId, $hashes)) {

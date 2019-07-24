@@ -314,14 +314,15 @@ add_hook('EmailPreLog', 1, function($vars) {
 
 ## EmailPreSend
 
-Runs prior to a client email being sent.
+Runs prior to any templated email being sent.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | messagename | string | The name of the email template being sent |
-| relid | int | The related entity ID for the email being sent |
+| relid | int | The related entity ID for the email being sent. |
+| mergefields | array | Original mergefield data |
 
 #### Response
 
@@ -334,9 +335,11 @@ An array of key/value pairs to be made available as additional email template me
 
 add_hook('EmailPreSend', 1, function($vars) {
     $merge_fields = [];
-    $merge_fields['my_custom_var'] = "My Custom Var";
-    $merge_fields['my_custom_var2'] = "My Custom Var2";
-    if ($vars['messagename'] =='My Message Name' && $vars['relid'] == 2) {
+    if (!array_key_exists('my_custom_var', $vars['mergefields'])) {
+        $merge_fields['my_custom_var'] = "My Custom Var";
+        $merge_fields['my_custom_var2'] = "My Custom Var2";
+    }
+    if ($vars['messagename'] == 'My Message Name' && $vars['relid'] == 2) {
         //Stop the email from sending a specific message and related id.
         $merge_fields['abortsend'] = true;
     }
@@ -612,6 +615,33 @@ An array with a 'cc' and 'bcc' list of recipients. Each recipient in those lists
 ```
 <?php
 add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreUpgradeCheckout
+
+Executes on checkout of an upgrade order, after the price calculation. The upgrade order may have completed already when this hook runs.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| clientId | int | The ID of the client for the upgrade order |
+| upgradeId | int | The ID of the upgrade order |
+| serviceId | int | The ID of the service for the upgrade order |
+| amount | float | The upgrade order amount. A negative value denotes a credit calculation. |
+| discount | float | The upgrade order discount. |
+
+#### Response
+
+Return 'amount' and/or 'discount' key with override price for the upgrade order.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreUpgradeCheckout', 1, function($vars) {
     // Perform hook code here...
 });
 ```

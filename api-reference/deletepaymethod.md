@@ -1,26 +1,24 @@
 +++
-title = "OrderFraudCheck"
+title = "DeletePayMethod"
 toc = true
 +++
 
-Run a fraud check on a passed Order ID using the active fraud module.
+Delete a Pay Method.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "OrderFraudCheck" | Required |
-| orderid | int | The order id to complete the fraud check on | Required |
-| ipaddress | string | To override the IP address on the fraud check | Optional |
+| action | string | "DeletePayMethod" | Required |
+| clientid | int | The id of the client matching the Pay Method | Required |
+| paymethodid | int | The id of the Pay Method to delete | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| status | string | The status of the fraud check |
-| module | string | The module loaded to complete the fraud check |
-| results | string | The serialised results of the fraud check |
+| paymethodid | int | The id of the Pay Method deleted |
 
 
 ### Example Request (CURL)
@@ -32,11 +30,11 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'OrderFraudCheck',
+            'action' => 'DeletePayMethod',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'orderid' => '1',
+            'paymethodid' => '1',
             'responsetype' => 'json',
         )
     )
@@ -50,9 +48,9 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'OrderFraudCheck';
+$command = 'DeletePayMethod';
 $postData = array(
-    'orderid' => '1',
+    'paymethodid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -66,8 +64,7 @@ print_r($results);
 ```
 {
     "result": "success",
-    "module": "maxmind",
-    "status": "Pass"
+    "paymethodid": "1"
 }
 ```
 
@@ -76,12 +73,15 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Order ID Not Found
-* No Active Fraud Module
+* Client ID is Required
+* Pay Method ID is Required
+* Invalid Pay Method ID
+* Pay Method does not belong to passed Client ID
+* Error Deleting Remote Pay Method: xxx (response from module)
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 1.0 | Initial Version |
+| 7.8.0 | Initial Version |
