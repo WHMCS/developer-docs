@@ -1,4 +1,4 @@
-+++
+ +++
 next = "/payment-gateways/installation-activation"
 prev = "/payment-gateways/3d-secure"
 title = "Tokenised Remote Storage"
@@ -7,50 +7,166 @@ weight = 60
 
 +++
 
-With increasing rules & requirements surrounding the storing of credit card details,
-merchant gateways are offering services where repeat rebills can be performed without needing to store credit card details.
-Gateway modules can use this functionality.
+Tokenisation is the replacement of sensitive payment information with a unique identifier (a token).
 
-The basic logic behind token gateways in WHMCS is that clients must either have a credit card number or a token stored in order for recurring billing.
-Add a function named **_storeremote** to the custom gateway module.
-This function will override the default storage when entering new credit card details.
-Instead of saving in the database, **_storeremote** communicates with the gateways API, and returns a token that gets assigned to WHMCS.
+Therefore in WHMCS, a tokenised payment gateway module is one where the sensitive payment data is stored remotely by the payment gateway. This reduces the risk of data breaches because it means that unauthorized access to the local system does not risk exposing customer's sensitive payment information.
 
-## Variables
+## Creating a Token Gateway
 
-A number of variables as passed into the **_storeremote** function as follows.
+Payment gateways can operate tokenisation platforms in a variety of ways.
 
-```
-$params['gatewayid'] # the token stored for the client
-$params['cardtype'] #the Card Type (Visa, MasterCard, etc…)
-$params['cardnum'] # the Card Number
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
-$params['cardstart'] # the Card’s Start Date (Format: MMYY)
-$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
-```
+### Capture Token Exchange
 
-## Calling
+At its simplest, a payment gateway may exchange or return a token for you to use for future charges following a regular capture being performed.
 
-On the first call, the gatewayid will be empty.
-When empty, create a new profile at the gateway.
-On later calls, the created gatewayid that will be passed in and the existing profile updated.
-If the cardnum variable is empty, this indicates a removal request of the stored credit card details.
-Once the card details have been updated or stored remotely, return either a success or failure response to tell WHMCS if it worked.
-If successful, return also the token that has been assigned:
+For payment gateways that function in this way, you should return the token along with the result from the capture function. WHMCS will then automatically purge the locally stored payment details and replace them with the token.
+
+The following return parameters are supported.
+
+Parameter | Type | Description
+---|---|---
+status|string|One of either `success`, `pending`, `declined`
+declinereason|string|The reason for a decline
+transid|string|The Transaction ID returned by the payment gateway
+fee|float|The transaction fee returned by the payment gateway
+rawdata|string or array|The raw data returned by the payment gateway for logging to the gateway log to aid in debugging
+gatewayid|string|The token returned by the payment gateway
+
+#### Example
 
 ```
-return array(
-    "status" => "success",
-    "gatewayid" => $results["token"],
-    "rawdata" => $results,
-);
+function yourmodulename_capture($params) {
+    $gatewayid = $params['gatewayid'];
+    $cardnum = $params['cardnum'];
+    
+    if ($gatewayid) {
+        // Make API call to perform capture using the token here
+        // Dummy response assumed below in $response variable.        
 
-return array(
-    "status" => "failed",
-    "rawdata" => $results,
-);
+        return [
+            'status' => 'success',
+            'transid' => $response['transaction_id']
+            // Return a value in gatewayid to update the token only if required
+            'gatewayid' => $response['token'],
+            'rawdata' => $response,
+        ];
+    } else {
+        // Make API call to perform capture using the card number here
+        // Dummy response assumed below in $response variable.
+        $response = [];
+
+        return [
+            'status' => 'success',
+            'transid' => $response['transaction_id']
+            'gatewayid' => $response['token'],
+            'rawdata' => $response,
+        ];
+    }
+}
 ```
 
-When this function exists in a gateway module, WHMCS will only store the card type, expiry date and the last 4 digits locally in the database.
-Clients and Admins will still be able to see exactly what card is stored remotely from within WHMCS.
-Then within the capture function, instead of `$params[‘cardnum’]`, `$params[‘gatewayid’]` is received to perform the capture.
+### Remote Storage
+
+For payment gateways where tokens have to be created and managed separately from capture attempts, you should use the remote storage method within your WHMCS gateway module.
+
+This function will override the default behaviour when entering new, updating an existing, or deleting credit card details.
+
+The following parameters are passed into the `storeremote` function.
+
+Parameter | Type | Description
+---|---|---
+action|string|One of either `create`, `update`, or `delete`
+gatewayid|string|The token for the pay method to be updated
+cardtype|string|The card type (Visa, MasterCard, etc..)
+cardnum|string|The card number
+cardexp|int|The card expiry date (Format: MMYY)
+cardstart|int|The card start date (Format: MMYY)
+cardissuenum|int|The card issue number
+
+The following return parameters are supported.
+
+Parameter | Type | Description
+---|---|---
+status|string|One of either `success` or `error`
+rawdata|string or array|The raw data returned by the payment gateway for logging to the gateway log to aid in debugging
+gatewayid|string|The token returned by the payment gateway
+
+#### Example
+
+```
+function yourmodulename_storeremote($params) {
+    $action = $params['action'];
+    $gatewayid = $params['gatewayid'];
+    $cardtype = $params['cardtype'];
+    $cardnum = $params['cardnum'];
+    $cardexp = $params['cardexp'];
+    $cardstart = $params['cardstart'];
+    $cardissuenum = $params['cardissuenum'];
+
+    switch ($action) {
+        case 'create':
+            // Make API call to create a token here
+            $postfields = [
+                'cardnumber' => $cardnum,
+                'cardexpiry' => $cardexp,
+                'cardcvv' => $params['cccvv'],
+            ];
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/store');
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            $data = json_decode($response);
+
+            return [
+                'status' => 'success',
+                'gatewayid' => $data->remote_id,
+            ];
+            break;
+        case 'update':
+            // Make API call to update a token here
+            $postfields = [
+                'remote_id' => $gatewayid,
+                'cardexpiry' => $cardexp,
+            ];
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/update');
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            $data = json_decode($response);
+            return [
+                'status' => 'success',
+                'gatewayid' => $data->remote_id,
+            ];
+            break;
+        case 'delete':
+            // Make API call to delete a token here
+            $postfields = [
+                'remote_id' => $gatewayid,
+            ];
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/delete');
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            $data = json_decode($response);
+            return [
+                'status' => 'success',
+            ];
+            break;
+    }
+}
+```

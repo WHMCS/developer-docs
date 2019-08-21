@@ -24,46 +24,36 @@ A Merchant Gateway is one where a customer enters credit card details in WHMCS. 
 
 The following parameters are passed to the `_capture` function along with all [defined configuration parameters][configuration] and their values.
 
-### Invoice Variables
-```
-$params['invoiceid'] # Invoice ID Number
-$params['description'] # Description (eg. Company Name - Invoice #xxx)
-$params['amount'] # Format: xxx.xx
-$params['currency'] # Currency Code (eg. GBD, USD, etc...)
-```
+Parameter | Type | Description
+---|---|---
+invoiceid|integer|Invoice ID Number
+description|string|Description (eg. Company Name - Invoice #xxx)
+amount|float|Format: xxx.xx
+currency|string|Currency Code (eg. GBP, USD, etc.,)
+cardtype|string|The Card Type (Visa, MasterCard, etc. ...)
+cardnum|string|The Card Number
+cardexp|string|The Card Expiry Date (Format: MMYY)
+cardstart|string|The Card Start Date (Format: MMYY)
+cardissuenum|string|The Card Issue Number
+cccvv|string|Only available for card holder present initiated payment attempts
+clientdetails|array|An array of client details. firstname, lastname, email, address1, address2, city, state, postcode, country, phonenumber
+companyname|string|The Company Name setting in WHMCS
+systemurl|string|The url to the client area of the WHMCS install
 
-### Card Details
-```
-$params['cardtype'] # the Card Type (Visa, MasterCard, etc…)
-$params['cardnum'] # the Card Number
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
-$params['cardstart'] # the Card’s Start Date (Format: MMYY)
-$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
-$params['cccvv'] # Not always present (recurring transactions)
-# but would always be present for client initiated attempts
-```
+## Response
 
-### Client Variables
-```
-$params['clientdetails']['firstname'] # Client's First Name
-$params['clientdetails']['lastname'] # Client's Last Name
-$params['clientdetails']['email'] # Client's Email Address
-$params['clientdetails']['address1'] # Client's Address
-$params['clientdetails']['address2']
-$params['clientdetails']['city']
-$params['clientdetails']['state']
-$params['clientdetails']['postcode']
-$params['clientdetails']['country']
-$params['clientdetails']['phonenumber']
-```
+The following return parameters are supported.
 
-### System Variables
-```
-$params['companyname'] # your Company Name setting in WHMCS
-$params['systemurl'] # the url to the Client Area
-```
+Parameter | Type | Description
+---|---|---
+status|string|One of either `success`, `pending`, `declined`
+declinereason|string|The reason for a decline
+transid|string|The Transaction ID returned by the payment gateway
+fee|float|(Optional) The transaction fee returned by the payment gateway
+rawdata|string or array|The raw data returned by the payment gateway for logging to the gateway log to aid in debugging
+gatewayid|string|See [Tokenised Remote Storage][tokenised-remote-storage]
 
-## Response Format
+### Example Return
 
 The capture function should always return an array containing information about the transaction attempt.  This should take the following format:
 
@@ -76,7 +66,9 @@ return array(
 );
 ```
 
-For a successful capture, the status should be returned as the string `success`.  For anything else, return a status that indicates the reason for failure.  Common failure response status values include `declined` and `error`.
+For a successful capture, the status should be returned as the string `success`.
+For payments that are pending and do not require an immediate payment in WHMCS, the status should be `pending`.
+For anything else, return a status that indicates the reason for failure.  Common failure response status values include `declined` and `error`.
 
 The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.
 
@@ -94,6 +86,8 @@ function yourmodulename_capture($params) {
         'cardnumber' => $params['cardnum'],
         'cardexpiry' => $params['cardexp'],
         'cardcvv' => $params['cccvv'],
+        'card_holder_name' => $params['clientdetails']['firstname']
+            . ' - ' . $params['clientdetails']['lastname'],
     ];
 
     $ch = curl_init();
@@ -106,12 +100,21 @@ function yourmodulename_capture($params) {
 
     $data = json_decode($response);
 
-    return array(
-        'status' => ($data->success == 1) ? 'success' : 'declined',
-        'rawdata' => $data,
-        'transid' => $data->transaction_id,
-        'fee' => $data->fees,
-    );
+    if ($data->success == 1) {
+        $return = [
+            'status' => 'success',
+            'transid' => $data->transaction_id,
+            'fee' => $data->fee,
+            'rawdata' => $data,
+        ];
+    } else {
+        $return = [
+            'status' => 'declined',
+            'declinereason' => $data->decline_reason,
+            'rawdata' => $data,
+        ];
+    }
+    return $return;
 }
 ```
 
@@ -120,3 +123,4 @@ function yourmodulename_capture($params) {
 [githubsample]: https://github.com/WHMCS/sample-merchant-gateway "Sample Merchant Gateway module on Github"
 [refunds]: /payment-gateways/refunds "Refunding Transactions"
 [3d-secure]: /provisioning-modules/3d-secure "3D Secure Process"
+[tokenised-remote-storage]: /payment-gateways/tokenised-remote-storage "Tokenised Remote Storage"
