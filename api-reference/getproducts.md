@@ -5,6 +5,10 @@ toc = true
 
 Retrieve configured products matching provided criteria
 
+NOTE: This API method is designed to be used in the building of custom order
+forms. As a result, only custom fields that have the 'Show on Order Form'
+setting enabled will be returned for a given product.
+
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
@@ -38,11 +42,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'id' => '1',
+            'pid' => '1',
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -53,7 +58,7 @@ curl_close($ch);
 ```
 $command = 'GetProducts';
 $postData = array(
-    'id' => '1',
+    'pid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

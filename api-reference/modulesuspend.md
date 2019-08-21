@@ -10,7 +10,7 @@ Runs the module suspend action for a given service.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "ModuleSuspend" | Required |
-| accountid | int | The service ID to run the action for | Required |
+| serviceid | int | The service ID to run the action for | Required |
 | suspendreason | string | A reason for the suspension | Optional |
 
 ### Response Parameters
@@ -33,12 +33,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'accountid' => '1',
+            'serviceid' => '1',
             'suspendreason' => 'Abuse',
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -49,7 +50,7 @@ curl_close($ch);
 ```
 $command = 'ModuleSuspend';
 $postData = array(
-    'accountid' => '1',
+    'serviceid' => '1',
     'suspendreason' => 'Abuse',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -72,6 +73,9 @@ print_r($results);
 
 Possible error condition responses include:
 
+* Service ID is required
+* Service ID not found
+* Service not assigned to a module
 * Server response message
 
 
@@ -80,3 +84,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Renamed `accountid` parameter to `serviceid`. Backwards compatibility preserved for `accountid`. |

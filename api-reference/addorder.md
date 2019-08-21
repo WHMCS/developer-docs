@@ -30,13 +30,13 @@ Adds an order to a client.
 | promooverride | bool | Should the promotion apply to the order even without matching promotional products | Optional |
 | affid | int | The affiliate id to associate with the order | Optional |
 | noinvoice | bool | Set to true to suppress the invoice generating for the whole order | Optional |
-| noinvoiceemail | bool | Set to try to suppress the Invoice Created email being sent for the order | Optional |
+| noinvoiceemail | bool | Set to true to suppress the Invoice Created email being sent for the order | Optional |
 | noemail | bool | Set to true to suppress the Order Confirmation email being sent | Optional |
 | addons | string[] | A comma separated list of addons to create on order with the products | Optional |
 | hostname | string[] | The hostname of the server for VPS/Dedicated Server orders | Optional |
 | ns1prefix | string[] | The first nameserver prefix for the VPS/Dedicated server. Eg. ns1 in ns1.hostname.com | Optional |
 | ns2prefix | string[] | The second nameserver prefix for the VPS/Dedicated server. Eg. ns2 in ns2.hostname.com | Optional |
-| rootpw | string[] | The second nameserver prefix for the VPS/Dedicated server. Eg. ns2 in ns2.hostname.com | Optional |
+| rootpw | string[] | The desired root password for the VPS/Dedicated server. | Optional |
 | contactid | int | The id of the contact, associated with the client, that should apply to all domains in the order | Optional |
 | dnsmanagement | bool[] | Add DNS Management to the Domain Order | Optional |
 | domainfields | string[] | an array of base64 encoded serialized array of TLD Specific Field Values | Optional |
@@ -57,7 +57,7 @@ Adds an order to a client.
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
 | orderid | int | The Order ID for the created order |
-| productids | string | The Product/Service ID(s) created by the order |
+| serviceids | string | The Service ID(s) created by the order |
 | addonids | string | The Addon ID(s) created by the order |
 | domainids | string | The Domain ID(s) created by the order |
 | invoiceid | int | The Invoice ID created for the order |
@@ -77,33 +77,23 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
-            'pid[0]' => '1',
-            'domain[0]' => 'domain1.com',
-            'billingcycle[0]' => 'monthly',
-            'addons[0]' => '1,3,9',
-            'customfields[0]' => base64_encode(serialize(array(1 => 'Google'))),
-            'configoptions[0]' => base64_encode(serialize(array(1 => 999))),
-            'domaintype[0]' => 'register',
-            'regperiod[0]' => '1',
-            'domain[1]' => 'domain2.com',
-            'domaintype[1]' => 'register',
-            'regperiod[1]' => '1',
-            'dnsmanagement[1]' => true,
+            'pid' => array(1,1),
+            'domain' => array('domain1.com', 'domain2.com'),
+            'billingcycle' => array('monthly','semi-annually'),
+            'addons' => array('1,3,9', ''),
+            'customfields' => array(base64_encode(serialize(array("1" => "Google"))), base64_encode(serialize(array("1" => "Google")))),
+            'configoptions' => array(base64_encode(serialize(array("1" => 999))), base64_encode(serialize(array("1" => 999)))),
+            'domaintype' => array('register', 'register'),
+            'regperiod' => array(1, 2),
+            'dnsmanagement' => array(0 => false, 1 => true),
             'nameserver1' => 'ns1.demo.com',
             'nameserver2' => 'ns2.demo.com',
-            'addonid' => '1',
-            'serviceid' => '1',
-            'addonids[0]' => '3',
-            'serviceids[0]' => '1',
-            'addonids[1]' => '9',
-            'serviceids[1]' => '1',
-            'domainrenewals[domain3.com]' => '1',
-            'domainrenewals[domain4.com]' => '2',
             'paymentmethod' => 'mailin',
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -115,28 +105,17 @@ curl_close($ch);
 $command = 'AddOrder';
 $postData = array(
     'clientid' => '1',
-    'pid[0]' => '1',
-    'domain[0]' => 'domain1.com',
-    'billingcycle[0]' => 'monthly',
-    'addons[0]' => '1,3,9',
-    'customfields[0]' => base64_encode(serialize(array(1 => 'Google'))),
-    'configoptions[0]' => base64_encode(serialize(array(1 => 999))),
-    'domaintype[0]' => 'register',
-    'regperiod[0]' => '1',
-    'domain[1]' => 'domain2.com',
-    'domaintype[1]' => 'register',
-    'regperiod[1]' => '1',
-    'dnsmanagement[1]' => true,
+    'pid' => array(1,1),
+    'domain' => array('domain1.com', 'domain2.com'),
+    'billingcycle' => array('monthly','semi-annually'),
+    'addons' => array('1,3,9', ''),
+    'customfields' => array(base64_encode(serialize(array("1" => "Google"))), base64_encode(serialize(array("1" => "Google")))),
+    'configoptions' => array(base64_encode(serialize(array("1" => 999))), base64_encode(serialize(array("1" => 999)))),
+    'domaintype' => array('register', 'register'),
+    'regperiod' => array(1, 2),
+    'dnsmanagement' => array(0 => false, 1 => true),
     'nameserver1' => 'ns1.demo.com',
     'nameserver2' => 'ns2.demo.com',
-    'addonid' => '1',
-    'serviceid' => '1',
-    'addonids[0]' => '3',
-    'serviceids[0]' => '1',
-    'addonids[1]' => '9',
-    'serviceids[1]' => '1',
-    'domainrenewals[domain3.com]' => '1',
-    'domainrenewals[domain4.com]' => '2',
     'paymentmethod' => 'mailin',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -152,9 +131,9 @@ print_r($results);
 {
     "result": "success",
     "orderid": "1",
-    "productids": "2",
-    "addonids": "1,2,3,4,5,6",
-    "domainids": "3,4",
+    "serviceids": "1,2",
+    "addonids": "1,2,3",
+    "domainids": "1,2",
     "invoiceid": "1"
 }
 ```

@@ -24,7 +24,7 @@ Obtain orders matching the passed criteria
 | totalresults | int | The total number of results available |
 | startnumber | int | The starting number for the returned results |
 | numreturned | int | The number of results returned |
-| invoices | array | An array of invoices matching the criteria passed |
+| orders | array | An array of orders matching the criteria passed |
 
 
 ### Example Request (CURL)
@@ -45,6 +45,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

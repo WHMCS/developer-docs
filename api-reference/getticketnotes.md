@@ -39,6 +39,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -70,7 +71,9 @@ print_r($results);
                 "id": "1",
                 "admin": "admin admin",
                 "date": "2016-01-01 06:26:42",
-                "message": "This is a ticket note"
+                "message": "This is a ticket note",
+                "attachment": "123456_attachment_name.png|987654_second_attachment.pdf",
+                "attachments_removed": true
             }
         ]
     }

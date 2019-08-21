@@ -12,8 +12,8 @@ Connects to the registrar and attempts to update the nameservers with those prov
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainUpdateNameservers" | Required |
-| domainid | int | The id of the domain to obtain the whois information for *recommended* | Optional |
-| domain | string | The domain name to be registered. This or $domainid is required | Optional |
+| domainid | int | The id of the domain to update the nameservers for *recommended* | Optional |
+| domain | string | The domain name to be update the nameservers for. This or $domainid is required | Optional |
 | ns1 | string | The first nameserver | Required |
 | ns2 | string | The second nameserver | Required |
 | ns3 | string | The third nameserver | Optional |
@@ -45,6 +45,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

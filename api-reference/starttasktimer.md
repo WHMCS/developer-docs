@@ -1,5 +1,5 @@
 +++
-title = "EndTaskTimer"
+title = "StartTaskTimer"
 toc = true
 +++
 
@@ -9,7 +9,7 @@ Starts a timer for a project
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "EndTaskTimer" | Required |
+| action | string | "StartTaskTimer" | Required |
 | timerid | int | The id of the task to be ended | Required |
 | projectid | int | The id of the project for the task timer | Required |
 | adminid | int | The admin id to associate the timer with | Optional |
@@ -33,7 +33,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'EndTaskTimer',
+            'action' => 'StartTaskTimer',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
@@ -44,6 +44,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -52,7 +53,7 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'EndTaskTimer';
+$command = 'StartTaskTimer';
 $postData = array(
     'projectid' => '1',
     'timerid' => '1',

@@ -36,12 +36,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'moduleType' => 'gateway',
             'moduleName' => 'paypal',
-            'parameters[email]' => 'billing@example.com',
-            'parameters[forcesubscriptions]' => true,
+            'parameters' => array('email' => 'billing@example.com', 'forcesubscriptions' => true),
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -54,8 +54,7 @@ $command = 'ActivateModule';
 $postData = array(
     'moduleType' => 'gateway',
     'moduleName' => 'paypal',
-    'parameters[email]' => 'billing@example.com',
-    'parameters[forcesubscriptions]' => true,
+    'parameters' => array('email' => 'billing@example.com', 'forcesubscriptions' => true),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

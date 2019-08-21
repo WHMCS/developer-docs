@@ -27,6 +27,7 @@ Executes as a contact is being added to WHMCS.
 | postcode | string |  |
 | country | string |  |
 | phonenumber | string |  |
+| tax_id | string |  |
 | subaccount | bool |  |
 | password | string |  |
 | permissions | string | A comma separated list of allowed permissions for a sub-account |
@@ -147,6 +148,7 @@ Runs when a contact is edited.
 | postcode | string |  |
 | country | string |  |
 | phonenumber | string |  |
+| tax_id | string |  |
 | subaccount | bool |  |
 | permissions | string | A comma separated list of permissions if the contact is a sub-account |
 | domainemails | bool |  |

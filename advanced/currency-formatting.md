@@ -39,4 +39,4 @@ $price = formatCurrency($amount, $currencyData['id']);
 
 The `$price` value returned will be an object. The default `__toString` response format is a fully formatted price output including prefix and suffix.
 
-See http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html for more information.
+See https://docs.whmcs.com/classes/7.1/WHMCS/View/Formatter/Price.html for more information.

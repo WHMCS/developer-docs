@@ -12,7 +12,7 @@ Obtain the Clients Product Addons that match passed criteria
 | action | string | "GetClientsAddons" | Required |
 | serviceid | int|string | The service id(s) to obtain the client product addons for. Single number or comma separated list | Optional |
 | clientid | int | The client to obtain the client product addons for | Optional |
-| addonid | int | The predefined addon id to obtain the client product addons for | Optional |
+| addonid | int | The predefined product addon id from tbladdons (tbladdons.id) to obtain client addons for. | Optional |
 
 ### Response Parameters
 
@@ -43,6 +43,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

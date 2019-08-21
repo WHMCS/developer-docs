@@ -16,3 +16,4 @@ The following are some advanced customisation options.
 * **[Date Functions](/advanced/date-functions/)**<br>Learn how to use the date helper functions in WHMCS
 * **[Currency Formatting](/advanced/currency-formatting/)**<br>Learn how to use the currency formatting helper functions in WHMCS
 * **[Logging](/advanced/logging/)**<br>Learn how to use the logging helper functions in WHMCS
+* **[Widgets](/advanced/widgets/)**<br>Learn how to create widgets using AbstractWidget

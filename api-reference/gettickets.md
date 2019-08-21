@@ -47,6 +47,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -89,7 +90,8 @@ print_r($results);
                 "status": "Answered",
                 "priority": "Medium",
                 "admin": "admin admin",
-                "attachment": "",
+                "attachment": "123456_attachment_name.png",
+                "attachments_removed": true,
                 "lastreply": "2016-01-01 06:30:16",
                 "flag": "0",
                 "service": ""

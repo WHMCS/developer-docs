@@ -3,7 +3,7 @@ title = "GetInvoices"
 toc = true
 +++
 
-Retrieve a specific invoice
+Retrieve a list of invoices.
 
 ### Request Parameters
 
@@ -14,6 +14,8 @@ Retrieve a specific invoice
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | userid | int | Find invoices for a specific client id | Optional |
 | status | string | Find invoices for a specific status. Standard Invoice statuses plus Overdue | Optional |
+| orderby | string | The field to sort results by. Accepted values are: id, invoicenumber, date, duedate, total, status | Optional |
+| order | string | Order sort attribute. Accepted values are: asc or desc. | Optional |
 
 ### Response Parameters
 
@@ -40,10 +42,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'userid' => '1',
+            'orderby' => 'invoicenumber',
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -55,6 +59,7 @@ curl_close($ch);
 $command = 'GetInvoices';
 $postData = array(
     'userid' => '1',
+    'orderby' => 'invoicenumber',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -102,3 +107,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Added `orderby` and `order` parameters to control returned sorting. |

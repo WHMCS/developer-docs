@@ -21,7 +21,8 @@ Updates an existing ticket
 | priority | string | The priority of the ticket ('Low', 'Medium', 'High') | Optional |
 | flag | int | The id of the admin to flag the ticket to | Optional |
 | removeFlag | bool | Remove the flag from the ticket | Optional |
-| useMarkdown | bool | Should markdown be used on the ticket output | Optional |
+| message | string | Update the ticket message | Optional |
+| markdown | bool | Should markdown be used on the ticket output. | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
 
 ### Response Parameters
@@ -52,6 +53,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -98,3 +100,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Added `message` parameter that allows updating primary ticket message. |

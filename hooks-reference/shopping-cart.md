@@ -55,6 +55,29 @@ add_hook('AddonFraud', 1, function($vars) {
 });
 ```
 
+## AfterCalculateCartTotals
+
+Executes after the cart totals have been calculated.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| total | \Price | Total due today |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterCalculateCartTotals', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## AfterFraudCheck
 
 Executes after a fraud check has been completed
@@ -68,7 +91,8 @@ Executes after a fraud check has been completed
 | invoiceid | int | The ID of the invoice generated on order |
 | amount | float | The amount the order was for |
 | fraudresults | array | The full result from the fraud check |
-| isfraud | array | The details of the fraud check if an error occurs |
+| isfraud | bool | Has the check been deemed as fraud |
+| frauderror | array | The details of the fraud check if an error occurs |
 | clientdetails | array | The full details of the client the order is for |
 
 #### Response
@@ -117,13 +141,13 @@ add_hook('AfterShoppingCartCheckout', 1, function($vars) {
 
 ## CancelOrder
 
-Executes as an order is being cancelled
+Runs when an order is requested to be cancelled, prior to the change of status actually occurring.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | int |  |
+| orderid | int | The order ID |
 
 #### Response
 
@@ -134,6 +158,30 @@ No response supported
 ```
 <?php
 add_hook('CancelOrder', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## CartSubdomainValidation
+
+Executes when Cart Subdomain Validation is occurring
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| subdomain | string | eg sub in sub.whmcs.com |
+| domain | string | eg whmcs.com in sub.whmcs.com |
+
+#### Response
+
+Return any validation errors. eg: return array('error1', 'error2',);
+
+#### Example Code
+
+```
+<?php
+add_hook('CartSubdomainValidation', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -187,13 +235,13 @@ add_hook('CartTotalAdjustment', 1, function($vars) {
 
 ## DeleteOrder
 
-Executes as an order is being deleted
+Runs when an order is requested to be deleted, prior to the deletion actually occurring.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | int |  |
+| orderid | int | The order ID |
 
 #### Response
 
@@ -208,15 +256,102 @@ add_hook('DeleteOrder', 1, function($vars) {
 });
 ```
 
-## FraudOrder
+## FraudCheckAwaitingUserInput
 
-Executes as an order is being marked fraud
+Executes when the fraud check is awaiting user input.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | int |  |
+| orderid | int | The id of the order that has been fraud checked |
+| ordernumber | int | The order number |
+| invoiceid | int | The ID of the invoice generated on order |
+| amount | float | The amount the order was for |
+| fraudresults | array | The full result from the fraud check |
+| isfraud | array | The details of the fraud check if an error occurs |
+| clientdetails | array | The full details of the client the order is for |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('FraudCheckAwaitingUserInput', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## FraudCheckFailed
+
+Executes when the fraud check fails for a new order.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderid | int | The id of the order that has been fraud checked |
+| ordernumber | int | The order number |
+| invoiceid | int | The ID of the invoice generated on order |
+| amount | float | The amount the order was for |
+| fraudresults | array | The full result from the fraud check |
+| isfraud | array | The details of the fraud check if an error occurs |
+| clientdetails | array | The full details of the client the order is for |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('FraudCheckFailed', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## FraudCheckPassed
+
+Executes when the fraud check passes successfully for a new order.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderid | int | The id of the order that has been fraud checked |
+| ordernumber | int | The order number |
+| invoiceid | int | The ID of the invoice generated on order |
+| amount | float | The amount the order was for |
+| fraudresults | array | The full result from the fraud check |
+| isfraud | array | The details of the fraud check if an error occurs |
+| clientdetails | array | The full details of the client the order is for |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('FraudCheckPassed', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## FraudOrder
+
+Runs when an order is requested to be set as fraud, prior to the change of status actually occurring.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderid | int | The order ID |
 
 #### Response
 
@@ -280,7 +415,7 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 
 ## OrderDomainPricingOverride
 
-Executes as a domain price is being calculated in the cart. This hook is run independelty for each domain added to the cart.
+Executes as a domain price is being calculated in the cart.
 
 #### Parameters
 
@@ -297,16 +432,45 @@ Executes as a domain price is being calculated in the cart. This hook is run ind
 
 #### Response
 
-Return a valid price to override the cost of the domain.
+A float to override the first payment, or an array to override first and/or recurring amounts
+
+#### Example Code
+
+```
+
+<?php
+
+add_hook('OrderDomainPricingOverride', 1, function($vars) {
+    // Perform operations to determine price.
+    // To override the first payment amount only simply return a float
+    return '64.95';
+    // To override the first payment and recurring amount, return an array as follows
+    return ['firstPaymentAmount' => 64.95, 'recurringAmount' => 14.45];
+});
+```
+
+## OrderPaid
+
+Executes when the first invoice for a new order is marked paid. This will execute in addition to the regular invoice payment hooks.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderId | int | The unique identifier for the order |
+| userId | int | The unique identifier for the client |
+| invoiceId | int | The unique identifier for the invoice |
+
+#### Response
+
+No response supported
 
 #### Example Code
 
 ```
 <?php
-
-add_hook('OrderDomainPricingOverride', 1, function($vars) {
-    // Perform operations to determine price
-    return '64.95';
+add_hook('OrderPaid', 1, function($vars) {
+    // Perform hook code here...
 });
 ```
 
@@ -324,7 +488,7 @@ Executes as a product price is being calculated in the cart.
 
 #### Response
 
-Product pricing can be overridden. Accepts a return of the keys 'setup' and 'recurring'. eg: return array('setup' => 1.00, 'recurring' => 12.00);
+Product pricing can be overridden - exclusive of configurable option cost. Accepts a return of the keys 'setup' and 'recurring'. eg: return array('setup' => 1.00, 'recurring' => 12.00);
 
 #### Example Code
 
@@ -339,14 +503,14 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
     /**
      * Override the product price when ordering product 1 and the user has the id 10
      */
-    if ($vars['pid'] == 1 && Session::get('userid') == 10) {
+    if ($vars['pid'] == 1 && Session::get('uid') == 10) {
         $return = ['setup' => '0.00', 'recurring' => '0.00',];
     }
 
     /**
      * Override the product price when user has the id 72
      */
-    if (Session::get('userid') == 72) {
+    if (Session::get('uid') == 72) {
         $return = ['setup' => '0.00', 'recurring' => '0.00',];
     }
     return $return;
@@ -381,7 +545,7 @@ Return any key -> value pairs of the parameters to override. eg return array('di
 ```
 <?php
 
-use Carbon\Carbon;
+use WHMCS\Carbon;
 
 add_hook('OrderProductUpgradeOverride', 1, function($vars) {
     $return = [];
@@ -405,7 +569,7 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 
 ## OverrideOrderNumberGeneration
 
-Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.
+Executes prior to checkout. All cart information is passed to the hook.
 
 #### Parameters
 
@@ -416,7 +580,7 @@ Executes just before checkout occurs. All cart information is passed to the hook
 
 #### Response
 
-Return an overridden client displayed order number. eg: return array(123456788,);
+Return the custom order number to be used (must be a valid numeric value).
 
 #### Example Code
 
@@ -424,22 +588,21 @@ Return an overridden client displayed order number. eg: return array(123456788,)
 <?php
 
 add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
-    /**
-     * The order number should be validated to ensure it is unique
-     */
-    return [time()];
+    // Generate and return a custom order number value (must be a valid integer).
+    // We also recommend ensuring the custom number is unique.
+    return time();
 });
 ```
 
 ## PendingOrder
 
-Executes as an order is being marked pending
+Runs when an order is requested to be set back to pending, prior to the change of status actually occurring.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| orderid | int |  |
+| orderid | int | The order ID |
 
 #### Response
 
@@ -478,9 +641,30 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 });
 ```
 
+## PreFraudCheck
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+|  $params | | |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PreFraudCheck', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## PreShoppingCartCheckout
 
-Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.
+Executes prior to checkout. All cart information is passed to the hook.
 
 #### Parameters
 
@@ -695,35 +879,6 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
         'Error message feedback error 1',
         'Error message feedback error 2',
     ];
-});
-```
-
-## ViewOrderDetailsPage
-
-Executes as the order details page is being displayed
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| orderid | int |  |
-| ordernum | int |  |
-| userid | int |  |
-| amount | float |  |
-| paymentmethod | string |  |
-| invoiceid | int |  |
-|  | string | status |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ViewOrderDetailsPage', 1, function($vars) {
-    // Perform hook code here...
 });
 ```
 

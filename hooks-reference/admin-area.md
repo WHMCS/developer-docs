@@ -29,8 +29,8 @@ add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
     $return = [];
 
     if ($vars['userid'] == 1) {
-        $return[] = '<a href="http://www.whmcs.com/">WHMCS</a>';
-        $return[] = '<a href="http://www.enom.com/">eNom</a>';
+        $return[] = '<a href="https://www.whmcs.com/">WHMCS</a>';
+        $return[] = '<a href="https://www.enom.com/">eNom</a>';
     }
 
     return $return;
@@ -247,6 +247,7 @@ Executes when a client profile is being viewed in the Admin area.
 | separateinvoices | bool |  |
 | disableautocc | bool |  |
 | emailoptout | bool |  |
+| marketing_emails_opt_in | bool |  |
 | overrideautoclose | bool |  |
 | language | string |  |
 | billingcid | int |  |
@@ -469,7 +470,7 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 
 ## AdminServiceEdit
 
-Executes as the service is being saved, after any changes have been made.
+Executes when the Service has been edited. After the changes have been made.
 
 #### Parameters
 
@@ -517,7 +518,7 @@ class MyAuthService
     public static function getAdminHash($adminUniqueId)
     {
         $hashes = [
-            'admin@localhost' => '$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO'
+            'admin@localhost.local' => '$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO'
         ];
 
         if (array_key_exists($adminUniqueId, $hashes)) {
@@ -569,16 +570,16 @@ add_hook('AuthAdminApi', 1, function($vars) {
 
 ## InvoiceCreationAdminArea
 
-Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.
+Executes as an invoice is being created in the admin area
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| source | string |  |
-| user | string|int | System or Admin User |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
+| source | string | When the invoice is being created |
+| user | int|string | The id of the user completing the action dependant on source |
+| invoiceid | int | The id of the newly created invoice |
+| status | string | The status of the newly created invoice |
 
 #### Response
 
@@ -612,6 +613,35 @@ No response supported
 ```
 <?php
 add_hook('PreAdminServiceEdit', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## ViewOrderDetailsPage
+
+Executes as the order details page is being displayed
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| orderid | int |  |
+| ordernum | int |  |
+| userid | int |  |
+| amount | float |  |
+| paymentmethod | string |  |
+| invoiceid | int |  |
+|  | string | status |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('ViewOrderDetailsPage', 1, function($vars) {
     // Perform hook code here...
 });
 ```

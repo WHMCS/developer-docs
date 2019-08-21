@@ -22,6 +22,7 @@ Add a transaction to the system
 | amountout | float | The amount paid out by the payment | Optional |
 | rate | float | The exchange rate for the payment based on the default currency | Optional |
 | credit | bool | Should the payment be applied to credit on the client account. Invoice ID must not be provided. | Optional |
+| allowduplicatetransid | bool | Should an already existing transaction id be allowed. Defaults to false. | Optional |
 
 ### Response Parameters
 
@@ -55,6 +56,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -96,6 +98,10 @@ Possible error condition responses include:
 
 * Client ID Not Found
 * Invoice ID Not Found
+* User ID does not own the given Invoice ID
+* Currency ID Not Found
+* Currency ID does not match Client currency
+* A Currency ID is required for non-customer related transactions
 * Payment Method is required
 * Transaction ID must be Unique
 

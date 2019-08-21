@@ -8,7 +8,7 @@ The following hooks are provided for Domain related events.
 
 ## DomainDelete
 
-Executes when a service is being deleted.
+Executes when a domain is being deleted from the client account.
 
 #### Parameters
 
@@ -32,7 +32,7 @@ add_hook('DomainDelete', 1, function($vars) {
 
 ## DomainEdit
 
-Executes as the domain is being saved, before any changes have been made.
+Executes when the domain is being edited.
 
 #### Parameters
 
@@ -50,6 +50,60 @@ No response supported
 ```
 <?php
 add_hook('DomainEdit', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## DomainTransferCompleted
+
+Executes when a domain transfer is set to completed by the domain sync cron.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainid | int | The unique identifier for the domain |
+| domain | string | The domain name |
+| registrationPeriod | string | The registration period |
+| expiryDate | string | The expiry date (if returned by the registrar) |
+| registrar | string | The registrar used |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('DomainTransferCompleted', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## DomainTransferFailed
+
+Executes when a domain transfer is set to failed by the domain sync cron.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| domainid | int | The unique identifier for the domain |
+| domain | string | The domain name |
+| registrationPeriod | string | The registration period |
+| expiryDate | string | The expiry date (if returned by the registrar) |
+| registrar | string | The registrar used |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('DomainTransferFailed', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -86,7 +140,7 @@ Executes before a domain register command
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
+| domain | string | The domain being registered |
 
 #### Response
 
@@ -199,6 +253,103 @@ Accepts an optional array return. Return `abortWithSuccess=true` to abort the ac
 ```
 <?php
 add_hook('PreRegistrarTransferDomain', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TopLevelDomainAdd
+
+Executes when a new domain extension is added.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| tld | string |  |
+| supportsDnsManagement | bool |  |
+| supportsEmailForwarding | bool |  |
+| supportsIdProtection | bool |  |
+| requiresEppCode | bool |  |
+| automaticRegistrar | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TopLevelDomainAdd', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TopLevelDomainDelete
+
+Executes when a domain extension is deleted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| tld | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TopLevelDomainDelete', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TopLevelDomainPricingUpdate
+
+Executes when domain extension pricing is updated.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| tld | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TopLevelDomainPricingUpdate', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TopLevelDomainUpdate
+
+Executes when domain extensions configuration is updated.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| modifiedTlds | string[] | An array of domain extensions that have been modified. |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TopLevelDomainUpdate', 1, function($vars) {
     // Perform hook code here...
 });
 ```

@@ -21,14 +21,18 @@ Open a new ticket
 | serviceid | int | The service to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | domainid | int | The domain to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | admin | bool | Is an Admin opening the ticket | Optional |
-| useMarkdown | bool | Should markdown be used on the ticket output | Optional |
+| markdown | bool | Should markdown be used on the ticket output | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
+| attachments | array | Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below). | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| id | int | The unique id of the newly created ticket |
+| tid | string | The unique ticket id displayed to the client, and to load the ticket in the client area |
+| c | string | The code to access the ticket in the client area |
 
 
 ### Example Request (CURL)
@@ -49,11 +53,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'message' => 'This is a **sample** ticket message',
             'clientid' => '1',
             'priority' => 'Medium',
-            'useMarkdown' => true,
+            'markdown' => true,
+            'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -69,7 +75,8 @@ $postData = array(
     'message' => 'This is a **sample** ticket message',
     'clientid' => '1',
     'priority' => 'Medium',
-    'useMarkdown' => true,
+    'markdown' => true,
+    'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -109,3 +116,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.5 | Added support for attachments |

@@ -314,14 +314,15 @@ add_hook('EmailPreLog', 1, function($vars) {
 
 ## EmailPreSend
 
-Runs prior to a client email being sent.
+Runs prior to any templated email being sent.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | messagename | string | The name of the email template being sent |
-| relid | int | The related entity ID for the email being sent |
+| relid | int | The related entity ID for the email being sent. |
+| mergefields | array | Original mergefield data |
 
 #### Response
 
@@ -334,9 +335,11 @@ An array of key/value pairs to be made available as additional email template me
 
 add_hook('EmailPreSend', 1, function($vars) {
     $merge_fields = [];
-    $merge_fields['my_custom_var'] = "My Custom Var";
-    $merge_fields['my_custom_var2'] = "My Custom Var2";
-    if ($vars['messagename'] =='My Message Name' && $vars['relid'] == 2) {
+    if (!array_key_exists('my_custom_var', $vars['mergefields'])) {
+        $merge_fields['my_custom_var'] = "My Custom Var";
+        $merge_fields['my_custom_var2'] = "My Custom Var2";
+    }
+    if ($vars['messagename'] == 'My Message Name' && $vars['relid'] == 2) {
         //Stop the email from sending a specific message and related id.
         $merge_fields['abortsend'] = true;
     }
@@ -409,32 +412,38 @@ Executes as the Intelligent Search is being completed
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| searchTerm | string |  |
+| searchTerm | string | The term being searched for |
+| numResults | int | The number of results to return |
 
 #### Response
 
-An array of additional responses to be appended to the search results.
+An array of additional search results. See example for array structure. A string response was supported in versions prior to WHMCS 7.7.
 
 #### Example Code
 
 ```
-add_hook('IntelligentSearch', 1, function($vars) {
+<?php
+
+add_hook('IntelligentSearch', 1, function ($vars) {
+    /**
+     * This is an example of array return for an Intelligent Search.
+     * This format is supported in the blend WHMCS Admin Template.
+     * Any template based on blend and updated to WHMCS 7.7+ is also supported.
+     */
     $searchResults = array();
 
-    // look for matches in client notes field
-    $result = select_query(
-        'tblclients',
-        'id,firstname,lastname,email',
-        array('notes' => $vars['searchTerm'])
-    );
-    while ($data = mysql_fetch_array($result)) {
-        $searchResults[] = '<div class="searchresult">
-            <a href="clientssummary.php?userid=' . $data['id'] . '">
-                <strong>' . $data['firstname'] . ' ' . $data['lastname'] . '</strong>
-                #' . $data['id'] . '<br />
-                <span class="desc">' . $data['email'] . '</span>
-            </a>
-        </div>';
+    // look for exact matches in client notes field
+    $result = \WHMCS\Database\Capsule::table('tblclients')
+        ->where('notes', $vars['searchTerm'])
+        ->get();
+
+    foreach ($result as $client) {
+        $searchResults[] = [
+            'title' => $client->firstname . ' ' . $client->lastname, // The title of the search result. This is required.
+            'href' => 'clientssummary.php?userid=' . $client->id, // The destination url of the search result. This is required.
+            'subTitle' => $client->email, // An optional subtitle for the search result.
+            'icon' => 'fal fa-user', // A font-awesome icon for the search result. Defaults to 'fal fa-star' if not defined.
+        ];
     }
     return $searchResults;
 });
@@ -489,6 +498,55 @@ add_hook('LogActivity', 1, function($vars) {
 });
 ```
 
+## NotificationPreSend
+
+Executes prior to a notification being sent to allow for additional conditional criteria to be applied and manipulation of the notification message.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| eventType | string | Event type eg. Ticket, Invoice, Order, Service or Domain |
+| eventName | string | Event name. |
+| rule | \WHMCS\Notification\Rule | Notification rule model that has been matched. |
+| hookParameters | array | Array of hook parameters. Will vary depending on the trigger. |
+| notification | \WHMCS\Notification\Notification | Notification object. See class documentation at https://docs.whmcs.com/classes |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+
+add_hook('NotificationPreSend', 1, function($vars) {
+
+    $eventType = $vars['eventType'];
+    $eventName = $vars['eventName'];
+    $rule = $vars['rule'];
+    $hookParameters = $vars['hookParameters'];
+    $notification = $vars['notification'];
+
+    // Perform additional conditional logic and throw the AbortNotification
+    // exception to prevent the notification from sending.
+    if ($eventType == 'Invoice'
+        && $eventName == 'created'
+        && (isset($hookParameters['invoiceid'])
+            && $hookParameters['invoiceid'] > 1000)
+    ) {
+        throw new \WHMCS\Notification\Exception\AbortNotification();
+    }
+
+    // If allowing the notification to continue, you can manipulate the
+    // notification using the \WHMCS\Notification\Notification object.
+    $notification->setTitle('Override notification title');
+    $notification->setMessage('Override notification message body');
+
+});
+```
+
 ## PostAutomationTask
 
 Executes after an automation task occurs
@@ -532,6 +590,58 @@ No response supported
 ```
 <?php
 add_hook('PreAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreEmailSendReduceRecipients
+
+Runs prior to a client email being sent and allows selective removal of CC and BCC recipients.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| messagename | string | The name of the email template being sent |
+| relid | int | The related entity ID for the email being sent |
+| recipients | array | Array containing 'cc' and 'bcc' recipients. Each recipient will be an array containing 'email' and 'fullname' indices |
+
+#### Response
+
+An array with a 'cc' and 'bcc' list of recipients. Each recipient in those lists should be indexed with the original index hash as provided by $recipients argument. If an empty 'cc' or 'bcc' list provided, it will remove all 'cc' or 'bcc' recipients respectively. If the 'cc' or 'bcc' is omitted in the return, the original list will remain unaltered
+
+#### Example Code
+
+```
+<?php
+add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreUpgradeCheckout
+
+Executes on checkout of an upgrade order, after the price calculation. The upgrade order may have completed already when this hook runs.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| clientId | int | The ID of the client for the upgrade order |
+| upgradeId | int | The ID of the upgrade order |
+| serviceId | int | The ID of the service for the upgrade order |
+| amount | float | The upgrade order amount. A negative value denotes a credit calculation. |
+| discount | float | The upgrade order discount. |
+
+#### Response
+
+Return 'amount' and/or 'discount' key with override price for the upgrade order.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreUpgradeCheckout', 1, function($vars) {
     // Perform hook code here...
 });
 ```

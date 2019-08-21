@@ -38,6 +38,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -62,8 +63,8 @@ print_r($results);
 {
     "result": "success",
     "totalresults": 1,
-    "paymentmethods": {
-        "paymentmethod": [
+    "promotions": {
+        "promotion": [
             {
                 "id": 1,
                 "code": "sample",

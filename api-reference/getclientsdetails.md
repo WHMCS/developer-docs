@@ -5,6 +5,9 @@ toc = true
 
 Obtain the Clients Details for a specific client
 
+Note this function returns the client information in the top level array. This information
+is deprecated and may be removed in a future version of WHMCS.
+
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
@@ -42,6 +45,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -95,8 +99,6 @@ print_r($results);
     "client[twofaenabled]": "",
     "client[currency]": "1",
     "client[defaultgateway]": "",
-    "client[cctype]": "",
-    "client[cclastfour]": "",
     "client[securityqid]": "0",
     "client[securityqans]": "",
     "client[groupid]": "0",
@@ -108,6 +110,7 @@ print_r($results);
     "client[separateinvoices]": "",
     "client[disableautocc]": "",
     "client[emailoptout]": "",
+    "client[marketing_emails_opt_in]": "",
     "client[overrideautoclose]": "",
     "client[allowSingleSignOn]": "1",
     "client[language]": "",
@@ -154,6 +157,16 @@ print_r($results);
 ```
 
 
+### Warning Responses
+
+Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.
+
+Possible warning messages include:
+
+* Credit Card related parameters are now deprecated and have been removed. Use GetPayMethods instead.
+
+
 ### Error Responses
 
 Possible error condition responses include:
@@ -167,3 +180,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.8 | Credit Card related parameters have been removed due to the introduction of support for multiple credit cards per client. Use GetPayMethods instead. |

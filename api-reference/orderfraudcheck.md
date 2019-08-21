@@ -3,7 +3,7 @@ title = "OrderFraudCheck"
 toc = true
 +++
 
-Run a fraud check on a passed Order ID
+Run a fraud check on a passed Order ID using the active fraud module.
 
 ### Request Parameters
 
@@ -19,6 +19,7 @@ Run a fraud check on a passed Order ID
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
 | status | string | The status of the fraud check |
+| module | string | The module loaded to complete the fraud check |
 | results | string | The serialised results of the fraud check |
 
 
@@ -35,11 +36,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'deptid' => '1',
+            'orderid' => '1',
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -50,7 +52,7 @@ curl_close($ch);
 ```
 $command = 'OrderFraudCheck';
 $postData = array(
-    'deptid' => '1',
+    'orderid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -64,6 +66,7 @@ print_r($results);
 ```
 {
     "result": "success",
+    "module": "maxmind",
     "status": "Pass"
 }
 ```
@@ -74,6 +77,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Order ID Not Found
+* No Active Fraud Module
 
 
 ### Version History

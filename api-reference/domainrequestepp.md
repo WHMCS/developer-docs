@@ -13,7 +13,7 @@ Not all registrars return the EPP code but send them directly to the client.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "DomainRequestEPP" | Required |
-| domainid | int | The id of the domain to obtain the whois information for | Required |
+| domainid | int | The id of the domain to obtain the EPP for | Required |
 
 ### Response Parameters
 
@@ -41,6 +41,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

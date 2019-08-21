@@ -72,7 +72,7 @@ return array(
     'status' => 'success',
     'rawdata' => $responseData,
     'transid' => $transactionId,
-    'fees' => $feeAmount,
+    'fee' => $feeAmount,
 );
 ```
 
@@ -104,13 +104,13 @@ function yourmodulename_capture($params) {
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $data = json_docode($response);
+    $data = json_decode($response);
 
     return array(
         'status' => ($data->success == 1) ? 'success' : 'declined',
         'rawdata' => $data,
         'transid' => $data->transaction_id,
-        'fees' => $data->fees,
+        'fee' => $data->fees,
     );
 }
 ```

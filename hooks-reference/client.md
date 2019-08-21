@@ -50,6 +50,7 @@ Executes as a client is being added to WHMCS.
 | postcode | string |  |
 | country | string |  |
 | phonenumber | string |  |
+| tax_id | string |  |
 | password | string |  |
 | customFields | array |  |
 | taxexempt | bool |  |
@@ -58,6 +59,7 @@ Executes as a client is being added to WHMCS.
 | separateinvoices | bool |  |
 | disableautocc | bool |  |
 | emailoptout | bool |  |
+| marketing_emails_opt_in | bool |  |
 | overrideautoclose | bool |  |
 | notes | string |  |
 | groupid | int |  |
@@ -195,6 +197,7 @@ Executes before adding a client or updating a client through the Admin or Client
 | postcode | string | The client's postcode/zipcode |
 | country | string | The client's country (2 character code) |
 | phonenumber | string | The client's phone number |
+| tax_id | string | The client's tax id |
 | paymentmethod | string | If selected, the client's default payment method |
 | customfield | string | An array of Key => Value pairs |
 | securityqid | int | Only from Admin Area or when registering |
@@ -248,6 +251,7 @@ Executes when a client is edited.
 | separateinvoices | bool |  |
 | disableautocc | bool |  |
 | emailoptout | bool |  |
+| marketing_emails_opt_in | bool |  |
 | overrideautoclose | bool |  |
 | language | string |  |
 | billingcid | int |  |
@@ -259,6 +263,7 @@ Executes when a client is edited.
 | authmodule | string | The 2Factor Auth Module enabled for the user |
 | authdata | string | The 2Factor Auth Data for the user |
 | email_verified | bool |  |
+| isOptedInToMarketingEmails | bool |  |
 | olddata | array | An array of the previous user information |
 
 #### Response

@@ -14,15 +14,17 @@ Remember, all functions should have the prefix `yourmodulename_` and then the fu
 
 | Parameter | Description |
 | --------- | ----------- |
-| RegisterDomain | Called when the registration of a new domain comes from WHMCS. |
-| TransferDomain | Called when an existing domain transfer request comes from WHMCS. |
-| RenewDomain | Called when a request to renew a domain comes from WHMCS. |
-| GetNameservers | Called whenever a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain. |
-| SaveNameservers | Called when a change request to the nameservers displayed inside WHMCS. |
-| GetRegistrarLock | Called whenever a domains details are viewed within WHMCS. It should return the current lock status of a domain | either locked or unlocked. |
+| RegisterDomain | Called when the registration of a new domain is initiated within WHMCS. |
+| TransferDomain | Called when a domain transfer request is initiated within WHMCS. |
+| RenewDomain | Called when a request to renew a domain is initiated within WHMCS. |
+| GetDomainInformation | Called when a domain is viewed within WHMCS. Recommended instead of GetNameservers and GetRegistrarLock in WHMCS 7.6 and later. |
+| GetNameservers | Called when a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain. |
+| SaveNameservers | Called when a change is submitted for a domains nameservers. |
+| GetRegistrarLock | Called when a domains details are viewed within WHMCS. It should return the current lock status of a domain. |
 | SaveRegistrarLock | Called when the lock status setting is toggled within WHMCS. |
 | GetContactDetails | Called when the WHOIS information is displayed within WHMCS. |
 | SaveContactDetails | Called when revised WHOIS information is submitted. |
+| ResendIRTPVerificationEmail | Called when a request is made to resend the IRTP contact verification emails. |
 | GetDNS | Called when the DNS Host Records are requested to be viewed within WHMCS. |
 | SaveDNS | Called when any changes to DNS Host Records information is submitted. |
 | IDProtectToggle | Called when the ID Protection setting is toggled on or off. |

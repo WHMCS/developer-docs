@@ -23,8 +23,8 @@ Adds a product to the system to be available for purchase
 | proratabilling | bool | Is pro-rata billing enabled for this product. | Optional |
 | description | string | The description of the product to show on the product listing in the cart | Optional |
 | welcomeemail | int | The id of the Email Template to use as the welcome email. Product/Service Messages only | Optional |
-| proratadate | int | See http://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
-| proratachargenextmonth | int | See http://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
+| proratadate | int | See https://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
+| proratachargenextmonth | int | See https://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
 | subdomain | string | A comma separated list of subdomains to offer on the domain register page. eg: .domain1.com,.domain2.com | Optional |
 | autosetup | string | When should the product be automatically setup. One of '' (never), 'on' (pending order), 'payment' (on payment), 'order' (on order) | Optional |
 | module | string | The server module system name to associate with the product. eg: cpanel, autorelease, plesk | Optional |
@@ -64,14 +64,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'name' => 'Sample Product',
             'welcomeemail' => '5',
             'paytype' => 'recurring',
-            'pricing[1][monthly]' => '5.00',
-            'pricing[1][annually]' => '50.00',
-            'pricing[2][monthly]' => '8.00',
-            'pricing[2][annually]' => '80.00',
+            'pricing' => array(2 => array('monthly' => 8.00, 'annually' => 80.00)),
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -87,10 +85,7 @@ $postData = array(
     'name' => 'Sample Product',
     'welcomeemail' => '5',
     'paytype' => 'recurring',
-    'pricing[1][monthly]' => '5.00',
-    'pricing[1][annually]' => '50.00',
-    'pricing[2][monthly]' => '8.00',
-    'pricing[2][annually]' => '80.00',
+    'pricing' => array(2 => array('monthly' => 8.00, 'annually' => 80.00)),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

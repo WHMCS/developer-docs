@@ -7,7 +7,10 @@ Validate client login credentials.
 
 This command can be used to validate an email address and password against
 a registered user in WHMCS. On success, the userid and password hash will
-be returned which can be used to create an authenticated session.
+be returned which can be used to create an authenticated session by setting
+the session key 'uid' to the userid and the session key 'upw' to the
+passwordhash. Note: if session IP validation is enabled, this API call
+must be executed via the local API to receive a valid hash.
 
 ### Request Parameters
 
@@ -47,6 +50,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```

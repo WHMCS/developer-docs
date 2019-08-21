@@ -1,6 +1,6 @@
 +++
 prev = "/provisioning-modules/admin-dashboard-widgets"
-next = ""
+next = "/provisioning-modules/server-sync"
 title = "Module Logging"
 toc = true
 weight = 110

@@ -8,7 +8,7 @@ The following hooks are provided for Ticket related events.
 
 ## AdminAreaViewTicketPage
 
-Runs when an admin views a ticket.
+Executes when an admin views a support ticket within the admin area.
 
 #### Parameters
 
@@ -40,6 +40,52 @@ add_hook('AdminAreaViewTicketPage', 1, function($vars) {
     return $return;
 });
 
+```
+
+## AdminAreaViewTicketPageSidebar
+
+Executes when an admin views a support ticket within the admin area.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| ticketid | int |  |
+
+#### Response
+
+Returned HTML will be output to the sidebar.
+
+#### Example Code
+
+```
+<?php
+add_hook('AdminAreaViewTicketPageSidebar', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AdminSupportTicketPagePreTickets
+
+Executes prior to aggregation and output of the support tickets listing page within the admin area.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| No input parameters for this hook point. |
+
+#### Response
+
+Returned HTML will be output to the page.
+
+#### Example Code
+
+```
+<?php
+add_hook('AdminSupportTicketPagePreTickets', 1, function($vars) {
+    // Perform hook code here...
+});
 ```
 
 ## ClientAreaPageSubmitTicket
@@ -250,7 +296,7 @@ add_hook('TicketAdminReply', 1, function($vars) {
 
 ## TicketClose
 
-Executes when a ticket is closed.
+Executes as a ticket is closed.
 
 #### Parameters
 
@@ -379,6 +425,7 @@ Executes when a ticket is opened by an end user.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | ticketid | int |  |
+| ticketmask | string |  |
 | userid | int |  |
 | deptid | int |  |
 | deptname | string |  |
@@ -408,6 +455,7 @@ Executes when a ticket is opened by an admin user.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | ticketid | int |  |
+| ticketmask | string |  |
 | userid | int |  |
 | deptid | int |  |
 | deptname | string |  |
@@ -424,6 +472,39 @@ No response supported
 ```
 <?php
 add_hook('TicketOpenAdmin', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketOpenValidation
+
+Executes when an end user provides data for a new ticket submission.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+|  | int | clientId Client ID if associated with a client |
+|  | int | contactId Contact ID if associated with a contact |
+| name | string | Name from email envelope if not a client |
+| email | string | Email from email envelope if not a client |
+| isAdmin | bool | TRUE if initiated within Admin Area or via API with input $admin=TRUE |
+| departmentId | int |  |
+| subject | string |  |
+| message | string |  |
+| priority | string |  |
+| relatedService | string |  |
+| customfields | array |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketOpenValidation', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -482,7 +563,7 @@ add_hook('TicketPriorityChange', 1, function($vars) {
 
 ## TicketStatusChange
 
-Executes as a ticket status is changed.
+Executes as a ticket status is changed manually by an admin.
 
 #### Parameters
 
@@ -507,14 +588,14 @@ add_hook('TicketStatusChange', 1, function($vars) {
 
 ## TicketSubjectChange
 
-Executes when a ticket subject is changed
+Executes when a ticket subject is changed. The 'subject' variable now contains the new subject.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | ticketid | int |  |
-| priority | string |  |
+| subject | string |  |
 
 #### Response
 

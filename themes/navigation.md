@@ -48,7 +48,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
 });
 ```
 
-Notice how in the above we first retrieve the Support menu item, followed by the Announcements menu item which is a child within that. The same logic should be applied to all dropdown menu items.
+Notice how in the above we first retrieve the My Account menu item, followed by the Billing Information menu item which is a child within that. The same logic should be applied to all dropdown menu items.
 
 ## Changing where a Menu Item Links To
 

@@ -16,8 +16,8 @@ A module is a collection of functions that provide additional functionality to t
 <div class="row text-center link-blocks">
     <div class="col-sm-6">
         <a href="/provisioning-modules/">
-            <i class="fa fa-cube"></i>
-            <h3>Provisoning Modules</h3>
+            <i class="fa fa-cog"></i>
+            <h3>Provisioning Modules</h3>
             <p>For modules that enable provisioning and management of products &amp; services via API.</p>
         </a>
     </div>
@@ -30,16 +30,23 @@ A module is a collection of functions that provide additional functionality to t
     </div>
     <div class="col-sm-6">
         <a href="/domain-registrars/">
-            <i class="fa fa-cube"></i>
+            <i class="fa fa-globe"></i>
             <h3>Registrar Modules</h3>
             <p>Connect with domain registrars to allow for availability checking, domain registration and management.</p>
         </a>
     </div>
     <div class="col-sm-6">
         <a href="/payment-gateways/">
-            <i class="fa fa-cube"></i>
+            <i class="fa fa-money"></i>
             <h3>Gateway Modules</h3>
             <p>Integrate with payment gateway providers to collect and process payments.</p>
+        </a>
+    </div>
+    <div class="col-sm-6">
+        <a href="/notification-providers/">
+            <i class="fa fa-bell-o"></i>
+            <h3>Notification Providers</h3>
+            <p>Integrate additional notification services for use with the Notifications system.</p>
         </a>
     </div>
 </div>

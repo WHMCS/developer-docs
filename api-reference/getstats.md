@@ -3,13 +3,14 @@ title = "GetStats"
 toc = true
 +++
 
-Obtain system statistics
+Get business performance metrics and statistics.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetStats" | Required |
+| timeline_days | int | (Optional) The number of days to retrieve timeline values for (max 90). | Optional |
 
 ### Response Parameters
 
@@ -47,6 +48,7 @@ Obtain system statistics
 | networkissues_open | int | The count open network issues |
 | quotes_valid | int | The count of valid quotes |
 | staff_online | int | The count of staff online |
+| timeline_data | int | The historic daily counts for various metrics if `$timeline_days` was specified in call. |
 
 
 ### Example Request (CURL)
@@ -62,10 +64,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
+            'timeline_days' => '7',
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -76,6 +80,7 @@ curl_close($ch);
 ```
 $command = 'GetStats';
 $postData = array(
+    'timeline_days' => '7',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -89,38 +94,85 @@ print_r($results);
 ```
 {
     "result": "success",
-    "income_today": "$0.00 USD",
-    "income_thismonth": "$1656.35 USD",
-    "income_thisyear": "$9028.40 USD",
-    "income_alltime": "$9028.40 USD",
-    "orders_pending": "0",
-    "orders_today_cancelled": 0,
-    "orders_today_pending": 0,
-    "orders_today_fraud": 0,
-    "orders_today_active": 0,
-    "orders_today_total": 0,
-    "orders_yesterday_cancelled": 0,
-    "orders_yesterday_pending": 0,
+    "income_today": "$5.95 USD",
+    "income_thismonth": "$101.45 USD",
+    "income_thisyear": "$485.21 USD",
+    "income_alltime": "$2485.25 USD",
+    "orders_pending": 7,
+    "orders_today_cancelled": 1,
+    "orders_today_pending": 2,
+    "orders_today_fraud": 1,
+    "orders_today_active": 4,
+    "orders_today_total": 8,
+    "orders_yesterday_cancelled": 1,
+    "orders_yesterday_pending": 2,
     "orders_yesterday_fraud": 0,
-    "orders_yesterday_active": 0,
-    "orders_yesterday_total": 0,
-    "orders_thismonth_total": "13",
-    "orders_thisyear_total": "71",
-    "tickets_allactive": 0,
-    "tickets_awaitingreply": 0,
-    "tickets_flaggedtickets": 0,
-    "tickets_open": 0,
-    "tickets_answered": 0,
-    "tickets_customerreply": 0,
-    "tickets_closed": 0,
-    "tickets_onhold": 0,
+    "orders_yesterday_active": 2,
+    "orders_yesterday_total": 4,
+    "orders_thismonth_total": 18,
+    "orders_thisyear_total": 124,
+    "tickets_allactive": 60,
+    "tickets_awaitingreply": 5,
+    "tickets_flaggedtickets": 3,
+    "tickets_open": 3,
+    "tickets_answered": 25,
+    "tickets_customerreply": 2,
+    "tickets_closed": 245,
+    "tickets_onhold": 30,
     "tickets_inprogress": 0,
-    "cancellations_pending": "0",
-    "todoitems_due": "0",
-    "networkissues_open": "0",
-    "billableitems_uninvoiced": "0",
-    "quotes_valid": "1",
-    "staff_online": "1"
+    "cancellations_pending": 1,
+    "todoitems_due": 5,
+    "networkissues_open": 0,
+    "billableitems_uninvoiced": 1,
+    "quotes_valid": 2,
+    "staff_online": 1,
+    "timeline_data": {
+        "new_orders": {
+            "2018-11-30": 8,
+            "2018-11-29": 4,
+            "2018-11-28": 3,
+            "2018-11-27": 5,
+            "2018-11-26": 7,
+            "2018-11-25": 9,
+            "2018-11-24": 2
+        },
+        "accepted_orders": {
+            "2018-11-30": 4,
+            "2018-11-29": 2,
+            "2018-11-28": 3,
+            "2018-11-27": 4,
+            "2018-11-26": 5,
+            "2018-11-25": 8,
+            "2018-11-24": 2
+        },
+        "income": {
+            "2018-11-30": "5.95",
+            "2018-11-29": "10.17",
+            "2018-11-28": "15.30",
+            "2018-11-27": "18.90",
+            "2018-11-26": "17.45",
+            "2018-11-25": "10.28",
+            "2018-11-24": "5.18"
+        },
+        "expenditure": {
+            "2018-11-30": "0.00",
+            "2018-11-29": "0.00",
+            "2018-11-28": "0.00",
+            "2018-11-27": "0.00",
+            "2018-11-26": "0.00",
+            "2018-11-25": "0.00",
+            "2018-11-24": "0.00"
+        },
+        "new_tickets": {
+            "2018-11-30": 5,
+            "2018-11-29": 7,
+            "2018-11-28": 10,
+            "2018-11-27": 8,
+            "2018-11-26": 4,
+            "2018-11-25": 9,
+            "2018-11-24": 12
+        }
+    }
 }
 ```
 
@@ -130,3 +182,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.7 | Added `timeline_data` parameter. |

@@ -40,6 +40,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -74,6 +75,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Client ID Not Found
+* Client Delete Failed: xxxxxx
 
 
 ### Version History

@@ -26,19 +26,24 @@ weight = 100
 <li> <a href="/api-reference/addbillableitem/">AddBillableItem</a>
 <li> <a href="/api-reference/addcredit/">AddCredit</a>
 <li> <a href="/api-reference/addinvoicepayment/">AddInvoicePayment</a>
+<li> <a href="/api-reference/addpaymethod/">AddPayMethod</a>
 <li> <a href="/api-reference/addtransaction/">AddTransaction</a>
 <li> <a href="/api-reference/applycredit/">ApplyCredit</a>
 <li> <a href="/api-reference/capturepayment/">CapturePayment</a>
 <li> <a href="/api-reference/createinvoice/">CreateInvoice</a>
 <li> <a href="/api-reference/createquote/">CreateQuote</a>
+<li> <a href="/api-reference/deletepaymethod/">DeletePayMethod</a>
+<li> <a href="/api-reference/deletequote/">DeleteQuote</a>
 <li> <a href="/api-reference/geninvoices/">GenInvoices</a>
 <li> <a href="/api-reference/getcredits/">GetCredits</a>
 <li> <a href="/api-reference/getinvoice/">GetInvoice</a>
 <li> <a href="/api-reference/getinvoices/">GetInvoices</a>
+<li> <a href="/api-reference/getpaymethods/">GetPayMethods</a>
 <li> <a href="/api-reference/getquotes/">GetQuotes</a>
 <li> <a href="/api-reference/gettransactions/">GetTransactions</a>
 <li> <a href="/api-reference/sendquote/">SendQuote</a>
 <li> <a href="/api-reference/updateinvoice/">UpdateInvoice</a>
+<li> <a href="/api-reference/updatepaymethod/">UpdatePayMethod</a>
 <li> <a href="/api-reference/updatequote/">UpdateQuote</a>
 <li> <a href="/api-reference/updatetransaction/">UpdateTransaction</a>
 </ul>
@@ -63,6 +68,7 @@ weight = 100
 <li> <a href="/api-reference/getannouncements/">GetAnnouncements</a>
 <li> <a href="/api-reference/openticket/">OpenTicket</a>
 <li> <a href="/api-reference/updateticket/">UpdateTicket</a>
+<li> <a href="/api-reference/updateticketreply/">UpdateTicketReply</a>
 </ul>
 <h3>System</h3>
 
@@ -71,18 +77,21 @@ weight = 100
 <li> <a href="/api-reference/encryptpassword/">EncryptPassword</a>
 <li> <a href="/api-reference/getactivitylog/">GetActivityLog</a>
 <li> <a href="/api-reference/getadmindetails/">GetAdminDetails</a>
+<li> <a href="/api-reference/getadminusers/">GetAdminUsers</a>
 <li> <a href="/api-reference/getautomationlog/">GetAutomationLog</a>
 <li> <a href="/api-reference/getconfigurationvalue/">GetConfigurationValue</a>
 <li> <a href="/api-reference/getcurrencies/">GetCurrencies</a>
+<li> <a href="/api-reference/getemailtemplates/">GetEmailTemplates</a>
 <li> <a href="/api-reference/getpaymentmethods/">GetPaymentMethods</a>
 <li> <a href="/api-reference/getstaffonline/">GetStaffOnline</a>
 <li> <a href="/api-reference/getstats/">GetStats</a>
-<li> <a href="/api-reference/gettodoitems/">GetToDoList</a>
+<li> <a href="/api-reference/gettodoitems/">GetToDoItems</a>
 <li> <a href="/api-reference/gettodoitemstatuses/">GetToDoItemStatuses</a>
 <li> <a href="/api-reference/logactivity/">LogActivity</a>
 <li> <a href="/api-reference/sendadminemail/">SendAdminEmail</a>
 <li> <a href="/api-reference/sendemail/">SendEmail</a>
 <li> <a href="/api-reference/setconfigurationvalue/">SetConfigurationValue</a>
+<li> <a href="/api-reference/triggernotificationevent/">TriggerNotificationEvent</a>
 <li> <a href="/api-reference/updateadminnotes/">UpdateAdminNotes</a>
 <li> <a href="/api-reference/updateannouncement/">UpdateAnnouncement</a>
 <li> <a href="/api-reference/updatetodoitem/">UpdateToDoItem</a>
@@ -104,7 +113,7 @@ weight = 100
 <li> <a href="/api-reference/getclientsproducts/">GetClientsProducts</a>
 <li> <a href="/api-reference/getcontacts/">GetContacts</a>
 <li> <a href="/api-reference/getemails/">GetEmails</a>
-<li> <a href="/api-reference/getemailtemplates/">GetEmailTemplates</a>
+<li> <a href="/api-reference/resetpassword/">ResetPassword</a>
 <li> <a href="/api-reference/updateclient/">UpdateClient</a>
 <li> <a href="/api-reference/updatecontact/">UpdateContact</a>
 </ul>
@@ -118,12 +127,10 @@ weight = 100
 <li> <a href="/api-reference/addprojecttask/">AddProjectTask</a>
 <li> <a href="/api-reference/createproject/">CreateProject</a>
 <li> <a href="/api-reference/deleteprojecttask/">DeleteProjectTask</a>
-<li> <a href="/api-reference/deletequote/">DeleteProjectTask</a>
 <li> <a href="/api-reference/endtasktimer/">EndTaskTimer</a>
-<li> <a href="/api-reference/starttasktimer/">StartTaskTimer</a>
 <li> <a href="/api-reference/getproject/">GetProject</a>
 <li> <a href="/api-reference/getprojects/">GetProjects</a>
-<li> <a href="/api-reference/starttasktimer/">EndTaskTimer</a>
+<li> <a href="/api-reference/starttasktimer/">StartTaskTimer</a>
 <li> <a href="/api-reference/updateproject/">UpdateProject</a>
 <li> <a href="/api-reference/updateprojecttask/">UpdateProjectTask</a>
 </ul>
@@ -155,6 +162,7 @@ weight = 100
 <li> <a href="/api-reference/domainupdatenameservers/">DomainUpdateNameservers</a>
 <li> <a href="/api-reference/domainupdatewhoisinfo/">DomainUpdateWhoisInfo</a>
 <li> <a href="/api-reference/domainwhois/">DomainWhois</a>
+<li> <a href="/api-reference/gettldpricing/">GetTLDPricing</a>
 <li> <a href="/api-reference/updateclientdomain/">UpdateClientDomain</a>
 </ul>
 <h3>Servers</h3>

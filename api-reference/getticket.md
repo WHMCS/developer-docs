@@ -20,7 +20,7 @@ Obtain a specific ticket
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
 | ticketid | int | The unique Id of the ticket |
-| ticketnum | string | The client unique id of the ticket |
+| ticketnum | string | The unique ticket number string displayed to end users |
 | c | string | The client unique access of the ticket |
 | deptid | int | The id of the department the ticket belongs to |
 | deptname | string | The name of the department the ticket belongs to |
@@ -60,6 +60,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -82,73 +83,7 @@ print_r($results);
 ### Example Response JSON
 
 ```
-{
-    "result": "success",
-    "ticketid": "1",
-    "tid": "516757",
-    "c": "KPqH7yG3",
-    "deptid": "1",
-    "deptname": "Sample Support Department",
-    "userid": "1",
-    "contactid": "0",
-    "name": "Cynthia Reilly",
-    "email": "testuser@whmcs.com",
-    "cc": "",
-    "date": "2016-01-01 06:26:29",
-    "subject": "This is a sample ticket",
-    "status": "Answered",
-    "priority": "Medium",
-    "admin": "admin admin",
-    "lastreply": "2016-01-01 06:30:16",
-    "flag": "0",
-    "service": "",
-    "replies": {
-        "reply": [
-            {
-                "userid": "1",
-                "contactid": "0",
-                "name": "Cynthia Reilly",
-                "email": "testuser@whmcs.com",
-                "date": "2016-01-01 06:26:29",
-                "message": "Hey, \r\n\r\nThis is the ticket message!\r\n\r\nThanks\r\n\r\nAdmin",
-                "attachment": "",
-                "admin": "admin admin"
-            },
-            {
-                "userid": "0",
-                "contactid": "0",
-                "name": "",
-                "email": "",
-                "date": "2016-01-01 06:27:01",
-                "message": "Hello, \r\n\r\nThis is the first ticket reply!\r\n\r\nThanks",
-                "attachment": "",
-                "admin": "admin admin",
-                "rating": "0"
-            },
-            {
-                "userid": "0",
-                "contactid": "0",
-                "name": "",
-                "email": "",
-                "date": "2016-01-01 06:30:16",
-                "message": "Hey, \r\n\r\nThis is a second reply!\r\n\r\nthanks",
-                "attachment": "",
-                "admin": "admin admin",
-                "rating": "0"
-            }
-        ]
-    },
-    "notes": {
-        "note": [
-            {
-                "noteid": "1",
-                "date": "2016-01-01 06:26:42",
-                "message": "This is a ticket note",
-                "admin": "admin admin"
-            }
-        ]
-    }
-}
+null
 ```
 
 

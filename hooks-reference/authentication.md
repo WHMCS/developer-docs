@@ -15,6 +15,7 @@ Executes when a client is logging into the Client Area.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userid | int |  |
+| contactid | int | Contact ID will be present if the login was performed by a contact/sub-account |
 
 #### Response
 
@@ -86,13 +87,14 @@ add_hook('ClientLoginShare', 1, function($vars) {
 
 ## ClientLogout
 
-Executes when a client is logging out of the client area
+Executes when a client logs out of the Client Area.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userid | int |  |
+| contactid | int | Contact ID will be present if the login was performed by a contact/sub-account |
 
 #### Response
 

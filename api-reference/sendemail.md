@@ -3,7 +3,40 @@ title = "SendEmail"
 toc = true
 +++
 
-Send a client Email Notification
+Send a client Email Notification.
+
+The following email templates cannot be sent in this way:
+
+* Automated Password Reset
+* Order Confirmation
+* Password Reset Confirmation
+* Password Reset Validation
+* Quote Accepted
+* Quote Accepted Notification
+* Quote Delivery with PDF
+* Clients Only Bounce Message
+* Replies Only Bounce Message
+* Affiliate Monthly Referrals Report
+
+What you must provide for the Related ID depends upon the type of email being sent.
+The available options are:
+
+* General Email Type = Client ID (tblclients.id)
+* Product Email Type = Service ID (tblhosting.id)
+* Domain Email Type = Domain ID (tbldomains.id)
+* Invoice Email Type = Invoice ID (tblinvoices.id)
+* Support Email Type = Ticket ID (tbltickets.id)
+* Affiliate Email Type = Affiliate ID (tblaffiliates.id)
+
+**Sending Failed**
+
+The generic Sending Failed error response can be caused by one of five possible conditions. They are:
+
+* Invalid related ID
+* Email template contains no body content after processing (typically a Smarty error)
+* Welcome email requested for product which has none set
+* Hook aborted the sending
+* PHPMailer Sending Error - in this failure condition, an activity log entry will be created recording the error message that occurred
 
 ### Request Parameters
 
@@ -37,12 +70,19 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
+            '//example1' => 'example',
             'messagename' => 'Client Signup Email',
             'id' => '1',
+            '//example2' => 'example',
+            'customtype' => 'product',
+            'customsubject' => 'Product Welcome Email',
+            'custommessage' => '<p>Thank you for choosing us</p><p>Your custom is appreciated</p><p>{$custommerge}<br />{$custommerge2}</p>',
+            'customvars' => base64_encode(serialize(array("custommerge"=>$populatedvar1, "custommerge2"=>$populatedvar2))),
             'responsetype' => 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 ```
@@ -53,8 +93,14 @@ curl_close($ch);
 ```
 $command = 'SendEmail';
 $postData = array(
+    '//example1' => 'example',
     'messagename' => 'Client Signup Email',
     'id' => '1',
+    '//example2' => 'example',
+    'customtype' => 'product',
+    'customsubject' => 'Product Welcome Email',
+    'custommessage' => '<p>Thank you for choosing us</p><p>Your custom is appreciated</p><p>{$custommerge}<br />{$custommerge2}</p>',
+    'customvars' => base64_encode(serialize(array("custommerge"=>$populatedvar1, "custommerge2"=>$populatedvar2))),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
