@@ -15,4 +15,6 @@ Payment Gateway Modules support the following meta data configuration parameters
 | ---- | ---- | --------------- | ------- | ----------- |
 | DisplayName | Text | 6.0 | Module Name | An alternate display name that will be used instead of the filename if defined |
 | APIVersion | Text | 5.2 | 1.1 | Defines API Version the module uses. Use `1.1` unless you have a need specific to use `1.0` |
-| TokenisedStorage | Boolean | 7.1 | false | Set to true if this payment gateway module leverages tokenised storage for credit card information. |
+| failedEmail | String | 7.7 | Credit Card Payment Failed | The name of an email template to send should a payment capture fail |
+| successEmail | String | 7.7 | Credit Card Payment Confirmation | The name of an email template to send should a payment capture be successful |
+| pendingEmail | String | 7.7 | Credit Card Payment Pending | The name of an email template to send should a payment capture be pending |
