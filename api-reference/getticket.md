@@ -34,7 +34,6 @@ Obtain a specific ticket
 | status | string | The status of the ticket |
 | priority | string | The priority of the ticket |
 | admin | string | The name of the admin user who opened the ticket |
-| admin | string | The name of the admin user who opened the ticket |
 | lastreply | \Carbon\Carbon | The date the ticket was last replied to Y-m-d H:i:s |
 | flag | int | The id of the admin user a ticket is flagged to |
 | service | string | The id of the service associated with the ticket. Sx for services. Dx for domains |
