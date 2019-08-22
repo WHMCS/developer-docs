@@ -1,5 +1,5 @@
 +++
-next = "/payment-gateways/reversals"
+next = "/payment-gateways/subscription-management"
 prev = "/payment-gateways/callbacks"
 title = "Refunds"
 toc = true
