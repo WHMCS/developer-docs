@@ -1,6 +1,13 @@
++++
+prev = "/advanced/widgets/"
+title = "Admin Area"
+weight = 70
+
++++
+
 The admin area of WHMCS can be customised through the use of themes and hooks.
 
-# Getting Started
+## Getting Started
 
 The default template that ships with WHMCS is called the Blend theme.
 
@@ -18,7 +25,7 @@ Theme names should be a single word, consisting of only lowercase letters and nu
 
 Now it’s time to customise your theme.
 
-# Customising
+## Customising
 
 The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.
 
@@ -26,15 +33,15 @@ The header and footer template files that are common to every page and act as a 
 
 * The footer template file includes a number of lines of code which are essential to the correct operation of the admin area, particularly the client limit notifications. admin user notes, and the intelligent search option on each page. Please take care not to remove these lines.
 
-## Logo
+### Logo
 
 In order to make changes to the logo displayed on the top left corner of admin area pages, replace the `logo.gif` file in the `~/admin/templates/yourname/images` folder.
 
-# CSS Styling
+## CSS Styling
 
 In order to make changes to any of the CSS that is applied by default, please create a custom CSS file in your theme and load it using the header template file.
 
-# Templates
+## Templates
 
 All admin themes contain the following template files:
 
@@ -58,7 +65,7 @@ All admin themes contain the following template files:
 
 * viewticketcustomfields.tpl - Controls the display of custom fields and their data when viewing an individual support ticket within the admin area.
 
-# Testing
+## Testing
 
 When you are ready with your new template and wish to test it, follow the steps below:
 
@@ -70,11 +77,11 @@ When you are ready with your new template and wish to test it, follow the steps 
 
 * Hit *Save Changes* and you will immediately begin seeing your new template
 
-# Making your template live
+## Making your template live
 
 To apply the change to other admin users, please navigate to *Setup > Staff Management > Administrators* and edit the Template setting for the applicable admin users.
 
-# Further Customisation via Hooks
+## Further Customisation via Hooks
 
 There are a number of hook points that can be used to introduce customisations. For a full list and the latest documentation, please visit our [Admin Area Hook Reference](https://developers.whmcs.com/hooks-reference/admin-area/)
 
@@ -84,7 +91,7 @@ Some example hook use cases are provided below.
 If you wish to output custom javascript, we recommend using the AdminAreaFooterOutput hook point for best performance.
 {{% /notice %}}
 
-## Adding a link to the Actions section of the Client Summary page
+### Adding a link to the Actions section of the Client Summary page
 ```
 <?php
 /**
@@ -106,7 +113,7 @@ add_hook('AdminAreaClientSummaryActionLinks', 1, function ($vars) {
 });
 ```
 
-## Adding a link to View Ticket page within the admin area
+### Adding a link to View Ticket page within the admin area
 
 Displays a banner on the View Ticket page within the admin area that can be used to provide additional information. In this example, it includes the unique URL needed to view the current ticket within the client area.
 
@@ -142,7 +149,7 @@ EOT;
 });
 ```
 
-## Manipulating the dom to change product behaviour
+### Manipulating the dom to change product behaviour
 
 The below example demonstrates how you can use hooks and javascript to modify the behaviour of the admin area. In this specific example, we demonstrate how to disable the send welcome email option by default when creating a new client via the admin area.
 

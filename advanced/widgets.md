@@ -1,4 +1,5 @@
 +++
+next = "/advanced/admin-area/"
 prev = "/advanced/logging/"
 title = "Widgets"
 weight = 60
