@@ -3,7 +3,7 @@ next = "/payment-gateways/callbacks"
 prev = "/payment-gateways/third-party-gateway"
 title = "Merchant Gateway"
 toc = true
-weight = 30
+weight = 50
 
 +++
 

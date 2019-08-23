@@ -3,7 +3,7 @@ next = "/payment-gateways/reversals"
 prev = "/payment-gateways/callbacks"
 title = "Refunds"
 toc = true
-weight = 42
+weight = 70
 
 +++
 
