@@ -3,7 +3,7 @@ next = "/payment-gateways/merchant-gateway"
 prev = "/payment-gateways/configuration"
 title = "Third Party Gateway"
 toc = true
-weight = 20
+weight = 40
 
 +++
 
