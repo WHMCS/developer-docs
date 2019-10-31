@@ -11,4 +11,4 @@ This makes debugging the external API calls your module makes follow the standar
 
 Please refer to the URL below for more details on how to do this.
 
-http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging
+https://developers.whmcs.com/provisioning-modules/module-logging/
