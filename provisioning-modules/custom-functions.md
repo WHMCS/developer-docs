@@ -1,5 +1,5 @@
 +++
-prev = "/provisioning-modules/usage-update"
+prev = "/provisioning-modules/usage-metrics"
 next = "/provisioning-modules/client-area-output"
 title = "Custom Functions"
 toc = true
