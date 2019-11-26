@@ -484,8 +484,8 @@ Executes when an end user provides data for a new ticket submission.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-|  | int | clientId Client ID if associated with a client |
-|  | int | contactId Contact ID if associated with a contact |
+| clientId | int | Client ID if associated with a client |
+| contactId | int | Contact ID if associated with a contact |
 | name | string | Name from email envelope if not a client |
 | email | string | Email from email envelope if not a client |
 | isAdmin | bool | TRUE if initiated within Admin Area or via API with input $admin=TRUE |
@@ -498,7 +498,7 @@ Executes when an end user provides data for a new ticket submission.
 
 #### Response
 
-No response supported
+A string to be used as a singular Validation Error.
 
 #### Example Code
 
@@ -518,6 +518,7 @@ Executes when a ticket is being imported via email.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | to | string |  |
+| cc | array |  |
 | name | string |  |
 | email | string |  |
 | subject | string |  |

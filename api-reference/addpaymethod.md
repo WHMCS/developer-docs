@@ -47,7 +47,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
-            'type' => 'cc',
+            'type' => 'CreditCard',
             'description' => 'New Card',
             'card_number' => '4242424242424242',
             'card_expiry' => '0423',
@@ -67,7 +67,7 @@ curl_close($ch);
 $command = 'AddPayMethod';
 $postData = array(
     'clientid' => '1',
-    'type' => 'cc',
+    'type' => 'CreditCard',
     'description' => 'New Card',
     'card_number' => '4242424242424242',
     'card_expiry' => '0423',

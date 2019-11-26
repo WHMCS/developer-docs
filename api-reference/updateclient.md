@@ -23,6 +23,7 @@ Updates a client with the passed parameters.
 | postcode | string |  | Optional |
 | country | string | 2 character ISO country code | Optional |
 | phonenumber | string |  | Optional |
+| tax_id | string | The client Tax ID | Optional |
 | password2 | string |  | Optional |
 | securityqid | int | Security Question ID from tbladminsecurityquestions | Optional |
 | securityqans | string | Security Question Answer | Optional |

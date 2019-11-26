@@ -547,6 +547,29 @@ add_hook('NotificationPreSend', 1, function($vars) {
 });
 ```
 
+## PayMethodMigration
+
+Executes when legacy payment details are being migrated.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| client | \WHMCS\User\Client | The Client Model |
+
+#### Response
+
+A gateway module name.
+
+#### Example Code
+
+```
+<?php
+add_hook('PayMethodMigration', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## PostAutomationTask
 
 Executes after an automation task occurs
