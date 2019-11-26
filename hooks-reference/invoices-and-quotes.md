@@ -232,14 +232,14 @@ add_hook('InvoiceCreated', 1, function($vars) {
 
 ## InvoiceCreation
 
-Executes as an invoice is being created in the admin area
+Executes when an invoice is first created. The invoice has not been finalised and delivered to the client at this point. Changes can be made to line items at this point. The invoice totals will be recalculated post execution of this hook point.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | source | string | Indicates where the invoice creation action originated, can be one of `adminarea`, `api` or `autogen` |
-| user | int|string | User who initiated the invoice creation, either `system` or an admin ID value |
+| user | string|int | User who initiated the invoice creation, either `system` or an admin ID value |
 | invoiceid | int | The id of the newly created invoice |
 | status | string | The status of the newly created invoice |
 

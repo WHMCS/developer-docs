@@ -304,11 +304,11 @@ Executes as a username is being generated on module creation.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| N/A | array | The parameters being passed to the module function call |
+| params | array | The parameters being passed to the module function call |
 
 #### Response
 
-Return the new username to be used. Eg: return array('newusername');
+Return the new username to be used.
 
 #### Example Code
 

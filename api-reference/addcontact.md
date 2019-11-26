@@ -29,6 +29,7 @@ Adds a contact to a client account.
 | domainemails | bool | set true to receive domain related emails | Optional |
 | invoiceemails | bool | set true to receive billing related emails | Optional |
 | supportemails | bool | set true to receive support ticket related emails | Optional |
+| affiliateemails | bool | set true to receive affiliate related emails | Optional |
 | permissions | string | A comma separated list of sub-account permissions. eg manageproducts,managedomains | Optional |
 
 ### Response Parameters
@@ -107,3 +108,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.7 | Added `tax_id` parameter. |
+| 7.9 | Added `affiliateemails` parameter. |

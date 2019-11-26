@@ -13,6 +13,7 @@ Updates a Client Service
 | serviceid | int | The id of the client service to update | Required |
 | pid | int | The package id to associate with the service | Optional |
 | serverid | int | The server id to associate with the service | Optional |
+| regdate | \Carbon\Carbon | The registration date of the service (Y-m-d) | Optional |
 | nextduedate | \Carbon\Carbon | The next due date of the service (Y-m-d) | Optional |
 | terminationDate | \Carbon\Carbon | Update the termination date of the service (Y-m-d) | Optional |
 | completedDate | \Carbon\Carbon | Update the completed date of the service (Y-m-d) | Optional |
@@ -32,10 +33,10 @@ Updates a Client Service
 | ns2 | string | (VPS/Dedicated servers only) | Optional |
 | dedicatedip | string |  | Optional |
 | assignedips | string | (VPS/Dedicated servers only) | Optional |
-| diskusage | int | The disk usage in bytes | Optional |
-| disklimit | int | The disk limit in bytes | Optional |
-| bwusage | int | The bandwidth usage in bytes | Optional |
-| bwlimit | int | The bandwidth limit in bytes | Optional |
+| diskusage | int | The disk usage in megabytes | Optional |
+| disklimit | int | The disk limit in megabytes | Optional |
+| bwusage | int | The bandwidth usage in megabytes | Optional |
+| bwlimit | int | The bandwidth limit in megabytes | Optional |
 | overidesuspenduntil | \Carbon\Carbon |  | Optional |
 | suspendreason | string |  | Optional |
 | promoid | int | The promotion Id to associate | Optional |
