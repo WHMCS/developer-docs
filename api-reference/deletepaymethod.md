@@ -12,6 +12,7 @@ Delete a Pay Method.
 | action | string | "DeletePayMethod" | Required |
 | clientid | int | The id of the client matching the Pay Method | Required |
 | paymethodid | int | The id of the Pay Method to delete | Required |
+| failonremotefailure | bool | Pass as true to return an error if a remote token deletion fails | Optional |
 
 ### Response Parameters
 

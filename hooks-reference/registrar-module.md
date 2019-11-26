@@ -386,32 +386,6 @@ add_hook('AfterRegistrarTransfer', 1, function($vars) {
 });
 ```
 
-## AfterRegistrarTransfer
-
-Executes upon completion of the registrar module function. Will execute regardless of success state.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
-| results | array | An array of results returned from the registrar function call |
-| functionExists | bool | Returns true if the registrar module supports the given action |
-| functionSuccessful | bool | Returns true if the registrar function completed without error |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarTransfer', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AfterRegistrarTransferFailed
 
 Executes after a failed domain transfer command

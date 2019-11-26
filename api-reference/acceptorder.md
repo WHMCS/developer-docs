@@ -84,6 +84,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Order ID not found or Status not Pending
+* Server and/or registrar response message
 
 
 ### Version History

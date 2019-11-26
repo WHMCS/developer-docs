@@ -424,6 +424,7 @@ Executes as a domain price is being calculated in the cart.
 | type | string | Either `register` or `transfer` |
 | domain | string |  |
 | regperiod | int | The registration period of the domain (in years) |
+| renewalperiod | int | The renewal period of the domain (in years) |
 | dnsmanagement | bool |  |
 | emailforwarding | bool |  |
 | idprotection | bool |  |
