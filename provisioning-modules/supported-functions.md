@@ -94,6 +94,14 @@ Used to perform a daily import of the disk and bandwidth usage from a server.
 The data imported is then used to display the usage stats both within the client and admin areas of WHMCS.
 The data is also used in disk and bandwidth overage billing calculations if enabled for a product.
 
+## MetricProvider <a id="usage-metrics"></a>
+
+Used to list the names of and collect usage for metric stats of a server.
+The name data is used for product price configuration within the admin areas of WHMCS.
+The usage data is periodically collected and stored in WHMCS for display within
+both the client and admin area.  That stored usage is also used for generating
+invoice line items, if enabled in the Invoicing section of General Setting. 
+
 ## AdminServicesTabFields <a id="admin-services-tab-fields"></a>
 
 Used to define extra fields or output to display within admin product pages.

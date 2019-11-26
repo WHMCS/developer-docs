@@ -1,6 +1,6 @@
 +++
 prev = "/provisioning-modules/single-sign-on"
-next = "/provisioning-modules/custom-functions"
+next = "/provisioning-modules/usage-metrics"
 title = "Usage Update"
 toc = true
 weight = 60

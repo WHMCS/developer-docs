@@ -29,4 +29,5 @@ A WHMCS module can do much more than just that including:
 * Renewals.
 * Admin based links.
 * Client area output.
+* Metric data for Usage Billing
 * And more via custom functions.
