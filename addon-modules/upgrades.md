@@ -21,21 +21,26 @@ This allows the module to bring it up to date with your latest version.
 An example of how this function can be used is demonstrated below:
 
 ```
-function demo_upgrade($vars) {
+function addonmodule_upgrade($vars)
+{
+    $currentlyInstalledVersion = $vars['version'];
 
-    $version = $vars['version'];
-
-    # Run SQL Updates for V1.0 to V1.1
-    if ($version < 1.1) {
-        $query = "ALTER `mod_addonexample` ADD `demo2` TEXT NOT NULL ";
-    	$result = mysql_query($query);
+    // Perform SQL schema changes required by the upgrade to version 1.1 of your module
+    if ($currentlyInstalledVersion < 1.1) {
+        $schema = Capsule::schema();
+        // Alter the table and add a new text column called "demo2"
+        $schema->table('mod_addonexample', function($table) {
+            $table->text('demo2');
+        });
     }
 
-    # Run SQL Updates for V1.1 to V1.2
-    if ($version < 1.2) {
-        $query = "ALTER `mod_addonexample` ADD `demo3` TEXT NOT NULL ";
-    	$result = mysql_query($query);
+    //Perform SQL schema changes required by the upgrade to version 1.2 of your module
+    if ($currentlyInstalledVersion < 1.2) {
+        $schema = Capsule::schema();
+        // Alter the table and add a new text column called "demo3"
+        $schema->table('mod_addonexample', function($table) {
+            $table->text('demo3');
+        });
     }
-
 }
 ```

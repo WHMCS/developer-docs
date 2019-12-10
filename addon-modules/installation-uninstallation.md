@@ -24,39 +24,57 @@ For example, the activate and deactivate functions could create and drop a table
 ## Example Activate Function <a id="example-activate-function"></a>
 
 ```
-function demo_activate() {
-
-    # Create Custom DB Table
-    $query = "CREATE TABLE `mod_addonexample` (`id` INT( 1 ) NOT NULL AUTO_INCREMENT ... ";
-	$result = full_query($query);
-
-    # Return Result
-    return array('status'=>'success','description'=>'This is an demo module only. In a real
-           module you might instruct a user how to get started with it here...');
-    return array('status'=>'error','description'=>'You can use the error status return to
-           indicate there was a problem activating the module');
-    return array('status'=>'info','description'=>'You can use the info status return to display
-           a message to the user');
-
+function addonmodule_activate()
+{
+    // Create custom tables and schema required by your module
+    try {
+        Capsule::schema()
+            ->create(
+                'mod_addonexample',
+                function ($table) {
+                    /** @var \Illuminate\Database\Schema\Blueprint $table */
+                    $table->increments('id');
+                    $table->text('demo');
+                }
+            );
+        return [
+            // Supported values here include: success, error or info
+            'status' => 'success',
+            'description' => 'This is a demo module only. '
+                . 'In a real module you might report a success or instruct a '
+                    . 'user how to get started with it here.',
+        ];
+    } catch (\Exception $e) {
+        return [
+            // Supported values here include: success, error or info
+            'status' => "error",
+            'description' => 'Unable to create mod_addonexample: ' . $e->getMessage(),
+        ];
+    }
 }
 ```
 
 ## Example Deactivate Function <a id="example-deactivate-function"></a>
 
 ```
-function demo_deactivate() {
-
-    # Remove Custom DB Table
-    $query = "DROP TABLE `mod_addonexample`";
-	$result = full_query($query);
-
-    # Return Result
-    return array('status'=>'success','description'=>'If successful, you can return a message
-           to show the user here');
-    return array('status'=>'error','description'=>'If an error occurs you can return an error
-           message for display here');
-    return array('status'=>'info','description'=>'If you want to give an info message to a user
-           you can return it here');
-
+function addonmodule_deactivate()
+{
+    // Undo any database and schema modifications made by your module here
+    try {
+        Capsule::schema()
+            ->dropIfExists('mod_addonexample');
+        return [
+            // Supported values here include: success, error or info
+            'status' => 'success',
+            'description' => 'This is a demo module only. '
+                . 'In a real module you might report a success here.',
+        ];
+    } catch (\Exception $e) {
+        return [
+            // Supported values here include: success, error or info
+            "status" => "error",
+            "description" => "Unable to drop mod_addonexample: {$e->getMessage()}",
+        ];
+    }
 }
 ```
