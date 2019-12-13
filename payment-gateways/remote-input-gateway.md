@@ -22,7 +22,7 @@ For a more complete example, please refer to the [Sample Remote Input Gateway mo
 
 ## Remote Input
 
-The `remoteinput` function will be invoked when a client or admin user requests to add pay method via checkout or manually.
+The `remoteinput` function will run when adding a new payment method as part of checkout, or when adding a new payment method outside of the checkout process.
 
 Return the HTML form that should be output to the page, an array is not supported.
 The form will be automatically submitted into an iFrame.
@@ -32,12 +32,11 @@ The form will be automatically submitted into an iFrame.
 ```
 function yourmodulename_remoteinput($params)
 {
-    return '<form method="post" action="https://www.example.com/remote/input">
+    $code='<form method="post" action="https://www.example.com/remote/input">
     <input type="hidden" name="api_user" value="' . $params["api_user"] . '" />
-    <input type="hidden" name="request_hash" value="' . $hash . '" />
+    <input type="hidden" name="api_secret" value="' . $params["api_secret"] . '" />
     <input type="hidden" name="amount" value="' . $params["amount"] . '" />
     <input type="hidden" name="invoice_id" value="' . $params["invoiceid"] . '" />
-    <input type="hidden" name="cust_id" value="' . $params["clientdetails"]["id"] . '" />
     <input type="hidden" name="firstname" value="' . $params["clientdetails"]["firstname"] . '" />
     <input type="hidden" name="lastname" value="' . $params["clientdetails"]["lastname"] . '" />
     <input type="hidden" name="address1" value="' . $params["clientdetails"]["address1"] . '" />
@@ -47,21 +46,25 @@ function yourmodulename_remoteinput($params)
     <input type="hidden" name="country" value="' . $params["clientdetails"]["country"] . '" />
     <input type="hidden" name="phonenumber" value="' . $params["clientdetails"]["phonenumber"] . '" />
     <input type="hidden" name="email" value="' . $params["clientdetails"]["email"] . '" />
-    <input type="hidden" name="return_url" value="' . $params['systemurl'] . 'modules/gateways/callback/yourmodulename.php" />
+    <input type="hidden" name="SaveCard" value="Y" />
+    <input type="hidden" name="cust_id" value="' . $params["clientdetails"]["id"] . '" />
+    <input type="hidden" name="trans_method" value="CC" />
+    <input type="hidden" name="post_return_url_approved" value="' . $params['systemurl'] . 'modules/gateways/callback/yourmodulename.php" />
+    <input type="hidden" name="post_return_url_declined" value="' . $params['systemurl'] . 'modules/gateways/callback/yourmodulename.php" />
     <noscript>
     <input type="submit" value="Click here to continue &raquo;" />
     </noscript>
     </form>';
+
+    return $code;
 }
 ```
 
 ## Remote Update
 
-The `remoteupdate` function will be invoked when a client or admin user requests to modify a saved pay method.
+The `remoteupdate` function will run when updating a payment method.
 
-In most cases the function should return HTML code to render an iframe or execute some javascript code.
-It is expected that the resulting code should allow the user to modify all details associated with the pay method for a given token.
-Upon completion, it should callback to the WHMCS installation and update the stored payment method.
+Return the HTML required for updating the payment method. This example uses 
 
 ### Example
 
@@ -69,15 +72,19 @@ Upon completion, it should callback to the WHMCS installation and update the sto
 function yourmodulename_remoteupdate($params)
 {
     $gatewayId = $params['gatewayid'];
+    if (!$gatewayId) {
+        return '<div class="alert alert-info">You must pay your first invoice before you can update your stored details here.</p>';
+    }
 
     $requestParams = [
-        'token' => $gatewayId,
+        'token' => $params['gatewayid'],
         'api_user' => $params['api_user'],
-        'api_key' => $params['api_key'],
+        'api_secret' => $params['api_secret'],
     ];
-    $hash = sha1(implode('|', $requestParams));
+
+    $request = http_build_query($requestParams);
     
-    return '<iframe src="https://www.example.com/remote/update?hash=' . $hash . '"></iframe>';
+    return '<iframe src="https://www.example.com/remote/update?' . $request . '"></iframe>';
 }
 ```
 
