@@ -3,7 +3,7 @@ next = "/payment-gateways/tokenised-remote-storage"
 prev = "/payment-gateways/callbacks"
 title = "3D Secure Process"
 toc = true
-weight = 50
+weight = 90
 
 +++
 
