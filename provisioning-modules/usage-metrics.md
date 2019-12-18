@@ -12,7 +12,7 @@ Usage metrics give Services information about resource consumption and Products
 the ability to price those resources.
 
 Please make sure to read the feature documentation for 
-(Usage Billing)[https://docs.whmcs.com/Usage_Billing] so that you have the best
+[Usage Billing](https://docs.whmcs.com/Usage_Billing) so that you have the best
 understanding of how your module is expected to interact with WHMCS.
 
 ## MetricProvider Function
