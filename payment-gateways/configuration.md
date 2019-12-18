@@ -3,7 +3,7 @@ next = "/payment-gateways/third-party-gateway"
 prev = "/payment-gateways/meta-data-params"
 title = "Configuration"
 toc = true
-weight = 18
+weight = 30
 
 +++
 

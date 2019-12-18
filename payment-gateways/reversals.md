@@ -3,7 +3,7 @@ next = "/payment-gateways/3d-secure"
 prev = "/payment-gateways/subscription-management"
 title = "Payment Reversals"
 toc = true
-weight = 45
+weight = 80
 
 +++
 

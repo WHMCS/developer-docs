@@ -2,7 +2,7 @@
 prev = "/payment-gateways/tokenised-remote-storage"
 title = "Installation & Activation"
 toc = true
-weight = 70
+weight = 120
 
 +++
 
