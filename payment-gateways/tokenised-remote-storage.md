@@ -3,7 +3,7 @@ next = "/payment-gateways/installation-activation"
 prev = "/payment-gateways/3d-secure"
 title = "Tokenised Remote Storage"
 toc = true
-weight = 60
+weight = 100
 
 +++
 

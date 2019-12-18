@@ -3,7 +3,7 @@ prev = "/payment-gateways/getting-started"
 next = "/payment-gateways/configuration"
 title = "Meta Data Parameters"
 toc = true
-weight = 15
+weight = 20
 
 +++
 
