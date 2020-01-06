@@ -25,10 +25,17 @@ Interface and class are documented in the WHMCS\UsageBilling namespace at https:
 
 The following illustrates how one might make a simple class that fulfills the interface
 ```
+namespace WHMCS\Module\Server\Mymodule;
+/**
+ * The above namespace is automatically registered for autoloading classes within
+ * a "lib" sub-directory relative to your module directory. So, place this class 
+ * in modules/servers/mymodule/lib/MyMtricsProvider.php. 
+ */
+
 use WHMCS\UsageBilling\Contracts\Metrics\MetricInterface;
-use WHMCS\UsageBilling\Contracts\Metrics\ProviderInterface
+use WHMCS\UsageBilling\Contracts\Metrics\ProviderInterface;
 use WHMCS\UsageBilling\Metrics\Metric;
-use WHMCS\UsageBilling\Metrics\Units\WholeNumber;
+use WHMCS\UsageBilling\Metrics\Units\Accounts;
 use WHMCS\UsageBilling\Metrics\Usage;
 
 class MyMetricsProvider implements ProviderInterface
@@ -62,7 +69,7 @@ class MyMetricsProvider implements ProviderInterface
                 'emailaddr',
                 'Email Mailboxes',
                 MetricInterface::TYPE_SNAPSHOT,
-                new Accounts('Mailboxes'),
+                new Accounts('Mailboxes')
             ),
         ];
     }
@@ -120,6 +127,8 @@ must always return a valid list for all potential servers that use the module.
 ### Example MetricProvider Function <a id="example-function"></a>
 
 ```
+use WHMCS\Module\Server\MyModule\MyMetricsProvider;
+
 function mymodule_MetricProvider($params) {
 
     return new MyMetricProvider($params);
