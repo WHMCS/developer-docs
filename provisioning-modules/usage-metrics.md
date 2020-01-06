@@ -160,9 +160,11 @@ uninvoiced usage for those periods will be summed and calculations applied to
 that total.
   
 ### Metric Units
-Several unit objects are readily available in the \WHMCS\UsageBilling\Metrics\Units
-namespace.  You can extend the WholeNumber or the FloatPoint class if you have
-need for repeated use of a custom unit.
+Several unit classes are readily available in the \WHMCS\UsageBilling\Metrics\Units
+namespace.  These include Bytes, MegaBytes, GigaBytes, Accounts, and Domains.  These
+extend one of the two base concrete classes, WholeNumber or FloatingPoint. You can use
+those directly or extend them with your own concrete definition if you have need
+for repeated use of a custom unit.
 
 ## Usage
 Metrics should describe usage by providing an object that implements
