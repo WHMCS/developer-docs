@@ -68,7 +68,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'serviceid' => '1',
             'status' => 'Terminated',
-            'customfields' => base64_encode(serialize(array("1"=>"Yahoo")));,
+            'customfields' => base64_encode(serialize(array("1"=>"Yahoo"))),
             'configoptions' => base64_encode(serialize(array(configoptionid => dropdownoptionid, XXX => array('optionid' => YYY, 'qty' => ZZZ)))),
             'responsetype' => 'json',
         )
@@ -87,7 +87,7 @@ $command = 'UpdateClientProduct';
 $postData = array(
     'serviceid' => '1',
     'status' => 'Terminated',
-    'customfields' => base64_encode(serialize(array("1"=>"Yahoo")));,
+    'customfields' => base64_encode(serialize(array("1"=>"Yahoo"))),
     'configoptions' => base64_encode(serialize(array(configoptionid => dropdownoptionid, XXX => array('optionid' => YYY, 'qty' => ZZZ)))),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later

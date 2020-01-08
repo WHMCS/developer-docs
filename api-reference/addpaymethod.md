@@ -98,6 +98,7 @@ Possible error condition responses include:
 * Invalid Client ID
 * Invalid Pay Method Type. Type should be one of 'BankAccount', 'CreditCard', or 'RemoteCreditCard'
 * Gateway is Required for RemoteCreditCard type
+* No Local Credit Card Payment Gateways Enabled
 * Card Number is required for 'CreditCard' or 'RemoteCreditCard' type
 * Expiry Date is required for 'CreditCard' or 'RemoteCreditCard' type
 * Expiry Date is invalid
