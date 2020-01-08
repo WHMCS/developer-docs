@@ -96,6 +96,7 @@ Possible error condition responses include:
 * Contact ID Not Found
 * Name and email address are required if not a client
 * Message is required
+* Email Address Invalid
 
 
 ### Version History

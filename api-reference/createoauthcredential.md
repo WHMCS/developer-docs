@@ -41,7 +41,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'granttype' => 'single_sign_on',
+            'grantType' => 'single_sign_on',
             'scope' => 'clientarea:sso clientarea:billing_info clientarea:announcements',
             'serviceId' => '1',
             'description' => 'Billing and Announcements SSO',
@@ -60,7 +60,7 @@ curl_close($ch);
 ```
 $command = 'CreateOAuthCredential';
 $postData = array(
-    'granttype' => 'single_sign_on',
+    'grantType' => 'single_sign_on',
     'scope' => 'clientarea:sso clientarea:billing_info clientarea:announcements',
     'serviceId' => '1',
     'description' => 'Billing and Announcements SSO',
@@ -94,6 +94,8 @@ Possible error condition responses include:
 * A service ID is required for the single sign-on grant type.
 * At least one valid scope is required.
 * The requested scope "x" is invalid.
+* A valid Service ID is required.
+* Service ID not associated with valid Client.
 
 
 ### Version History

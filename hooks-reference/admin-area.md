@@ -118,7 +118,7 @@ Executes as the quote is being viewed.
 
 #### Response
 
-An array of HTML to display on the View Quote page
+Return the HTML to display on the View Quote page.
 
 #### Example Code
 
@@ -126,10 +126,7 @@ An array of HTML to display on the View Quote page
 <?php
 
 add_hook('AdminAreaViewQuotePage', 1, function($vars) {
-    return [
-        'This will be displayed on the Admin Area View Quote Page',
-        'This will also be displayed',
-    ];
+    return 'This will be displayed on the Admin Area View Quote Page. I can add HTML here';
 });
 ```
 
