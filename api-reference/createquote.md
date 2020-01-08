@@ -29,6 +29,7 @@ Creates a new quote
 | address2 | string | The address2 of the client the quote is for if no $userid | Optional |
 | city | string | The city of the client the quote is for if no $userid | Optional |
 | state | string | The state of the client the quote is for if no $userid | Optional |
+| postcode | string | The post code of the client the quote is for if no $userid | Optional |
 | country | string | The country of the client the quote is for if no $userid | Optional |
 | phonenumber | string | The phone number of the client (no country code) the quote is for if no $userid. Local format eg 4035551234 | Optional |
 | tax_id | string | The tax id of the client | Optional |
@@ -62,9 +63,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'stage' => 'Draft',
             'userid' => '1',
             'validuntil' => '01/01/2016',
-            'lineitems' => base64_encode(serialize(array(array("desc"=>"Test Description 1","qty"=>1,"up"=>"10.00","discount"=>"10.00",
-"taxable"=>true),array("desc"=>"Test Description 2","qty"=>4,"up"=>"15.00","discount"=>"0.00",
-"taxable"=>false))));,
+            'lineitems' => base64_encode(serialize(array(array("desc"=>"Test Description 1","qty"=>1,"up"=>"10.00","discount"=>"10.00","taxable"=>true),array("desc"=>"Test Description 2","qty"=>4,"up"=>"15.00","discount"=>"0.00","taxable"=>false)))),
             'responsetype' => 'json',
         )
     )
@@ -84,9 +83,7 @@ $postData = array(
     'stage' => 'Draft',
     'userid' => '1',
     'validuntil' => '01/01/2016',
-    'lineitems' => base64_encode(serialize(array(array("desc"=>"Test Description 1","qty"=>1,"up"=>"10.00","discount"=>"10.00",
-"taxable"=>true),array("desc"=>"Test Description 2","qty"=>4,"up"=>"15.00","discount"=>"0.00",
-"taxable"=>false))));,
+    'lineitems' => base64_encode(serialize(array(array("desc"=>"Test Description 1","qty"=>1,"up"=>"10.00","discount"=>"10.00","taxable"=>true),array("desc"=>"Test Description 2","qty"=>4,"up"=>"15.00","discount"=>"0.00","taxable"=>false)))),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
