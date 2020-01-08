@@ -109,6 +109,7 @@ Possible error condition responses include:
 * Message is required
 * Service ID Not Found
 * Domain ID Not Found
+* Email Address Invalid
 
 
 ### Version History
