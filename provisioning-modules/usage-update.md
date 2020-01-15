@@ -26,19 +26,19 @@ The database update should be a single call for speed and efficiency.
 ```
 function mymodule_UsageUpdate($params) {
 
-	$serverid = $params['serverid'];
-	$serverhostname = $params['serverhostname'];
-	$serverip = $params['serverip'];
-	$serverusername = $params['serverusername'];
-	$serverpassword = $params['serverpassword'];
-	$serveraccesshash = $params['serveraccesshash'];
-	$serversecure = $params['serversecure'];
+    $serverid = $params['serverid'];
+    $serverhostname = $params['serverhostname'];
+    $serverip = $params['serverip'];
+    $serverusername = $params['serverusername'];
+    $serverpassword = $params['serverpassword'];
+    $serveraccesshash = $params['serveraccesshash'];
+    $serversecure = $params['serversecure'];
 
-	// Run connection to retrieve usage for all domains/accounts on $serverid
+    // Run connection to retrieve usage for all domains/accounts on $serverid
 
     // Now loop through results and update DB
 
-	foreach ($results AS $domain => $values) {
+    foreach ($results AS $domain => $values) {
         try {
             \WHMCS\Database\Capsule::table('tblhosting')
                 ->where('server', $serverid)
