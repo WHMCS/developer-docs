@@ -34,18 +34,25 @@ function mymodule_UsageUpdate($params) {
 	$serveraccesshash = $params['serveraccesshash'];
 	$serversecure = $params['serversecure'];
 
-	# Run connection to retrieve usage for all domains/accounts on $serverid
+	// Run connection to retrieve usage for all domains/accounts on $serverid
 
-	# Now loop through results and update DB
+    // Now loop through results and update DB
 
-	foreach ($results AS $domain=>$values) {
-        update_query("tblhosting",array(
-         "diskused"=>$values['diskusage'],
-         "disklimit"=>$values['disklimit'],
-         "bwusage"=>$values['bwusage'],
-         "bwlimit"=>$values['bwlimit'],
-         "lastupdate"=>"now()",
-        ),array("server"=>$serverid,"domain"=>$values['domain']));
+	foreach ($results AS $domain => $values) {
+        try {
+            \WHMCS\Database\Capsule::table('tblhosting')
+                ->where('server', $serverid)
+                ->where('domain', $values['domain'])
+                ->update([
+                    'diskused' => $values['diskusage'],
+                    'disklimit' => $values['disklimit'],
+                    'bwusage' => $values['bandwidth'],
+                    'bwlimit' => $values['bwlimit'],
+                    'lastupdate' => Capsule::raw('now()'),
+                ]);
+        } catch (\Exception $e) {
+            // Handle any error which may occur
+        } 
     }
 
 }
