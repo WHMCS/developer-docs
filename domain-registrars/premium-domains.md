@@ -2,7 +2,7 @@
 next = "/domain-registrars/transfer-policy-management/"
 prev = "/domain-registrars/availability-checks/"
 title = "Premium Domains"
-weight = 66
+weight = 90
 
 +++
 

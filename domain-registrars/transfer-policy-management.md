@@ -1,8 +1,8 @@
 +++
 prev = "/domain-registrars/premium-domains/"
-next = "/domain-registrars/extending-further/"
+next = "/domain-registrars/tld-pricing-sync/"
 title = "Transfer Policy (IRTP) Management"
-weight = 68
+weight = 100
 
 +++
 
