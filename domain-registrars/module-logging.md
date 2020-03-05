@@ -1,7 +1,7 @@
 +++
 prev = "/domain-registrars/hooks/"
 title = "Module Logging"
-weight = 90
+weight = 140
 
 +++
 
