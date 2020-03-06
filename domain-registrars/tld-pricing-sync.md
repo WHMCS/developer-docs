@@ -8,20 +8,22 @@ weight = 110
 
 In WHMCS 7.10 and later, the Registrar TLD & Pricing Sync Utility allows for a registrar module to support importing TLDs and pricing.
 
-This feature introduces a single new function `GetTldPricing`. This function allows a registrar module to build and return an array object with the tld and pricing.
+Users can use the Sync Utility to import TLDs and automatically apply a defined margin markup.
 
-| Function | Type | Description |
+To integrate this functionality into your registrar module, you must define a `GetTldPricing` function that builds and returns a ResultList object containing ImportItems defining TLDs and their cost pricing.
+
+| Method | Type | Required/Optional | Description |
 | --------- | ----------- | ------ |
-| setExtension | string | The extension to import. Example: .com, .net, or .co.uk |
-| setCurrency | string | The ISO4217 three letter currency code of the registrar that will be used for all pricing. The currency should exist in WHMCS |
-| setMinYears | int | The minimum number of years that an extension can be registered for. Default: 1 (optional) |
-| setMaxYears | int | The maximum number of years that an extension can be registered for. Default: 10 (optional) |
-| setYearsStep | int | The number of years between each registration period. Default: 1 (optional) |
-| setRegisterPrice | float | The registration price for the minimum registration period in the registrar currency |
-| setRenewPrice | float | The renewal price for the minimum registration period in the registrar currency. Not setting, or setting to a `null` value will disable renewals for the extension |
-| setTransferPrice | float | The transfer price for the minimum registration period in the registrar currency. Not setting, or setting to a `null` value will disable transfers for the extension | 
-| setRedemptionFeePrice | float | The redemption fee price for the extension (optional) |
-| setEppRequired | boolean | Does the extension require an EPP code for transfer requests (optional) |
+| setExtension | string | Required | The extension to import. Example: .com, .net, or .co.uk |
+| setMinYears | int | Optional | The minimum number of years that the extension can be registered for. Default: 1 |
+| setMaxYears | int | Optional | The maximum number of years that the extension can be registered for. Default: 10 |
+| setYearsStep | int | Optional | The number of years between each registration period. Default: 1 |
+| setRegisterPrice | float | Required | The registration cost price for the minimum registration period term. |
+| setRenewPrice | float | Optional |  The renewal cost price for the minimum registration period term. Pass null if renewals are not supported. |
+| setTransferPrice | float | Optional |  The transfer cost price for the minimum registration period term. Pass null if transfers are not supported. | 
+| setRedemptionFeePrice | float | Optional |  The redemption fee cost price for the extension |
+| setCurrency | string | Optional | The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc.... Default: System Currency |
+| setEppRequired | boolean | Optional |  Does the extension require an EPP code for transfer requests |
 
 ## Example Usage
 
@@ -41,17 +43,15 @@ function modulename_GetTldPricing(array $params)
         // All the set methods can be chained and utilised together.
         $item = (new ImportItem)
             ->setExtension($extension['tld'])
-            ->setCurrency($extension['currencyCode'])
             ->setMinYears($extension['minPeriod'])
             ->setMaxYears($extension['maxPeriod'])
             ->setRegisterPrice($extension['registrationPrice'])
             ->setRenewPrice($extension['renewalPrice'])
             ->setTransferPrice($extension['transferPrice'])
+            ->setRedemptionFeePrice($extension['redemptionFee'])
+            ->setCurrency($extension['currencyCode'])
             ->setEppRequired($extension['transferSecretRequired']);
 
-        if ($extension['supportsRedemptionPeriod']) {
-            $item->setRedemptionFeePrice($extension['redemptionFee']);
-        }
         $results[] = $item;
     }
     return $results;
