@@ -46,6 +46,7 @@ Adds a client.
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| clientid | int | The id of the client that was created |
 
 
 ### Example Request (CURL)
