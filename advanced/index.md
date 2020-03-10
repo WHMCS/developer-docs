@@ -17,3 +17,4 @@ The following are some advanced customisation options.
 * **[Currency Formatting](/advanced/currency-formatting/)**<br>Learn how to use the currency formatting helper functions in WHMCS
 * **[Logging](/advanced/logging/)**<br>Learn how to use the logging helper functions in WHMCS
 * **[Widgets](/advanced/widgets/)**<br>Learn how to create widgets using AbstractWidget
+* **[JSON File](/advanced/json-file/)**<br>Provide meta information for modules
