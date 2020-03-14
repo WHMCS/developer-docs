@@ -82,7 +82,80 @@ print_r($results);
 ### Example Response JSON
 
 ```
-null
+{
+    "result": "success",
+    "ticketid": "1",
+    "tid": "516757",
+    "c": "KPqH7yG3",
+    "deptid": "1",
+    "deptname": "Sample Support Department",
+    "userid": "1",
+    "contactid": "0",
+    "name": "Cynthia Reilly",
+    "email": "testuser@whmcs.com",
+    "cc": "",
+    "date": "2016-01-01 06:26:29",
+    "subject": "This is a sample ticket",
+    "status": "Closed",
+    "priority": "Medium",
+    "admin": "",
+    "lastreply": "2016-01-01 06:30:16",
+    "flag": "0",
+    "service": "",
+    "replies": {
+        "reply": [
+            {
+                "replyid": "0",
+                "userid": "1",
+                "contactid": "0",
+                "name": "Cynthia Reilly",
+                "email": "testuser@whmcs.com",
+                "date": "2016-01-01 06:26:29",
+                "message": "Hey, \r\n\r\nThis is the first ticket message!\r\n\r\nThanks\r\n\r\nCynthia",
+                "attachment": "123456_attachment_name.png",
+                "attachments_removed": true,
+                "admin": ""
+            },
+            {
+                "replyid": "1",
+                "userid": "1",
+                "contactid": "0",
+                "name": "",
+                "email": "",
+                "date": "2016-01-01 06:27:01",
+                "message": "Hello, \r\n\r\nThis is the first ticket reply by an admin user!\r\n\r\nThanks\r\n\r\nDemo Admin",
+                "attachment": "",
+                "attachments_removed": false,
+                "admin": "Demo Admin",
+                "rating": "0"
+            },
+            {
+                "replyid": "2",
+                "userid": "1",
+                "contactid": "0",
+                "name": "",
+                "email": "",
+                "date": "2016-01-01 06:30:16",
+                "message": "Hey, \r\n\r\nThis is a second reply!\r\n\r\nThanks\r\n\r\nCynthia",
+                "attachment": "",
+                "admin": "",
+                "rating": "0"
+            }
+        ]
+    },
+    "notes": {
+        "note": [
+            {
+                "noteid": "1",
+                "date": "2016-01-01 06:26:42",
+                "message": "This is a ticket note",
+                "attachment": "",
+                "attachments_removed": false,
+                "admin": "Demo Admin"
+            }
+        ]
+    }
+}
 ```
 
 
