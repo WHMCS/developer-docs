@@ -24,11 +24,12 @@ Updates a contact with the passed parameters.
 | country | string | 2 character ISO country code | Optional |
 | phonenumber | string |  | Optional |
 | password2 | string | (sub-account only) | Optional |
-| generalemails | bool | Should the contact receive general emails | Optional |
-| productemails | bool | Should the contact receive product emails | Optional |
-| domainemails | bool | Should the contact receive domain emails | Optional |
-| invoiceemails | bool | Should the contact receive invoice emails | Optional |
-| supportemails | bool | Should the contact receive support emails | Optional |
+| email_preferences[general] | bool | Should the client receive general emails | Optional |
+| email_preferences[product] | bool | Should the client receive product emails | Optional |
+| email_preferences[domain] | bool | Should the client receive domain emails | Optional |
+| email_preferences[invoice] | bool | Should the client receive invoice emails | Optional |
+| email_preferences[support] | bool | Should the client receive support emails | Optional |
+| email_preferences[affiliate] | bool | Should the client receive affiliate emails | Optional |
 | permissions | string | A comma separated list of sub-account permissions. eg manageproducts,managedomains | Optional |
 
 ### Response Parameters
@@ -97,6 +98,7 @@ Possible error condition responses include:
 
 * Contact ID Not Found
 * Duplicate Email Address
+* You must have at least one email address enabled to receive domain related notifications as required by ICANN. To disable domain notifications, please enable domain notifications for the primary account holder or another contact
 
 
 ### Version History
@@ -104,3 +106,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.10 | Added email preferences parameters |

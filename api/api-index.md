@@ -142,6 +142,7 @@ weight = 100
 <h3>Authentication</h3>
 
 <ul><li> <a href="/api-reference/createoauthcredential/">CreateOAuthCredential</a>
+<li> <a href="/api-reference/createssotoken/">CreateSsoToken</a>
 <li> <a href="/api-reference/deleteoauthcredential/">DeleteOAuthCredential</a>
 <li> <a href="/api-reference/listoauthcredentials/">ListOAuthCredentials</a>
 <li> <a href="/api-reference/updateoauthcredential/">UpdateOAuthCredential</a>
@@ -149,7 +150,8 @@ weight = 100
 </ul>
 <h3>Domains</h3>
 
-<ul><li> <a href="/api-reference/domaingetlockingstatus/">DomainGetLockingStatus</a>
+<ul><li> <a href="/api-reference/createorupdatetld/">CreateOrUpdateTLD</a>
+<li> <a href="/api-reference/domaingetlockingstatus/">DomainGetLockingStatus</a>
 <li> <a href="/api-reference/domaingetnameservers/">DomainGetNameservers</a>
 <li> <a href="/api-reference/domaingetwhoisinfo/">DomainGetWhoisInfo</a>
 <li> <a href="/api-reference/domainregister/">DomainRegister</a>
