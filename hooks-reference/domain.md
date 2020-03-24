@@ -32,7 +32,7 @@ add_hook('DomainDelete', 1, function($vars) {
 
 ## DomainEdit
 
-Executes when the domain is being edited.
+Executes when the domain is being edited via the Client Profile Summary and Domains tabs in the Admin Area.
 
 #### Parameters
 

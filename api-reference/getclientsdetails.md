@@ -90,6 +90,12 @@ print_r($results);
     "client[country]": "GB",
     "client[phonenumber]": "01234567890",
     "client[password]": "$2y$10$17X1fBPpamALcMA9KMiFneH4FYpMkkmFGDxlkxbjGeSnfH8sLqixa",
+    "client[email_preferences][general]": "1",
+    "client[email_preferences][invoice]": "1",
+    "client[email_preferences][support]": "1",
+    "client[email_preferences][product]": "1",
+    "client[email_preferences][domain]": "1",
+    "client[email_preferences][affiliate]": "1",
     "client[statecode]": "Tester",
     "client[countryname]": "United Kingdom",
     "client[phonecc]": "44",
@@ -180,4 +186,5 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.10 | Added email preferences parameters |
 | 7.8 | Credit Card related parameters have been removed due to the introduction of support for multiple credit cards per client. Use GetPayMethods instead. |
