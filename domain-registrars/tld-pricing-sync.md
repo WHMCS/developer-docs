@@ -21,9 +21,13 @@ To integrate this functionality into your registrar module, you must define a `G
 | setRegisterPrice | float | Required | The registration cost price for the minimum registration period term. |
 | setRenewPrice | float | Optional |  The renewal cost price for the minimum registration period term. Pass null if renewals are not supported. |
 | setTransferPrice | float | Optional |  The transfer cost price for the minimum registration period term. Pass null if transfers are not supported. |
+| setGraceFeeDays | int | Optional |  The grace period for the extension.  |
+| setGraceFeePrice | float | Optional |  The grace fee cost price for the extension. Pass null if grace periods are not supported.  |
+| setRedemptionFeeDays | int | Optional |  The redemption period for the extension.  |
 | setRedemptionFeePrice | float | Optional |  The redemption fee cost price for the extension. Pass null if redemption periods are not supported.  |
-| setCurrency | string | Optional | The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc.... Default: System Currency |
+| setCurrency | string | Required | The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc.... |
 | setEppRequired | boolean | Optional |  Does the extension require an EPP code for transfer requests |
+| setYears | array | Optional | Use in place of `setMinYears`, `setMaxYears`, and `setYearsStep` for extensions with more specialised pricing. Default: array()
 
 ## Example Usage
 
@@ -48,6 +52,7 @@ function modulename_GetTldPricing(array $params)
             ->setRegisterPrice($extension['registrationPrice'])
             ->setRenewPrice($extension['renewalPrice'])
             ->setTransferPrice($extension['transferPrice'])
+            ->setRedemptionFeeDays($extension['redemptionDays'])
             ->setRedemptionFeePrice($extension['redemptionFee'])
             ->setCurrency($extension['currencyCode'])
             ->setEppRequired($extension['transferSecretRequired']);
