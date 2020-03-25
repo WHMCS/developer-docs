@@ -6,6 +6,7 @@ weight = 120
 
 +++
 
+###Custom Functions
 Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
 
 The convention for custom function names follow the same as any other function of a module. It must begin with `yourmodulename_`, and then the custom function name.
@@ -54,3 +55,20 @@ If you want to provide clients with a custom button or way to invoke a function,
  <input type="hidden" name="a" value="reboot" />
  <input type="submit" value="Reboot VPS Server" />
  </form>
+ 
+###IDN Domains
+If you wish to support registration and management of IDN domain names via a registrar module, the domain object can be 
+used to access various parameters related to the domain.  An domain name is considered IDN if it contains at least one 
+character that is in a language-specific script or alphabet.  IDN is supported for second level domain names but not top 
+level at this time.
+
+The following options are available:
+```
+$domainObj = $params['original']['domainObj'];
+$fullDomainUnicode = $domainObj->toPunycode(); // The full domain name as stored in the database.
+$isIdn = $domainObj->isIdn(); // Returns true if domain is an IDN domain.
+$fullDomainPunycode = $domainObj->toUnicode(); // The full domain name in Unicode.
+$secondLevelUnicode = $domainObj->getUnicodeSecondLevel(); // The domain name (excluding TLD) in Unicode.
+$secondLevelPunycode = $domainObj->getPunycodeSecondLevel(); // The domain name (excluding TLD) converted to Punycode.
+$tld = $domainObj->getTopLevel(); // The Top Level Domain for the given domain.
+```
