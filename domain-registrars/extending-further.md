@@ -1,8 +1,8 @@
 +++
 next = "/domain-registrars/hooks/"
-prev = "/domain-registrars/transfer-policy-management/"
+prev = "/domain-registrars/tld-pricing-sync/"
 title = "Extending Further"
-weight = 70
+weight = 120
 
 +++
 

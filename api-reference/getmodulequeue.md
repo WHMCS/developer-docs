@@ -10,7 +10,8 @@ Obtains the Module Queue for Incomplete Failed Actions
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetModuleQueue" | Required |
-| serviceType | string | The type of service to load ('domain', 'service' or '')) | Optional |
+| relatedId | int | The id of the service to load. Used in conjunction with $serviceType | Optional |
+| serviceType | string | The type of service to load ('domain', 'service', 'addon' or '')) | Optional |
 | moduleName | string | The module name to obtain the queue for in system format. eg cpanel | Optional |
 | moduleAction | string | The module action to obtain the queue for. eg CreateAccount, SuspendAccount | Optional |
 | since | string | The date/time since to obtain the items. Format Y-m-d Can include H:i:s | Optional |
@@ -90,3 +91,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 7.1.0-beta.1 | Initial Version |
+| 7.10 | Added `relatedId` parameter. Added `addon` serviceType |

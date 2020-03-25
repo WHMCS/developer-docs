@@ -2,7 +2,7 @@
 prev = "/domain-registrars/module-functions/"
 next = "/domain-registrars/availability-checks/"
 title = "Domain Information"
-weight = 63
+weight = 70
 
 +++
 

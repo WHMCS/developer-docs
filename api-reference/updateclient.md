@@ -43,6 +43,12 @@ Updates a client with the passed parameters.
 | notes | string | Admin only notes | Optional |
 | status | string | Status, e.g. "Active" | Optional |
 | paymentmethod | string | The default payment method | Optional |
+| email_preferences[general] | bool | Should the client receive general emails | Optional |
+| email_preferences[product] | bool | Should the client receive product emails | Optional |
+| email_preferences[domain] | bool | Should the client receive domain emails | Optional |
+| email_preferences[invoice] | bool | Should the client receive invoice emails | Optional |
+| email_preferences[support] | bool | Should the client receive support emails | Optional |
+| email_preferences[affiliate] | bool | Should the client receive affiliate emails | Optional |
 | marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
 | clearcreditcard | bool | Pass as true to clear the stored CC details | Optional |
 | skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
@@ -124,6 +130,7 @@ Possible warning messages include:
 Possible error condition responses include:
 
 * Client ID Not Found
+* You must have at least one email address enabled to receive domain related notifications as required by ICANN. To disable domain notifications, please create an alternative contact that is set to receive them
 * Duplicate Email Address
 * Multiple Credit Card Pay Methods Found
 * Multiple Bank Account Pay Methods Found
@@ -134,4 +141,5 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.10 | Added email preferences parameters |
 | 7.8 | Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod, DeletePayMethod or UpdatePayMethod instead. |
