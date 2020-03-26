@@ -24,12 +24,12 @@ Adds a contact to a client account.
 | phonenumber | string |  | Optional |
 | tax_id | string |  | Optional |
 | password2 | string | if creating a sub-account | Optional |
-| generalemails | bool | set true to receive general email types | Optional |
-| productemails | bool | set true to receive product related emails | Optional |
-| domainemails | bool | set true to receive domain related emails | Optional |
-| invoiceemails | bool | set true to receive billing related emails | Optional |
-| supportemails | bool | set true to receive support ticket related emails | Optional |
-| affiliateemails | bool | set true to receive affiliate related emails | Optional |
+| email_preferences[general] | bool | Should the client receive general emails | Optional |
+| email_preferences[product] | bool | Should the client receive product emails | Optional |
+| email_preferences[domain] | bool | Should the client receive domain emails | Optional |
+| email_preferences[invoice] | bool | Should the client receive invoice emails | Optional |
+| email_preferences[support] | bool | Should the client receive support emails | Optional |
+| email_preferences[affiliate] | bool | Should the client receive affiliate emails | Optional |
 | permissions | string | A comma separated list of sub-account permissions. eg manageproducts,managedomains | Optional |
 
 ### Response Parameters
@@ -109,3 +109,4 @@ Possible error condition responses include:
 | 1.0 | Initial Version |
 | 7.7 | Added `tax_id` parameter. |
 | 7.9 | Added `affiliateemails` parameter. |
+| 7.10 | Added email preferences parameters |
