@@ -36,7 +36,7 @@ Adds a product to the system to be available for purchase
 | configoption5 | mixed | The fifth module configuration value | Optional |
 | configoption6 | mixed | The sixth module configuration value | Optional |
 | order | int | The order to in which to display on the order form | Optional |
-| pricing | array | The pricing array to associate with the product. format $pricing[currencyid][cycle] (see example) | Optional |
+| pricing | array | The pricing array to associate with the product. Format: $pricing[currencyid][cycle]. See Example. | Optional |
 
 ### Response Parameters
 
