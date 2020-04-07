@@ -10,7 +10,7 @@ Create an invoice using the provided parameters.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "CreateInvoice" | Required |
-| userid | int | The ID of the client to close | Required |
+| userid | int | The ID of the client to create the invoice for | Required |
 | status | string | The status of the invoice being created (Defaults to Unpaid) | Optional |
 | draft | bool | Should the invoice be created in draft status (No need to pass $status also) | Optional |
 | sendinvoice | bool | Should the Invoice Created Email be sent to the client (cannot be used with $draft) | Optional |
