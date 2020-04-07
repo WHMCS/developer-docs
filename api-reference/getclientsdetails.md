@@ -119,6 +119,7 @@ print_r($results);
     "client[marketing_emails_opt_in]": "",
     "client[overrideautoclose]": "",
     "client[allowSingleSignOn]": "1",
+    "client[email_verified]": "1",
     "client[language]": "",
     "client[lastlogin]": "Date: 03\/10\/2016 10:26<br>IP Address:<br>Host:",
     "client[currency_code]": "USD",

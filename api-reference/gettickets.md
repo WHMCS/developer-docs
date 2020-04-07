@@ -91,6 +91,12 @@ print_r($results);
                 "priority": "Medium",
                 "admin": "admin admin",
                 "attachment": "123456_attachment_name.png",
+                "attachments": [
+                    {
+                        "filename": "attachment_name.png",
+                        "index": 0
+                    }
+                ],
                 "attachments_removed": true,
                 "lastreply": "2016-01-01 06:30:16",
                 "flag": "0",
@@ -107,3 +113,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.10 | Added new return parameter `attachments` |
