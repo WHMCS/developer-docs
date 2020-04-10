@@ -10,6 +10,10 @@ The domain syncronisation functions allow you to propogate any domain expiry dat
 
 ## Domain Syncing
 
+Domains are only checked when they are in Active or Pendin Transfer status. A domain will never transfer to Cancelled status if a domain is subsequently deleted. 
+
+Expired is ultimately the last status a domain will reach on Expiry. WHMCS never sets the domain to cancelled after it is deleted from the registry.
+
 Domain syncing is performed in batches. When defined in your module, the Sync function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. Once all domains assigned to your module have been synced it will start from the beginning again.
 
 The below example shows the supported return values for the function.
