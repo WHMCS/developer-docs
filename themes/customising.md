@@ -15,7 +15,7 @@ The header and footer template files that are common to every page and act as a 
 
 ## Custom Logo
 
-The Six theme uses a conditional based on the ```$assetLogoPath``` variable to either display a custom logo or the name of the company as defined in Setup > General Settings > Company Name. In order to set a custom logo it must either exist as `/assests/img/logo.png` or `/assests/img/logo.jpg`.
+The Six theme uses a conditional based on the ```$assetLogoPath``` variable to either display a custom logo or the name of the company as defined in Setup > General Settings > Company Name. In order to set a custom logo it must either exist as `/assets/img/logo.png` or `/assets/img/logo.jpg`.
 
 ## Include Files
 
