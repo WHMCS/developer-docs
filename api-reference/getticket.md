@@ -113,6 +113,12 @@ print_r($results);
                 "date": "2016-01-01 06:26:29",
                 "message": "Hey, \r\n\r\nThis is the first ticket message!\r\n\r\nThanks\r\n\r\nCynthia",
                 "attachment": "123456_attachment_name.png",
+                "attachments": [
+                    {
+                        "filename": "attachment_name.png",
+                        "index": 0
+                    }
+                ],
                 "attachments_removed": true,
                 "admin": ""
             },
@@ -125,6 +131,9 @@ print_r($results);
                 "date": "2016-01-01 06:27:01",
                 "message": "Hello, \r\n\r\nThis is the first ticket reply by an admin user!\r\n\r\nThanks\r\n\r\nDemo Admin",
                 "attachment": "",
+                "attachments": [
+                    []
+                ],
                 "attachments_removed": false,
                 "admin": "Demo Admin",
                 "rating": "0"
@@ -138,6 +147,10 @@ print_r($results);
                 "date": "2016-01-01 06:30:16",
                 "message": "Hey, \r\n\r\nThis is a second reply!\r\n\r\nThanks\r\n\r\nCynthia",
                 "attachment": "",
+                "attachments": [
+                    []
+                ],
+                "attachments_removed": false,
                 "admin": "",
                 "rating": "0"
             }
@@ -150,6 +163,9 @@ print_r($results);
                 "date": "2016-01-01 06:26:42",
                 "message": "This is a ticket note",
                 "attachment": "",
+                "attachments": [
+                    []
+                ],
                 "attachments_removed": false,
                 "admin": "Demo Admin"
             }
@@ -164,3 +180,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.10 | Added new return parameter `attachments` |
