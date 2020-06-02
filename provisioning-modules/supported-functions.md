@@ -111,4 +111,9 @@ Used to define extra fields or output to display within admin product pages.
 Used in conjunction with the above.
 This function handles the values submitted in any custom fields when a save occurs.
 
+## MetaData <a id="meta-data"></a>
+
+Used to define a number of meta data configuration parameters.
+This function returns an array, consisting key-value pairs, where the key is the parameter name and the value is the parameter value.
+
 [automation-settings-termination]: http://docs.whmcs.com/Automation_Settings#Enable_Termination "Automation Settings"
