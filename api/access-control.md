@@ -27,6 +27,12 @@ It works by defining a secret key/passphrase in the WHMCS configuration.php file
 $api_access_key = 'secret_key_passphrase_goes_here';
 ```
 
+An API Access Key can contain letters, numbers, and the following special characters only:
+
+```
+! @ # $ % . ( ) * [ ] - _
+```
+
 Following the introduction of an API Access Key, you can then include it in your API requests as follows:
 
 ```
