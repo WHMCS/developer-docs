@@ -23,10 +23,10 @@ A description of the methods used in WHOIS Contact Verification messaging are pr
 | setIsIrtpEnabled | Boolean | Must be set to true to enable Transfer Policy functionality. |
 | setIrtpOptOutStatus | Boolean | True or false depending on the current opt-out status for the Inter Registry Transfer Policy (optional) |
 | setIrtpTransferLock | Boolean | True or false depending on the current IRTP Transfer Lock status for the given domain (optional) |
-| IrtpTransferLockExpiryDate | Date/Carbon | The expiry date of the transfer lock (optional) |
+| IrtpTransferLockExpiryDate | Date | The expiry date of the transfer lock (optional) |
 | setDomainContactChangePending | Boolean | True if a WHOIS Contact Verification process is in progress |
 | setPendingSuspension | Boolean | True if failure to complete the current WHOIS Contact Verification process will result in domain suspension (typically for new registrations) |
-| setDomainContactChangeExpiryDate | Date/Carbon | The date by which the current WHOIS Contact Verification process must be completed by |
+| setDomainContactChangeExpiryDate | Date | The date by which the current WHOIS Contact Verification process must be completed by |
 | setIrtpVerificationTriggerFields | Array | The fields of WHOIS that when changed will trigger a new WHOIS Contact Verification process |
 
 ### Example Usage
