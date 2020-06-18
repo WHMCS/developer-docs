@@ -7,7 +7,7 @@ weight = 0
 
 +++
 
-Mail Providers determine how WHMCS transmits email to admins and their customers.
+Mail Providers determine how WHMCS transmits email to admins and their customers. We added this feature in WHMCS 8.0.
 
 You can learn more about Mail Providers in WHMCS in our [Mail Tab][https://docs.whmcs.com/Mail_Tab] documentation.
 
