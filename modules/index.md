@@ -18,7 +18,7 @@ A module is a collection of functions that provide additional functionality to t
         <a href="/provisioning-modules/">
             <i class="fa fa-cog"></i>
             <h3>Provisioning Modules</h3>
-            <p>For modules that enable provisioning and management of products &amp; services via API.</p>
+            <p>For modules that enable provisioning and management of products and services via API.</p>
         </a>
     </div>
     <div class="col-sm-6">
@@ -40,6 +40,13 @@ A module is a collection of functions that provide additional functionality to t
             <i class="fa fa-money"></i>
             <h3>Gateway Modules</h3>
             <p>Integrate with payment gateway providers to collect and process payments.</p>
+        </a>
+    </div>
+    <div class="col-sm-6">
+        <a href="/mail-providers/">
+            <i class="fa fa-money"></i>
+            <h3>Mail Provider Modules</h3>
+            <p>Add custom mail providers to WHMCS.</p>
         </a>
     </div>
     <div class="col-sm-6">
