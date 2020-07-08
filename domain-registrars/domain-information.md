@@ -41,7 +41,7 @@ function modulename_GetDomainInformation($params) {
         ->setExpiryDate(Carbon::createFromFormat('Y-m-d', $response['expirydate'])) // $response['expirydate'] = YYYY-MM-DD
         ->setRestorable(false)
         ->setIdProtectionStatus($response['addons']['hasidprotect'])
-        ->getDnsManagementStatus($response['addons']['hasdnsmanagement'])
+        ->setDnsManagementStatus($response['addons']['hasdnsmanagement'])
         ->setEmailForwardingStatus($response['addons']['hasemailforwarding'])
         ->setIsIrtpEnabled(in_array($response['tld'], ['.com']))
         ->setIrtpOptOutStatus($response['irtp']['optoutstatus'])
