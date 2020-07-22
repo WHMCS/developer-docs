@@ -35,7 +35,8 @@ You may need to consider these changes:
 * Store cookies in `CookieJarInterface`, not a `key => value` array.
 * When you instantiate the Guzzle Client class, move every option from the `defaults` array key to the top level of options:
 ```
-             $client = new Client([-         'defaults' => [
+             $client = new Client([
+-                 'defaults' => [
 -                    'verify' => true,
 -                    'exceptions' => true,
 -                    'timeout' => 10,
