@@ -68,3 +68,9 @@ Additional variables specific to the action being performed such as EPP code, na
 | **Grace/Redemption Parameters**
 | isInGracePeriod | True if domain is within the renewal grace period. Available in the module renewal function only
 | isInRedemptionGracePeriod | True if the domain is within the redemption grace period. Available in the module renewal function only
+| **IDN Parameters**
+| idnlanguage | The language code for the domain.
+| domain_punycode | The Punycode version of the domain name.
+| sld_punycode | The SLD with the Punycode domain name.
+| tld_punycode | The TLD with the Punycode domain name.
+| is_idn | Whether the domain is an IDN.
