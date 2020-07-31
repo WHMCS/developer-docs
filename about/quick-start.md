@@ -17,4 +17,4 @@ weight = 5
 * [Browse the Hook Reference](/hooks-reference)<br>A complete listing of Hook Points available in WHMCS.
 * [Interact and retrieve data from the WHMCS Database](/advanced/db-interaction)<br>Learn how to interact with the WHMCS database.
 * [Create a new language](/languages/adding-a-language)<br>Create your own additional language translations.
-* [Upgrade to WHMCS 8.0](/intro/upgrade-to-whmcs-8)<br>View important information about updating your code for WHMCS 8.0.
+* [Upgrade to WHMCS 8.0](/advanced/upgrade-to-whmcs-8)<br>View important information about updating your code for WHMCS 8.0.
