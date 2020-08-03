@@ -39,6 +39,9 @@ use WHMCS\Module\Contracts\SenderModuleInterface;
 * @license http://www.example.com/
 */
 class Yourmodulename implements SenderModuleInterface
+{
+    // Functions related to your provider will reside within this class.
+}
 ```
 
 For more information on the SenderModuleInterface, see [our additional documentation][https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html].
