@@ -28,6 +28,10 @@ Obtain tickets matching the passed criteria
 | startnumber | int | The starting number for the returned results |
 | numreturned | int | The number of results returned |
 | tickets | array | An array of tickets matching the criteria passed |
+| requestor_name | string | The ticket submitter's name. |
+| requestor_type | string | The ticket submitter's type. |
+| requestor_email | string | The ticket submitter's email. |
+| owner_name | string | The ticket submitter's owner. |
 
 
 ### Example Request (CURL)
@@ -69,42 +73,7 @@ print_r($results);
 ### Example Response JSON
 
 ```
-{
-    "result": "success",
-    "totalresults": "1",
-    "startnumber": 0,
-    "numreturned": 1,
-    "tickets": {
-        "ticket": [
-            {
-                "id": "1",
-                "tid": "516757",
-                "deptid": "1",
-                "userid": "1",
-                "name": "Cynthia Reilly",
-                "email": "testuser@whmcs.com",
-                "cc": "",
-                "c": "KPqH7yG3",
-                "date": "2016-01-01 06:26:29",
-                "subject": "This is a sample ticket",
-                "status": "Answered",
-                "priority": "Medium",
-                "admin": "admin admin",
-                "attachment": "123456_attachment_name.png",
-                "attachments": [
-                    {
-                        "filename": "attachment_name.png",
-                        "index": 0
-                    }
-                ],
-                "attachments_removed": true,
-                "lastreply": "2016-01-01 06:30:16",
-                "flag": "0",
-                "service": ""
-            }
-        ]
-    }
-}
+null
 ```
 
 
@@ -114,3 +83,4 @@ print_r($results);
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.10 | Added new return parameter `attachments` |
+| 8.0 | Added new return parameters `requestor_name`, `requestor_type`, `requestor_email`, and `owner_name`. |

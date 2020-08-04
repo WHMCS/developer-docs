@@ -111,7 +111,7 @@ Executes when an affiliate withdrawal request is submitted.
 | -------- | ---- | ----- |
 | affiliateId | int | The unique id of the affiliate making the request |
 | userId | int | The user id of the user making the request |
-| contactId | int | The contact id of the user making the request if logged in as a sub-account |
+| clientId | int | The client id being acted on |
 | balance | float | The amount of commission the withdrawal request is for |
 
 #### Response
@@ -273,12 +273,13 @@ Runs prior to email being logged.
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userid | int |  |
-| date | string | Can be 'now()' or a specific timestamp |
+| date | string | Current timestamp |
 | to | string | Comma separated list of recipients |
 | cc | string | Comma separated list of CC recipients |
 | bcc | string | Comma separated list of BCC recipients |
 | subject | string |  |
 | message | string |  |
+| attachments | array |  |
 
 #### Response
 
@@ -566,53 +567,6 @@ A gateway module name.
 ```
 <?php
 add_hook('PayMethodMigration', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## PostAutomationTask
-
-Executes after an automation task occurs
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| task | \Collection |  |
-| completed | bool |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('PostAutomationTask', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## PreAutomationTask
-
-Executes before an automation task occurs
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| task | \Collection |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('PreAutomationTask', 1, function($vars) {
     // Perform hook code here...
 });
 ```

@@ -72,32 +72,84 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "1",
-    "startnumber": "0",
-    "numreturned": "1",
-    "products[product][0][pid] ": "> 1",
-    "products[product][0][gid] ": "> 1",
-    "products[product][0][type] ": "> hostingaccount",
-    "products[product][0][name] ": "> Starter Package",
-    "products[product][0][description] ": "> Disk Space:1GB\\r\\nBandwidth: 3GB\\r\\nEmail Accounts:5\\r\\nSubdomains:0\\r\\nDatabases:0\\r\\nAddon Domains:0",
-    "products[product][0][module] ": ">",
-    "products[product][0][paytype] ": "> recurring",
-    "products[product][0][pricing][USD][prefix] ": "> $",
-    "products[product][0][pricing][USD][suffix] ": ">  USD",
-    "products[product][0][pricing][USD][msetupfee] ": "> 0.00",
-    "products[product][0][pricing][USD][qsetupfee] ": "> 0.00",
-    "products[product][0][pricing][USD][ssetupfee] ": "> 0.00",
-    "products[product][0][pricing][USD][asetupfee] ": "> 0.00",
-    "products[product][0][pricing][USD][bsetupfee] ": "> 0.00",
-    "products[product][0][pricing][USD][tsetupfee] ": "> 0.00",
-    "products[product][0][pricing][USD][monthly] ": "> -1.00",
-    "products[product][0][pricing][USD][quarterly] ": "> -1.00",
-    "products[product][0][pricing][USD][semiannually] ": "> 28.95",
-    "products[product][0][pricing][USD][annually] ": "> 49.95",
-    "products[product][0][pricing][USD][biennially] ": "> -1.00",
-    "products[product][0][pricing][USD][triennially] ": "> -1.00",
-    "products[product][0][customfields][customfield]": "",
-    "products[product][0][configoptions][configoption]": ""
+    "totalresults": 1,
+    "products": {
+        "product": [
+            {
+                "pid": 1,
+                "gid": 1,
+                "type": "hostingaccount",
+                "name": "Best Hosting Plan",
+                "description": "This is our best hosting plan, with all the bells and whistles.",
+                "module": "cpanel",
+                "paytype": "recurring",
+                "pricing": {
+                    "USD": {
+                        "prefix": "$",
+                        "suffix": " USD",
+                        "msetupfee": "0.00",
+                        "qsetupfee": "0.00",
+                        "ssetupfee": "0.00",
+                        "asetupfee": "0.00",
+                        "bsetupfee": "0.00",
+                        "tsetupfee": "0.00",
+                        "monthly": "25.99",
+                        "quarterly": "-1.00",
+                        "semiannually": "-1.00",
+                        "annually": "-1.00",
+                        "biennially": "-1.00",
+                        "triennially": "-1.00"
+                    }
+                },
+                "customfields": {
+                    "customfield": [
+                        {
+                            "id": 2,
+                            "name": "Secondary Contact",
+                            "description": "Would you like to provide a secondary point of contact?",
+                            "required": ""
+                        }
+                    ]
+                },
+                "configoptions": {
+                    "configoption": [
+                        {
+                            "id": 4,
+                            "name": "MultiPHP Services",
+                            "type": "3",
+                            "options": {
+                                "option": [
+                                    {
+                                        "id": 4,
+                                        "name": "Include MultiPHP Options",
+                                        "rawName": null,
+                                        "recurring": 0,
+                                        "required": null,
+                                        "pricing": {
+                                            "USD": {
+                                                "msetupfee": "0.00",
+                                                "qsetupfee": "0.00",
+                                                "ssetupfee": "0.00",
+                                                "asetupfee": "0.00",
+                                                "bsetupfee": "0.00",
+                                                "tsetupfee": "0.00",
+                                                "monthly": "2.99",
+                                                "quarterly": "0.00",
+                                                "semiannually": "0.00",
+                                                "annually": "0.00",
+                                                "biennially": "0.00",
+                                                "triennially": "0.00"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }
 ```
 

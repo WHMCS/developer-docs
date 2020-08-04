@@ -69,25 +69,33 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "2",
-    "startnumber": "0",
-    "numreturned": "2",
-    "clients[client][0][id]": "1",
-    "clients[client][0][firstname]": "Price",
-    "clients[client][0][lastname]": "Beier",
-    "clients[client][0][companyname]": "",
-    "clients[client][0][email]": "cecelia99@example.com",
-    "clients[client][0][datecreated]": "2016-01-01",
-    "clients[client][0][groupid]": "0",
-    "clients[client][0][status]": "Active",
-    "clients[client][1][id]": "1",
-    "clients[client][1][firstname]": "Angelica",
-    "clients[client][1][lastname]": "Mohr",
-    "clients[client][1][companyname]": "",
-    "clients[client][1][email]": "price.ima@example.com",
-    "clients[client][1][datecreated]": "2016-01-15",
-    "clients[client][1][groupid]": "0",
-    "clients[client][1][status]": "Active"
+    "totalresults": 2,
+    "startnumber": 0,
+    "numreturned": 2,
+    "clients": {
+        "client": [
+            {
+                "id": 2,
+                "firstname": "Angelica",
+                "lastname": "Mohr",
+                "companyname": "",
+                "email": "price.ima@example.com",
+                "datecreated": "2016-01-15",
+                "groupid": 0,
+                "status": "Active"
+            },
+            {
+                "id": 1,
+                "firstname": "Price",
+                "lastname": "Beier",
+                "companyname": "",
+                "email": "cecelia99@example.com",
+                "datecreated": "2016-01-01",
+                "groupid": 0,
+                "status": "Active"
+            }
+        ]
+    }
 }
 ```
 

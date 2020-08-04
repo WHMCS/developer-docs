@@ -3,7 +3,7 @@ title = "ValidateLogin"
 toc = true
 +++
 
-Validate client login credentials.
+Validate user login credentials.
 
 This command can be used to validate an email address and password against
 a registered user in WHMCS. On success, the userid and password hash will
@@ -17,7 +17,7 @@ must be executed via the local API to receive a valid hash.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "ValidateLogin" | Required |
-| email | string | Client or Sub-Account Email Address | Required |
+| email | string | User Email Address | Required |
 | password2 | string | Password to validate | Required |
 
 ### Response Parameters
@@ -25,8 +25,7 @@ must be executed via the local API to receive a valid hash.
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| userid | int | Client ID |
-| contactid | int | Contact ID if credentials match with a Sub-Account |
+| userid | int | User ID |
 | passwordhash | string | Login session token - returned if Two-Factor Authentication is not required for the account |
 | twoFactorEnabled | bool | True if Two-Factor Authentication is enabled for the given account |
 

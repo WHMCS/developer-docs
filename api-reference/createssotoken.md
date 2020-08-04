@@ -3,7 +3,7 @@ title = "CreateSsoToken"
 toc = true
 +++
 
-Create a single use, client or sub-account single sign-on access token
+Create a single use, client or user single sign-on access token
 
 Tokens are valid for a maximum of 60 seconds.
 
@@ -25,9 +25,9 @@ Possible destinations are documented at https://docs.whmcs.com/WHMCS_Single_Sign
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "CreateSsoToken" | Required |
-| client_id | int | The id of the client that should be authenticated by the resulting token | Required |
+| client_id | int | The id of the client that should be authenticated by the resulting token | Optional |
+| user_id | int | The id of the user that should be authenticated by the resulting token. If not provided, the owner of the requested client will be assumed. | Optional |
 | destination | string | A single valid destination. If not provided, the destination will be the clientarea homepage | Optional |
-| contact_id | int | If provided, the id of the contact that should be authenticated by the resulting token | Optional |
 | service_id | int | The id of the service for respective clientarea $destination | Optional |
 | domain_id | int | The id of the service for respective clientarea $destination | Optional |
 | sso_redirect_path | string | Custom relative path for redirection after authentication when using sso:custom_redirect destination | Optional |
@@ -99,7 +99,9 @@ print_r($results);
 Possible error condition responses include:
 
 * Invalid client_id
-* Invalid contact_id
+* Invalid user_id
+* Invalid user_id for client
+* A valid client_id or user_id is required
 * Invalid destination
 * Token could not be provisioned: x
 * SSO authentication blocked for client x

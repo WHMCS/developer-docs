@@ -6,30 +6,6 @@ weight = 10
 
 The following hooks are provided for Authentication related events.
 
-## ClientLogin
-
-Executes when a client is logging into the Client Area.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userid | int |  |
-| contactid | int | Contact ID will be present if the login was performed by a contact/sub-account |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientLogin', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## ClientLoginShare
 
 Executes as part of client login if user does not exist.
@@ -85,16 +61,15 @@ add_hook('ClientLoginShare', 1, function($vars) {
 });
 ```
 
-## ClientLogout
+## UserLogin
 
-Executes when a client logs out of the Client Area.
+Executes when a user logs in.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | int |  |
-| contactid | int | Contact ID will be present if the login was performed by a contact/sub-account |
+| user | \WHMCS\User\User |  |
 
 #### Response
 
@@ -104,7 +79,30 @@ No response supported
 
 ```
 <?php
-add_hook('ClientLogout', 1, function($vars) {
+add_hook('UserLogin', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## UserLogout
+
+Executes when a user logs out.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| user | \WHMCS\User\User |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('UserLogout', 1, function($vars) {
     // Perform hook code here...
 });
 ```

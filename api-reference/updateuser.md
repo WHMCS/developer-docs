@@ -1,26 +1,26 @@
 +++
-title = "UpdateTicketReply"
+title = "UpdateUser"
 toc = true
 +++
 
-Updates a ticket reply message.
+Update a user.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "UpdateTicketReply" | Required |
-| replyid | int | The reply id to update. | Required |
-| message | string | The message to be updated | Required |
-| markdown | bool | Should markdown be used on the ticket message. Existing value is used if not supplied. | Optional |
-| created | string | The date and time the ticket reply will show as sent. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
+| action | string | "UpdateUser" | Required |
+| user_id | int | The ID of the user to update | Required |
+| firstname | string |  | Optional |
+| lastname | string |  | Optional |
+| email | string |  | Optional |
+| language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| replyid | int | The reply id that has been updated |
 
 
 ### Example Request (CURL)
@@ -32,12 +32,12 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'UpdateTicketReply',
+            'action' => 'UpdateUser',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'replyid' => '1',
-            'message' => 'This is a sample updated ticket reply',
+            'user_id' => '1',
+            'firstname' => 'John',
             'responsetype' => 'json',
         )
     )
@@ -51,10 +51,10 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'UpdateTicketReply';
+$command = 'UpdateUser';
 $postData = array(
-    'replyid' => '1',
-    'message' => 'This is a sample updated ticket reply',
+    'user_id' => '1',
+    'firstname' => 'John',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -68,7 +68,7 @@ print_r($results);
 ```
 {
     "result": "success",
-    "replyid": "1"
+    "user_id": "1"
 }
 ```
 
@@ -77,16 +77,14 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Reply ID Required
-* Message is Required
-* Reply ID Not Found
-* Invalid Date Format
-* Reply creation date cannot be in the future
+* Invalid User ID requested
+* One of `email`, `firstname`, `lastname`, or `language` is required
+* The email address entered is not valid
+* A user already exists with that email address
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 7.7 | Initial Version |
-| 8.0 | Add ticket reply creation date |
+| 8.0.0 | Initial Version |

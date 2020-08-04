@@ -23,14 +23,12 @@ Adds a contact to a client account.
 | country | string | 2 character ISO country code | Optional |
 | phonenumber | string |  | Optional |
 | tax_id | string |  | Optional |
-| password2 | string | if creating a sub-account | Optional |
 | email_preferences[general] | bool | Should the client receive general emails | Optional |
 | email_preferences[product] | bool | Should the client receive product emails | Optional |
 | email_preferences[domain] | bool | Should the client receive domain emails | Optional |
 | email_preferences[invoice] | bool | Should the client receive invoice emails | Optional |
 | email_preferences[support] | bool | Should the client receive support emails | Optional |
 | email_preferences[affiliate] | bool | Should the client receive affiliate emails | Optional |
-| permissions | string | A comma separated list of sub-account permissions. eg manageproducts,managedomains | Optional |
 
 ### Response Parameters
 
@@ -94,6 +92,16 @@ print_r($results);
 ```
 
 
+### Warning Responses
+
+Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.
+
+Possible warning messages include:
+
+* Sub Accounts are no longer supported. Please use AddUser and CreateClientInvite
+
+
 ### Error Responses
 
 Possible error condition responses include:
@@ -110,3 +118,4 @@ Possible error condition responses include:
 | 7.7 | Added `tax_id` parameter. |
 | 7.9 | Added `affiliateemails` parameter. |
 | 7.10 | Added email preferences parameters |
+| 8.0 | Removed sub-account functionality |

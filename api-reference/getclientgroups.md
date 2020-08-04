@@ -61,19 +61,27 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "2",
-    "groups[group][0][id]": "1",
-    "groups[group][0][groupname]": "Client Group 1",
-    "groups[group][0][groupcolour]": "#28C99B",
-    "groups[group][0][discountpercent]": "10.00",
-    "groups[group][0][susptermexempt]": "on",
-    "groups[group][0][separateinvoices]": "on",
-    "groups[group][1][id]": "2",
-    "groups[group][1][groupname]": "Client Group 2",
-    "groups[group][1][groupcolour]": "#FFFFFF",
-    "groups[group][1][discountpercent]": "0.00",
-    "groups[group][1][susptermexempt]": "",
-    "groups[group][1][separateinvoices]": ""
+    "totalresults": 2,
+    "groups": {
+        "group": [
+            {
+                "id": 1,
+                "groupname": "Client Group 1",
+                "groupcolour": "#28C99B",
+                "discountpercent": "10.00",
+                "susptermexempt": "on",
+                "separateinvoices": "on"
+            },
+            {
+                "id": 2,
+                "groupname": "Client Group 2",
+                "groupcolour": "#FFFFFF",
+                "discountpercent": "0.00",
+                "susptermexempt": "",
+                "separateinvoices": ""
+            }
+        ]
+    }
 }
 ```
 

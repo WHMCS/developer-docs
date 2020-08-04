@@ -24,7 +24,6 @@ Obtain the Client Contacts that match passed criteria
 | postcode | string | Find contacts with a specific post/zip code | Optional |
 | country | string | Find contacts with a specific country | Optional |
 | phonenumber | string | Find contacts with a specific phone number | Optional |
-| subaccount | bool | Search for sub-accounts | Optional |
 
 ### Response Parameters
 
@@ -80,35 +79,35 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "1",
-    "startnumber": "0",
-    "numreturned": "1",
-    "contacts[contact][0][id]": "1",
-    "contacts[contact][0][userid]": "1",
-    "contacts[contact][0][firstname]": "Test",
-    "contacts[contact][0][lastname]": "Contact",
-    "contacts[contact][0][companyname]": "",
-    "contacts[contact][0][email]": "contact@example.com",
-    "contacts[contact][0][address1]": "404 Street Not Found",
-    "contacts[contact][0][address2]": "",
-    "contacts[contact][0][city]": "Test",
-    "contacts[contact][0][state]": "Tester",
-    "contacts[contact][0][postcode]": "TE5 5ST",
-    "contacts[contact][0][country]": "GB",
-    "contacts[contact][0][phonenumber]": "",
-    "contacts[contact][0][subaccount]": "0",
-    "contacts[contact][0][password]": "$2y$10$WuJGdclhF0cocxoKCzNpF.4OfAQNOmbXpg9z0Mt1d977oAPYPoZhq",
-    "contacts[contact][0][permissions]": "",
-    "contacts[contact][0][domainemails]": "1",
-    "contacts[contact][0][generalemails]": "1",
-    "contacts[contact][0][invoiceemails]": "1",
-    "contacts[contact][0][productemails]": "1",
-    "contacts[contact][0][supportemails]": "1",
-    "contacts[contact][0][affiliateemails]": "1",
-    "contacts[contact][0][pwresetkey]": "",
-    "contacts[contact][0][created_at]": "0000-00-00 00:00:00",
-    "contacts[contact][0][updated_at]": "0000-00-00 00:00:00",
-    "contacts[contact][0][pwresetexpiry]": "0000-00-00 00:00:00"
+    "totalresults": 1,
+    "startnumber": 0,
+    "numreturned": 1,
+    "contacts": {
+        "contact": [
+            {
+                "id": 1,
+                "userid": 1,
+                "firstname": "Test",
+                "lastname": "Contact",
+                "email": "contact@example.com",
+                "address1": "404 Street Not Found",
+                "address2": "",
+                "city": "Test",
+                "state": "Test",
+                "postcode": "TE5 5ST",
+                "country": "GB",
+                "phonenumber": "",
+                "domainemails": true,
+                "generalemails": true,
+                "invoiceemails": true,
+                "productemails": true,
+                "supportemails": true,
+                "affiliateemails": true,
+                "created_at": "0000-00-00 00:00:00",
+                "updated_at": "0000-00-00 00:00:00"
+            }
+        ]
+    }
 }
 ```
 
@@ -118,3 +117,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Removed sub-account functionality |

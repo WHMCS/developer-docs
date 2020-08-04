@@ -10,14 +10,16 @@ Retrieve TLD pricing
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetTLDPricing" | Required |
-| currencyid | int | The currency ID to fetch pricing for | Optional |
-| clientid | int | The id of the client to fetch pricing for. Pass one or the other. clientid being passed will override currencyid | Optional |
+| currencyid | int | The currency ID to fetch pricing for. Pass this or clientid, but not both. clientid overrides currencyid. | Optional |
+| clientid | int | The client ID to fetch pricing for. Pass this or clientid, but not both. clientid overrides currencyid. | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| currency | array | An array of information about the associated currency. |
+| pricing | array | An array of pricing and other information for configured TLDs. The items in this array are conditional and only appear when a user has already configured pricing (including a price of 0). |
 
 
 ### Example Request (CURL)
@@ -62,83 +64,125 @@ print_r($results);
 
 ```
 {
+    "result": "success",
     "currency": {
-        "id": "1",
+        "id": 1,
         "code": "USD",
         "prefix": "$",
         "suffix": " USD",
-        "format": "2",
+        "format": 1,
         "rate": "1.00000"
     },
     "pricing": {
         "com": {
             "categories": [
-                "Popular",
-                "gTLD"
+                "Popular"
             ],
             "addons": {
-                "dns": true,
-                "email": true,
-                "idprotect": true
+                "dns": false,
+                "email": false,
+                "idprotect": false
             },
-            "group": "new",
+            "group": "",
             "register": {
-                "1": "9.95",
-                "2": "19.90",
-                "3": "29.85"
+                "1": "14.95"
             },
             "transfer": {
-                "1": "9.95",
-                "2": "15.00",
-                "3": "25.00"
+                "1": "14.95"
             },
             "renew": {
-                "1": "9.95",
-                "2": "15.00",
-                "3": "25.00"
-            }
+                "1": "14.95"
+            },
+            "grace_period": null,
+            "redemption_period": null
         },
         "net": {
             "categories": [
-                "Popular",
-                "gTLD"
+                "Popular"
             ],
             "addons": {
                 "dns": false,
                 "email": false,
                 "idprotect": false
             },
-            "group": "sale",
+            "group": "",
             "register": {
-                "1": "9.00"
+                "1": "14.95"
             },
             "transfer": {
-                "1": "11.95"
+                "1": "14.95"
             },
             "renew": {
-                "1": "11.95"
-            }
+                "1": "14.95"
+            },
+            "grace_period": null,
+            "redemption_period": null
         },
         "org": {
             "categories": [
-                "Popular",
-                "gTLD"
+                "Popular"
             ],
             "addons": {
                 "dns": false,
                 "email": false,
                 "idprotect": false
             },
-            "group": "hot",
+            "group": "",
             "register": {
-                "1": "11.95"
+                "1": "14.95"
             },
             "transfer": {
-                "1": "11.95"
+                "1": "14.95"
             },
             "renew": {
-                "1": "11.95"
-            }
+                "1": "14.95"
+            },
+            "grace_period": null,
+            "redemption_period": null
+        },
+        "biz": {
+            "categories": [
+                "Popular"
+            ],
+            "addons": {
+                "dns": false,
+                "email": false,
+                "idprotect": false
+            },
+            "group": "",
+            "register": {
+                "1": "14.95"
+            },
+            "transfer": {
+                "1": "14.95"
+            },
+            "renew": {
+                "1": "14.95"
+            },
+            "grace_period": null,
+            "redemption_period": null
+        },
+        "info": {
+            "categories": [
+                "Popular"
+            ],
+            "addons": {
+                "dns": false,
+                "email": false,
+                "idprotect": false
+            },
+            "group": "",
+            "register": {
+                "1": "14.95"
+            },
+            "transfer": {
+                "1": "14.95"
+            },
+            "renew": {
+                "1": "14.95"
+            },
+            "grace_period": null,
+            "redemption_period": null
         }
     }
 }

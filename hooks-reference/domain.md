@@ -62,7 +62,7 @@ Executes when a domain transfer is set to completed by the domain sync cron.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domainid | int | The unique identifier for the domain |
+| domainId | int | The unique identifier for the domain |
 | domain | string | The domain name |
 | registrationPeriod | string | The registration period |
 | expiryDate | string | The expiry date (if returned by the registrar) |
@@ -89,7 +89,7 @@ Executes when a domain transfer is set to failed by the domain sync cron.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domainid | int | The unique identifier for the domain |
+| domainId | int | The unique identifier for the domain |
 | domain | string | The domain name |
 | registrationPeriod | string | The registration period |
 | expiryDate | string | The expiry date (if returned by the registrar) |

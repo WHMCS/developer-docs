@@ -18,6 +18,7 @@ Open a new ticket
 | name | string | The name of the person opening the ticket (if not a client) | Optional |
 | email | string | The email address of the person opening the ticket (if not a client) | Optional |
 | priority | string | The priority of the ticket ('Low', 'Medium', 'High') | Optional |
+| created | string | The date and time the ticket message will show as sent. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
 | serviceid | int | The service to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | domainid | int | The domain to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | admin | bool | Is an Admin opening the ticket | Optional |
@@ -110,6 +111,8 @@ Possible error condition responses include:
 * Service ID Not Found
 * Domain ID Not Found
 * Email Address Invalid
+* Invalid Date Format
+* Ticket creation date cannot be in the future
 
 
 ### Version History
@@ -118,3 +121,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.5 | Added support for attachments |
+| 8.0 | Added support for ticket creation date |

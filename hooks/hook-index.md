@@ -168,13 +168,16 @@ weight = 100
 <li> <a href="/hooks-reference/client/#clientdelete">ClientDelete</a>
 <li> <a href="/hooks-reference/client/#clientdetailsvalidation">ClientDetailsValidation</a>
 <li> <a href="/hooks-reference/client/#clientedit">ClientEdit</a>
-<li> <a href="/hooks-reference/client/#clientemailverificationcomplete">ClientEmailVerificationComplete</a>
 <li> <a href="/hooks-reference/client/#predeleteclient">PreDeleteClient</a>
+</ul>
+<h3>User</h3>
+
+<ul><li> <a href="/hooks-reference/user/#userchangepassword">UserChangePassword</a>
+<li> <a href="/hooks-reference/user/#useremailverificationcomplete">UserEmailVerificationComplete</a>
 </ul>
 <h3>Contact</h3>
 
 <ul><li> <a href="/hooks-reference/contact/#contactadd">ContactAdd</a>
-<li> <a href="/hooks-reference/contact/#contactchangepassword">ContactChangePassword</a>
 <li> <a href="/hooks-reference/contact/#contactdelete">ContactDelete</a>
 <li> <a href="/hooks-reference/contact/#contactdetailsvalidation">ContactDetailsValidation</a>
 <li> <a href="/hooks-reference/contact/#contactedit">ContactEdit</a>
@@ -227,9 +230,9 @@ weight = 100
 </ul>
 <h3>Authentication</h3>
 
-<ul><li> <a href="/hooks-reference/authentication/#clientlogin">ClientLogin</a>
-<li> <a href="/hooks-reference/authentication/#clientloginshare">ClientLoginShare</a>
-<li> <a href="/hooks-reference/authentication/#clientlogout">ClientLogout</a>
+<ul><li> <a href="/hooks-reference/authentication/#clientloginshare">ClientLoginShare</a>
+<li> <a href="/hooks-reference/authentication/#userlogin">UserLogin</a>
+<li> <a href="/hooks-reference/authentication/#userlogout">UserLogout</a>
 </ul>
 <h3>Client Area Interface</h3>
 
@@ -338,8 +341,6 @@ weight = 100
 <li> <a href="/hooks-reference/output/#shoppingcartcheckoutoutput">ShoppingCartCheckoutOutput</a>
 <li> <a href="/hooks-reference/output/#shoppingcartconfigureproductaddonsoutput">ShoppingCartConfigureProductAddonsOutput</a>
 <li> <a href="/hooks-reference/output/#shoppingcartviewcartoutput">ShoppingCartViewCartOutput</a>
-<li> <a href="/hooks-reference/output/#shoppingcartviewcategoryaboveproductsoutput">ShoppingCartViewCategoryAboveProductsOutput</a>
-<li> <a href="/hooks-reference/output/#shoppingcartviewcategorybelowproductsoutput">ShoppingCartViewCategoryBelowProductsOutput</a>
 </ul>
 <h3>Cron</h3>
 
@@ -347,6 +348,8 @@ weight = 100
 <li> <a href="/hooks-reference/cron/#dailycronjob">DailyCronJob</a>
 <li> <a href="/hooks-reference/cron/#dailycronjobpreemail">DailyCronJobPreEmail</a>
 <li> <a href="/hooks-reference/cron/#popemailcollectioncroncompleted">PopEmailCollectionCronCompleted</a>
+<li> <a href="/hooks-reference/cron/#postautomationtask">PostAutomationTask</a>
+<li> <a href="/hooks-reference/cron/#preautomationtask">PreAutomationTask</a>
 <li> <a href="/hooks-reference/cron/#precronjob">PreCronJob</a>
 </ul>
 <h3>Everything Else</h3>
@@ -369,8 +372,6 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#logactivity">LogActivity</a>
 <li> <a href="/hooks-reference/everything-else/#notificationpresend">NotificationPreSend</a>
 <li> <a href="/hooks-reference/everything-else/#paymethodmigration">PayMethodMigration</a>
-<li> <a href="/hooks-reference/everything-else/#postautomationtask">PostAutomationTask</a>
-<li> <a href="/hooks-reference/everything-else/#preautomationtask">PreAutomationTask</a>
 <li> <a href="/hooks-reference/everything-else/#preemailsendreducerecipients">PreEmailSendReduceRecipients</a>
 <li> <a href="/hooks-reference/everything-else/#preupgradecheckout">PreUpgradeCheckout</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>

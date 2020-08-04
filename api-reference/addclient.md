@@ -10,6 +10,7 @@ Adds a client.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "AddClient" | Required |
+| owner_user_id | int | The ID of the user that should own the client. Optional. When not provided, a new user will be created. | Optional |
 | firstname | string |  | Required |
 | lastname | string |  | Required |
 | companyname | string |  | Optional |
@@ -22,24 +23,24 @@ Adds a client.
 | country | string | 2 character ISO country code | Required |
 | phonenumber | string |  | Required |
 | tax_id | string | The client Tax ID | Optional |
-| password2 | string |  | Required |
-| securityqid | int | Security Question ID from tbladminsecurityquestions | Optional |
-| securityqans | string | Security Question Answer | Optional |
+| password2 | string | The password for the newly created user account. Required when $owner_user_id is not provided | Optional |
+| securityqid | int | The ID of the Security Question from tbladminsecurityquestions for a newly created user | Optional |
+| securityqans | string | The Security Question Answer for a newly created user | Optional |
+| currency | int | Currency ID from tblcurrencies | Optional |
+| groupid | int | Client Group ID from tblclientgroups | Optional |
+| customfields | string | Base64 encoded serialized array of custom field values | Optional |
+| language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
+| clientip | string | The originating IP address for the request | Optional |
+| notes | string | Admin only notes | Optional |
+| marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
+| noemail | bool | Pass as true to skip sending welcome email | Optional |
+| skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
 | ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
 | ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
 | ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |
 | ~~startdate~~ | ~~string~~ | ~~Format: MMYY (if applicable)~~ | Deprecated |
 | ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable)~~ | Deprecated |
 | ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored)~~ | Deprecated |
-| currency | int | Currency ID from tblcurrencies | Optional |
-| groupid | int | Client Group ID from tblclientgroups | Optional |
-| customfields | string | Base64 encoded serialized array of custom field values | Optional |
-| language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
-| clientip | string | IP address of the user | Optional |
-| notes | string | Admin only notes | Optional |
-| marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
-| noemail | bool | Pass as true to skip sending welcome email | Optional |
-| skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
 
 ### Response Parameters
 
@@ -130,6 +131,7 @@ Possible warning messages include:
 
 Possible error condition responses include:
 
+* Invalid Owner User ID
 * You did not enter your first name
 * You did not enter your last name
 * You did not enter your email address
@@ -152,3 +154,4 @@ Possible error condition responses include:
 | 1.0 | Initial Version |
 | 7.7 | Added `tax_id` parameter. |
 | 7.8 | Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead. |
+| 8.0 | Added 'owner_user_id' parameter. |

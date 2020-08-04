@@ -1,26 +1,23 @@
 +++
-title = "UpdateTicketReply"
+title = "DeleteUserClient"
 toc = true
 +++
 
-Updates a ticket reply message.
+Delete relationship between user and client.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "UpdateTicketReply" | Required |
-| replyid | int | The reply id to update. | Required |
-| message | string | The message to be updated | Required |
-| markdown | bool | Should markdown be used on the ticket message. Existing value is used if not supplied. | Optional |
-| created | string | The date and time the ticket reply will show as sent. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
+| action | string | "DeleteUserClient" | Required |
+| user_id | int | The id of the user to remove from the client | Required |
+| client_id | int | The id of the client to remove the user from | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| replyid | int | The reply id that has been updated |
 
 
 ### Example Request (CURL)
@@ -32,12 +29,12 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'UpdateTicketReply',
+            'action' => 'DeleteUserClient',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'replyid' => '1',
-            'message' => 'This is a sample updated ticket reply',
+            'user_id' => '1',
+            'client_id' => '1',
             'responsetype' => 'json',
         )
     )
@@ -51,10 +48,10 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'UpdateTicketReply';
+$command = 'DeleteUserClient';
 $postData = array(
-    'replyid' => '1',
-    'message' => 'This is a sample updated ticket reply',
+    'user_id' => '1',
+    'client_id' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -67,8 +64,7 @@ print_r($results);
 
 ```
 {
-    "result": "success",
-    "replyid": "1"
+    "result": "success"
 }
 ```
 
@@ -77,16 +73,14 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Reply ID Required
-* Message is Required
-* Reply ID Not Found
-* Invalid Date Format
-* Reply creation date cannot be in the future
+* Invalid user id
+* Invalid client id
+* User is not associated with client
+* You cannot remove the account owner
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 7.7 | Initial Version |
-| 8.0 | Add ticket reply creation date |
+| 8.0.0 | Initial Version |

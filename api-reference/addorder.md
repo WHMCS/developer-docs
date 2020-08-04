@@ -3,7 +3,8 @@ title = "AddOrder"
 toc = true
 +++
 
-Adds an order to a client.
+Adds an order to a client. For more flow control, this method ignores the "Automatically setup the product as soon
+as an order is placed." option. When you call this method, you must make a subsequent explicit call to AcceptOrder.
 
 ### Request Parameters
 
@@ -17,6 +18,7 @@ Adds an order to a client.
 | billingcycle | string[] | The array of billing cycles for the products | Optional |
 | domaintype | string[] | For domain registrations, an array of register or transfer values | Optional |
 | regperiod | int[] | For domain registrations, the registration periods for the domains in the order | Optional |
+| idnlanguage | string[] | For IDN domain registrations. The language code for the domain being registered | Optional |
 | eppcode | string[] | For domain transfers. The epp codes for the domains being transferred in the order | Optional |
 | nameserver1 | string | The first nameserver to apply to all domains in the order | Optional |
 | nameserver2 | string | The second nameserver to apply to all domains in the order | Optional |
@@ -78,7 +80,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
             'pid' => array(1,1),
-            'domain' => array('domain1.com', 'domain2.com'),
+            'domain' => array('domain1.com', 'dómáin2.com'),
+            'idnlanguage' => array('', 'fre'),
             'billingcycle' => array('monthly','semiannually'),
             'addons' => array('1,3,9', ''),
             'customfields' => array(base64_encode(serialize(array("1" => "Google"))), base64_encode(serialize(array("1" => "Google")))),
@@ -106,7 +109,8 @@ $command = 'AddOrder';
 $postData = array(
     'clientid' => '1',
     'pid' => array(1,1),
-    'domain' => array('domain1.com', 'domain2.com'),
+    'domain' => array('domain1.com', 'dómáin2.com'),
+    'idnlanguage' => array('', 'fre'),
     'billingcycle' => array('monthly','semiannually'),
     'addons' => array('1,3,9', ''),
     'customfields' => array(base64_encode(serialize(array("1" => "Google"))), base64_encode(serialize(array("1" => "Google")))),
@@ -158,3 +162,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Added IDN Language parameter |
