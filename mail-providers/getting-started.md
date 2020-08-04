@@ -44,4 +44,4 @@ class Yourmodulename implements SenderModuleInterface
 }
 ```
 
-For more information on the SenderModuleInterface, see [our additional documentation][https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html].
+For more information on the SenderModuleInterface, see [our additional documentation](https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html).
