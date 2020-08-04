@@ -91,7 +91,7 @@ We added and updated the following additional dependencies for Composer:
 | `ezyang/htmlpurifier`         	| 4.9.2        	| 4.12.0     	|
 | `filp/whoops`                  	| 2.1.8        	| 2.7.2     	|
 | `firebase/php-jwt`            	| 3.0.0        	| 5.2.0     	|
-| `google/apiclient`            	| v2.1.3-p1     | 2.7.0-p1   	|
+| `google/apiclient`            	| v2.1.3        | 2.7.0     	|
 | `google/auth`                 	| 0.11.1       	| 1.11.0     	|
 | `guzzlehttp/guzzle`            	| 6.5.3       	| 7.0.1     	|
 | `illuminate/console`          	| 7.9.2        	| 7.12.0     	|
@@ -130,6 +130,6 @@ We added and updated the following additional dependencies for Composer:
 | `symfony/polyfill-mbstring`    	| 1.14.0       	| 1.17.0     	|		
 | `symfony/polyfill-php72`       	| N/A         	| 1.17.0     	|		
 | `symfony/polyfill-php73`       	| N/A         	| 1.17.0     	|		
-| `tecnickcom/tcpdf`            	| 6.2.26-p1    	| 6.3.5-p1   	|		
+| `tecnickcom/tcpdf`            	| 6.2.26      	| 6.3.5     	|		
 | `zbateson/stream-decorators`  	| N/A         	| 1.0.3      	|
 | `zendframework/zend-diactoros` 	| 1.3.10       	| N/A       	|		
