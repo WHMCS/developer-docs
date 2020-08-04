@@ -108,6 +108,11 @@ print_r($results);
 Possible error condition responses include:
 
 * You must supply a name for the product
+* You must supply a valid Product Group ID
+* You must supply a valid welcome email ID
+* Invalid product type. Must be one of "hostingaccount", "reselleraccount", "server" or "other"
+* Invalid pay type. Must be one of "free", "onetime" or "recurring"
+* Invalid autosetup value. Must be one of "", "on", "order" or "payment"
 
 
 ### Version History

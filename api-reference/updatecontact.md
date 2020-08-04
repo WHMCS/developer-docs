@@ -11,7 +11,6 @@ Updates a contact with the passed parameters.
 | --------- | ---- | ----------- | -------- |
 | action | string | "UpdateContact" | Required |
 | contactid | int | The id of the contact to update | Required |
-| subaccount | bool | Is the contact a subaccount | Optional |
 | firstname | string |  | Optional |
 | lastname | string |  | Optional |
 | companyname | string |  | Optional |
@@ -23,14 +22,12 @@ Updates a contact with the passed parameters.
 | postcode | string |  | Optional |
 | country | string | 2 character ISO country code | Optional |
 | phonenumber | string |  | Optional |
-| password2 | string | (sub-account only) | Optional |
 | email_preferences[general] | bool | Should the client receive general emails | Optional |
 | email_preferences[product] | bool | Should the client receive product emails | Optional |
 | email_preferences[domain] | bool | Should the client receive domain emails | Optional |
 | email_preferences[invoice] | bool | Should the client receive invoice emails | Optional |
 | email_preferences[support] | bool | Should the client receive support emails | Optional |
 | email_preferences[affiliate] | bool | Should the client receive affiliate emails | Optional |
-| permissions | string | A comma separated list of sub-account permissions. eg manageproducts,managedomains | Optional |
 
 ### Response Parameters
 
@@ -92,6 +89,16 @@ print_r($results);
 ```
 
 
+### Warning Responses
+
+Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.
+
+Possible warning messages include:
+
+* Sub Accounts are no longer supported. Please use UpdateUser
+
+
 ### Error Responses
 
 Possible error condition responses include:
@@ -107,3 +114,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.10 | Added email preferences parameters |
+| 8.0 | Removed sub-account functionality |

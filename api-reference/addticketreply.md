@@ -22,6 +22,7 @@ Add a reply to a ticket by Ticket ID.
 | noemail | bool | Set to true to stop the ticket reply email being sent | Optional |
 | customfields | string | A base64 encoded array of the custom fields to update | Optional |
 | attachments | array | Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below). | Optional |
+| created | string | The date and time the ticket reply will show as sent. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
 
 ### Response Parameters
 
@@ -97,6 +98,9 @@ Possible error condition responses include:
 * Name and email address are required if not a client
 * Message is required
 * Email Address Invalid
+* Invalid Ticket Status
+* Invalid Date Format
+* Reply creation date cannot be in the future
 
 
 ### Version History
@@ -105,3 +109,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.5 | Added support for attachments |
+| 8.0 | Added support for ticket reply date and time |

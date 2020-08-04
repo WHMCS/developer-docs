@@ -2334,7 +2334,9 @@ Executes after a client has used the register.php file to create a client accoun
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | int | The id of the newly created client. |
+| user_id | int | The id of the user owning the newly created client. |
+| client_id | int | The id of the newly created client. |
+| ~~userid~~ | ~~int~~ | ~~The id of the newly created client.~~ |
 
 #### Response
 

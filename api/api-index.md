@@ -98,6 +98,7 @@ weight = 100
 <li> <a href="/api-reference/updateadminnotes/">UpdateAdminNotes</a>
 <li> <a href="/api-reference/updateannouncement/">UpdateAnnouncement</a>
 <li> <a href="/api-reference/updatetodoitem/">UpdateToDoItem</a>
+<li> <a href="/api-reference/whmcsdetails/">WhmcsDetails</a>
 </ul>
 <h3>Client</h3>
 
@@ -116,7 +117,6 @@ weight = 100
 <li> <a href="/api-reference/getclientsproducts/">GetClientsProducts</a>
 <li> <a href="/api-reference/getcontacts/">GetContacts</a>
 <li> <a href="/api-reference/getemails/">GetEmails</a>
-<li> <a href="/api-reference/resetpassword/">ResetPassword</a>
 <li> <a href="/api-reference/updateclient/">UpdateClient</a>
 <li> <a href="/api-reference/updatecontact/">UpdateContact</a>
 </ul>
@@ -137,7 +137,18 @@ weight = 100
 <li> <a href="/api-reference/updateproject/">UpdateProject</a>
 <li> <a href="/api-reference/updateprojecttask/">UpdateProjectTask</a>
 </ul>
-</div><div class="col-sm-6"><h3>Affiliates</h3>
+</div><div class="col-sm-6"><h3>Users</h3>
+
+<ul><li> <a href="/api-reference/adduser/">AddUser</a>
+<li> <a href="/api-reference/createclientinvite/">CreateClientInvite</a>
+<li> <a href="/api-reference/deleteuserclient/">DeleteUserClient</a>
+<li> <a href="/api-reference/getpermissionslist/">GetPermissionsList</a>
+<li> <a href="/api-reference/getuserpermissions/">GetUserPermissions</a>
+<li> <a href="/api-reference/resetpassword/">ResetPassword</a>
+<li> <a href="/api-reference/updateuser/">UpdateUser</a>
+<li> <a href="/api-reference/updateuserpermissions/">UpdateUserPermissions</a>
+</ul>
+<h3>Affiliates</h3>
 
 <ul><li> <a href="/api-reference/affiliateactivate/">AffiliateActivate</a>
 <li> <a href="/api-reference/getaffiliates/">GetAffiliates</a>

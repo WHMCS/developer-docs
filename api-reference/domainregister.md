@@ -14,6 +14,7 @@ Connects to the registrar and attempts to register the domain.
 | action | string | "DomainRegister" | Required |
 | domainid | int | The id of the domain to register *recommended* | Optional |
 | domain | string | The domain name to be registered. This or $domainid is required | Optional |
+| idnlanguage | string | The language code for the domain being registered - will override the input already on the domain. Optional | Optional |
 
 ### Response Parameters
 
@@ -75,6 +76,7 @@ Possible error condition responses include:
 
 * Domain Not Found
 * Registrar Error Message
+* Invalid IDN Language. Must be one of: xxx
 
 
 ### Version History
@@ -82,3 +84,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Added IDN Language parameter |

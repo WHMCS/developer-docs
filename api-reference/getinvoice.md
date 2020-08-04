@@ -10,33 +10,33 @@ Retrieve a specific invoice
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetInvoice" | Required |
-| invoiceid | int | The ID of the invoice to retrieve | Required |
+| invoiceid | int | The ID of the invoice to retrieve. | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| invoiceid | int | The id of the invoice |
-| invoicenum | string | The Sequential Invoice Number assigned (if enabled) |
-| userid | int | The id of the user owning this invoice |
-| date | \Carbon\Carbon | The date of the invoice YYYY-MM-DD |
-| duedate | \Carbon\Carbon | The due date of the invoice YYYY-MM-DD |
-| datepaid | \Carbon\Carbon | The date the invoice was paid YYYY-MM-DD HH:ii:ss |
-| subtotal | float | The subtotal on the invoice |
-| credit | float | The amount of credit assigned to the invoice |
-| tax | float | The amount of first level tax charged on the invoice |
-| tax2 | float | The amount of second level tax charged on the invoice |
-| total | float | The total of the invoice |
-| balance | float | The amount left to pay on the invoice |
-| taxrate | float | The rate of the first level tax |
-| taxrate2 | float | The rate of the second level tax |
-| status | string | The status of the invoice |
-| paymentmethod | string | The payment method on the invoice in system format |
-| notes | string | The notes associated with the invoice |
-| ccgateway | bool | Is the payment method associated with the invoice a CC Gateway |
-| items | array | The items on the invoice |
-| transactions | array | The transactions on the invoice |
+| invoiceid | int | The ID of the invoice. |
+| invoicenum | string | The Sequential Invoice Number assigned (if enabled). |
+| userid | int | The ID of the user who owns this invoice. |
+| date | string | The date of the invoice. Format: `YYYY-MM-DD` |
+| duedate | string | The due date of the invoice. Format: `YYYY-MM-DD` |
+| datepaid | string | The date the invoice was paid. Format: `YYYY-MM-DD HH:ii:ss` |
+| subtotal | float | The subtotal on the invoice. |
+| credit | float | The amount of credit assigned to the invoice. |
+| tax | float | The amount of first-level tax charged on the invoice. |
+| tax2 | float | The amount of second-level tax charged on the invoice. |
+| total | float | The total of the invoice. |
+| balance | float | The amount left to pay on the invoice. |
+| taxrate | float | The rate of the first-level tax. |
+| taxrate2 | float | The rate of the second-level tax. |
+| status | string | The status of the invoice. |
+| paymentmethod | string | The payment method on the invoice, in system format. |
+| notes | string | The notes associated with the invoice. |
+| ccgateway | bool | Whether the payment method is associated with the invoice's credit card gateway. |
+| items | array | The items on the invoice. |
+| transactions | array | The transactions on the invoice. |
 
 
 ### Example Request (CURL)

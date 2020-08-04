@@ -38,7 +38,9 @@ Executes as a client is being added to WHMCS.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | int |  |
+| client_id | int | The id of the client that has been added |
+| user_id | int | The user id the client belongs to |
+| ~~userid~~ | ~~int~~ | ~~The id of the client that has been added~~ |
 | firstname | string |  |
 | lastname | string |  |
 | companyname | string |  |
@@ -197,7 +199,7 @@ Executes before adding a client or updating a client through the Admin or Client
 | postcode | string | The client's postcode/zipcode |
 | country | string | The client's country (2 character code) |
 | phonenumber | string | The client's phone number |
-| tax_id | string | The client's tax id |
+| tax_id | string | The client's tax ID |
 | paymentmethod | string | If selected, the client's default payment method |
 | customfield | string | An array of Key => Value pairs |
 | securityqid | int | Only from Admin Area or when registering |
@@ -241,7 +243,6 @@ Executes when a client is edited.
 | postcode | string |  |
 | country | string |  |
 | phonenumber | string |  |
-| password | string | The encrypted password for the user |
 | currency | int | The id of the currency |
 | notes | string |  |
 | status | string |  |
@@ -255,8 +256,6 @@ Executes when a client is edited.
 | overrideautoclose | bool |  |
 | language | string |  |
 | billingcid | int |  |
-| securityqid | int |  |
-| securityqans | string | The encrypted security question answer |
 | groupid | int | The id of the client group |
 | allow_sso | bool | Is Single Sign on enabled for the client? |
 | olddata | array | An array of the previous contact information |
@@ -275,29 +274,6 @@ No response supported
 ```
 <?php
 add_hook('ClientEdit', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ClientEmailVerificationComplete
-
-Executes upon successful completion of email verification by a client user.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userId | int |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ClientEmailVerificationComplete', 1, function($vars) {
     // Perform hook code here...
 });
 ```

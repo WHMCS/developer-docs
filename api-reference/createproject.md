@@ -10,15 +10,15 @@ Creates a new project
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "CreateProject" | Required |
-| title | string | The title of the new project | Required |
-| adminid | int | The adminId the project will be associated with | Required |
-| userid | int | The user that the project is for | Optional |
-| status | string | The status of the project as defined in Project Management Settings | Optional |
-| created | \Carbon\Carbon | The created date of the project in Y-m-d format | Optional |
-| duedate | \Carbon\Carbon | The duedate date of the project in Y-m-d format | Optional |
-| completed | bool | Is the project completed | Optional |
-| ticketids | string | A comma separated list of ticket IDs to associate with the project | Optional |
-| invoiceids | string | A comma separated list of invoice IDs to associate with the project | Optional |
+| title | string | The title of the new project. | Required |
+| adminid | int | The admin ID the project will be associated with. | Required |
+| userid | int | The user who the project is for. | Optional |
+| status | string | The status of the project, as defined in Project Management Settings. | Optional |
+| created | string | The created date of the project in `Y-m-d` format. | Optional |
+| duedate | string | The due date date of the project in `Y-m-d` format. | Optional |
+| completed | bool | Whether the project is complete. | Optional |
+| ticketids | string | A comma-separated list of ticket IDs to associate with the project. | Optional |
+| invoiceids | string | A comma-separated list of invoice IDs to associate with the project. | Optional |
 
 ### Response Parameters
 

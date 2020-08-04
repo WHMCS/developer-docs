@@ -393,7 +393,7 @@ Allows for transformation of a date prior to output within the Client Area.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| date | string | A Carbon object representing the date. |
+| date | \Carbon | A Carbon object representing the date. |
 
 #### Response
 
@@ -416,7 +416,7 @@ Allows for transformation of a date/time prior to output within the Client Area.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| date | string | A Carbon object representing the date and time. |
+| date | \Carbon | A Carbon object representing the date/time. |
 
 #### Response
 
@@ -549,44 +549,3 @@ add_hook('ShoppingCartViewCartOutput', 1, function($vars) {
 });
 ```
 
-## ShoppingCartViewCategoryAboveProductsOutput
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| cart | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ShoppingCartViewCategoryAboveProductsOutput', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ShoppingCartViewCategoryBelowProductsOutput
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| cart | | |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ShoppingCartViewCategoryBelowProductsOutput', 1, function($vars) {
-    // Perform hook code here...
-});
-```

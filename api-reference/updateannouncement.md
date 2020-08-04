@@ -10,18 +10,18 @@ Update a specific announcement
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "UpdateAnnouncement" | Required |
-| announcementid | string | The id of the announcement to update | Required |
-| title | string | The title of the announcement (if required to change) | Optional |
-| announcement | string | The message of the announcement (if required to change) | Optional |
-| date | \Carbon\Carbon | The date of the announcement (if required to change) (Y-m-d H:i:s) | Optional |
-| published | bool | Publish the announcement 1/0 (if required to change) | Optional |
+| announcementid | string | The ID of the announcement to update. | Required |
+| title | string | The title of the announcement (if required to change). | Optional |
+| announcement | string | The message of the announcement (if required to change). | Optional |
+| date | string | The date of the announcement (if required to change). Format: Y-m-d H:i:s | Optional |
+| published | bool | Whether to publish the announcement (1 or 0) (if required to change). | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| announcementid | int | The id of the announcement updated |
+| announcementid | int | The ID of the updated announcement. |
 
 
 ### Example Request (CURL)

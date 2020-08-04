@@ -10,29 +10,29 @@ Obtain orders matching the passed criteria
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetProjects" | Required |
-| limitstart | int | The offset for the returned project data (default: 0) | Optional |
-| limitnum | int | The number of records to return (default: 25) | Optional |
-| userid | int | Find projects for a specific client id | Optional |
-| title | string | Find projects with a specific title | Optional |
-| ticketids | string | Find projects with specific ticketids | Optional |
-| invoiceids | string | Find projects with specific invoiceids | Optional |
-| notes | string | Find projects with specific notes | Optional |
-| adminid | int | Find projects assigned to a specific admin id | Optional |
-| status | string | Find projects with a specific status | Optional |
-| created | \Carbon\Carbon | Find projects with a specific creation date | Optional |
-| duedate | \Carbon\Carbon | Find projects with a specific due date | Optional |
-| completed | bool | Find projects that are/aren't completed | Optional |
-| lastmodified | \Carbon\Carbon | Find projects with a specific last modified date | Optional |
+| limitstart | int | The offset for the returned project data (default: `0`). | Optional |
+| limitnum | int | The number of records to return (default: `25`). | Optional |
+| userid | int | A specific client ID to find projects for. | Optional |
+| title | string | A specific title to find projects for. | Optional |
+| ticketids | string | Specific ticket IDs to find projects for. | Optional |
+| invoiceids | string | Specific invoice IDs to find projects for. | Optional |
+| notes | string | Specific notes to find projects for. | Optional |
+| adminid | int | A specific admin ID to find projects for. | Optional |
+| status | string | A specific status to find projects for. | Optional |
+| created | string | A specific creation date to find projects for. | Optional |
+| duedate | string | A specific due date to find projects for. | Optional |
+| completed | bool | Whether to find projects that are or aren't completed. | Optional |
+| lastmodified | string | A specific last modified date to find projects for. | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| totalresults | int | The total number of results available |
-| startnumber | int | The starting number for the returned results |
-| numreturned | int | The number of results returned |
-| invoices | array | An array of invoices matching the criteria passed |
+| totalresults | int | The total number of results available. |
+| startnumber | int | The starting number for the returned results. |
+| numreturned | int | The number of results returned. |
+| invoices | array | An array of invoices matching the passed criteria. |
 
 
 ### Example Request (CURL)
@@ -76,22 +76,26 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "1",
-    "startnumber": "0",
-    "numreturned": "1",
-    "projects[0][id]": "1",
-    "projects[0][userid]": "1",
-    "projects[0][title]": "Test Project",
-    "projects[0][attachments]": "",
-    "projects[0][ticketids]": "",
-    "projects[0][invoiceids]": "",
-    "projects[0][notes]": "",
-    "projects[0][adminid]": "1",
-    "projects[0][status]": "Pending",
-    "projects[0][created]": "2016-01-01",
-    "projects[0][duedate]": "2016-01-09",
-    "projects[0][completed]": "0",
-    "projects[0][lastmodified]": "2016-1-02 13:59:01"
+    "totalresults": 1,
+    "startnumber": 0,
+    "numreturned": 1,
+    "projects": [
+        {
+            "id": 1,
+            "userid": 0,
+            "title": "First Project",
+            "ticketids": "",
+            "invoiceids": "",
+            "notes": "",
+            "adminid": 1,
+            "status": "Pending",
+            "created": "2020-06-24",
+            "duedate": "2020-06-24",
+            "completed": 0,
+            "lastmodified": "2020-06-24 10:26:23",
+            "watchers": ""
+        }
+    ]
 }
 ```
 
