@@ -10,7 +10,7 @@ Creates an activity log entry.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "LogActivity" | Required |
-| userid | int |  | Optional |
+| clientid | int | The ID of a client the log entry relates to. | Optional |
 | description | string |  | Required |
 
 ### Response Parameters
@@ -72,3 +72,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Renamed `userid` parameter to `clientid`. |

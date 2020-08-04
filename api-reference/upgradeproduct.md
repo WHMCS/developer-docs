@@ -17,11 +17,7 @@ Upgrade, or calculate an upgrade on, a product
 | newproductid | int | The Id of the new product | Optional |
 | newproductbillingcycle | string | The new products billing cycle | Optional |
 | promocode | string | The promotion code to apply to the upgrade | Optional |
-| configoptions | array | An array of config options to upgrade | Optional |
-| configoptions[id] | int | The id of the config option | Optional |
-| configoptions[optiontype] | int | The config option type | Optional |
-| configoptions[selectedvalue] | int | The config option selected value | Optional |
-| configoptions[selectedqty] | int | The config option quantity selected | Optional |
+| configoptions | array | An array of config options to upgrade. Keys are the config option ids and values must be respective to config option type. | Optional |
 
 ### Response Parameters
 
@@ -49,6 +45,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'newproductbillingcycle' => 'monthly',
             'type' => 'product',
             'newproductid' => '11',
+            'configoptions' => '[1 => 'text options', 2 = 5 //qty option] // Only used when type is 'configoptions'',
             'responsetype' => 'json',
         )
     )
@@ -69,6 +66,7 @@ $postData = array(
     'newproductbillingcycle' => 'monthly',
     'type' => 'product',
     'newproductid' => '11',
+    'configoptions' => '[1 => 'text options', 2 = 5 //qty option] // Only used when type is 'configoptions'',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

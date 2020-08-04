@@ -3,15 +3,15 @@ title = "ResetPassword"
 toc = true
 +++
 
-Starts the password reset process for a client or contact.
+Starts the password reset process for a user.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "ResetPassword" | Required |
-| id | int | The id of the client to reset. The id can only belong to a client. | Optional |
-| email | string | The email address of the client or contact to update. Either $id or $email is required | Optional |
+| id | int | The id of the user to reset. The id can only belong to a user. | Optional |
+| email | string | The email address of the user update. Either $id or $email is required | Optional |
 
 ### Response Parameters
 
@@ -71,9 +71,9 @@ print_r($results);
 
 Possible error condition responses include:
 
-* Client ID Not Found
+* Please provide a valid email address
+* User Not Found
 * Please enter the email address or provide the id
-* No account was found with the email address you entered
 
 
 ### Version History
@@ -81,3 +81,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Migrated Reset Password to User |

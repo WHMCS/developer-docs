@@ -15,6 +15,7 @@ Add a note to a ticket by Ticket ID or Ticket Number.
 | ticketid | int | The id of the ticket in the database. Either $ticketnum or $ticketid is required | Optional |
 | markdown | bool | Should markdown be used on the ticket note output | Optional |
 | attachments | array | Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below). | Optional |
+| created | string | The date and time the ticket note will show as created. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
 
 ### Response Parameters
 
@@ -82,6 +83,8 @@ Possible error condition responses include:
 
 * Ticket ID not found
 * Message is required
+* Invalid Date Format
+* Ticket creation date cannot be in the future
 
 
 ### Version History
@@ -90,3 +93,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.5 | Added support for attachments |
+| 8.0 | Add support for note creation date |

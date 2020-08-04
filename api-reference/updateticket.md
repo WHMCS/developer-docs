@@ -19,6 +19,7 @@ Updates an existing ticket
 | email | string | The email address of the person opening the ticket (if not a client) | Optional |
 | cc | string | The cc email addresses for the ticket | Optional |
 | priority | string | The priority of the ticket ('Low', 'Medium', 'High') | Optional |
+| created | string | The date and time the initial message will show as created. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
 | flag | int | The id of the admin to flag the ticket to | Optional |
 | removeFlag | bool | Remove the flag from the ticket | Optional |
 | message | string | Update the ticket message | Optional |
@@ -93,6 +94,8 @@ Possible error condition responses include:
 * Department ID Not Found
 * Invalid Ticket Priority. Valid priorities are: Low,Medium,High
 * Invalid Ticket Status. Valid statuses are: xxx
+* Invalid Date Format
+* Ticket creation date cannot be in the future
 
 
 ### Version History
@@ -101,3 +104,4 @@ Possible error condition responses include:
 | ------- | --------- |
 | 1.0 | Initial Version |
 | 7.7 | Added `message` parameter that allows updating primary ticket message. |
+| 8.0 | Added support for ticket creation date. |

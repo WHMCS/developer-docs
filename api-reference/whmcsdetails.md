@@ -1,26 +1,22 @@
 +++
-title = "UpdateTicketReply"
+title = "WhmcsDetails"
 toc = true
 +++
 
-Updates a ticket reply message.
+Obtain details pertaining to the current WHMCS installation
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "UpdateTicketReply" | Required |
-| replyid | int | The reply id to update. | Required |
-| message | string | The message to be updated | Required |
-| markdown | bool | Should markdown be used on the ticket message. Existing value is used if not supplied. | Optional |
-| created | string | The date and time the ticket reply will show as sent. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
+| action | string | "WhmcsDetails" | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| replyid | int | The reply id that has been updated |
+| whmcs | array | The version details of the current WHMCS installation |
 
 
 ### Example Request (CURL)
@@ -32,12 +28,10 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'UpdateTicketReply',
+            'action' => 'WhmcsDetails',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'replyid' => '1',
-            'message' => 'This is a sample updated ticket reply',
             'responsetype' => 'json',
         )
     )
@@ -51,10 +45,8 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'UpdateTicketReply';
+$command = 'WhmcsDetails';
 $postData = array(
-    'replyid' => '1',
-    'message' => 'This is a sample updated ticket reply',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -68,25 +60,16 @@ print_r($results);
 ```
 {
     "result": "success",
-    "replyid": "1"
+    "whmcs": {
+        "version": "7.10.2",
+        "canonicalversion": "7.10.2-release.1"
+    }
 }
 ```
-
-
-### Error Responses
-
-Possible error condition responses include:
-
-* Reply ID Required
-* Message is Required
-* Reply ID Not Found
-* Invalid Date Format
-* Reply creation date cannot be in the future
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 7.7 | Initial Version |
-| 8.0 | Add ticket reply creation date |
+| 1.0 | Initial Version |

@@ -10,17 +10,17 @@ Updates a project
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "UpdateProject" | Required |
-| projectid | int | The project ID to update | Required |
-| adminid | int | The adminId the project will be associated with | Optional |
-| userid | int | The user that the project is for | Optional |
-| status | string | The status of the project as defined in Project Management Settings | Optional |
-| created | \Carbon\Carbon | The created date of the project in Y-m-d format | Optional |
-| duedate | \Carbon\Carbon | The due date of the project in Y-m-d format | Optional |
-| completed | bool | Is the project completed | Optional |
-| title | string | The title of the project | Optional |
-| ticketids | string | A comma separated list of ticket IDs to associate with the project | Optional |
-| invoiceids | string | A comma separated list of invoice IDs to associate with the project | Optional |
-| notes | string | The notes to associate with the project | Optional |
+| projectid | int | The project ID to update. | Required |
+| adminid | int | The adminId the project will be associated with. | Optional |
+| userid | int | The user that the project is for. | Optional |
+| status | string | The status of the project as defined in Project Management Settings. | Optional |
+| created | string | The created date of the project in the Y-m-d format. | Optional |
+| duedate | string | The due date of the project in the Y-m-d format. | Optional |
+| completed | bool | Whether the project is completed. | Optional |
+| title | string | The title of the project. | Optional |
+| ticketids | string | A comma-separated list of ticket IDs to associate with the project. | Optional |
+| invoiceids | string | A comma-separated list of invoice IDs to associate with the project. | Optional |
+| notes | string | The notes to associate with the project. | Optional |
 
 ### Response Parameters
 

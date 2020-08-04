@@ -8,7 +8,7 @@ The following hooks are provided for Cron related events.
 
 ## AfterCronJob
 
-Runs after all scheduled cron tasks have completed.
+Runs each time that the system calls the system cron job. This occurs after all scheduled tasks finish.
 
 #### Parameters
 
@@ -94,6 +94,53 @@ No response supported
 ```
 <?php
 add_hook('PopEmailCollectionCronCompleted', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PostAutomationTask
+
+Executes after an automation task occurs
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| task | \Collection |  |
+| completed | bool |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PostAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## PreAutomationTask
+
+Executes before an automation task occurs
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| task | \Collection |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PreAutomationTask', 1, function($vars) {
     // Perform hook code here...
 });
 ```

@@ -729,7 +729,7 @@ Executes when the Complete Page is displayed on checkout.
 
 #### Response
 
-HTML to be displayed on the order complete page.
+Return HTML to be displayed on the order complete page.
 
 #### Example Code
 

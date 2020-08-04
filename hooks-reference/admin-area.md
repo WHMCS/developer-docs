@@ -248,8 +248,6 @@ Executes when a client profile is being viewed in the Admin area.
 | overrideautoclose | bool |  |
 | language | string |  |
 | billingcid | int |  |
-| securityqid | int |  |
-| securityqans | string | The encrypted security question answer |
 | groupid | int | The id of the client group |
 | allow_sso | bool | Is Single Sign on enabled for the client? |
 | olddata | array | An array of the previous contact information |

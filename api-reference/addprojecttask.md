@@ -10,13 +10,13 @@ Adds a Task to a project
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "AddProjectTask" | Required |
-| projectid | int | The id of the project the task is for | Required |
-| duedate | \Carbon\Carbon | The duedate for the task. Format YYYY-mm-dd | Required |
-| adminid | int | The admin id to associate the task with | Optional |
-| task | string | The task title | Optional |
-| notes | string | The notes for the task | Optional |
-| completed | bool | Has the task been completed | Optional |
-| billed | bool | Has the task been billed | Optional |
+| projectid | int | The ID of the project the task is for. | Required |
+| duedate | string | The due date for the task. Format: YYYY-mm-dd | Required |
+| adminid | int | The admin ID to associate the task with. | Optional |
+| task | string | The task title. | Optional |
+| notes | string | The notes for the task. | Optional |
+| completed | bool | Whether the task has been completed. | Optional |
+| billed | bool | Whether the task has been billed. | Optional |
 
 ### Response Parameters
 

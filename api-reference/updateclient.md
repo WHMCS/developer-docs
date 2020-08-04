@@ -24,9 +24,6 @@ Updates a client with the passed parameters.
 | country | string | 2 character ISO country code | Optional |
 | phonenumber | string |  | Optional |
 | tax_id | string | The client Tax ID | Optional |
-| password2 | string |  | Optional |
-| securityqid | int | Security Question ID from tbladminsecurityquestions | Optional |
-| securityqans | string | Security Question Answer | Optional |
 | ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
 | ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
 | ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |
@@ -141,5 +138,6 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Removed attributes migrated to users: security questions and password |
 | 7.10 | Added email preferences parameters |
 | 7.8 | Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod, DeletePayMethod or UpdatePayMethod instead. |

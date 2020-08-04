@@ -10,16 +10,20 @@ Update To-Do Item.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "UpdateToDoItem" | Required |
-| itemid | int | The id of the To-Do item to be updated. | Optional |
-| adminid | int | The admin id performing the update. | Optional |
-| status | string | The status of the to-do item. | Optional |
+| itemid | int | The To-Do item's ID. | Required |
+| adminid | int | The ID of the admin user updating the To-Do item. | Required |
+| status | string | The status of the To-Do item. | Optional |
+| date | int | The date for the To-Do item. | Optional |
+| title | string | The To-Do item's title. | Optional |
+| description | string | A description of the To-Do item. | Optional |
+| duedate | int | The To-Do item's due date. | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| itemid | int | The To-Do item ID affected. |
+| itemid | int | The ID of the affected To-Do item. |
 
 
 ### Example Request (CURL)

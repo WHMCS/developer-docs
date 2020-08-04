@@ -67,27 +67,33 @@ print_r($results);
         "status": [
             {
                 "title": "Open",
-                "count": 1
+                "count": 12,
+                "color": "#779500"
             },
             {
                 "title": "Answered",
-                "count": 14
+                "count": 43,
+                "color": "#000000"
             },
             {
                 "title": "Customer-Reply",
-                "count": 3
+                "count": 6,
+                "color": "#ff6600"
             },
             {
                 "title": "On Hold",
-                "count": 0
+                "count": 0,
+                "color": "#224488"
             },
             {
                 "title": "In Progress",
-                "count": 0
+                "count": 3,
+                "color": "#cc0000"
             },
             {
                 "title": "Closed",
-                "count": 69
+                "count": 3562,
+                "color": "#888888"
             }
         ]
     }
@@ -100,3 +106,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Provide defined status color for a respective status within `$statuses` array. |

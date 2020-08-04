@@ -10,22 +10,22 @@ Adds a Billable Item
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "AddBillableItem" | Required |
-| clientid | int | The client to add the item to | Required |
-| description | string | The description of the Billable Item. This will appear on the invoice | Required |
-| amount | float | the total amount to invoice for | Required |
-| invoiceaction | string | One of 'noinvoice', 'nextcron', 'nextinvoice', 'duedate', 'recur' | Optional |
-| recur | int | When $invoiceaction=recur. The frequency of the recurrence. | Optional |
+| clientid | int | The client to add the item to. | Required |
+| description | string | The description of the Billable Item. This will appear on the invoice. | Required |
+| amount | float | The total amount to invoice for. | Required |
+| invoiceaction | string | One of 'noinvoice', 'nextcron', 'nextinvoice', 'duedate', or 'recur'. | Optional |
+| recur | int | When `$invoiceaction=recur`. The frequency of the recurrence. | Optional |
 | recurcycle | string | How often to recur the Billable Item. Days, Weeks, Months or Years. | Optional |
 | recurfor | int | How many times the Billable Item should create an invoice. | Optional |
-| duedate | \Carbon\Carbon | Date the invoice should be due (only required for duedate & recur invoice actions). YYYY-mm-dd | Optional |
-| hours | float | number of hours/quantity the item corresponds to. (not required for single quantities) | Optional |
+| duedate | string | Date the invoice should be due (only required for due date and recur invoice actions). YYYY-mm-dd | Optional |
+| hours | float | The number of hours or quantity the item corresponds to (not required for single quantities). | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| billableid | int | The id of the newly created billable item |
+| billableid | int | The ID of the newly created billable item. |
 
 
 ### Example Request (CURL)

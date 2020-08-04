@@ -10,25 +10,25 @@ Obtain quotes matching the passed criteria
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetQuotes" | Required |
-| limitstart | int | The offset for the returned quote data (default: 0) | Optional |
-| limitnum | int | The number of records to return (default: 25) | Optional |
-| quoteid | int | Obtain a specific quote id | Optional |
-| userid | int | Find quotes for a specific client id | Optional |
-| subject | string | Find quotes for a specific subject | Optional |
-| stage | string | Find quotes for a specific stage ('Draft','Delivered','On Hold','Accepted','Lost','Dead') | Optional |
-| datecreated | \Carbon\Carbon | Find quotes for a specific created date. Format: Y-m-d | Optional |
-| lastmodified | \Carbon\Carbon | Find quotes for a specific last modified date. Format: Y-m-d | Optional |
-| validuntil | \Carbon\Carbon | Find quotes for a specific valid until date. Format: Y-m-d | Optional |
+| limitstart | int | The offset for the returned quote data (default: 0). | Optional |
+| limitnum | int | The number of records to return (default: 25). | Optional |
+| quoteid | int | A specific quote ID to find quotes for. | Optional |
+| userid | int | A specific client to find quotes for. | Optional |
+| subject | string | A specific subject to find quotes for. | Optional |
+| stage | string | A specific stage ('Draft','Delivered','On Hold','Accepted','Lost', or 'Dead') to find quotes for. | Optional |
+| datecreated | string | A specific created date to find quotes for. Format: Y-m-d | Optional |
+| lastmodified | string | A specific last modified date to find quotes for. Format: Y-m-d | Optional |
+| validuntil | string | A specific valid until date to find quotes for. Format: Y-m-d | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| totalresults | int | The total number of results available |
-| startnumber | int | The starting number for the returned results |
-| numreturned | int | The number of results returned |
-| quotes | array | An array of quotes matching the criteria passed |
+| totalresults | int | The total number of results available. |
+| startnumber | int | The starting number for the returned results. |
+| numreturned | int | The number of results returned. |
+| quotes | array | An array of quotes matching the criteria passed. |
 
 
 ### Example Request (CURL)

@@ -8,7 +8,7 @@ The following hooks are provided for Addon related events.
 
 ## AddonActivated
 
-Executes when an addon is activated.
+Executes when an addon status is changed to Active.
 
 #### Parameters
 
@@ -34,14 +34,15 @@ add_hook('AddonActivated', 1, function($vars) {
 
 ## AddonActivation
 
-Executes when an addon is activated.
+Executes when a product addon becomes active as part of invoice payment or order acceptance, following any provisioning or welcome email automation.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | id | int | The addon ID (tblhostingaddons) |
-| userid | int |  |
+| userid | int | The currently logged in user |
+| clientid | int | The currently logged in client |
 | serviceid | int |  |
 | addonid | int | The predefined addon ID (tbladdons) |
 

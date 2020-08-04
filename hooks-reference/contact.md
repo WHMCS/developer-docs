@@ -28,9 +28,6 @@ Executes as a contact is being added to WHMCS.
 | country | string |  |
 | phonenumber | string |  |
 | tax_id | string |  |
-| subaccount | bool |  |
-| password | string |  |
-| permissions | string | A comma separated list of allowed permissions for a sub-account |
 | generalemails | bool |  |
 | productemails | bool |  |
 | domainemails | bool |  |
@@ -47,31 +44,6 @@ No response supported
 ```
 <?php
 add_hook('ContactAdd', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## ContactChangePassword
-
-Executed when a change of password occurs for a contact.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| userid | int |  |
-| contactid | int |  |
-| password | string | The new password |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('ContactChangePassword', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -149,8 +121,6 @@ Runs when a contact is edited.
 | country | string |  |
 | phonenumber | string |  |
 | tax_id | string |  |
-| subaccount | bool |  |
-| permissions | string | A comma separated list of permissions if the contact is a sub-account |
 | domainemails | bool |  |
 | generalemails | bool |  |
 | invoiceemails | bool |  |

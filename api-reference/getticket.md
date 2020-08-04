@@ -10,35 +10,38 @@ Obtain a specific ticket
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetTicket" | Required |
-| ticketnum | string | Obtain the ticket for the specific Client Ticket Number | Optional |
-| ticketid | int | Obtain the ticket for the specific ticket id (Either $ticketnum or $ticketid is required) | Optional |
-| repliessort | string | ASC or DESC. Which order to organise the ticket replies | Optional |
+| ticketnum | string | A specific Client Ticket Number to find tickets for. | Optional |
+| ticketid | int | A specific ticket ID to find tickets for (either $ticketnum or $ticketid is required). | Optional |
+| repliessort | string | ASC or DESC. The order to use to organise the ticket replies. | Optional |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| ticketid | int | The unique Id of the ticket |
-| tid | string | The unique ticket number string displayed to end users |
-| c | string | The client unique access of the ticket |
-| deptid | int | The id of the department the ticket belongs to |
-| deptname | string | The name of the department the ticket belongs to |
-| userid | int | The user id the ticket belongs to |
-| contactid | int | The contact id the ticket was opened by |
-| name | string | The name of the user |
-| email | string | The email address of the user |
-| cc | string | The cc email addresses for the ticket |
-| date | \Carbon\Carbon | The date the ticket was opened Y-m-d H:i:s |
-| subject | string | The subject of the ticket |
-| status | string | The status of the ticket |
-| priority | string | The priority of the ticket |
-| admin | string | The name of the admin user who opened the ticket |
-| lastreply | \Carbon\Carbon | The date the ticket was last replied to Y-m-d H:i:s |
-| flag | int | The id of the admin user a ticket is flagged to |
-| service | string | The id of the service associated with the ticket. Sx for services. Dx for domains |
-| replies | array | an Array of replies on the ticket |
-| notes | array | an Array of notes on the ticket |
+| ticketid | int | The unique ID of the ticket. |
+| tid | string | The unique ticket number string displayed to end users. |
+| c | string | The client unique access of the ticket. |
+| deptid | int | The ID of the department the ticket belongs to. |
+| deptname | string | The name of the department the ticket belongs to. |
+| userid | int | The user ID the ticket belongs to. |
+| contactid | int | The contact ID the ticket was opened by. |
+| name | string | The ticket submitter's name. |
+| email | string | The ticket submitter's email. |
+| requestor_name | string | The ticket submitter's name. |
+| requestor_type | string | The ticket submitter's type. |
+| requestor_email | string | The ticket submitter's email. |
+| cc | string | The CC email addresses for the ticket. |
+| date | string | The date the ticket was opened on. Format: Y-m-d H:i:s |
+| subject | string | The subject of the ticket. |
+| status | string | The status of the ticket. |
+| priority | string | The priority of the ticket. |
+| admin | string | The name of the admin user who opened the ticket. |
+| lastreply | string | The date the ticket was last replied to. Format: Y-m-d H:i:s |
+| flag | int | The ID of the admin user a ticket is flagged to. |
+| service | string | The ID of the service associated with the ticket (Sx for services and Dx for domains). |
+| replies | array | An array of replies on the ticket. |
+| notes | array | An array of notes on the ticket. |
 
 
 ### Example Request (CURL)
@@ -110,6 +113,9 @@ print_r($results);
                 "contactid": "0",
                 "name": "Cynthia Reilly",
                 "email": "testuser@whmcs.com",
+                "requestor_name": "Cynthia Reilly",
+                "requestor_email": "testuser@whmcs.com",
+                "requestor_type": "Owner",
                 "date": "2016-01-01 06:26:29",
                 "message": "Hey, \r\n\r\nThis is the first ticket message!\r\n\r\nThanks\r\n\r\nCynthia",
                 "attachment": "123456_attachment_name.png",
@@ -128,6 +134,9 @@ print_r($results);
                 "contactid": "0",
                 "name": "",
                 "email": "",
+                "requestor_name": "Demo Admin",
+                "requestor_email": "",
+                "requestor_type": "Operator",
                 "date": "2016-01-01 06:27:01",
                 "message": "Hello, \r\n\r\nThis is the first ticket reply by an admin user!\r\n\r\nThanks\r\n\r\nDemo Admin",
                 "attachment": "",
@@ -144,6 +153,9 @@ print_r($results);
                 "contactid": "0",
                 "name": "",
                 "email": "",
+                "requestor_name": "Cynthia Reilly",
+                "requestor_email": "testuser@whmcs.com",
+                "requestor_type": "Owner",
                 "date": "2016-01-01 06:30:16",
                 "message": "Hey, \r\n\r\nThis is a second reply!\r\n\r\nThanks\r\n\r\nCynthia",
                 "attachment": "",
@@ -180,4 +192,5 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
-| 7.10 | Added new return parameter `attachments` |
+| 7.10 | Added new return parameter `attachments`. |
+| 8.0 | Added new return parameters `requestor_name`, `requestor_type`, and `requestor_email`. |
