@@ -13,7 +13,7 @@ There are several changes in WHMCS v8.0 and its dependencies that may affect thi
 
 ## PHP 7.2 requirement
 
-WHMCS v8.0 and its dependencies require PHP 7.2. This may require the presence of the PHP 7.2 syntax in your code in order to avoid errors. We recommend that you consult [the PHP manual's PHP 7.2 Migration Guide][https://www.php.net/manual/en/migration72.php] as you evaluate and update your code for compatibility with WHMCS v8.0.
+WHMCS v8.0 and its dependencies require PHP 7.2. This may require the presence of the PHP 7.2 syntax in your code in order to avoid errors. We recommend that you consult [the PHP manual's PHP 7.2 Migration Guide](https://www.php.net/manual/en/migration72.php) as you evaluate and update your code for compatibility with WHMCS v8.0.
 
 ## Removed templates
 
@@ -35,7 +35,7 @@ Carbon has been upgraded from version 1 to version 2. `Carbon\Carbon::parse()` n
 
 ### Guzzle
 
-Guzzle has been upgraded from version 5 to version 7. The major changes in this upgrade are listed below. For more information and a full list of changes, see [Guzzle's documentation][https://github.com/guzzle/guzzle/blob/master/UPGRADING.md].
+Guzzle has been upgraded from version 5 to version 7. The major changes in this upgrade are listed below. For more information and a full list of changes, see [Guzzle's documentation](https://github.com/guzzle/guzzle/blob/master/UPGRADING.md).
 
 The `client::get()` returns have changed, so you may need to switch to `getBody()->getContents` or cast `->getBody()` to a string.
 
@@ -44,6 +44,7 @@ You may need to consider making these changes:
 * Use `base_uri` rather than `base_url`.
 * Store cookies in `CookieJarInterface`, not a `key => value` array.
 * When you instantiate the Guzzle Client class, move every option from the `defaults` array key to the top level of options:
+
 ```
              $client = new Client([
 -                 'defaults' => [
@@ -76,7 +77,7 @@ These changes are particularly important if you use Eloquent.
 
 ### Smarty
 
-We upgraded `smarty/smarty` from version 3.1.33 to 3.1.36. Additionally, there are changes in the use of Smarty's Security Policy parameters. For more information, see [Smarty Security Policy][https://docs.whmcs.com/Smarty_Security_Policy].
+We upgraded `smarty/smarty` from version 3.1.33 to 3.1.36. Additionally, there are changes in the use of Smarty's Security Policy parameters. For more information, see [Smarty Security Policy](https://docs.whmcs.com/Smarty_Security_Policy).
 
 ### Other
 
