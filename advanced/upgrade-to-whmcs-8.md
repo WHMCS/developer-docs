@@ -121,6 +121,12 @@ We added and updated the following additional dependencies for Composer:
 | `seld/jsonlint`               	| 1.6.1        	| 1.8.0     	|
 | `seld/phar-utils`             	| 1.0.1        	| 1.1.0     	|
 | `stripe/stripe-php`           	| 6.43.1       	| 7.34.0     	|
+| `symfony/polyfill-ctype`       	| N/A         	| 1.18.1     	|
+| `symfony/polyfill-iconv`       	| 1.15.0       	| 1.18.1     	|		
+| `symfony/polyfill-intl-idn`    	| N/A         	| 1.18.1     	|		
+| `symfony/polyfill-mbstring`    	| 1.14.0       	| 1.18.1     	|		
+| `symfony/polyfill-php72`       	| N/A         	| 1.18.1     	|		
+| `symfony/polyfill-php73`       	| N/A         	| 1.18.1    	|
 | `tecnickcom/tcpdf`            	| 6.2.26      	| 6.3.5     	|		
 | `zbateson/stream-decorators`  	| N/A         	| 1.0.3      	|
-| `zendframework/zend-diactoros` 	| 1.3.10       	| N/A       	|		
+| `zendframework/zend-diactoros` 	| N/A         	| 1.0.3      	|		
