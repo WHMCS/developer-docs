@@ -128,5 +128,4 @@ We added and updated the following additional dependencies for Composer:
 | `symfony/polyfill-php72`       	| N/A         	| 1.18.1     	|		
 | `symfony/polyfill-php73`       	| N/A         	| 1.18.1    	|
 | `tecnickcom/tcpdf`            	| 6.2.26      	| 6.3.5     	|		
-| `zbateson/stream-decorators`  	| N/A         	| 1.0.3      	|
-| `zendframework/zend-diactoros` 	| N/A         	| 1.0.3      	|		
+| `zbateson/stream-decorators`  	| N/A         	| 1.0.3      	|	
