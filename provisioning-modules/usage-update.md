@@ -44,7 +44,7 @@ function mymodule_UsageUpdate($params) {
                 ->where('server', $serverid)
                 ->where('domain', $values['domain'])
                 ->update([
-                    'diskused' => $values['diskusage'],
+                    'diskusage' => $values['diskusage'],
                     'disklimit' => $values['disklimit'],
                     'bwusage' => $values['bandwidth'],
                     'bwlimit' => $values['bwlimit'],
