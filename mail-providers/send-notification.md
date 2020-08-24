@@ -18,35 +18,79 @@ The method receives two input arguments:
 ```
 public function send(array $params, Message $message)
 {
-    $api_username = $moduleSettings['api_username'];
-    $api_password = $moduleSettings['api_password'];
+    $host = $params['host'];
+    $username = $params['username'];
+    $password = $params['password'];
 
-    // Build API Request to remote service
+    $subject = $message->getSubject();
+    $body = $message->getBody();
+    $plainTextBody = $message->getPlainText();
 
-    $postData = [
-        'username' => $api_username,
-        'password' => $api_password,
-        'priority' => $priority,
-        'channel' => $channel,
-        'title' => $notification->getTitle(),
-        'message' => $notification->getMessage(),
-        'url' => $notification->getUrl(),
-        'attributes' => [],
-    ];
+    $replyTo = '';
+    if ($message->getReplyTo()) {
+        $replyTo = $message->getReplyTo();
+    }
 
-    // Attributes vary depending on the event trigger. Loop through as necessary.
-    foreach ($notification->getAttributes() as $attribute) {
-        $postData['attributes'][] = [
-            'label' => $attribute->getLabel(),
-            'value' => $attribute->getValue(),
-            'url' => $attribute->getUrl(),
-            'style' => $attribute->getStyle(),
-            'icon' => $attribute->getIcon(),
+    // Retrieve recipients.
+    foreach ($message->getRecipients('to') as $to) {
+        $recipients['to'] = [
+            'emailAddress' => $to[0],
+            'name' => $to[1],
+        ];
+    }
+    foreach ($message->getRecipients('cc') as $to) {
+        $recipients['cc'] = [
+            'emailAddress' => $to[0],
+            'name' => $to[1],
+        ];
+    }
+    foreach ($message->getRecipients('bcc') as $to) {
+        $recipients['bcc'] = [
+            'emailAddress' => $to[0],
+            'name' => $to[1],
         ];
     }
 
-    // Call the remote API
-    $response = file_get_contents('https://www.example.com/?' . http_build_query($postData));
+    // Retrieve attachments
+    $attachments = [];
+    foreach ($message->getAttachments() as $attachment) {
+        if (array_key_exists('data', $attachment)) {
+            $attachments[] = [
+                'data' => $attachment['data'],
+                'fileName' => $attachment['filename'],
+            ];
+        } else {
+            $attachments[] = [
+                'filePath' => $attachment['filepath'],
+                'fileName' => $attachment['filename'],
+            ];
+        }
+    }
+
+    // If a filename is provided. Retrieve the attachment
+    // data as required by your Mail Provider.
+
+    // Build API request to remote service
+    $postData = [
+        'username' => $username,
+        'password' => $password,
+        'subject' => $subject,
+        'body-html' => $body,
+        'plaintext-body' => $plainTextbody,
+        'to' => $recipients['to'],
+        'cc' => $recipients['cc'],
+        'bcc' => $recipients['bcc'],
+        'reply-to' => $replyTo,
+        'attachments' => $attachments,
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/send');
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
     if (!$response) {
         // Throw a human friendly exception on error
