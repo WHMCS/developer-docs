@@ -39,6 +39,6 @@ $results = localAPI($command, $values, $adminuser);
 if ($results['result'] == 'success') {
     echo 'Message sent successfully!';
 } else {
-    echo "An Error Occurred: " . $results['result'];
+    echo "An Error Occurred: " . $results['message'];
 }
 ```
