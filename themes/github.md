@@ -14,7 +14,7 @@ The default client area template in WHMCS.
 
 https://github.com/WHMCS/templates-six
 
-## Standard Card Order Form Template
+## Standard Cart Order Form Template
 
 The default shopping cart template in WHMCS.
 
