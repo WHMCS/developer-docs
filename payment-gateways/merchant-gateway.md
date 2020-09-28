@@ -126,7 +126,7 @@ function yourmodulename_capture($params) {
 ```
 
 [configuration]: /payment-gateways/configuration "Configuration Parameters"
-[thirdparty]: /payment-gateways/third-party-gateways "Third Party Gateways"
+[thirdparty]: /payment-gateways/third-party-gateway "Third Party Gateways"
 [githubsample]: https://github.com/WHMCS/sample-merchant-gateway "Sample Merchant Gateway module on Github"
 [refunds]: /payment-gateways/refunds "Refunding Transactions"
 [3d-secure]: /provisioning-modules/3d-secure "3D Secure Process"
