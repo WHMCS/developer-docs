@@ -86,6 +86,7 @@ print_r($results);
     "addons[addon][0][nextduedate]": "2016-10-03",
     "addons[addon][0][nextinvoicedate]": "2016-10-03",
     "addons[addon][0][paymentmethod]": "paypal",
+    "addons[addon][0][paymentmethodname]": "PayPal",
     "addons[addon][0][notes]": ""
 }
 ```

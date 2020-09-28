@@ -118,7 +118,7 @@ Executed when a change of password occurs for a client.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | int |  |
+| userid | int | The ID of the Client being updated |
 | password | string | The new password |
 
 #### Response

@@ -416,6 +416,30 @@ add_hook('TicketFlagged', 1, function($vars) {
 });
 ```
 
+## TicketMerge
+
+Executes when tickets are merged into each other.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| mergedTicketIds | array | The ticket IDs to be merged. |
+| masterTicketId | int | The ticket ID of the ticket containing the merged tickets. |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketMerge', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## TicketOpen
 
 Executes when a ticket is opened by an end user.
@@ -558,6 +582,30 @@ No response supported
 ```
 <?php
 add_hook('TicketPriorityChange', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## TicketSplit
+
+Executes when ticket replies are being split into a new ticket.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| originalTicketId | int | The Ticket ID that replies originally resided within. |
+| newTicketID | int | The new Ticket ID for the split replies. |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('TicketSplit', 1, function($vars) {
     // Perform hook code here...
 });
 ```
