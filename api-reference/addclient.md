@@ -145,6 +145,8 @@ Possible error condition responses include:
 * You did not enter your phone number
 * Invalid telephone phone number
 * You did not provide required custom field value for
+* A client already exists with that email address
+* A user already exists with that email address
 
 
 ### Version History

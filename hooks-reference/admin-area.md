@@ -548,7 +548,7 @@ Executes during Admin API password authentication
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userInput | string | The user-provided password value |
-|  | \WHMCS\User\Admin | The admin attempting to authenticate |
+| admin | \WHMCS\User\Admin | The admin attempting to authenticate |
 
 #### Response
 

@@ -12,6 +12,7 @@ Deactivates a given module.
 | action | string | "DeactivateModule" | Required |
 | moduleType | string | The module type to be deactivated | Required |
 | moduleName | string | The module name to be deactivated | Required |
+| newGateway | string | The Gateway to switch respective entities to when deactivating a Gateway Module. | Optional |
 
 ### Response Parameters
 

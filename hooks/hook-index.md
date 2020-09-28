@@ -172,7 +172,8 @@ weight = 100
 </ul>
 <h3>User</h3>
 
-<ul><li> <a href="/hooks-reference/user/#userchangepassword">UserChangePassword</a>
+<ul><li> <a href="/hooks-reference/user/#useradd">UserAdd</a>
+<li> <a href="/hooks-reference/user/#userchangepassword">UserChangePassword</a>
 <li> <a href="/hooks-reference/user/#useremailverificationcomplete">UserEmailVerificationComplete</a>
 </ul>
 <h3>Contact</h3>
@@ -207,11 +208,13 @@ weight = 100
 <li> <a href="/hooks-reference/ticket/#ticketdeletereply">TicketDeleteReply</a>
 <li> <a href="/hooks-reference/ticket/#ticketdepartmentchange">TicketDepartmentChange</a>
 <li> <a href="/hooks-reference/ticket/#ticketflagged">TicketFlagged</a>
+<li> <a href="/hooks-reference/ticket/#ticketmerge">TicketMerge</a>
 <li> <a href="/hooks-reference/ticket/#ticketopen">TicketOpen</a>
 <li> <a href="/hooks-reference/ticket/#ticketopenadmin">TicketOpenAdmin</a>
 <li> <a href="/hooks-reference/ticket/#ticketopenvalidation">TicketOpenValidation</a>
 <li> <a href="/hooks-reference/ticket/#ticketpiping">TicketPiping</a>
 <li> <a href="/hooks-reference/ticket/#ticketprioritychange">TicketPriorityChange</a>
+<li> <a href="/hooks-reference/ticket/#ticketsplit">TicketSplit</a>
 <li> <a href="/hooks-reference/ticket/#ticketstatuschange">TicketStatusChange</a>
 <li> <a href="/hooks-reference/ticket/#ticketsubjectchange">TicketSubjectChange</a>
 <li> <a href="/hooks-reference/ticket/#ticketuserreply">TicketUserReply</a>
@@ -376,5 +379,6 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#preupgradecheckout">PreUpgradeCheckout</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpricerecalculationoverride">PremiumPriceRecalculationOverride</a>
+<li> <a href="/hooks-reference/everything-else/#hookname">hookname</a>
 </ul>
 </div></div>

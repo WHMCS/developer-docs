@@ -192,7 +192,7 @@ add_hook('AddonDeleted', 1, function($vars) {
 
 ## AddonEdit
 
-Executes when an addon is modified or updated.
+Executes when an addon is modified or updated except for status updates.
 
 #### Parameters
 

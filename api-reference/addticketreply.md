@@ -48,7 +48,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'message' => 'This is a sample ticket reply',
             'clientid' => '1',
             'customfields' => base64_encode(serialize(array("1"=>"Google"))),
-            'useMarkdown' => true,
+            'markdown' => true,
             'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
             'responsetype' => 'json',
         )
@@ -69,7 +69,7 @@ $postData = array(
     'message' => 'This is a sample ticket reply',
     'clientid' => '1',
     'customfields' => base64_encode(serialize(array("1"=>"Google"))),
-    'useMarkdown' => true,
+    'markdown' => true,
     'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later

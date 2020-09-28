@@ -10,8 +10,8 @@ Updates a client with the passed parameters.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "UpdateClient" | Required |
-| clientid | int | The id of the client to update | Optional |
-| clientemail | string | The email address of the client to update. Either $clientid or $clientemail is required | Optional |
+| clientid | int | The ID of the client to update. | Optional |
+| clientemail | string | The email address of the client to update. Either $clientid or $clientemail is required. | Optional |
 | firstname | string |  | Optional |
 | lastname | string |  | Optional |
 | companyname | string |  | Optional |
@@ -21,34 +21,40 @@ Updates a client with the passed parameters.
 | city | string |  | Optional |
 | state | string |  | Optional |
 | postcode | string |  | Optional |
-| country | string | 2 character ISO country code | Optional |
+| country | string | Two-character ISO country code. | Optional |
 | phonenumber | string |  | Optional |
-| tax_id | string | The client Tax ID | Optional |
-| ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
-| ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
+| tax_id | string | The client Tax ID. | Optional |
+| ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide the full name: Visa, Mastercard, American Express, etc.~~ | Deprecated |
+| ~~cardnum~~ | ~~string~~ | ~~Credit card number.~~ | Deprecated |
 | ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |
 | ~~startdate~~ | ~~string~~ | ~~Format: MMYY (if applicable)~~ | Deprecated |
-| ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable)~~ | Deprecated |
-| ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored)~~ | Deprecated |
-| ~~bankcode~~ | ~~string~~ | ~~Client Bank Account Code (if applicable)~~ | Deprecated |
-| ~~bankacct~~ | ~~string~~ | ~~Client bank Account number (if applicable)~~ | Deprecated |
-| currency | int | Currency ID from tblcurrencies | Optional |
-| groupid | int | Client Group ID from tblclientgroups | Optional |
-| customfields | string | Base64 encoded serialized array of custom field values | Optional |
-| language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
-| clientip | string | IP address of the user | Optional |
-| notes | string | Admin only notes | Optional |
-| status | string | Status, e.g. "Active" | Optional |
-| paymentmethod | string | The default payment method | Optional |
-| email_preferences[general] | bool | Should the client receive general emails | Optional |
-| email_preferences[product] | bool | Should the client receive product emails | Optional |
-| email_preferences[domain] | bool | Should the client receive domain emails | Optional |
-| email_preferences[invoice] | bool | Should the client receive invoice emails | Optional |
-| email_preferences[support] | bool | Should the client receive support emails | Optional |
-| email_preferences[affiliate] | bool | Should the client receive affiliate emails | Optional |
-| marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
-| clearcreditcard | bool | Pass as true to clear the stored CC details | Optional |
-| skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
+| ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable).~~ | Deprecated |
+| ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored).~~ | Deprecated |
+| ~~bankcode~~ | ~~string~~ | ~~Client Bank Account Code (if applicable).~~ | Deprecated |
+| ~~bankacct~~ | ~~string~~ | ~~Client bank Account number (if applicable).~~ | Deprecated |
+| currency | int | Currency ID from tblcurrencies. | Optional |
+| groupid | int | Client Group ID from tblclientgroups. | Optional |
+| customfields | string | Base64-encoded serialized array of custom field values. | Optional |
+| language | string | Default language setting. Provide the full name: 'english', 'french', etc. | Optional |
+| clientip | string | IP address of the user. | Optional |
+| notes | string | Admin-only notes. | Optional |
+| status | string | The status. For example, "Active". | Optional |
+| paymentmethod | string | The default payment method. | Optional |
+| email_preferences[general] | bool | Whether the client should receive general emails. | Optional |
+| email_preferences[product] | bool | Whether the client should receive product emails. | Optional |
+| email_preferences[domain] | bool | Whether the client should receive domain emails. | Optional |
+| email_preferences[invoice] | bool | Whether the client should receive invoice emails. | Optional |
+| email_preferences[support] | bool | Whether the client should receive support emails. | Optional |
+| email_preferences[affiliate] | bool | Whether the client should receive affiliate emails. | Optional |
+| marketingoptin | bool | Set this to 'true' to opt the client in to marketing emails. | Optional |
+| clearcreditcard | bool | Set this to 'true' to clear the stored credit card details. | Optional |
+| skipvalidation | bool | Set this to 'true' to ignore required field validation. | Optional |
+| latefeeoveride | bool | Whether to override the account's Late Fees setting. | Optional |
+| overideduenotices | bool | Whether to override the account's Overdue Notices setting. | Optional |
+| taxexempt | bool | Whether the account is exempt from tax collections. | Optional |
+| separateinvoices | bool | Whether to group items that share a due date and payment method into one invoice for the account. | Optional |
+| disableautocc | bool | Whether to enable or disable automatic credit card processing. | Optional |
+| overrideautoclose | bool | Whether to enable or disable automatic credit card processing. | Optional |
 
 ### Response Parameters
 
@@ -138,6 +144,6 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
-| 8.0 | Removed attributes migrated to users: security questions and password |
-| 7.10 | Added email preferences parameters |
 | 7.8 | Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod, DeletePayMethod or UpdatePayMethod instead. |
+| 7.10 | Added email preferences parameters |
+| 8.0 | Removed attributes migrated to users: security questions and password |

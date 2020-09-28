@@ -7,7 +7,6 @@ Send a client Email Notification.
 
 The following email templates cannot be sent in this way:
 
-* Automated Password Reset
 * Order Confirmation
 * Password Reset Confirmation
 * Password Reset Validation

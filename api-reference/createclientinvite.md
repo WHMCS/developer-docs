@@ -10,8 +10,8 @@ Send an invite to manage a client.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "CreateClientInvite" | Required |
-| email | int | The email address to invite | Required |
 | client_id | string | The ID of the client the invite is for | Required |
+| email | int | The email address to invite | Required |
 | permissions | string | A comma separated list of permissions. | Required |
 
 ### Response Parameters
@@ -34,8 +34,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'user_id' => '1',
-            'firstname' => 'John',
+            'client_id' => '1',
+            'email' => 'john.doe@example.net',
+            'permissions' => 'products,manageproducts,managedomains,tickets',
             'responsetype' => 'json',
         )
     )
@@ -51,8 +52,9 @@ curl_close($ch);
 ```
 $command = 'CreateClientInvite';
 $postData = array(
-    'user_id' => '1',
-    'firstname' => 'John',
+    'client_id' => '1',
+    'email' => 'john.doe@example.net',
+    'permissions' => 'products,manageproducts,managedomains,tickets',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
