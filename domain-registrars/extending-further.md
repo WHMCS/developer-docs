@@ -6,12 +6,13 @@ weight = 120
 
 +++
 
-###Custom Functions
+## Custom Functions
+
 Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
 
 The convention for custom function names follow the same as any other function of a module. It must begin with `yourmodulename_`, and then the custom function name.
 
-The easiest way to show this is with an example. So let's take an example of a Push Function that will use a template, "pushdomain.tpl":
+The easiest way to show this is with an example. So let's take an example of a Push Function that will use a template, `pushdomain.tpl`:
 
 ```
 function yourmodulename_push($params) {
@@ -35,7 +36,7 @@ function yourmodulename_push($params) {
 
 The above shows how to define custom functions, use the parameters passed, and return an array response. The response can either be a simple empty array/error for an action function, or a complex array return like the above to define an extra client area page for extra domain management functionality.
 
-Now we need to allow clients to use this. The following function defines that clients are allowed to invoke the push function, and will add a menu option to the Domain Actions dropdown within the client area for it.
+Now we need to allow clients to use this. The following function defines that clients are allowed to invoke the push function, and will add a menu option to the **Domain Actions** dropdown within the client area for it.
 
 ```
 function yourmodulename_ClientAreaCustomButtonArray() {
@@ -45,24 +46,26 @@ function yourmodulename_ClientAreaCustomButtonArray() {
 }
 ```
 
-The key value of the array is what is displayed to admins/clients on the button or menu options for the commands. And the value is the custom function name excluding the modulename_ prefix.
+The key value of the array is what is displayed to admins/clients on the button or menu options for the commands, and the value is the custom function name excluding the `modulename_` prefix.
 
-If you want to provide clients with a custom button or way to invoke a function, then this can be done as follows within a .tpl file described in the previous Client Area Output section:
+If you want to provide clients with a custom button or way to invoke a function, then this can be done as follows within a `.tpl` file described in the previous Client Area Output section:
 
- <form method="post" action="clientarea.php?action=domaindetails">
- <input type="hidden" name="domainid" value="{$domainid}" />
- <input type="hidden" name="modop" value="custom" />
- <input type="hidden" name="a" value="reboot" />
- <input type="submit" value="Reboot VPS Server" />
- </form>
- 
-###IDN Domains
-If you wish to support registration and management of IDN domain names via a registrar module, the domain object can be 
-used to access various parameters related to the domain.  An domain name is considered IDN if it contains at least one 
-character that is in a language-specific script or alphabet.  IDN is supported for second level domain names but not top 
-level at this time.
+```
+<form method="post" action="clientarea.php?action=domaindetails">
+<input type="hidden" name="domainid" value="{$domainid}" />
+<input type="hidden" name="modop" value="custom" />
+<input type="hidden" name="a" value="reboot" />
+<input type="submit" value="Reboot VPS Server" />
+</form>
+```
+
+## IDN Domains
+
+If you wish to support registration and management of IDN domain names via a registrar module, the domain object can be
+used to access various parameters related to the domain. A domain name is considered IDN if it contains at least one character that is in a language-specific script or alphabet. IDN is supported for second level domain names but not top level at this time.
 
 The following options are available:
+
 ```
 $domainObj = $params['original']['domainObj'];
 $fullDomainUnicode = $domainObj->toPunycode(); // The full domain name as stored in the database.
