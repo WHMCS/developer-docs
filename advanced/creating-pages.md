@@ -1,6 +1,6 @@
 +++
 next = "/advanced/db-interaction/"
-prev = "/advanced/"
+prev = "/advanced/authentication/"
 title = "Creating Pages"
 weight = 10
 

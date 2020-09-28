@@ -1,6 +1,6 @@
 +++
 next = "/advanced/date-functions/"
-prev = "/advanced/creating-pages/"
+prev = "/advanced/authentication/"
 title = "Interacting with the Database"
 weight = 20
 
