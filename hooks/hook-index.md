@@ -379,6 +379,5 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#preupgradecheckout">PreUpgradeCheckout</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpricerecalculationoverride">PremiumPriceRecalculationOverride</a>
-<li> <a href="/hooks-reference/everything-else/#hookname">hookname</a>
 </ul>
 </div></div>
