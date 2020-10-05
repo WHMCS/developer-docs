@@ -86,7 +86,6 @@ We added and updated the following additional dependencies for Composer:
 | Dependency                    	| From version 	| To version 	|
 |-------------------------------	|--------------	|------------	|
 | `abraham/twitteroauth`         	| 0.7.4        	| 1.1.0     	|
-| `bitpay/sdk-light`             	| N/A         	| 2.0.2007  	|
 | `composer/composer`           	| 1.0.3       	| 1.10.6     	|
 | `ezyang/htmlpurifier`         	| 4.9.2        	| 4.12.0     	|
 | `filp/whoops`                  	| 2.1.8        	| 2.7.2     	|
