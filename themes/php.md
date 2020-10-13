@@ -11,7 +11,12 @@ We recommend that all custom PHP logic be performed via hooks. Hooks are the **o
 
 Historically, Smarty has allowed you to define custom PHP logic directly within template files. This has often been used by users and third party developers as a quick and convenient way of performing additional logic and defining additional template output.
 
-However, as of Smarty 3, support for the {php} block has been removed, and we are only providing legacy support to ease the transition for developers and users who work with our platform and rely on this functionality.
+However, as of Smarty 3, support for the {php} block has been removed, and we are only providing legacy support to ease the transition for developers and users who work with our platform and rely on this functionality. 
+
+{{% notice info %}}
+The exposure of the template object via the legacy variable $template available within the deprecated PHP blocks context is only available if template_object is itemized in the enabled_special_smarty_vars array as described in our [Smarty Security Policy
+](https://docs.whmcs.com/Smarty_Security_Policy#Supported_Policy_Settings_and_Values) documentation.
+{{% /notice %}}
 
 ## Example
 
