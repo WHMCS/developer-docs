@@ -86,7 +86,6 @@ Runs on every admin area page load. All template variables defined at the time t
 | jscode | string | Javascript code for the current page |
 | datepickerformat | string | The format defined for dates in the admin area |
 | adminsonline | string | A list of currently online admin users |
-| sidebarstats | array | Statistics relating to orders, clients, services, tickets and more |
 
 #### Response
 
@@ -496,7 +495,7 @@ Executes during Admin form-based password authentication
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userInput | string | The user-provided password value |
-|  | \WHMCS\User\Admin | The admin attempting to authenticate |
+| admin | \WHMCS\User\Admin | The admin attempting to authenticate |
 
 #### Response
 
