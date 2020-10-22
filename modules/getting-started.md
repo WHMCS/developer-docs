@@ -25,7 +25,8 @@ Sample modules demonstrating usage and functionality are made available for all 
 
 ## Recommended Reading
 
-* [Code Samples](/modules/code-samples/) - We make available sample code for each of our module types via Github.
+* [Code Samples](/modules/code-samples/) - We make sample code available for each of our module types via GitHub.
 * [Style Guide](/modules/style-guide/) - Recommended programming style and best practices for developing with WHMCS.
+* [Module Class Autoloading](/modules/module-class-autoloading) — Enable automatic class loading in WHMCS modules.
 * [Hooks Guide](/hooks/) - Hooks allow you to execute your own code when events occur inside WHMCS.
 * [API Guide](/api/) - The API allows you to perform operations and actions within WHMCS.

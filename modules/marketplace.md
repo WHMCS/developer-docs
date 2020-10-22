@@ -1,5 +1,6 @@
 +++
 prev = "/modules/style-guide/"
+next = "/modules/module-class-autoloading/"
 title = "Marketplace"
 weight = 40
 
