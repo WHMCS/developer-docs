@@ -1,6 +1,6 @@
 +++
 next = "/themes/css-styling/"
-prev = "/themes/getting-started"
+prev = "/themes/theme-parameters"
 title = "Customising"
 toc = true
 weight = 20
