@@ -1,5 +1,5 @@
 +++
-next = "/themes/customising"
+next = "/themes/child-themes"
 prev = "/themes/index"
 title = "Getting Started"
 toc = true
@@ -7,9 +7,23 @@ weight = 10
 
 +++
 
-The default template that ships with WHMCS 6.0 and later is called the **Six** theme.
+The default theme that ships with WHMCS is called the **Twenty-One** theme.
 
-Before you begin customising it for your needs, the first step is to create your own copy of the template. This ensures your customisations are not lost when updating.
+If you wish to customise any of the themes that ship by default with WHMCS, we recommend using the [Child Themes](/themes/child-themes) functionality.
+
+## Creating a Child Theme
+
+{{% notice tip %}}
+Recommended for all new theme development in WHMCS 8.1 and later.
+{{% /notice %}}
+
+Please see [Child Themes](/themes/child-themes) for more information.
+
+## Creating a Custom Theme
+
+If you wish to create a new Parent Theme (that other themes can inherit from and be a child of), or are using an older version of WHMCS, you can create a Custom Theme. For all other scenarios, we recommend using [Child Themes](/themes/child-themes).
+
+The first step is to create your own copy of the template. This ensures your customisations are not lost when updating.
 
 ### Method 1: Using Source Control
 
