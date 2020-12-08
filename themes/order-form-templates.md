@@ -1,5 +1,5 @@
 +++
-prev = "/themes/theme-config/"
+prev = "/themes/theme-parameters/"
 next = "/themes/customising/"
 title = "Order Form Templates"
 toc = true
