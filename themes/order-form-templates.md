@@ -1,7 +1,7 @@
 +++
 prev = "/themes/theme-config/"
 next = "/themes/customising/"
-title = "The Theme Configuration File"
+title = "Order Form Templates"
 toc = true
 weight = 19
 
