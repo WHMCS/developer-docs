@@ -61,8 +61,8 @@ print_r($results);
 {
     "result": "success",
     "whmcs": {
-        "version": "7.10.2",
-        "canonicalversion": "7.10.2-release.1"
+        "version": "8.0.0",
+        "canonicalversion": "8.0.0-release.1"
     }
 }
 ```
@@ -72,4 +72,4 @@ print_r($results);
 
 | Version | Changelog |
 | ------- | --------- |
-| 1.0 | Initial Version |
+| 8.0.0 | Initial Version |

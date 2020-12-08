@@ -77,6 +77,7 @@ Possible error condition responses include:
 
 * Domain ID Not Found
 * Registrar Error Message
+* An invalid configuration was detected with the registrar module
 
 
 ### Version History

@@ -174,6 +174,7 @@ weight = 100
 
 <ul><li> <a href="/hooks-reference/user/#useradd">UserAdd</a>
 <li> <a href="/hooks-reference/user/#userchangepassword">UserChangePassword</a>
+<li> <a href="/hooks-reference/user/#useredit">UserEdit</a>
 <li> <a href="/hooks-reference/user/#useremailverificationcomplete">UserEmailVerificationComplete</a>
 </ul>
 <h3>Contact</h3>
@@ -379,5 +380,6 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#preupgradecheckout">PreUpgradeCheckout</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpricerecalculationoverride">PremiumPriceRecalculationOverride</a>
+<li> <a href="/hooks-reference/everything-else/#hookname">hookname</a>
 </ul>
 </div></div>

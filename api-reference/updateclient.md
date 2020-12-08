@@ -135,6 +135,7 @@ Possible error condition responses include:
 * Client ID Not Found
 * You must have at least one email address enabled to receive domain related notifications as required by ICANN. To disable domain notifications, please create an alternative contact that is set to receive them
 * Duplicate Email Address
+* The email address entered is not valid
 * Multiple Credit Card Pay Methods Found
 * Multiple Bank Account Pay Methods Found
 
