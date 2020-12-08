@@ -58,6 +58,33 @@ add_hook('UserChangePassword', 1, function($vars) {
 });
 ```
 
+## UserEdit
+
+Executes when a user is edited.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| user_id | int |  |
+| firstname | string |  |
+| lastname | string |  |
+| email | string |  |
+| olddata | array | An array of the previous user information |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('UserEdit', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## UserEmailVerificationComplete
 
 Executes upon successful completion of email verification by a user.

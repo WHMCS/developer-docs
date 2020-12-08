@@ -10,7 +10,7 @@ Add a reply to a ticket by Ticket ID.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "AddTicketReply" | Required |
-| ticketid | int | The id of the ticket in the database. Either $ticketnum or $ticketid is required | Required |
+| ticketid | int | The id of the ticket in the database. $ticketid is required | Required |
 | message | string | The content of the ticket reply | Required |
 | markdown | bool | Should markdown be used on the ticket reply output | Optional |
 | clientid | int | Pass a clientid to associate the ticket reply with a specific client | Optional |
