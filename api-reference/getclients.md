@@ -13,6 +13,7 @@ Obtain the Clients that match passed criteria
 | limitstart | int | The offset for the returned log data (default: 0) | Optional |
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | sorting | string | The direction to sort the results. ASC or DESC. Default: ASC | Optional |
+| status | string | Optional desired Client Status. 'Active', 'Inactive', or 'Closed'. | Optional |
 | search | string | The search term to look for at the start of email, firstname, lastname, fullname or companyname | Optional |
 
 ### Response Parameters

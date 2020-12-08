@@ -11,7 +11,7 @@ Update an invoice using the provided parameters.
 | --------- | ---- | ----------- | -------- |
 | action | string | "UpdateInvoice" | Required |
 | invoiceid | int | The ID of the invoice to update. | Required |
-| status | string | The status of the invoice being. | Optional |
+| status | string | The status of the invoice being updated. | Optional |
 | paymentmethod | string | The payment method of the invoice in system format. | Optional |
 | taxrate | float | The first-level tax rate to apply to the invoice to override the system default. | Optional |
 | taxrate2 | float | The second-level tax rate to apply to the invoice to override the system default. | Optional |
