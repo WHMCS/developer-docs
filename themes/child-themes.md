@@ -64,7 +64,7 @@ The following information is required:
 * `name` — The name you will see in the WHMCS Admin Area.
 * `config` / `parent` — The name of the Parent Theme directory. The Parent Theme in the example above is the Twenty-One theme, so the parent theme directory name is `twenty-one`.
 
-The `theme.yaml` file can also define other parameters about your theme. To learn more, see [Theme Parameters](/themes/theme-config/).
+The `theme.yaml` file can also define other parameters about your theme. To learn more, see [Theme Parameters](/themes/theme-parameters/).
 
 You can create child themes with parents that are, in turn, children of other themes, as long as the ultimate parent theme includes all of the required WHMCS template files and assets. However, we do not recommend this for most uses.
 
