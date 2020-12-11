@@ -25,7 +25,7 @@ You can set the system default Order Form Template at **Configuration > System S
 An inheritance system allows parent-child relationships, with parents providing assets to children. Many custom Order Form Templates will require one or more assets in order to function. These needs are stated in the `dependencies` list in the child's `theme.yaml` file, and then are fulfilled by the items in the `provides` list in the parent's `theme.yaml` file.
 
 {{% notice tip %}}
-For more about the `theme.yaml` file and how to use it to declare and fulfill dependencies, see [The Theme Configuration File](/themes/theme-config/).
+For more about the `theme.yaml` file and how to use it to declare and fulfill dependencies, see [The Theme Configuration File](/themes/theme-parameters/).
 {{% /notice %}}
 
 ## Creating an Order Form Template
@@ -54,7 +54,7 @@ config:
 ```
 
 {{% notice tip %}}
-For more about the `theme.yaml` file and its contents, see [The Theme Configuration File](/themes/theme-config/).
+For more about the `theme.yaml` file and its contents, see [The Theme Configuration File](/themes/theme-parameters/).
 {{% /notice %}}
 
 ### 3. Customize Files
