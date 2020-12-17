@@ -34,27 +34,27 @@ The following list of include files is accurate for WHMCS 8.1 and later:
 
 **Common to All Pages**
 
-* `confirmation.tpl` — Displays a confirmation modal.
-* `flashmessage.tpl` — Displays flash messages.
+* `confirmation.tpl` — Controls the display of a confirmation modal.
+* `flashmessage.tpl` — Controls the display of flash messages (messages that the interface shows once).
 * `head.tpl` — Defines the CSS and Javascript files included within the `<head>` section of a page.
-* `modal.tpl` — Displays all modals.
-* `navbar.tpl` — Displays the primary navigation bar menu items.
-* `social-accounts.tpl` — Displays any configured social media icons in the footer. This include file is specific to Twenty-One.
-* `verifyemail.tpl` — Displays the email verification notice below the header.
+* `modal.tpl` — Controls the display of all Client Area modals.
+* `navbar.tpl` — Controls the rendering of the primary navigation bar menu items.
+* `social-accounts.tpl` — Controls the display of any configured social media icons in the footer. This include file is specific to Twenty-One.
+* `verifyemail.tpl` — Controls the display of the email verification notice below the header.
 
 **Used as Required**
 
-* `alert.tpl` — Displays any alerts (for example, success messages or warnings).
-* `breadcrumb.tpl` — Displays the breadcrumbs in the page header for most pages.
-* `captcha.tpl` — Displays the CAPTCHA verification image.
-* `domain-search.tpl` — Displays the domain search.
-* `generate-password.tpl` — Displays the password generation modal.
-* `index.tpl` — Displays store landing pages.
-* `linkedaccounts.tpl` — Displays the page for configuring third-party services like Facebook and Google.
-* `network-issues-notifications.tpl` — Displays the network status alert bar under the header. This include file is specific to Twenty-One.
-* `panel.tpl` — Displays a card-style display panel.
-* `pwstrength.tpl` — Displays the password strength meter and tooltip.
-* `sidebar.tpl` — Displays the sidebar menu items.
-* `tablelist.tpl` — Displays all filterable data list tables.
+* `alert.tpl` — Controls the rendering of a single alert (for example, a success message or warning).
+* `breadcrumb.tpl` — Controls the display of the breadcrumbs in the page header.
+* `captcha.tpl` — Renders the CAPTCHA verification image.
+* `domain-search.tpl` — Controls the display of the domain search.
+* `generate-password.tpl` — Controls the display of the password generation modal when a user opens it.
+* `index.tpl` — Controls the display of store landing pages.
+* `linkedaccounts.tpl` — Controls the display of the page for configuring third-party services like Facebook and Google.
+* `network-issues-notifications.tpl` — Controls the display of the network status alert bar under the header. This include file is specific to Twenty-One.
+* `panel.tpl` — Controls the display of a card-style display panel.
+* `pwstrength.tpl` — Controls the display of the password strength meter and tooltip.
+* `sidebar.tpl` — Controls the display of the sidebar menu items.
+* `tablelist.tpl` — Controls the display of all filterable data list tables.
 
 Editing any of these template files will affect everywhere that the respective elements are used. One place to edit and one place to maintain during upgrades will help make applying and preserving your customisations easier.
