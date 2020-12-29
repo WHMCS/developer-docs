@@ -392,6 +392,29 @@ add_hook('PreModuleCreate', 1, function($vars)
 );
 ```
 
+## PreModuleRenew
+
+Executes prior to the module create function being run for a service. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
+
+#### Response
+
+Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return `abortcmd=true` to abort the action.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreModuleRenew', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## PreModuleSuspend
 
 Executes prior to the module suspend function being run for a service. Allows the action to be aborted.

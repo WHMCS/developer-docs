@@ -82,30 +82,37 @@ print_r($results);
 ```
 {
     "result": "success",
-    "invoiceid": "1",
+    "invoiceid": 1,
     "invoicenum": "",
-    "userid": "2361",
+    "userid": 2361,
     "date": "2016-01-01",
-    "duedate": "2016-01-08",
+    "duedate": "2020-12-30",
     "datepaid": "0000-00-00 00:00:00",
+    "lastcaptureattempt": "0000-00-00 00:00:00",
     "subtotal": "15.95",
     "credit": "0.00",
     "tax": "0.00",
     "tax2": "0.00",
     "total": "15.95",
     "balance": "15.95",
-    "taxrate": "0.00",
-    "taxrate2": "0.00",
+    "taxrate": "0.000",
+    "taxrate2": "0.000",
     "status": "Unpaid",
-    "paymentmethod": "paypal",
+    "paymentmethod": "paypalcheckout",
     "notes": "",
-    "ccgateway": "",
-    "items[item][0][id]": "1",
-    "items[item][0][type]": "Hosting",
-    "items[item][0][relid]": "1",
-    "items[item][0][description]": "Sample Monthly Product (01\/01\/2016 - 31\/01\/2016)",
-    "items[item][0][amount]": "15.95",
-    "items[item][0][taxed]": "0",
+    "ccgateway": false,
+    "items": {
+        "item": [
+            {
+                "id": 1,
+                "type": "Hosting",
+                "relid": 1,
+                "description": "Sample Monthly Product (01\/01\/2016 - 31\/01\/2016)",
+                "amount": "15.95",
+                "taxed": 0
+            }
+        ]
+    },
     "transactions": ""
 }
 ```
