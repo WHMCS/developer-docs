@@ -91,6 +91,7 @@ weight = 100
 <li> <a href="/hooks-reference/module/#premodulechangepackage">PreModuleChangePackage</a>
 <li> <a href="/hooks-reference/module/#premodulechangepassword">PreModuleChangePassword</a>
 <li> <a href="/hooks-reference/module/#premodulecreate">PreModuleCreate</a>
+<li> <a href="/hooks-reference/module/#premodulerenew">PreModuleRenew</a>
 <li> <a href="/hooks-reference/module/#premodulesuspend">PreModuleSuspend</a>
 <li> <a href="/hooks-reference/module/#premoduleterminate">PreModuleTerminate</a>
 <li> <a href="/hooks-reference/module/#premoduleunsuspend">PreModuleUnsuspend</a>
@@ -380,6 +381,5 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#preupgradecheckout">PreUpgradeCheckout</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpriceoverride">PremiumPriceOverride</a>
 <li> <a href="/hooks-reference/everything-else/#premiumpricerecalculationoverride">PremiumPriceRecalculationOverride</a>
-<li> <a href="/hooks-reference/everything-else/#hookname">hookname</a>
 </ul>
 </div></div>

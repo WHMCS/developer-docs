@@ -292,7 +292,7 @@ No response supported
 
 //Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
-    $userId = $_REQUEST['userid'];
+    $userId = $vars['userid'];
     $additionalFieldOne = $_REQUEST['additionalFieldOne'];
     $additionalFieldTwo = $_REQUEST['additionalFieldTwo'];
 
