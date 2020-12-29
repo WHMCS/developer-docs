@@ -73,31 +73,43 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "1",
-    "startnumber": "0",
-    "numreturned": "1",
-    "invoices[invoice][0][id]": "1",
-    "invoices[invoice][0][userid]": "1",
-    "invoices[invoice][0][firstname]": "Test",
-    "invoices[invoice][0][lastname]": "Client",
-    "invoices[invoice][0][companyname]": "",
-    "invoices[invoice][0][invoicenum]": "",
-    "invoices[invoice][0][date]": "2016-01-01",
-    "invoices[invoice][0][duedate]": "2016-01-08",
-    "invoices[invoice][0][datepaid]": "0000-00-00 00:00:00",
-    "invoices[invoice][0][subtotal]": "15.95",
-    "invoices[invoice][0][credit]": "0.00",
-    "invoices[invoice][0][tax]": "0.00",
-    "invoices[invoice][0][tax2]": "0.00",
-    "invoices[invoice][0][total]": "15.95",
-    "invoices[invoice][0][taxrate]": "0.00",
-    "invoices[invoice][0][taxrate2]": "0.00",
-    "invoices[invoice][0][status]": "Unpaid",
-    "invoices[invoice][0][paymentmethod]": "authorize",
-    "invoices[invoice][0][notes]": "",
-    "invoices[invoice][0][currencycode]": "USD",
-    "invoices[invoice][0][currencyprefix]": "$",
-    "invoices[invoice][0][currencysuffix]": "USD"
+    "totalresults": 1,
+    "startnumber": 0,
+    "numreturned": 1,
+    "invoices": {
+        "invoice": [
+            {
+                "id": 1,
+                "userid": 1,
+                "firstname": "Test",
+                "lastname": "Client",
+                "companyname": "",
+                "invoicenum": "",
+                "date": "2016-01-01",
+                "duedate": "2016-01-08",
+                "datepaid": "0000-00-00 00:00:00",
+                "last_capture_attempt": "0000-00-00 00:00:00",
+                "date_refunded": "0000-00-00 00:00:00",
+                "date_cancelled": "0000-00-00 00:00:00",
+                "subtotal": "15.95",
+                "credit": "0.00",
+                "tax": "0.00",
+                "tax2": "0.00",
+                "total": "15.95",
+                "taxrate": "0.000",
+                "taxrate2": "0.000",
+                "status": "Unpaid",
+                "paymentmethod": "paypalcheckout",
+                "paymethodid": null,
+                "notes": "",
+                "created_at": "2016-01-08 14:06:34",
+                "updated_at": "2016-01-08 14:07:17",
+                "currencycode": "USD",
+                "currencyprefix": "$",
+                "currencysuffix": " USD"
+            }
+        ]
+    }
 }
 ```
 
