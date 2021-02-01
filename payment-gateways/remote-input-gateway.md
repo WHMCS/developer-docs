@@ -22,7 +22,7 @@ These functions are `remoteinput` and `remoteupdate`.
 
 Once processed, a notification will be sent to a [callback file][callbacks] where the Pay Method should be stored and the payment applied.
 
-For a more complete example, please refer to the [Sample Remote Input Gateway module on Github][github-sample] or [Sample Remote Input Bank Gateway module on Github][github-bank-sample].
+For a more complete example, please refer to the [Sample Remote Input Gateway module][github-sample] or [Sample Remote Input Bank Gateway module on Github][github-bank-sample].
 
 ## Remote Input
 
@@ -268,5 +268,5 @@ The most common messages are detailed below, other exceptions could be thrown an
 | InvalidArgumentException | Invalid PayMethod | The pay method being updated is not a bank account |
 
 [callbacks]: /payment-gateways/callbacks "Callback Files"
-[github-sample]: https://github.com/WHMCS/sample-remote-input-gateway "Sample Remote Input Gateway module on Github"
+[github-sample]: https://github.com/WHMCS/sample-remote-input-gateway "Sample Remote Input Gateway module"
 [github-bank-sample]: https://github.com/WHMCS/sample-remote-input-bank-gateway "Sample Remote Input Bank Gateway module on Github"
