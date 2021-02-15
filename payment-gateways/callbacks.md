@@ -109,3 +109,33 @@ Use this function to create a gateway log entry.
 The first input parameter should be the name of the gateway module.
 The second input parameter should be an array of data received, such as the **$_POST** or **$_REQUEST** super globals.
 The last input parameter should be the human readable result/status to display in the log.
+
+### Add Payment to the Invoice
+
+```
+/**
+ * Add Invoice Payment.
+ *
+ * Apply a payment to the given invoice ID.
+ *
+ * @param int $invoiceId         Invoice ID
+ * @param string $transactionId  Transaction ID
+ * @param float $paymentAmount   Amount paid (defaults to full balance)
+ * @param float $paymentFee      Payment fee (optional)
+ * @param string $gatewayModule  Gateway module name
+ */
+addInvoicePayment(
+    $invoiceId,
+    $transactionId,
+    $paymentAmount,
+    $paymentFee,
+    $gatewayModuleName
+);
+```
+
+Use this function to apply the payment to an invoice.
+The first parameter should be the invoice ID to apply the payment to.
+The second parameter should be the unique transaction ID provided by the Payment Gateway.
+The third parameter should be the amount to be credited to the invoice. If this value is `0` or an empty string, the payment will be assumed to be the full balance due for the invoice.
+The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to "0.00".
+The fifth parameter should be your Gateway Module Name. You can use `$gatewayParams['name']` for this. This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS. 
