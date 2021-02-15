@@ -16,5 +16,5 @@ To provide hooks as part of a module, create a file named `hooks.php` in the roo
 This hooks file will be detected and loaded by WHMCS on every page load.
 
 {{% notice note %}}
-Hook files are only detected at the time a module is activated and configured. If you add your hook file after the module has already been activated, you may need to deactivate and reactivate your module in order for WHMCS to recognise it.
+Please note that hook files are detected at the time a provisioning, registrar, or addon module is activated. If a hook file is added after the module has already been activated, some additional steps may need to be performed for WHMCS to recognize it. For provisioning modules, this can be accomplished by accessing the Module Settings tab of an applicable product under **Setup** > **Products/Services** > **Products/Services** and clicking **Save Changes**. For a registrar module, re-saving the settings for it under **Setup** > **Products/Services** > **Domain Registrars** would be sufficient. Finally, for addon modules, re-saving the settings under Setup > Addon Modules will address this.
 {{% /notice %}}
