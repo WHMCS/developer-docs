@@ -129,5 +129,5 @@ function yourmodulename_capture($params) {
 [thirdparty]: /payment-gateways/third-party-gateway "Third Party Gateways"
 [githubsample]: https://github.com/WHMCS/sample-merchant-gateway "Sample Merchant Gateway module on Github"
 [refunds]: /payment-gateways/refunds "Refunding Transactions"
-[3d-secure]: /provisioning-modules/3d-secure "3D Secure Process"
+[3d-secure]: /payment-gateways/3d-secure "3D Secure Process"
 [tokenised-remote-storage]: /payment-gateways/tokenised-remote-storage "Tokenised Remote Storage"
