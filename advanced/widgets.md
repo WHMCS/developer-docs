@@ -135,7 +135,7 @@ Using the sample code, the widget will output will look something like:
 
 ### Naming Convention
 
-The widget filename and folder should be in the same format as PHP Class names due to how WHMCS imports the files from the respective folder.
+The widget filename and folder should be in the same format as PHP class names due to how WHMCS imports the files from the respective folder.
 
 The following file naming conventions are acceptable formats:
 ```
