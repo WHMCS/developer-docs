@@ -39,7 +39,7 @@ use WHMCS\Database\Capsule;
 
 ## The Query Manager
 
-Please see [Laravel's query documentation](https://laravel.com/docs/5.2/queries) for more information.
+Please see [Laravel's query documentation](https://laravel.com/docs/7.x/queries) for more information.
 
 The `Capsule::table(string $tableName)` method provides access to the query manager. Declare it with the name of the table you wish to query as it's first parameter to interact with that table. The query manager has a wide range of functionality to perform advanced select, join, insert, update, and delete statements. Capsule's select calls return rows as stdClass objects.
 
