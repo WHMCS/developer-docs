@@ -15,7 +15,7 @@ This also allows you to be able to debug issues experienced while using it.
 
 Logging is not something that is always enabled.
 This is to avoid logs growing too large, so it's something that needs enabling for the logging to occur.
-To toggle logging, goto **Utilities** > **Logs** > **Module Debug Log**.
+To toggle logging, goto **Configuration** > **System Logs** > **Module Log**.
 This is the same place to review the logs.
 
 To utilise this functionality, the module needs to make a call as follows:
