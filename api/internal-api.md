@@ -11,10 +11,13 @@ The Internal API should be used when making API calls from within the WHMCS syst
 
 Common uses for this include from modules, hooks, or other custom code local to the WHMCS installation.
 
+You must include the WHMCS `init.php` file in your script to use the Local API.
+
 ## Usage Example
 
 ```
 <?php
+
 /**
  * WHMCS Sample Local API Call
  *
@@ -25,6 +28,8 @@ Common uses for this include from modules, hooks, or other custom code local to 
  * @version    $Id$
  * @link       http://www.whmcs.com/
  */
+
+require 'init.php';
 
 // Define parameters
 $command = 'SendEmail';
@@ -41,4 +46,5 @@ if ($results['result'] == 'success') {
 } else {
     echo "An Error Occurred: " . $results['message'];
 }
+
 ```
