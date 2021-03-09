@@ -79,7 +79,7 @@ Create a subfolder named `css`, and, within that, create a stylesheet file named
 This is where you should put the CSS rules and declarations to control the look of your theme. Anything you define here will override styling defined by the Parent Theme. If you only want your Child Theme to contain CSS updates, using this method will give you a maintenance-free, automatically-updating Child Theme.
 
 ```
-// Example override for the primary background color
+/* Example override for the primary background color */
 .primary-bg-color {
     background-color: #ddd;
 }
