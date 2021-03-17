@@ -36,7 +36,7 @@ cardexp|string|The card expiry date (Format: MMYY).
 cardstart|string|The card start date (Format: MMYY).
 cardissuenum|string|The card issue number.
 cccvv|string|Only available for card holder present initiated payment attempts.
-clientdetails|array|An array of client details that includes the following indices: firstname, lastname, email, address1, address2, city, state, postcode, country (ISO code), model (an instance of <code class="language-php"><a href="https://classdocs.whmcs.com/">WHMCS/User/Client</a></code>), and phonenumber
+clientdetails|array|An array of client details that includes the following indices: firstname, lastname, email, address1, address2, city, state, postcode, country (ISO code), model (an instance of `<a href="https://classdocs.whmcs.com/">WHMCS/User/Client</a>`), and phonenumber
 companyname|string|The Company Name setting in WHMCS.
 systemurl|string|The URL to the client area of the WHMCS installation.
 
