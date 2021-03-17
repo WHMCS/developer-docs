@@ -91,6 +91,7 @@ weight = 100
 <li> <a href="/hooks-reference/module/#premodulechangepackage">PreModuleChangePackage</a>
 <li> <a href="/hooks-reference/module/#premodulechangepassword">PreModuleChangePassword</a>
 <li> <a href="/hooks-reference/module/#premodulecreate">PreModuleCreate</a>
+<li> <a href="/hooks-reference/module/#premodulerenew">PreModuleRenew</a>
 <li> <a href="/hooks-reference/module/#premodulesuspend">PreModuleSuspend</a>
 <li> <a href="/hooks-reference/module/#premoduleterminate">PreModuleTerminate</a>
 <li> <a href="/hooks-reference/module/#premoduleunsuspend">PreModuleUnsuspend</a>
@@ -174,6 +175,7 @@ weight = 100
 
 <ul><li> <a href="/hooks-reference/user/#useradd">UserAdd</a>
 <li> <a href="/hooks-reference/user/#userchangepassword">UserChangePassword</a>
+<li> <a href="/hooks-reference/user/#useredit">UserEdit</a>
 <li> <a href="/hooks-reference/user/#useremailverificationcomplete">UserEmailVerificationComplete</a>
 </ul>
 <h3>Contact</h3>

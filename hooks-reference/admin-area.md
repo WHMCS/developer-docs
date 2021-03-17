@@ -178,8 +178,8 @@ No response supported
 //Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook('AdminClientDomainsTabFieldsSave', 1, function($vars) {
     $domainId = $vars['id'];
-    $additionalFieldOne = App::getFromRequest('additionalFieldOne');
-    $additionalFieldTwo = App::getFromRequest('additionalFieldTwo');
+    $additionalFieldOne = $_REQUEST['additionalFieldOne'];
+    $additionalFieldTwo = $_REQUEST['additionalFieldTwo'];
 
     //Save the data here
 });
@@ -292,9 +292,9 @@ No response supported
 
 //Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
-    $userId = App::getFromRequest('userid');
-    $additionalFieldOne = App::getFromRequest('additionalFieldOne');
-    $additionalFieldTwo = App::getFromRequest('additionalFieldTwo');
+    $userId = $vars['userid'];
+    $additionalFieldOne = $_REQUEST['additionalFieldOne'];
+    $additionalFieldTwo = $_REQUEST['additionalFieldTwo'];
 
     //Save the data here
 });
@@ -495,7 +495,7 @@ Executes during Admin form-based password authentication
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | userInput | string | The user-provided password value |
-| admin | \WHMCS\User\Admin | The admin attempting to authenticate |
+|  | \WHMCS\User\Admin | The admin attempting to authenticate |
 
 #### Response
 
@@ -540,18 +540,16 @@ add_hook(
 
 ## AuthAdminApi
 
-Executes during Admin API password authentication
-
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userInput | string | The user-provided password value |
-| admin | \WHMCS\User\Admin | The admin attempting to authenticate |
+| $userInput | | |
+| $admin | | |
 
 #### Response
 
-TRUE on success FALSE on failure
+No response supported
 
 #### Example Code
 

@@ -7,29 +7,33 @@ weight = 45
 
 +++
 
-There are two sidebars in WHMCS’ client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.
+## Sidebars
 
-The sidebar elements and panels are controlled in a programmatic way allowing modules and hooks to dynamically interact with the sidebar items.
-
-The look and feel of the sidebar can be customised via the header.tpl and sidebar.tpl (located in /includes/) template files.
-
+{{% notice tip %}}
 This guide assumes you are already familiar with creating and using [Hook files in WHMCS](/hooks/).
+{{% /notice %}}
+
+There are two sidebars in WHMCS's client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.
+
+The sidebar elements and panels are controlled in a programmatic way, allowing modules and hooks to dynamically interact with the sidebar items.
+
+The look and feel of the navigation bar can be customised via the `/includes/header.tpl` and `/includes/navbar.tpl` system theme template files.
 
 ## Finding a Sidebar Name
 
-Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the Inspect Element option available in most modern browsers. An example of this is shown below.
+Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the *Inspect Element* option available in most modern browsers. For example:
 
 ![Sidebar Menus: Finding a Sidebar Name](find-sidebar-name.png)
 
-Once you have the menu item name that you wish to manipulate, which in the example above is "Billing Information" you can manipulate it in the following ways.
+Once you have the menu item name that you wish to manipulate, which in the example above is `Account Details`, you can manipulate it as described below.
 
 {{% notice tip %}}
-The client area's sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is "My Account", followed by the "Billing Information" menu item which is a child within that.
+The client area's sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is `Account`, followed by the `Account Details` menu item within it.
 {{% /notice %}}
 
 ## Changing the Text Label of a Sidebar Item
 
-All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust/change it there as required.
+All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust or change it there as required.
 
 Alternatively, you can manipulate the display text via a hook as follows:
 
@@ -46,11 +50,11 @@ add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
 });
 ```
 
-Notice how in the above we first retrieve the Support menu item, followed by the Announcements menu item which is a child within that. The same logic should be applied to all dropdown menu items.
+Notice how in the above we first retrieve the `Support` menu item, followed by the `Announcements` menu item, which is a child within that. The same logic should be applied to all dropdown menu items.
 
 ## Changing where a Sidebar Item Points To
 
-You can change where a menu item points to using the setUri method. For example if we are using an external system to control our announcements, we could do something like the following:
+You can change where a menu item points using the `setUri` method. For example, if you use an external system to control announcements, you could do something like the following:
 
 ```
 <?php
@@ -65,7 +69,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
 });
 ```
 
-## Re-arranging Sidebar Items
+## Rearranging Sidebar Items
 
 You can change the display order of menu items as follows:
 
@@ -97,7 +101,7 @@ $primaryNavbar->getChild('My Account')->getChild('Billing Information')->moveToB
 
 ## Adding an Additional Sidebar Menu Item
 
-To add an additional item to a menu, we must first check that the sidebar exists on the particular page before speciying You can add additional menu items as follows:
+To add an additional item to a menu, check that the sidebar exists on the particular page before specifying it. You can add additional menu items as follows:
 
 ```
 <?php
@@ -117,7 +121,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar)
 });
 ```
 
-## Hiding/Removing a Sidebar Menu Item
+## Hiding or Removing a Sidebar Menu Item
 
 You can remove a menu item as follows:
 

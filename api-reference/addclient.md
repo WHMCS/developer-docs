@@ -34,7 +34,7 @@ Adds a client.
 | notes | string | Admin only notes | Optional |
 | marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
 | noemail | bool | Pass as true to skip sending welcome email | Optional |
-| skipvalidation | bool | Pass as true to ignore required fields validation | Optional |
+| skipvalidation | bool | Pass as true to ignore required fields validation. Does not apply to $email and $password2 when $owner_user_id is not provided | Optional |
 | ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
 | ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
 | ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |

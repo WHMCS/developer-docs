@@ -19,9 +19,9 @@ Updates a Client Addon
 | recurring | float | The recurring amount for the client addon. | Optional |
 | billingcycle | string | The billing cycle for the addon. | Optional |
 | nextduedate | string | The next due date for the addon. Format: Y-m-d | Optional |
-| nextinvoicedate | string | The next invoice date for the addon. Format: Y-m-d | Optional |
 | terminationDate | string | The termination date of the addon. Format: Y-m-d | Optional |
 | notes | string | The admin notes to associate with the addon. | Optional |
+| autorecalc | bool | Whether to automatically recalculate the recurring amount of the addon (this will ignore any passed $recurring). | Optional |
 
 ### Response Parameters
 

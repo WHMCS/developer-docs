@@ -1,20 +1,19 @@
 +++
-title = "GetClients"
+title = "GetUsers"
 toc = true
 +++
 
-Obtain the Clients that match passed criteria
+Obtain the Users that match passed criteria
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "GetClients" | Required |
+| action | string | "GetUsers" | Required |
 | limitstart | int | The offset for the returned log data (default: 0) | Optional |
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | sorting | string | The direction to sort the results. ASC or DESC. Default: ASC | Optional |
-| status | string | Optional desired Client Status. 'Active', 'Inactive', or 'Closed'. | Optional |
-| search | string | The search term to look for at the start of email, firstname, lastname, fullname or companyname | Optional |
+| search | string | The search term to look for at the start of email, firstname, lastname, or fullname | Optional |
 
 ### Response Parameters
 
@@ -24,7 +23,7 @@ Obtain the Clients that match passed criteria
 | totalresults | int | The total number of results available |
 | startnumber | int | The starting number for the returned results |
 | numreturned | int | The number of results returned |
-| clients | array | The client entries returned |
+| users | array | The user entries returned |
 
 
 ### Example Request (CURL)
@@ -36,11 +35,11 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'GetClients',
+            'action' => 'GetUsers',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'search' => 'example.com',
+            'search' => 'john.smith@example.net',
             'responsetype' => 'json',
         )
     )
@@ -54,9 +53,10 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'GetClients';
+$command = 'GetUsers';
 $postData = array(
-    'search' => 'example.com',
+    'search' => 'john.smith@example.net',
+    'responsetype' => 'json',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -70,33 +70,24 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": 2,
+    "totalresults": 1,
     "startnumber": 0,
-    "numreturned": 2,
-    "clients": {
-        "client": [
-            {
-                "id": 2,
-                "firstname": "Angelica",
-                "lastname": "Mohr",
-                "companyname": "",
-                "email": "price.ima@example.com",
-                "datecreated": "2016-01-15",
-                "groupid": 0,
-                "status": "Active"
-            },
-            {
-                "id": 1,
-                "firstname": "Price",
-                "lastname": "Beier",
-                "companyname": "",
-                "email": "cecelia99@example.com",
-                "datecreated": "2016-01-01",
-                "groupid": 0,
-                "status": "Active"
-            }
-        ]
-    }
+    "numreturned": 1,
+    "users": [
+        {
+            "id": 1,
+            "firstname": "John",
+            "lastname": "Smith",
+            "email": "john.smith@example.net",
+            "datecreated": "2020-12-15 15:29:49",
+            "clients": [
+                {
+                    "id": 1,
+                    "isOwner": true
+                }
+            ]
+        }
+    ]
 }
 ```
 

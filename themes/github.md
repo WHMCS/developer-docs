@@ -6,16 +6,19 @@ weight = 150
 
 +++
 
-The following template's are made available on Github.
+The default system themes and order form templates are [available as read-only repositories on GitHub](https://github.com/WHMCS/).
 
-## Six Client Area Template
+For example, you may wish to fork these system themes and order form templates:
 
-The default client area template in WHMCS.
+## System Templates
 
-https://github.com/WHMCS/templates-six
+WHMCS ships with two Client Area themes:
 
-## Standard Card Order Form Template
+* [Twenty-One](https://github.com/WHMCS/templates-twenty-one) (WHMCS 8.1 and later)
+* [Six](https://github.com/WHMCS/templates-six)
 
-The default shopping cart template in WHMCS.
+We recommend using **Twenty-One** for new development.
 
-https://github.com/WHMCS/orderforms-standard_cart
+## Order Form Templates
+
+[Standard Cart](https://github.com/WHMCS/orderforms-standard_cart) is the default shopping cart template in WHMCS.

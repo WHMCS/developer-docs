@@ -144,6 +144,7 @@ weight = 100
 <li> <a href="/api-reference/deleteuserclient/">DeleteUserClient</a>
 <li> <a href="/api-reference/getpermissionslist/">GetPermissionsList</a>
 <li> <a href="/api-reference/getuserpermissions/">GetUserPermissions</a>
+<li> <a href="/api-reference/getusers/">GetUsers</a>
 <li> <a href="/api-reference/resetpassword/">ResetPassword</a>
 <li> <a href="/api-reference/updateuser/">UpdateUser</a>
 <li> <a href="/api-reference/updateuserpermissions/">UpdateUserPermissions</a>
