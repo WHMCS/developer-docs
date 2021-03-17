@@ -42,7 +42,7 @@ $params['clientdetails']['city']
 $params['clientdetails']['state']
 $params['clientdetails']['postcode']
 $params['clientdetails']['country']
-$params['clientdetails']['model'] # An instance of WHMCS/User/Client. See below.
+$params['clientdetails']['model'] # An instance of WHMCS\User\Client. See below.
 $params['clientdetails']['phonenumber']
 ```
 
