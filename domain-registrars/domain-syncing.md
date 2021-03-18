@@ -1,5 +1,5 @@
 +++
-next = "/domain-registrars/meta-data-params/"
+next = "/domain-registrars/metadata-params/"
 prev = "/domain-registrars/function-index/"
 title = "Domain Syncronisation"
 weight = 40
