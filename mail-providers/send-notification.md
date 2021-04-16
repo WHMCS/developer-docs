@@ -13,7 +13,7 @@ In this method, you should craft an appropriately formatted message and transmit
 The method receives two input arguments:
 
 1. `$params` — An array of configuration parameters for the mail provider.
-2. `$message` — The `Message` object.
+2. `$message` — The `WHMCS\Mail\Message` object.
 
 ```
 public function send(array $params, Message $message)
