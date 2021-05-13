@@ -1,5 +1,5 @@
 +++
-next = "/payment-gateways/callbacks"
+next = "/payment-gateways/displaying-balances"
 prev = "/payment-gateways/third-party-gateway"
 title = "Merchant Gateway"
 toc = true
@@ -27,17 +27,17 @@ The following parameters are passed to the `_capture` function along with all [d
 Parameter | Type | Description
 ---|---|---
 invoiceid|integer|Invoice ID number.
-description|string|Description (for example, Company Name - Invoice #xxx).
-amount|float|Format: xxx.xx
-currency|string|Currency code (GBP, USD, etc.).
-cardtype|string|The card type (Visa, MasterCard, etc.).
+description|string|Description (for example, `Company Name - Invoice #xxx`).
+amount|float|Format: `xxx.xx`
+currency|string|Currency code (for example, GBP or USD).
+cardtype|string|The card type (for example, Visa or MasterCard).
 cardnum|string|The card number.
-cardexp|string|The card expiry date (Format: MMYY).
-cardstart|string|The card start date (Format: MMYY).
+cardexp|string|The card expiry date (format: MMYY).
+cardstart|string|The card start date (format: MMYY).
 cardissuenum|string|The card issue number.
 cccvv|string|Only available for card holder present initiated payment attempts.
-clientdetails|array|An array of client details that includes the following indices: firstname, lastname, email, address1, address2, city, state, postcode, country (ISO code), model (an instance of `<a href="https://classdocs.whmcs.com/">WHMCS/User/Client</a>`), and phonenumber
-companyname|string|The Company Name setting in WHMCS.
+clientdetails|array|An array of client details that includes the following indices: firstname, lastname, email, address1, address2, city, state, postcode, country (ISO code), model (an instance of `<a href="https://classdocs.whmcs.com/">WHMCS/User/Client</a>`), and phonenumber.
+companyname|string|The *Company Name* setting in WHMCS.
 systemurl|string|The URL to the client area of the WHMCS installation.
 
 ## Response
@@ -47,11 +47,11 @@ The following return parameters are supported.
 Parameter | Type | Description
 ---|---|---
 status|string|One of either `success`, `pending`, or `declined`.
-declinereason|string|The reason for a decline.
+declinereason|string|The reason why a transaction was declined.
 transid|string|The Transaction ID returned by the payment gateway.
 fee|float|(Optional) The transaction fee returned by the payment gateway.
 rawdata|string or array|The raw data returned by the payment gateway for logging to the gateway log to aid in debugging.
-gatewayid|string|See [Tokenised Remote Storage][tokenised-remote-storage]
+gatewayid|string|See [Tokenised Remote Storage][tokenised-remote-storage].
 
 ### Example Return
 
@@ -67,14 +67,16 @@ return array(
 ```
 
 For a successful capture, the status should be returned as the string `success`.
+
 For payments that are pending and do not require an immediate payment in WHMCS, the status should be `pending`.
+
 For anything else, return a status that indicates the reason for failure. Common failure response status values include `declined` and `error`.
 
-The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.
+The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or an array.
 
 ## Simple Example
 
-Below is a very simple demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the [Sample Merchant Gateway module on Github][githubsample].
+Below is a demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the [Sample Merchant Gateway module on GitHub][githubsample].
 
 ```
 function yourmodulename_capture($params) {
