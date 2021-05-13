@@ -1,24 +1,22 @@
 +++
-title = "GetServers"
+title = "GetRegistrars"
 toc = true
 +++
 
-Get servers.
+Get Registrars.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "GetServers" | Required |
-| serviceId | int | Pass a Product/Service ID to fetch available servers for its module type. | Optional |
-| addonId | int | Pass a Addon/Service ID to fetch available servers for its module type. | Optional |
-| fetchStatus | bool | Pass as true to attempt to fetch server status values. | Optional |
+| action | string | "GetRegistrars" | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| registrars | array | An array of active registrars in the system. |
 
 
 ### Example Request (CURL)
@@ -30,12 +28,10 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'GetServers',
+            'action' => 'GetRegistrars',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'serviceId' => '1',
-            'fetchStatus' => false,
             'responsetype' => 'json',
         )
     )
@@ -49,10 +45,8 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'GetServers';
+$command = 'GetRegistrars';
 $postData = array(
-    'serviceId' => '1',
-    'fetchStatus' => false,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -64,9 +58,7 @@ print_r($results);
 ### Example Response JSON
 
 ```
-{
-    "result": "success"
-}
+[]
 ```
 
 
@@ -74,4 +66,4 @@ print_r($results);
 
 | Version | Changelog |
 | ------- | --------- |
-| 1.0 | Initial Version |
+| 8.1.1 | Initial Version |
