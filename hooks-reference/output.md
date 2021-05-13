@@ -390,7 +390,7 @@ Allows for transformation of a date prior to output within the Client Area.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| date | \Carbon | A Carbon object representing the date. |
+| date | \Carbon | A Carbon object representing the date/time. |
 
 #### Response
 
@@ -400,7 +400,8 @@ Return a string containing the formatted date to display.
 
 ```
 <?php
-add_hook('FormatDateForClientAreaOutput', 1, function($vars) {
+
+add_hook('FormatDateForClientAreaOutput', 1, function ($vars) {
     // Perform hook code here...
 });
 ```
@@ -423,7 +424,8 @@ Return a string containing the formatted date and time to display.
 
 ```
 <?php
-add_hook('FormatDateTimeForClientAreaOutput', 1, function($vars) {
+
+add_hook('FormatDateTimeForClientAreaOutput', 1, function ($vars) {
     // Perform hook code here...
 });
 ```

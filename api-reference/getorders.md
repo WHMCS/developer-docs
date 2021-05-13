@@ -14,6 +14,7 @@ Obtain orders matching the passed criteria
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | id | int | Find orders for a specific id | Optional |
 | userid | int | Find orders for a specific client id | Optional |
+| requestor_id | int | Find orders for a specific requestor id | Optional |
 | status | string | Find orders for a specific status | Optional |
 
 ### Response Parameters
@@ -80,6 +81,8 @@ print_r($results);
                 "ordernum": 7858259149,
                 "userid": 1,
                 "contactid": 0,
+                "requestor_id": 1,
+                "admin_requestor_id": 0,
                 "date": "2020-09-23 13:59:35",
                 "nameservers": "",
                 "transfersecret": "",
@@ -102,6 +105,7 @@ print_r($results);
                 "currencyprefix": "$",
                 "currencysuffix": "USD",
                 "frauddata": "",
+                "validationdata": "",
                 "lineitems": {
                     "lineitem": [
                         {

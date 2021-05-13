@@ -80,6 +80,7 @@ print_r($results);
             "lastname": "Smith",
             "email": "john.smith@example.net",
             "datecreated": "2020-12-15 15:29:49",
+            "validationdata": "",
             "clients": [
                 {
                     "id": 1,

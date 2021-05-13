@@ -37,7 +37,6 @@ Updates a Client Service
 | disklimit | int | The disk limit in megabytes. | Optional |
 | bwusage | int | The bandwidth usage in megabytes. | Optional |
 | bwlimit | int | The bandwidth limit in megabytes. | Optional |
-| overidesuspenduntil | string |  | Optional |
 | suspendreason | string |  | Optional |
 | promoid | int | The promotion ID to associate. | Optional |
 | unset | array | An array of items to unset. Can be one of: 'domain', 'serviceusername', 'servicepassword', 'subscriptionid', 'ns1', 'ns2', 'dedicatedip', 'assignedips', 'notes', or 'suspendreason' | Optional |

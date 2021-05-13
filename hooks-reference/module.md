@@ -155,6 +155,53 @@ add_hook('AfterModuleCreateFailed', 1, function($vars)
 );
 ```
 
+## AfterModuleCustom
+
+Executes upon successful completion of the module custom function.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterModuleCustom', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
+## AfterModuleCustomFailed
+
+Executes upon failure of the module custom function to complete successfully. The failure reason is provided in the input parameters.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
+| failureResponseMessage | string | The failure reason error string returned by the provisioning module. |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AfterModuleCustomFailed', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## AfterModuleSuspend
 
 Executes upon successful completion of the module function.
@@ -390,6 +437,29 @@ add_hook('PreModuleCreate', 1, function($vars)
         );
     }
 );
+```
+
+## PreModuleCustom
+
+Executes prior to the module custom function being run for a service. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
+
+#### Response
+
+Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return `abortcmd=true` to abort the action.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreModuleCustom', 1, function($vars) {
+    // Perform hook code here...
+});
 ```
 
 ## PreModuleRenew

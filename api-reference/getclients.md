@@ -15,6 +15,7 @@ Obtain the Clients that match passed criteria
 | sorting | string | The direction to sort the results. ASC or DESC. Default: ASC | Optional |
 | status | string | Optional desired Client Status. 'Active', 'Inactive', or 'Closed'. | Optional |
 | search | string | The search term to look for at the start of email, firstname, lastname, fullname or companyname | Optional |
+| orderby | string | The column to order by. id, firstname, lastname, companyname, email, groupid, datecreated, status | Optional |
 
 ### Response Parameters
 
@@ -106,3 +107,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.2 | Implement new parameter: "orderby". |

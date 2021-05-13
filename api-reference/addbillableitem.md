@@ -13,12 +13,13 @@ Adds a Billable Item
 | clientid | int | The client to add the item to. | Required |
 | description | string | The description of the Billable Item. This will appear on the invoice. | Required |
 | amount | float | The total amount to invoice for. | Required |
+| quantity | float | The number of hours or quantity the item corresponds to. | Optional |
+| unit | string | Either 'hours' or 'quantity'. | Optional |
 | invoiceaction | string | One of 'noinvoice', 'nextcron', 'nextinvoice', 'duedate', or 'recur'. | Optional |
 | recur | int | When `$invoiceaction=recur`. The frequency of the recurrence. | Optional |
 | recurcycle | string | How often to recur the Billable Item. Days, Weeks, Months or Years. | Optional |
 | recurfor | int | How many times the Billable Item should create an invoice. | Optional |
 | duedate | string | Date the invoice should be due (only required for due date and recur invoice actions). YYYY-mm-dd | Optional |
-| hours | float | The number of hours or quantity the item corresponds to (not required for single quantities). | Optional |
 
 ### Response Parameters
 
@@ -48,7 +49,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'recur' => '1',
             'recurcycle' => 'Months',
             'recurfor' => '12',
-            'duedate' => '2016-01-01',
+            'duedate' => '2021-01-01',
             'responsetype' => 'json',
         )
     )
@@ -71,7 +72,7 @@ $postData = array(
     'recur' => '1',
     'recurcycle' => 'Months',
     'recurfor' => '12',
-    'duedate' => '2016-01-01',
+    'duedate' => '2021-01-01',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -84,8 +85,8 @@ print_r($results);
 
 ```
 {
-    "result": "success",
-    "billableid": "1"
+    "status": "success",
+    "billableid": 1
 }
 ```
 
@@ -99,6 +100,8 @@ Possible error condition responses include:
 * Invalid Invoice Action
 * Recurring must have a unit, cycle and limit
 * Due date is required
+* Invalid Unit, please specify either 'hours' or 'quantity'
+* Invalid Date Format - Expected: 'YYYY-mm-dd'
 
 
 ### Version History
@@ -106,3 +109,5 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.2 | Renamed 'hours' parameter to `quantity`. Now Required |
+| 8.2 | Added `unit` parameter. |
