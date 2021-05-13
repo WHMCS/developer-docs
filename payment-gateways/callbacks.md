@@ -1,6 +1,6 @@
 +++
 next = "/payment-gateways/refunds"
-prev = "/payment-gateways/merchant-gateway"
+prev = "/payment-gateways/displaying-balances"
 title = "Callback Files"
 toc = true
 weight = 60
@@ -55,8 +55,7 @@ The following helper functions are made available for use in payment gateway cal
 $gatewayParams = getGatewayVariables('yourgatewayname');
 ```
 
-This function can be used to retrieve the configuration data for a module as specified in the **_config** array.
-For example, it might be needed to get a gateway username or secret key to validate a callback.
+This function can be used to retrieve the configuration data for a module as specified in the `_config` array. For example, it might be needed to get a gateway username or secret key to validate a callback.
 
 ### Validate Callback Invoice ID
 
@@ -77,8 +76,8 @@ For example, it might be needed to get a gateway username or secret key to valid
 $invoiceId = checkCbInvoiceID($invoiceId, $gatewayName);
 ```
 
-Use this function to verify that the invoice ID received in a callback is valid.
-Pass the $invoiceid and the gateway name into the function.
+Use this function to verify that the invoice ID received in a callback is valid. Pass the `$invoiceid` and the gateway name into the function.
+
 If the invoice number is invalid, the callback script execution will be halted.
 
 ### Validate Callback Transaction ID
@@ -97,8 +96,8 @@ If the invoice number is invalid, the callback script execution will be halted.
 checkCbTransID($transactionId);
 ```
 
-Use this function to check for any existing transactions for a given transaction ID.
-This protects against duplicate callbacks for the same transaction.
+Use this function to check for any existing transactions for a given transaction ID. This protects against duplicate callbacks for the same transaction.
+
 If the transaction ID is already in the database, the callback script execution will be halted.
 
 ### Log Transaction
@@ -119,9 +118,10 @@ logTransaction($gatewayName, $_POST, $transactionStatus);
 ```
 
 Use this function to create a gateway log entry.
-The first input parameter should be the name of the gateway module.
-The second input parameter should be an array of data received, such as the **$_POST** or **$_REQUEST** super globals.
-The last input parameter should be the human readable result/status to display in the log.
+
+* The first input parameter should be the name of the gateway module.
+* The second input parameter should be an array of data received (for example, the `$_POST` or `$_REQUEST` super globals).
+* The last input parameter should be the human readable result or status to display in the log.
 
 ### Add Payment to the Invoice
 
@@ -147,8 +147,11 @@ addInvoicePayment(
 ```
 
 Use this function to apply the payment to an invoice.
-The first parameter should be the invoice ID to apply the payment to.
-The second parameter should be the unique transaction ID provided by the Payment Gateway.
-The third parameter should be the amount to be credited to the invoice. If this value is `0` or an empty string, the payment will be assumed to be the full balance due for the invoice.
-The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to "0.00".
-The fifth parameter should be your Gateway Module Name. You can use `$gatewayParams['name']` for this. This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS. 
+
+* The first parameter should be the invoice ID to apply the payment to.
+* The second parameter should be the unique transaction ID provided by the payment gateway.
+* The third parameter should be the amount to be credited to the invoice. If this value is `0` or an empty string, the payment will be assumed to be the full balance due for the invoice.
+* The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to `0.00`.
+* The fifth parameter should be your gateway module name. You can use `$gatewayParams['name']` for this.
+
+This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.
