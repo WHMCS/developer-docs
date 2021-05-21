@@ -1,6 +1,6 @@
 +++
 next = "/payment-gateways/refunds"
-prev = "/payment-gateways/displaying-balances"
+prev = "/payment-gateways/transaction-information"
 title = "Callback Files"
 toc = true
 weight = 60

@@ -1,5 +1,5 @@
 +++
-next = "/payment-gateways/callbacks"
+next = "/payment-gateways/transaction-information"
 prev = "/payment-gateways/merchant-gateway"
 title = "Displaying Balances"
 toc = true
