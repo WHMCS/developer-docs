@@ -1,7 +1,7 @@
 +++
 next = "/payment-gateways/callbacks"
 prev = "/payment-gateways/displaying-balances"
-title = "Displaying Balances"
+title = "Transaction Information"
 toc = true
 weight = 56
 
