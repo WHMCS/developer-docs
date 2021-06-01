@@ -9,10 +9,10 @@ weight = 30
 
 ## Custom CSS
 
-If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the `/css/custom.css` file. This file is included after `styles.css`, allowing you to override any of the CSS defined within it. It will not be affected by future updates to the WHMCS software.
+If you want to make changes to any of the CSS that is applied by default, we recommend creating a `/css/custom.css` file and making those customisations within it. This file is included after `styles.css`, allowing you to override any of the CSS defined within it. It will not be affected by future updates to the WHMCS software.
 
 {{% notice tip %}}
-* We strongly recommend adding your custom CSS rules to the `custom.css` file and **not** editing `/css/styles.css` directly because it will make updating easier.
+* We strongly recommend creating a `/css/custom.css` file to contain your additional custom CSS rules and **not** editing `/css/styles.css` directly because it will make updating easier.
 * You may also wish to consider creating a [child theme](/themes/child-themes/).
 {{% /notice %}}
 
