@@ -15,8 +15,7 @@ Updates a Client Service
 | serverid | int | The server ID to associate with the service. | Optional |
 | regdate | string | The registration date of the service. Format: Y-m-d | Optional |
 | nextduedate | string | The next due date of the service. Format: Y-m-d | Optional |
-| terminationDate | string | Update the termination date of the service. Format: Y-m-d | Optional |
-| completedDate | string | Update the completed date of the service. Format: Y-m-d | Optional |
+| terminationdate | string | Update the termination date of the service. Format: Y-m-d | Optional |
 | domain | string | The domain name to be changed to. | Optional |
 | firstpaymentamount | float | The first payment amount on the service. | Optional |
 | recurringamount | float | The recurring amount for automatic renewal invoices. | Optional |
