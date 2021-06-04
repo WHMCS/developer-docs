@@ -141,7 +141,7 @@ Possible error condition responses include:
 * You did not enter your city
 * You did not enter your state
 * You did not enter your postcode
-* You did not enter your country
+* Valid country required
 * You did not enter your phone number
 * Invalid telephone phone number
 * You did not provide required custom field value for

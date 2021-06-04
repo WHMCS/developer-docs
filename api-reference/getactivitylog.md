@@ -71,20 +71,34 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "2",
-    "startnumber": "0",
-    "activity[entry][0][id]": "2",
-    "activity[entry][0][userid]": "0",
-    "activity[entry][0][date]": "2016-01-01 17:24:26",
-    "activity[entry][0][description]": "Cron Job: Check for Updates: No new updates available",
-    "activity[entry][0][username]": "admin",
-    "activity[entry][0][ipaddress]": "192.168.99.1",
-    "activity[entry][1][id]": "1",
-    "activity[entry][1][userid]": "0",
-    "activity[entry][2][date]": "2016-01-01 17:24:20",
-    "activity[entry][1][description]": "Cron Job: Perform WHMCS Update Check",
-    "activity[entry][1][username]": "admin",
-    "activity[entry][1][ipaddress]": "192.168.99.1"
+    "totalresults": 2,
+    "startnumber": 0,
+    "activity": {
+        "entry": [
+            {
+                "id": 2,
+                "clientId": 0,
+                "userId": 0,
+                "adminId": 1,
+                "date": "2021-01-01 06:56:49",
+                "description": "Cron Job: Check for Updates: No new updates available",
+                "username": "admin",
+                "ipaddress": "172.18.0.1",
+                "userid": 0
+            },
+            {
+                "id": 1,
+                "clientId": 0,
+                "userId": 0,
+                "adminId": 1,
+                "date": "2021-01-01 06:56:49",
+                "description": "Cron Job: Perform WHMCS Update Check",
+                "username": "admin",
+                "ipaddress": "172.18.0.1",
+                "userid": 0
+            }
+        ]
+    }
 }
 ```
 
