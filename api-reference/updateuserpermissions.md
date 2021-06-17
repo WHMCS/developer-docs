@@ -12,7 +12,7 @@ Update the permissions of a user for a client.
 | action | string | "UpdateUserPermissions" | Required |
 | user_id | int | The id of the user to set the permissions for | Required |
 | client_id | int | The id of the client to set the permissions for | Required |
-| client_id | string | Comma separated list of permissions | Required |
+| permissions | string | Comma separated list of permissions | Required |
 
 ### Response Parameters
 
