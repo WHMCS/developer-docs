@@ -164,8 +164,8 @@ add_hook('CancelOrder', 1, function($vars) {
 
 ## CartItemsTax
 
-Invoked as tax is being calculated for both cart and checkout, this can be used to manipulate the
-tax rate applied the cart total or relevant checkout payment intents
+Invoked as tax is being calculated for both cart and checkout, this can be used to manipulate
+the tax rate applied to the cart total or relevant checkout payment intents.
 
 #### Parameters
 

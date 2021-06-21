@@ -65,7 +65,26 @@ print_r($results);
 
 ```
 {
-    "result": "success"
+    "result": "success",
+    "servers": [
+        {
+            "id": 1,
+            "name": "Sample cPanel Box",
+            "hostname": "hostname.example.com",
+            "ipaddress": "10.100.4.30",
+            "active": true,
+            "activeServices": 0,
+            "maxAllowedServices": 200,
+            "percentUsed": 0,
+            "module": "cpanel",
+            "status": {
+                "http": false,
+                "load": "",
+                "uptime": ""
+            }
+        }
+    ],
+    "fetchStatus": ""
 }
 ```
 
