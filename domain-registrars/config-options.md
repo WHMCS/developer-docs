@@ -21,7 +21,7 @@ The supported configuration field types include the following:
 
 Below are examples of the available parameters for each field type. Provisioning modules support up to 24 options defined in this way.
 
-```php
+```
 <?php
 function yourmodulename_getConfigArray($params)
 {
@@ -78,7 +78,7 @@ This will allow you to run a block of code to determine if the details that the 
 
 The example code below demonstrates how to prevent saving the module configuration if an API responded with an error due to a parameter being invalid:
 
-```php
+```
 <?php
  
 function yourmodulename_config_validate($params) {

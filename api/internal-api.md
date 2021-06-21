@@ -15,7 +15,7 @@ The import of `init.php` is not required when you’re already in a WHMCS runtim
 
 ## Usage Example
 
-```php
+```
 <?php
 
 /**
