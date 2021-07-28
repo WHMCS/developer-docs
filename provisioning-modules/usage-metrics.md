@@ -150,8 +150,8 @@ are a "snapshot" type (\WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TY
 
 For metrics that are related to usage that is an accumulative measure at the
 remote system, like bandwidth, it is likely that these will be reset of a 
-specific frequency.  WHMCS support a "time-based" daily and a monthly frequency via \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_DAY
-and \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_MONTH.  When data
+specific frequency.  WHMCS support a "time-based" daily and a monthly frequency via \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_PERIOD_DAY
+and \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_PERIOD_MONTH. When data
 is collected by WHMCS, the value of these metrics will overwrite any previous
 data for the respective time period.  So for monthly items, WHMCS internals will
 manage one record for each calendar month; for daily, WHMCS will manage on
