@@ -21,3 +21,4 @@ return array(
     'error' => 'Domain name not found',
 );
 ```
+User-friendly error messages are exposed to administrators within the Admin Area. User-friendly error messages are never exposed to clients within the Client Area to protect the potentially sensitive nature of the message being returned.
