@@ -35,7 +35,7 @@ add_hook('AnnouncementAdd', 1, function($vars) {
 
 ## AnnouncementEdit
 
-Executes as an announcement is being edited.
+Executes as an announcement is being added.
 
 #### Parameters
 

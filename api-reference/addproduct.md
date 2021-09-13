@@ -12,6 +12,7 @@ Adds a product to the system to be available for purchase
 | action | string | "AddProduct" | Required |
 | name | string | The name of the product to be added | Required |
 | gid | int | The id of the product group to add the product | Required |
+| slug | string | The friendly name of the product. Will be generated if not supplied. | Optional |
 | type | string | One of 'hostingaccount', 'reselleraccount', 'server' or 'other' | Optional |
 | stockcontrol | bool | Set to true to enable stock control on the product | Optional |
 | qty | int | How much of this product is in stock | Optional |
@@ -120,3 +121,4 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.3 | Added `slug` parameter |

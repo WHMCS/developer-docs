@@ -80,6 +80,8 @@ print_r($results);
                 "gid": 1,
                 "type": "hostingaccount",
                 "name": "Best Hosting Plan",
+                "slug": "best-hosting-plan",
+                "product-url": "https:\/\/www.example.com\/whmcs\/product-group\/best-hosting-plan",
                 "description": "This is our best hosting plan, with all the bells and whistles.",
                 "module": "cpanel",
                 "paytype": "recurring",
@@ -159,3 +161,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.3 | Added slug and product_url in response |

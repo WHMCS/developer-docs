@@ -11,36 +11,36 @@ Adds a client.
 | --------- | ---- | ----------- | -------- |
 | action | string | "AddClient" | Required |
 | owner_user_id | int | The ID of the user that should own the client. Optional. When not provided, a new user will be created. | Optional |
-| firstname | string |  | Required |
-| lastname | string |  | Required |
+| firstname | string | First name of the client to be created. Also used for the first name of the user when `owner_user_id` is not specified. | Required |
+| lastname | string | Last name of the client to be created. Also used for the last name of the user when `owner_user_id` is not specified. | Required |
 | companyname | string |  | Optional |
-| email | string |  | Required |
+| email | string | Email address of the client to be created. Also used for the email of the user when `owner_user_id` is not specified. | Required |
 | address1 | string |  | Required |
 | address2 | string |  | Optional |
 | city | string |  | Required |
 | state | string |  | Required |
 | postcode | string |  | Required |
-| country | string | 2 character ISO country code | Required |
+| country | string | 2 character ISO country code. | Required |
 | phonenumber | string |  | Required |
-| tax_id | string | The client Tax ID | Optional |
-| password2 | string | The password for the newly created user account. Required when $owner_user_id is not provided | Optional |
-| securityqid | int | The ID of the Security Question from tbladminsecurityquestions for a newly created user | Optional |
-| securityqans | string | The Security Question Answer for a newly created user | Optional |
-| currency | int | Currency ID from tblcurrencies | Optional |
-| groupid | int | Client Group ID from tblclientgroups | Optional |
-| customfields | string | Base64 encoded serialized array of custom field values | Optional |
-| language | string | Default language setting. Provide full name: 'english', 'french', etc... | Optional |
-| clientip | string | The originating IP address for the request | Optional |
-| notes | string | Admin only notes | Optional |
-| marketingoptin | bool | Set true to opt client in to marketing emails | Optional |
-| noemail | bool | Pass as true to skip sending welcome email | Optional |
-| skipvalidation | bool | Pass as true to ignore required fields validation. Does not apply to $email and $password2 when $owner_user_id is not provided | Optional |
-| ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc...~~ | Deprecated |
-| ~~cardnum~~ | ~~string~~ | ~~Credit card number~~ | Deprecated |
-| ~~expdate~~ | ~~string~~ | ~~Format: MMYY~~ | Deprecated |
-| ~~startdate~~ | ~~string~~ | ~~Format: MMYY (if applicable)~~ | Deprecated |
-| ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable)~~ | Deprecated |
-| ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored)~~ | Deprecated |
+| tax_id | string | The client's tax ID. | Optional |
+| password2 | string | The password for the newly-created user account. Required when `owner_user_id` is not specified. | Optional |
+| securityqid | int | The ID of the security question in `tbladminsecurityquestions`. Required when `owner_user_id` is not specified. | Optional |
+| securityqans | string | The security question answer for a newly-created user. | Optional |
+| currency | int | Currency ID from `tblcurrencies`. | Optional |
+| groupid | int | Client Group ID from `tblclientgroups`. | Optional |
+| customfields | string | Base64 encoded serialized array of custom field values. | Optional |
+| language | string | Default language setting. Also used for the language of the user when `owner_user_id` is not specified. Provide the full name: 'english', 'french', etc.... | Optional |
+| clientip | string | The originating IP address for the request. | Optional |
+| notes | string | Admin only notes. | Optional |
+| marketingoptin | bool | Whether the client should opt-in to receiving marketing emails. | Optional |
+| noemail | bool | Whether to send the client a welcome email. A true value will not send the email. | Optional |
+| skipvalidation | bool | Whether to enforce required fields. A true value will not enforce required fields. This does not apply to `email` and `password2` when `owner_user_id` is not specified. | Optional |
+| ~~cardtype~~ | ~~string~~ | ~~Credit card type. Provide full name: Visa, Mastercard, American Express, etc....~~ | Deprecated |
+| ~~cardnum~~ | ~~string~~ | ~~Credit card number.~~ | Deprecated |
+| ~~expdate~~ | ~~string~~ | ~~Format: MMYY.~~ | Deprecated |
+| ~~startdate~~ | ~~string~~ | ~~Format: MMYY (if applicable).~~ | Deprecated |
+| ~~issuenumber~~ | ~~string~~ | ~~Credit card issue number (if applicable).~~ | Deprecated |
+| ~~cvv~~ | ~~string~~ | ~~Credit card CVV number (will not be stored).~~ | Deprecated |
 
 ### Response Parameters
 
