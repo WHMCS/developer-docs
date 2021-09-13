@@ -133,6 +133,17 @@ Using the sample code, the widget will output will look something like:
 
  <img src="../sample-widget-output.png" alt="Widget Output Sample" />
 
+### Naming Convention
+
+The widget filename and folder should be in the same format as PHP class names due to how WHMCS imports the files from the respective folder.
+
+The following file naming conventions are acceptable formats:
+```
+PascalCase or StudlyCaps
+camelCase
+snake_case
+```
+
 ## Permissions
 
 Widgets use the administrator role access control permissions system.
