@@ -823,42 +823,43 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 
 ## ShoppingCartValidateCheckout
 
-Executes on checkout via the shopping cart. The `$_SESSION['cart']` varible contains the products in the cart and associated configuration. See `PreCalculateCartTotals` for more details on cart session data.
+Executes during checkout completion, which occurs before order and invoice creation. Use this to
+prevent order creation and present errors to the user.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| a | string | Value will be checkout |
-| submit | bool | Value will be true |
-| i | int | This is the index of the item in the $_SESSION['cart'] |
-| promocode | string | String  If entered, a promotion code |
+| a | string | Value will be `checkout`. |
+| submit | string | Value will be true. |
+| promocode | string | If entered, a promotion code. |
 | notes | string | If enabled, additional order notes |
 | paymentmethod | string | The selected payment method |
-| ccinfo | string | Either new or useexisting |
+| ccinfo | string | Either `new` or `useexisting`. |
 | cctype | string |  |
 | ccnumber | string |  |
 | ccexpirymonth | string |  |
 | ccexpiryyear | string |  |
 | cccvv | string |  |
 | custtype | string | Possible values are `new` or `existing` |
-| loginemail | string | Existing Clients email address |
-| loginpw | string | Existing Clients password |
-| firstname | string | The following will be present for new clients only |
-| lastname | string |  |
-| companyname | string |  |
-| email | string |  |
-| address1 | string |  |
-| address2 | string |  |
-| city | string |  |
-| state | string |  |
-| country | string |  |
-| phonenumber | string |  |
-| password | string |  |
-| password2 | string |  |
-| securityqid | string |  |
-| securityqans | string |  |
-| customfield | array |  |
+| clientId | int | A non-zero value if the user is authenticated during checkout. |
+| loginemail | string | Value present only when the client authenticates during checkout. |
+| loginpassword | string | Value present only when the client authenticates during checkout. |
+| firstname | string | Value present when the client is new. |
+| lastname | string | Value present when the client is new. |
+| companyname | string | Value present when client is new |
+| email | string | Value present when client is new |
+| address1 | string | Value present when client is new |
+| address2 | string | Value present when client is new |
+| city | string | Value present when client is new |
+| state | string | Value present when client is new |
+| country | string | Value present when client is new; two letter ISO code |
+| phonenumber | string | Value present when client is new |
+| password | string | Value present when client is new |
+| password2 | string | Value present when client is new |
+| securityqid | string | Value present when client is new |
+| securityqans | string | Value present when client is new |
+| customfield | array | Value present when client is new |
 
 #### Response
 
@@ -879,15 +880,13 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 
 ## ShoppingCartValidateDomain
 
-Executes when Cart Domain Validation is occurring
+Executes when Domain Update is occurring
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domainoption | string |  |
-| sld | string | eg whmcs in whmcs.com |
-| tld | string | eg com in whmcs.com |
+| N/A | array | The REQUEST variables |
 
 #### Response
 

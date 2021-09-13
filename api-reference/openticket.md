@@ -22,6 +22,7 @@ Open a new ticket
 | serviceid | int | The service to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | domainid | int | The domain to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | admin | bool | Is an Admin opening the ticket | Optional |
+| noemail | bool | Pass 'true' for this value to prevent the ticket email from being sent. | Optional |
 | markdown | bool | Should markdown be used on the ticket output | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
 | attachments | array | Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below). | Optional |
@@ -120,5 +121,6 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
-| 7.5 | Added support for attachments |
-| 8.0 | Added support for ticket creation date |
+| 7.5 | Added support for attachments. |
+| 8.0 | Added support for ticket creation date. |
+| 8.3 | Added support for stopping email from being sent. |
