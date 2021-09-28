@@ -330,7 +330,7 @@ add_hook('InvoicePaidPreEmail', 1, function($vars) {
 
 ## InvoicePaymentReminder
 
-Executes when an invoice payment reminder is sent
+Executes when an automated invoice payment reminder is sent.
 
 #### Parameters
 
