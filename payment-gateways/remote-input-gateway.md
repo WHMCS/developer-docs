@@ -268,4 +268,4 @@ The most common messages are detailed below. Other exceptions could be thrown an
 
 [callbacks]: /payment-gateways/callbacks "Callback Files"
 [github-sample]: https://github.com/WHMCS/sample-remote-input-gateway "Sample Remote Input Gateway module"
-[github-bank-sample]: https://github.com/WHMCS/sample-remote-input-bank-gateway "Sample Remote Input Bank Gateway module on Github"
+[github-bank-sample]: https://github.com/WHMCS/sample-remote-bank-gateway-module "Sample Remote Input Bank Gateway module on Github"

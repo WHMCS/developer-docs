@@ -296,7 +296,7 @@ add_hook('TicketAdminReply', 1, function($vars) {
 
 ## TicketClose
 
-Executes as a ticket is closed.
+Executes when a ticket is closed.
 
 #### Parameters
 

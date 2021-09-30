@@ -49,7 +49,7 @@ WHMCS will recognize an Exception and display the error message returned in that
  * Loader function that will populate the field in ConfigOptions
  * @return array The list of package names
  */
-function provisioningmodule_LoaderFunction() {
+function provisioningmodule_LoaderFunction($params) {
     // Make a call to the remote API endpoint
     $ch = curl_init('https://www.example.com/api/function');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

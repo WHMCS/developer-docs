@@ -70,4 +70,4 @@ A brief description of each parameter and what it is used for can be found below
 
 The logo.png file used for a module should not exceed **500** pixels in width. An example placeholder logo for reference can be found below:
 
- <img src="./advanced/module-image-placeholder.png" alt="Module Image Placeholder" />
+ <img src="../module-image-placeholder.png" alt="Module Image Placeholder" />

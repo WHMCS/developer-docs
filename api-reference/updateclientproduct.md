@@ -15,8 +15,7 @@ Updates a Client Service
 | serverid | int | The server ID to associate with the service. | Optional |
 | regdate | string | The registration date of the service. Format: Y-m-d | Optional |
 | nextduedate | string | The next due date of the service. Format: Y-m-d | Optional |
-| terminationDate | string | Update the termination date of the service. Format: Y-m-d | Optional |
-| completedDate | string | Update the completed date of the service. Format: Y-m-d | Optional |
+| terminationdate | string | Update the termination date of the service. Format: Y-m-d | Optional |
 | domain | string | The domain name to be changed to. | Optional |
 | firstpaymentamount | float | The first payment amount on the service. | Optional |
 | recurringamount | float | The recurring amount for automatic renewal invoices. | Optional |
@@ -37,7 +36,6 @@ Updates a Client Service
 | disklimit | int | The disk limit in megabytes. | Optional |
 | bwusage | int | The bandwidth usage in megabytes. | Optional |
 | bwlimit | int | The bandwidth limit in megabytes. | Optional |
-| overidesuspenduntil | string |  | Optional |
 | suspendreason | string |  | Optional |
 | promoid | int | The promotion ID to associate. | Optional |
 | unset | array | An array of items to unset. Can be one of: 'domain', 'serviceusername', 'servicepassword', 'subscriptionid', 'ns1', 'ns2', 'dedicatedip', 'assignedips', 'notes', or 'suspendreason' | Optional |

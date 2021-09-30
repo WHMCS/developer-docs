@@ -179,6 +179,7 @@ weight = 100
 <li> <a href="/api-reference/domainupdatenameservers/">DomainUpdateNameservers</a>
 <li> <a href="/api-reference/domainupdatewhoisinfo/">DomainUpdateWhoisInfo</a>
 <li> <a href="/api-reference/domainwhois/">DomainWhois</a>
+<li> <a href="/api-reference/getregistrars/">GetRegistrars</a>
 <li> <a href="/api-reference/gettldpricing/">GetTLDPricing</a>
 <li> <a href="/api-reference/updateclientdomain/">UpdateClientDomain</a>
 </ul>

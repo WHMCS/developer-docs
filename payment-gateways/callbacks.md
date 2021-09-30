@@ -1,6 +1,6 @@
 +++
 next = "/payment-gateways/refunds"
-prev = "/payment-gateways/merchant-gateway"
+prev = "/payment-gateways/transaction-information"
 title = "Callback Files"
 toc = true
 weight = 60
@@ -25,6 +25,19 @@ Most callback files should use the following workflow:
 4. Log the transaction to the WHMCS Gateway Log using the `logTransaction` helper method.
 5. Apply the payment to the invoice using the `addInvoicePayment` helper method.
 
+## Callback Redirection
+
+When a payment is received, a payment notification containing the transaction details may be sent to the gateway module's callback file. The URL of the callback file would be considered the `Callback URL` (e.g. https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php).
+
+Some gateways allow you to you pass a `Return URL` and a `Callback URL` in the payment button code. WHMCS can provide the `Return URL` during the initial payment submission to the gateway via the `$params['returnurl']` parameter, which is made available in the gateway module `_link` function.
+
+Other payment gateways require the `Return URL` to be specified in the payment gateway's control panel settings outside of WHMCS to return the client upon completion of a payment (e.g. a success/failure page or redirect to the paid invoice). Create the file for this page as required and place it at `/modules/gateways/yourgatewayname/`.
+The URL to this page will be considered the `Return URL` (e.g. https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php).
+
+This URL could then be specified in the payment gateway's control panel settings outside of WHMCS, leaving just the notification URL specified in the gateway module's `_link` function.
+
+If the gateway only supports one URL for both payment notification and redirection after payment, visitors can be redirected to the callback file and output provided to return them to the Client Area via a link or meta refresh. This output should be provided by the callback file after the `addInvoicePayment` and `logTransaction` functions.
+
 ## Helper Functions
 
 The following helper functions are made available for use in payment gateway callback files.
@@ -42,8 +55,7 @@ The following helper functions are made available for use in payment gateway cal
 $gatewayParams = getGatewayVariables('yourgatewayname');
 ```
 
-This function can be used to retrieve the configuration data for a module as specified in the **_config** array.
-For example, it might be needed to get a gateway username or secret key to validate a callback.
+This function can be used to retrieve the configuration data for a module as specified in the `_config` array. For example, it might be needed to get a gateway username or secret key to validate a callback.
 
 ### Validate Callback Invoice ID
 
@@ -64,8 +76,8 @@ For example, it might be needed to get a gateway username or secret key to valid
 $invoiceId = checkCbInvoiceID($invoiceId, $gatewayName);
 ```
 
-Use this function to verify that the invoice ID received in a callback is valid.
-Pass the $invoiceid and the gateway name into the function.
+Use this function to verify that the invoice ID received in a callback is valid. Pass the `$invoiceid` and the gateway name into the function.
+
 If the invoice number is invalid, the callback script execution will be halted.
 
 ### Validate Callback Transaction ID
@@ -84,8 +96,8 @@ If the invoice number is invalid, the callback script execution will be halted.
 checkCbTransID($transactionId);
 ```
 
-Use this function to check for any existing transactions for a given transaction ID.
-This protects against duplicate callbacks for the same transaction.
+Use this function to check for any existing transactions for a given transaction ID. This protects against duplicate callbacks for the same transaction.
+
 If the transaction ID is already in the database, the callback script execution will be halted.
 
 ### Log Transaction
@@ -106,6 +118,40 @@ logTransaction($gatewayName, $_POST, $transactionStatus);
 ```
 
 Use this function to create a gateway log entry.
-The first input parameter should be the name of the gateway module.
-The second input parameter should be an array of data received, such as the **$_POST** or **$_REQUEST** super globals.
-The last input parameter should be the human readable result/status to display in the log.
+
+* The first input parameter should be the name of the gateway module.
+* The second input parameter should be an array of data received (for example, the `$_POST` or `$_REQUEST` super globals).
+* The last input parameter should be the human readable result or status to display in the log.
+
+### Add Payment to the Invoice
+
+```
+/**
+ * Add Invoice Payment.
+ *
+ * Apply a payment to the given invoice ID.
+ *
+ * @param int $invoiceId         Invoice ID
+ * @param string $transactionId  Transaction ID
+ * @param float $paymentAmount   Amount paid (defaults to full balance)
+ * @param float $paymentFee      Payment fee (optional)
+ * @param string $gatewayModule  Gateway module name
+ */
+addInvoicePayment(
+    $invoiceId,
+    $transactionId,
+    $paymentAmount,
+    $paymentFee,
+    $gatewayModuleName
+);
+```
+
+Use this function to apply the payment to an invoice.
+
+* The first parameter should be the invoice ID to apply the payment to.
+* The second parameter should be the unique transaction ID provided by the payment gateway.
+* The third parameter should be the amount to be credited to the invoice. If this value is `0` or an empty string, the payment will be assumed to be the full balance due for the invoice.
+* The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to `0.00`.
+* The fifth parameter should be your gateway module name. You can use `$gatewayParams['name']` for this.
+
+This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.

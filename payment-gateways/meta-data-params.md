@@ -27,7 +27,7 @@ function yourmodulename_MetaData()
 {
     return [
         'DisplayName' => 'Your Module Name',
-        'gatewayType' => 'Bank', // Only set if the gateway type is Module
+        'gatewayType' => 'Bank', // Only set if the module is a Bank Module
         'failedEmail' => 'Credit Card Payment Failed',
         'successEmail' => 'Custom Credit Card Payment Template', // You can utilise custom templates here
         'pendingEmail' => 'Custom Credit Card Pending Template',

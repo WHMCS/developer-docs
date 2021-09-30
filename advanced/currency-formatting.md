@@ -16,11 +16,11 @@ The following helper functions are provided for formatting currency values.
  *
  * Required before making a call to formatCurrency
  *
- * @param int $userId
+ * @param int $clientId The database ID number of the client to retrieve the currency information from
  *
  * @return array
  */
-$currencyData = getCurrency($userId);
+$currencyData = getCurrency($clientId);
 ```
 
 ## Format Currency
@@ -39,4 +39,4 @@ $price = formatCurrency($amount, $currencyData['id']);
 
 The `$price` value returned will be an object. The default `__toString` response format is a fully formatted price output including prefix and suffix.
 
-See https://docs.whmcs.com/classes/7.1/WHMCS/View/Formatter/Price.html for more information.
+See https://classdocs.whmcs.com/8.1/WHMCS/View/Formatter/Price.html for more information.

@@ -16,9 +16,8 @@ The following demonstrates how to connect to the WHMCS API from a PHP script usi
  *
  * @package    WHMCS
  * @author     WHMCS Limited <development@whmcs.com>
- * @copyright  Copyright (c) WHMCS Limited 2005-2016
- * @license    http://www.whmcs.com/license/ WHMCS Eula
- * @version    $Id$
+ * @copyright  Copyright (c) WHMCS Limited 2005-2021
+ * @license    http://www.whmcs.com/eula/ WHMCS Eula
  * @link       http://www.whmcs.com/
  */
 
@@ -27,14 +26,15 @@ $whmcsUrl = "https://www.yourdomain.com/path/to/whmcs/";
 
 // For WHMCS 7.2 and later, we recommend using an API Authentication Credential pair.
 // Learn more at http://docs.whmcs.com/API_Authentication_Credentials
-// Prior to WHMCS 7.2, an admin username and md5 hash of the admin password may be used.
-$username = "your_api_credential_identifier";
-$password = "your_api_credential_secret";
+// Prior to WHMCS 7.2, an admin username and md5 hash of the admin password may be used
+// with the 'username' and 'password' keys instead of 'identifier' and 'secret'.
+$api_identifier = "your_api_credential_identifier";
+$api_secret = "your_api_credential_secret";
 
 // Set post values
 $postfields = array(
-    'username' => $username,
-    'password' => $password,
+    'identifier' => $api_identifier,
+    'secret' => $api_secret,
     'action' => 'GetClients',
     'responsetype' => 'json',
 );

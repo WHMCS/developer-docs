@@ -44,7 +44,7 @@ A module is a collection of functions that provide additional functionality to t
     </div>
     <div class="col-sm-6">
         <a href="/mail-providers/">
-            <i class="fa fa-money"></i>
+            <i class="fa fa-envelope"></i>
             <h3>Mail Provider Modules</h3>
             <p>Add custom mail providers to WHMCS.</p>
         </a>

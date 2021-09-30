@@ -24,3 +24,9 @@ If you see a blank page after making a change to a template file, check for any 
 {{% notice tip %}}
 If you don't find anything in the activity logs, switching to a different system theme or order form template is an easy way to determine if the issue is with your system theme or order form template, or if the problem is something else.
 {{% /notice %}}
+
+If you find a variable is not correctly being populated and displayed within a template, this may indicate the variable does not exist or is not available within the template it is being utilised in. Adding `{debug}` to the template file and accessing the page that calls that template in a browser will result in a popup list of all available variables within that template, allowing you to determine if that variable is available.
+
+{{% notice tip %}}
+For a full list of all template variables made available to all system themes and order form templates, see [Variables](/themes/variables/).
+{{% /notice %}}

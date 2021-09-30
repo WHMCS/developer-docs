@@ -70,3 +70,28 @@ function yourmodulename_getConfigArray($params)
     );
 }
 ```
+## Configuration Validation
+
+When the configuration settings for your module are being saved, you may wish to validate them first before allowing them to be saved. You can define the `_config_validate` function in your module to do this.
+
+This will allow you to run a block of code to determine if the details that the user has provided and is trying to save are valid or not. If there is a problem with validation, you can throw an exception to prevent the save action from completing.
+
+The example code below demonstrates how to prevent saving the module configuration if an API responded with an error due to a parameter being invalid:
+
+```
+<?php
+ 
+function yourmodulename_config_validate($params) {
+    $apiKey = $params['api_key'];
+  
+    $valid = false;
+    // $response = yourmodulename_apicall('validate_credentials', [
+    //     'apikey' => $apiKey,
+    // ]);
+    // $valid = $response['valid'];
+  
+    if (!$valid) {
+        throw new \Exception('API Key is invalid.');
+    }
+}
+```
