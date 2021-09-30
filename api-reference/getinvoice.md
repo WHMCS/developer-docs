@@ -34,7 +34,7 @@ Retrieve a specific invoice
 | status | string | The status of the invoice. |
 | paymentmethod | string | The payment method on the invoice, in system format. |
 | notes | string | The notes associated with the invoice. |
-| ccgateway | bool | Whether the payment method is associated with the invoice's credit card gateway. |
+| ccgateway | bool | Whether the payment method is a credit card gateway that can be submitted to attempt capture. |
 | items | array | The items on the invoice. |
 | transactions | array | The transactions on the invoice. |
 

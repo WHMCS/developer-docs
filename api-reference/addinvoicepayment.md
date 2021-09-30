@@ -12,11 +12,11 @@ Adds payment to a given invoice.
 | action | string | "AddInvoicePayment" | Required |
 | invoiceid | int |  | Required |
 | transid | string | The unique transaction ID that should be applied to the payment. | Required |
+| gateway | string | The gateway used, in system name format (for example, `paypal` or `authorize`). | Required |
+| date | string | The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss | Required |
 | amount | float | The amount paid. You can leave this undefined to take the full amount of the invoice. | Optional |
 | fees | float | The amount of the payment that was taken as a fee by the gateway. | Optional |
-| gateway | string | The gateway used, in system name format (for example, `paypal` or `authorize`). | Required |
 | noemail | bool | Set this to true to prevent sending an email for the invoice payment. | Optional |
-| date | string | The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss | Required |
 
 ### Response Parameters
 

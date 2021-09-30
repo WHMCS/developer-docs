@@ -10,6 +10,8 @@ Get servers.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetServers" | Required |
+| serviceId | int | Pass a Product/Service ID to fetch available servers for its module type. | Optional |
+| addonId | int | Pass a Addon/Service ID to fetch available servers for its module type. | Optional |
 | fetchStatus | bool | Pass as true to attempt to fetch server status values. | Optional |
 
 ### Response Parameters
@@ -32,6 +34,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
+            'serviceId' => '1',
             'fetchStatus' => false,
             'responsetype' => 'json',
         )
@@ -48,6 +51,7 @@ curl_close($ch);
 ```
 $command = 'GetServers';
 $postData = array(
+    'serviceId' => '1',
     'fetchStatus' => false,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -61,7 +65,26 @@ print_r($results);
 
 ```
 {
-    "result": "success"
+    "result": "success",
+    "servers": [
+        {
+            "id": 1,
+            "name": "Sample cPanel Box",
+            "hostname": "hostname.example.com",
+            "ipaddress": "10.100.4.30",
+            "active": true,
+            "activeServices": 0,
+            "maxAllowedServices": 200,
+            "percentUsed": 0,
+            "module": "cpanel",
+            "status": {
+                "http": false,
+                "load": "",
+                "uptime": ""
+            }
+        }
+    ],
+    "fetchStatus": ""
 }
 ```
 

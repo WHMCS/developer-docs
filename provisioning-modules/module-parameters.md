@@ -15,6 +15,7 @@ The parameters also contains the settings from the product itself.
 | Variable Name | Description |
 |---|---|
 | serviceid | The unique ID of the service.<br />Database Field: tblhosting.id
+| userid | The unique ID of the account that owns the service.<br />Database Field: tblclients.id<br />This variable uses naming conventions that originated prior to WHMCS 8.0. |
 | pid | The product ID for the service.<br />Database Field: tblproducts.id |
 | serverid | The assigned server ID for the service.<br />Database Field: tblservers.id |
 | domain | The domain entered by the customer when ordering.<br />Database Field: tblhosting.domain |

@@ -1,24 +1,22 @@
 +++
-title = "UpdateUserPermissions"
+title = "GetRegistrars"
 toc = true
 +++
 
-Update the permissions of a user for a client.
+Get Registrars.
 
 ### Request Parameters
 
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
-| action | string | "UpdateUserPermissions" | Required |
-| user_id | int | The id of the user to set the permissions for | Required |
-| client_id | int | The id of the client to set the permissions for | Required |
-| permissions | string | Comma separated list of permissions | Required |
+| action | string | "GetRegistrars" | Required |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
+| registrars | array | An array of active registrars in the system. |
 
 
 ### Example Request (CURL)
@@ -30,13 +28,10 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' => 'UpdateUserPermissions',
+            'action' => 'GetRegistrars',
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'user_id' => '1',
-            'client_id' => '1',
-            'permissions' => 'profile,contacts,products,manageproducts,productsso,domains,managedomains,invoices,quotes,tickets,affiliates,emails,orders',
             'responsetype' => 'json',
         )
     )
@@ -50,11 +45,8 @@ curl_close($ch);
 ### Example Request (Local API)
 
 ```
-$command = 'UpdateUserPermissions';
+$command = 'GetRegistrars';
 $postData = array(
-    'user_id' => '1',
-    'client_id' => '1',
-    'permissions' => 'profile,contacts,products,manageproducts,productsso,domains,managedomains,invoices,quotes,tickets,affiliates,emails,orders',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -66,25 +58,12 @@ print_r($results);
 ### Example Response JSON
 
 ```
-{
-    "result": "success"
-}
+[]
 ```
-
-
-### Error Responses
-
-Possible error condition responses include:
-
-* Invalid user id
-* Invalid client id
-* Permissions cannot be set on a client owner
-* Missing permissions definition
-* User is not associated with client
 
 
 ### Version History
 
 | Version | Changelog |
 | ------- | --------- |
-| 8.0.0 | Initial Version |
+| 8.1.1 | Initial Version |

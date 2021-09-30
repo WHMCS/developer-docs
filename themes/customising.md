@@ -22,24 +22,41 @@ The header and footer system theme template files are common to every page and a
 
 ## Custom Logo
 
-The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the `$assetLogoPath` variable contains the relative path to the logo file. You can upload the logo in the **Setup Wizard** or at **Configuration > System Settings > General Settings** in the **General** tab.
+The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the `$assetLogoPath` variable contains the relative path to the logo file. 
 
-To set a custom logo, it must be saved as either `logo.png` or `logo.jpg`.
+To set a custom logo, you can upload the logo in the **Setup Wizard** or at **Configuration > System Settings > General Settings** in the **General** tab.
+
+A logo can be manually uploaded to the `/assets/img` directory, but the logo must be saved as either `logo.png` or `logo.jpg`.
 
 ## Include Files
 
 Include templates are templates that are shared and used by multiple pages. They are located within the `/includes/` subdirectory.
 
+The following list of include files is accurate for WHMCS 8.1 and later:
+
 **Common to All Pages**
 
-* `head.tpl` - Defines the CSS and Javascript files included within the `<head>` section of a page.
-* `navbar.tpl` - Controls the output of the primary navigation bar menu items
-* `sidebar.tpl` - Controls the output of the sidebar menu items.
+* `confirmation.tpl` — Controls the display of a confirmation modal.
+* `flashmessage.tpl` — Controls the display of flash messages (messages that the interface shows once).
+* `head.tpl` — Defines the CSS and Javascript files included within the `<head>` section of a page.
+* `modal.tpl` — Controls the display of all Client Area modals.
+* `navbar.tpl` — Controls the rendering of the primary navigation bar menu items.
+* `social-accounts.tpl` — Controls the display of any configured social media icons in the footer. This include file is specific to Twenty-One.
+* `verifyemail.tpl` — Controls the display of the email verification notice below the header.
 
 **Used as Required**
 
-* `captcha.tpl` - Used to output the captcha verification image wherever used.
-* `pwstrength.tpl` - Used to output the password strength meter and tooltip wherever used.
-* `tablelist.tpl` - Controls the output of all filterable data list tables throughout the client area.
+* `alert.tpl` — Controls the rendering of a single alert (for example, a success message or warning).
+* `breadcrumb.tpl` — Controls the display of the breadcrumbs in the page header.
+* `captcha.tpl` — Renders the CAPTCHA verification image.
+* `domain-search.tpl` — Controls the display of the domain search.
+* `generate-password.tpl` — Controls the display of the password generation modal when a user opens it.
+* `index.tpl` — Controls the display of store landing pages.
+* `linkedaccounts.tpl` — Controls the display of the page for configuring third-party services like Facebook and Google.
+* `network-issues-notifications.tpl` — Controls the display of the network status alert bar under the header. This include file is specific to Twenty-One.
+* `panel.tpl` — Controls the display of a card-style display panel.
+* `pwstrength.tpl` — Controls the display of the password strength meter and tooltip.
+* `sidebar.tpl` — Controls the display of the sidebar menu items.
+* `tablelist.tpl` — Controls the display of all filterable data list tables.
 
 Editing any of these template files will affect everywhere that the respective elements are used. One place to edit and one place to maintain during upgrades will help make applying and preserving your customisations easier.

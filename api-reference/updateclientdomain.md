@@ -22,7 +22,7 @@ Updates a Client Domain
 | domain | string | The domain name to be changed to. | Optional |
 | firstpaymentamount | float | The first payment amount on the domain. | Optional |
 | recurringamount | float | The recurring amount for automatic renewal invoices. | Optional |
-| registrar | string | The registrar to associate with the domain. | Optional |
+| registrar | string | The registrar to associate with the domain. Example: enom, resellerclub, customregistrarname | Optional |
 | regperiod | int | The registration period of the domain. | Optional |
 | paymentmethod | string | The payment method to associate in system format (for example, paypal). | Optional |
 | subscriptionid | string | The subscription ID to associate with the domain. | Optional |
@@ -100,6 +100,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Domain ID Not Found
+* The Registrar is not active
 * ns1 and ns2 required
 * Registrar Error Message
 

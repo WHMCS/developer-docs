@@ -162,4 +162,5 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 7.8 | Renamed `productids` response to `serviceids`. `productids` may be removed in a future version. |
 | 8.0 | Added IDN Language parameter |

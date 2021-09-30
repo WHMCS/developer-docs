@@ -14,10 +14,10 @@ Upgrade, or calculate an upgrade on, a product
 | calconly | bool | Only calculate the upgrade amount | Optional |
 | paymentmethod | string | The upgrade payment method in system format (e.g. paypal) | Required |
 | type | string | The type of upgrade ('product', 'configoptions') | Required |
-| newproductid | int | The Id of the new product | Optional |
+| newproductid | int | The ID of the new product | Optional |
 | newproductbillingcycle | string | The new products billing cycle | Optional |
 | promocode | string | The promotion code to apply to the upgrade | Optional |
-| configoptions | array | An array of config options to upgrade. Keys are the config option ids and values must be respective to config option type. | Optional |
+| configoptions | array | If type=configoptions - Config options to include in the upgrade. Keys represent config option IDs while their values represent the config option choice ID or value (depending on type). In the example provided, config option ID=1 is a dropdown specifying option ID 4, and config option ID=2 is a quantity specifying a desire for 5 units. | Optional |
 
 ### Response Parameters
 
@@ -45,7 +45,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'newproductbillingcycle' => 'monthly',
             'type' => 'product',
             'newproductid' => '11',
-            'configoptions' => '[1 => 'text options', 2 = 5 //qty option] // Only used when type is 'configoptions'',
+            'configoptions' => [1 => 4, 2 => 5],
             'responsetype' => 'json',
         )
     )
@@ -66,7 +66,7 @@ $postData = array(
     'newproductbillingcycle' => 'monthly',
     'type' => 'product',
     'newproductid' => '11',
-    'configoptions' => '[1 => 'text options', 2 = 5 //qty option] // Only used when type is 'configoptions'',
+    'configoptions' => [1 => 4, 2 => 5],
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

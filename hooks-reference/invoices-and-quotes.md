@@ -206,16 +206,16 @@ add_hook('InvoiceChangeGateway', 1, function($vars) {
 
 ## InvoiceCreated
 
-Executes when an invoice is created following sending the Invoice Created email.
+Executed when an invoice has left "Draft" status and is available to its respective client. Execution of this hook occurs after sending the `Invoice Created` email.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | source | string | Indicates where the invoice creation action originated, can be one of `adminarea`, `api` or `autogen` |
-| user | int|string | User who initiated the invoice creation, either `system` or an admin ID value |
-| invoiceid | int | The invoice ID that was created |
-| status | string | The status of the new invoice |
+| user | mixed | The user who initiated the invoice creation (either `system` or an admin ID value). |
+| invoiceid | int | The invoice ID. |
+| status | string | The status of the released invoice. |
 
 #### Response
 
@@ -239,8 +239,8 @@ Executes when an invoice is first created. The invoice has not been finalised an
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | source | string | Indicates where the invoice creation action originated, can be one of `adminarea`, `api` or `autogen` |
-| user | string|int | User who initiated the invoice creation, either `system` or an admin ID value |
-| invoiceid | int | The id of the newly created invoice |
+| user | mixed | User who initiated the invoice creation, either `system` or an admin ID value |
+| invoiceid | int | The ID of the newly created invoice |
 | status | string | The status of the newly created invoice |
 
 #### Response
@@ -330,7 +330,7 @@ add_hook('InvoicePaidPreEmail', 1, function($vars) {
 
 ## InvoicePaymentReminder
 
-Executes when an invoice payment reminder is sent
+Executes when an automated invoice payment reminder is sent.
 
 #### Parameters
 

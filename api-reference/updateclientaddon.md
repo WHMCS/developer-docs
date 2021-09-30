@@ -12,14 +12,13 @@ Updates a Client Addon
 | action | string | "UpdateClientAddon" | Required |
 | id | int | The ID of the client addon to update. | Required |
 | status | string | The status to change the addon to. | Optional |
-| terminationDate | string | The termination date of the addon. Format: Y-m-d | Optional |
 | addonid | int | The configured addon ID to update the client addon to. | Optional |
 | name | string | The custom name to apply to the addon. | Optional |
 | setupfee | float | The setup fee for the client addon. | Optional |
 | recurring | float | The recurring amount for the client addon. | Optional |
 | billingcycle | string | The billing cycle for the addon. | Optional |
 | nextduedate | string | The next due date for the addon. Format: Y-m-d | Optional |
-| terminationDate | string | The termination date of the addon. Format: Y-m-d | Optional |
+| terminationdate | string | The termination date of the addon. Format: Y-m-d | Optional |
 | notes | string | The admin notes to associate with the addon. | Optional |
 | autorecalc | bool | Whether to automatically recalculate the recurring amount of the addon (this will ignore any passed $recurring). | Optional |
 

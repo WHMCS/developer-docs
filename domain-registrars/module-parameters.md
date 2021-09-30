@@ -1,6 +1,6 @@
 +++
 next = "/domain-registrars/module-functions/"
-prev = "/domain-registrars/domain-syncing/"
+prev = "/domain-registrars/metadata-params/"
 title = "Module Parameters"
 weight = 50
 

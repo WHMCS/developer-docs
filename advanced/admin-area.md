@@ -55,7 +55,7 @@ All admin themes contain the following template files:
 
 * homepage.tpl - Controls the display of the Admin Dashboard. Widgets are the building blocks of the admin dashboard and are the recommended way to add additional data and information. We have documentation on creating and working with widgets available at [Widgets](https://developers.whmcs.com/advanced/widgets/).
 
-* menu.tpl - Controls the primary navigation dropdown menu bar.
+* nav.tpl - Controls the primary navigation dropdown menu bar.
 
 * sidebar.tpl - This template file controls the left sidebar menu of each admin area page.
 
