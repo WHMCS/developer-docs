@@ -23,6 +23,8 @@ You can display the balances for other payment gateways through two payment gate
 Before you can retrieve balance information, connect to the desired gateway. For example:
 
 ```
+<?php
+
 use WHMCS\Module\Gateway\Balance;
 use WHMCS\Module\Gateway\BalanceCollection;
 
@@ -34,12 +36,12 @@ use WHMCS\Module\Gateway\BalanceCollection;
 function yourmodulename_account_balance(array $params = []): BalanceCollection
 {
     $balanceInfo = [];
-    /**
-     * Connect to gateway to retrieve balance information.
-     */
+
+    // Connect to gateway to retrieve balance information.
     $postfields = [
         'account' => $params['apikey'],
     ];
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/balance');
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -48,19 +50,15 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $balanceData = json_decode($response);
+    $balanceData = json_decode($response, true);
 
-    /**
-     * Add Balance objects as many times as needed for each gateway
-     * balance type (most gateways will only have one).
-     */
+    // Add Balance objects as many times as needed for each gateway
+    // balance type (most gateways will only have one).
     foreach ($balanceData['available'] as $availableData) {
         $currencyCode = strtoupper($availableData['currency']);
         $amount[$currencyCode] = ($availableData['amount'] / 100);
 
-        /**
-         * Add a Balance object using the default label and format color.
-         */
+        // Add a Balance object using the default label and format color.
         $balanceInfo[] = Balance::factory(
             $amount[$currencyCode],
             $currencyCode
@@ -71,9 +69,7 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
         $currencyCode = strtoupper($pendingData['currency']);
         $pending[$currencyCode] = ($pendingData['amount'] / 100);
 
-        /**
-         * Add a Balance object overriding the default label and color.
-         */
+        // Add a Balance object overriding the default label and color.
         $balanceInfo[] = Balance::factory(
             $pending[$currencyCode],
             $currencyCode,
@@ -82,14 +78,11 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
         );
     }
 
-    /**
-     * The BalanceCollection object accepts an array containing any number of
-     * Balance objects. Passing an item in the array that is not a Balance
-     * object will cause a fatal error.
-     */
+    // The BalanceCollection object accepts an array containing any number of
+    // Balance objects. Passing an item in the array that is not a Balance
+    // object will cause a fatal error.
     return BalanceCollection::factoryFromItems(...$balanceInfo);
 }
-```
 ```
 
 ## The Balance Class
@@ -111,9 +104,7 @@ foreach ($balanceData['available'] as $availableData) {
     $currencyCode = strtoupper($availableData['currency']);
     $amount[$currencyCode] = ($availableData['amount'] / 100);
 
-    /**
-     * Add a Balance object using the default label and format colour.
-     */
+    // Add a Balance object using the default label and format colour.
     $balanceInfo[] = Balance::factory(
         $amount[$currencyCode],
         $currencyCode
@@ -129,8 +120,9 @@ Adding an object that overrides the label, color, or both is optional. To overri
 $balanceInfo[] = Balance::factory(
     $pending[$currencyCode],
     $currencyCode,
-    'status.pending', //default label is status.available
+    'status.pending', // Default label is 'status.available'
     '#6ecacc' //default colour is #5dc560
+);
 ```
 
 ## The BalanceCollection Class
@@ -142,12 +134,9 @@ If anything in the array **isn't** a `Balance` object, WHMCS will encounter a fa
 {{% /notice %}}
 
 ```
-/**
- * The BalanceCollection object accepts an array containing any number of Balance objects.
- * Passing an item in the array that is not a Balance object will cause a fatal error.
- */
+// The BalanceCollection object accepts an array containing any number of Balance objects.
+// Passing an item in the array that is not a Balance object will cause a fatal error.
 return BalanceCollection::factoryFromItems(...$balanceInfo);
-}
 ```
 
 ## Required Permissions
