@@ -9,10 +9,9 @@ weight = 110
 
 A remote input module is a type of merchant gateway that accepts input of pay
 method data remotely within an iFrame so that it appears transparent to the end
-user, and then exchanges it for a token that is returned back to WHMCS to be
-stored for future billing attempts.
+user, and then exchanges it for a token that is returned to WHMCS to be stored for future billing attempts.
 
-Within WHMCS, sensitive payment data such as a card number is not stored
+Within WHMCS, sensitive payment data such as a card number or bank account information is not stored
 locally when a remote input module is used.
 
 ## Creating a Remote Input Gateway
@@ -22,7 +21,7 @@ These functions are `remoteinput` and `remoteupdate`.
 
 Once processed, a notification will be sent to a [callback file][callbacks] where the Pay Method should be stored and the payment applied.
 
-For a more complete example, please refer to the [Sample Remote Input Gateway module on Github][github-sample].
+For a more complete example, please refer to the [Sample Remote Input Gateway module][github-sample] or [Sample Remote Input Bank Gateway module on Github][github-bank-sample].
 
 ## Remote Input
 
@@ -30,10 +29,10 @@ The `remoteinput` function will be called when adding a new payment method as pa
 or when adding a new payment method outside of the checkout process.
 
 The remote input function is required to return an HTML form that will be automatically submitted into an iframe target.
-The page rendered within the iframe should allow the user to enter card details in one of 2 workflow scenarios:
+The page rendered within the iframe should allow the user to enter card or bank details in one of 2 workflow scenarios:
 
-* Making payment using a new card - in this workflow the remote endpoint should allow the user to enter card details, generate a token, and capture payment for the requested amount
-* Adding a new card to the users account - in this workflow the remote endpoint should allow the user to enter card details and generate a token, but not perform any immediate capture
+* Making payment using a new card or bank - in this workflow the remote endpoint should allow the user to enter card/bank details, generate a token, and capture payment for the requested amount
+* Adding a new card or bank to the users account - in this workflow the remote endpoint should allow the user to enter card/bank details and generate a token, but not perform any immediate capture
 
 The workflow type can be determined based on if an invoiceid and amount parameter is received as part of the parameters passed to the `remoteinput` function.
 
@@ -118,7 +117,7 @@ function yourmodulename_remoteupdate($params)
 {
     return <<<HTML
 <div class="alert alert-info text-center">
-    Updating your card is not possible. Please create a new Pay Method to make changes.
+    Updating your card/bank is not possible. Please create a new Pay Method to make changes.
 </div>
 HTML;
 }
@@ -133,13 +132,13 @@ should be caught and logged.
 
 ### createCardPayMethod
 
-This function can be used to add a new pay method to a client account
+This function can be used to add a new card pay method to a client account.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| clientId | int | The id of the client for the new pay method |
+| clientId | int | The ID of the client for the new pay method |
 | gatewayName | string | The name of the module adding the pay method |
 | cardNumber | string | The card number (or last 4 digits). Full card number will not be stored for remote pay methods |
 | cardExpiryDate | string | Card expiry date in mmyy format |
@@ -147,7 +146,7 @@ This function can be used to add a new pay method to a client account
 | cardStartDate | null or string | Optional. Card start date in mmyy format |
 | cardIssueNumber | null or string | Optional. The issue number for the card |
 | remoteToken | string | Required for a remote pay method. The remote token for a remote pay method.
-| billingContactId | string or integer | Optional. The id of the billing contact to use. Defaults to 'billing' |
+| billingContactId | string or integer | Optional. The ID of the billing contact to use. Defaults to 'billing' |
 | description | string | The description for the new pay method |
 
 #### Return
@@ -157,11 +156,11 @@ Boolean return `true` on successful creation of a pay method.
 #### Error
 
 When an error occurs in the function call, an exception will be thrown with an appropriate message.
-The most common messages are detailed below, other exceptions could be thrown and need to be caught.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.
 
 | Exception | Message | Notes |
 | --------- | ------- | ----- |
-| Exception | Client ID not found | Check the client id. The client id passed has not been found |
+| Exception | Client ID not found | Check the client ID. The client ID passed has not been found |
 | Exception | Module Not Found | Check the gateway module name. The module name passed has not been found |
 | Exception | Module Not Activated | The gateway module passed is not currently active |
 | RuntimeException | Card number is required | The card number is required for a local storage gateway |
@@ -171,18 +170,53 @@ The most common messages are detailed below, other exceptions could be thrown an
 
 ### updateCardPayMethod
 
-This function can be used to update an existing pay method for a client.
+This function can be used to update an existing card pay method for a client.
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| clientId | int | The id of the client that the pay method belongs to |
-| payMethodId | int | The id of the pay method to be updated |
+| clientId | int | The ID of the client that the pay method belongs to |
+| payMethodId | int | The ID of the pay method to be updated |
 | cardExpiryDate | string | Card expiry date in mmyy format |
 | cardStartDate | null or string | Optional. Card start date in mmyy format |
 | cardIssueNumber | null or string | Optional. The issue number for the card |
 | remoteToken | string | Required for a remote pay method. The remote token for a remote pay method.
+
+#### Return
+
+Boolean return `true` on successful update of the pay method.
+
+#### Error
+
+When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.
+
+| Exception | Message | Notes |
+| --------- | ------- | ----- |
+| Exception | Client ID not found | Check the client ID. The client ID passed has not been found |
+| Exception | PayMethod ID not found | Check the pay method ID. The pay method ID passed has not been found |
+| InvalidArgumentException | Invalid PayMethod | The pay method being updated is not a credit card |
+| RuntimeException | Card expiry date is required | For a local storage gateway, the card expiry date is required |
+
+### createBankPayMethod
+
+This function can be used to add a new bank pay method to a client account.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| clientId | int | The ID of the client for the new pay method |
+| gatewayName | string | The name of the module adding the pay method |
+| accountType | string | The type of bank account being added, such as checking or savings. Defaults to 'checking' |
+| routingNumber | string | Bank routing number. A blank string '' can be passed for remote tokens |
+| accountNumber | string | Bank account number. A blank string '' can be passed for remote tokens |
+| bankName | string | Name of the bank |
+| accountHolderName | string | The bank account owner's name |
+| remoteToken | string | Required for a remote pay method. The remote token for a remote pay method.
+| billingContactId | string or integer | Optional. The ID of the billing contact to use. Defaults to 'billing' |
+| description | string | The description for the new pay method |
 
 #### Return
 
@@ -191,14 +225,47 @@ Boolean return `true` on successful creation of a pay method.
 #### Error
 
 When an error occurs in the function call, an exception will be thrown with an appropriate message.
-The most common messages are detailed below, other exceptions could be thrown and need to be caught.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.
 
 | Exception | Message | Notes |
 | --------- | ------- | ----- |
-| Exception | Client ID not found | Check the client id. The client id passed has not been found |
-| Exception | PayMethod ID not found | Check the pay method id. The pay method id passed has not been found |
-| InvalidArgumentException | Invalid PayMethod | The pay method being updated is not a credit card |
-| RuntimeException | Card expiry date is required | For a local storage gateway, the card expiry date is required |
+| Exception | Client ID not found | Check the client ID. The client ID passed has not been found |
+| Exception | Module Not Found | Check the gateway module name. The module name passed has not been found |
+| Exception | Module Not Activated | The gateway module passed is not currently active |
+| InvalidArgumentException | Invalid Workflow Type for PayMethod | Only bank accounts can be added using this function |
+
+### updateBankPayMethod
+
+This function can be used to update an existing bank pay method for a client.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| clientId | int | The ID of the client for the new pay method |
+| payMethodId | int | The ID of the pay method to be updated |
+| accountType | string | The type of bank account being added, such as checking or savings. Defaults to 'checking' |
+| routingNumber | string | Bank routing number. A blank string '' can be passed for remote tokens |
+| accountNumber | string | Bank account number. A blank string '' can be passed for remote tokens|
+| bankName | string | Name of the bank |
+| accountHolderName | string | The bank account owner's name |
+| remoteToken | string | Required for a remote pay method. The remote token for a remote pay method.
+
+#### Return
+
+Boolean return `true` on successful update of the pay method.
+
+#### Error
+
+When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.
+
+| Exception | Message | Notes |
+| --------- | ------- | ----- |
+| Exception | Client ID not found | Check the client ID. The client ID passed has not been found |
+| Exception | PayMethod ID not found | Check the pay method ID. The pay method ID passed has not been found |
+| InvalidArgumentException | Invalid PayMethod | The pay method being updated is not a bank account |
 
 [callbacks]: /payment-gateways/callbacks "Callback Files"
-[github-sample]: https://github.com/WHMCS/sample-remote-input-gateway "Sample Remote Input Gateway module on Github"
+[github-sample]: https://github.com/WHMCS/sample-remote-input-gateway "Sample Remote Input Gateway module"
+[github-bank-sample]: https://github.com/WHMCS/sample-remote-bank-gateway-module "Sample Remote Input Bank Gateway module on Github"
