@@ -114,6 +114,7 @@ Possible error condition responses include:
 * Email Address Invalid
 * Invalid Date Format
 * Ticket creation date cannot be in the future
+* Unable to generate ticket number
 
 
 ### Version History
@@ -124,3 +125,4 @@ Possible error condition responses include:
 | 7.5 | Added support for attachments. |
 | 8.0 | Added support for ticket creation date. |
 | 8.3 | Added support for stopping email from being sent. |
+| 8.3 | Added error message if a ticket number is unable to be generated. |

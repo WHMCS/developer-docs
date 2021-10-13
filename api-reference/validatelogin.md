@@ -3,14 +3,22 @@ title = "ValidateLogin"
 toc = true
 +++
 
-Validate user login credentials.
+This command can be used to validate an email address and password against a registered user in WHMCS.
 
-This command can be used to validate an email address and password against
-a registered user in WHMCS. On success, the userid and password hash will
-be returned which can be used to create an authenticated session by setting
-the session key 'uid' to the userid and the session key 'upw' to the
-passwordhash. Note: if session IP validation is enabled, this API call
-must be executed via the local API to receive a valid hash.
+If the email address is valid, and the password is correct, a session will be started as part of creating
+a passwordhash. This session can be used for remote sign-in, (see below) but can affect other aspects of
+your script if using the LocalAPI. A validated login will update the last login time stored for the
+client account. On success, the `userid` and `passwordhash` will be returned. This can be used to establish
+an authenticated session by setting the session key 'login_auth_tk' to the `passwordhash`.
+
+Note: If session IP validation is enabled, this API call must be executed via the local API to receive
+a valid hash.
+
+Note: The login functionality provided by this API is superseded by
+CreateSsoToken (https://developers.whmcs.com/api-reference/createssotoken/) for remote login
+functionality and OpenID Connect (https://docs.whmcs.com/OpenID_Connect) for authentication
+services/credential verification. This API may be deprecated in the future given these more robust
+and modern implementations.
 
 ### Request Parameters
 
