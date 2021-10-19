@@ -18,6 +18,8 @@ Remember, all functions should have the prefix `yourmodulename_` and then the fu
 | TransferDomain | Called when a domain transfer request is initiated within WHMCS. |
 | RenewDomain | Called when a request to renew a domain is initiated within WHMCS. |
 | GetDomainInformation | Called when a domain is viewed within WHMCS. Recommended instead of GetNameservers and GetRegistrarLock in WHMCS 7.6 and later. |
+| GetEmailForwarding | Called when Email Forwarding is displayed within WHMCS. |
+| SaveEmailForwarding | Called when changes to Email Forwarding are submitted. |
 | GetNameservers | Called when a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain. |
 | SaveNameservers | Called when a change is submitted for a domains nameservers. |
 | GetRegistrarLock | Called when a domains details are viewed within WHMCS. It should return the current lock status of a domain. |
