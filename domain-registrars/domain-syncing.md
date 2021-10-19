@@ -10,7 +10,9 @@ The domain syncronisation functions allow you to propagate any domain expiry dat
 
 ## Domain Syncing
 
-Domain syncing is performed in batches. When defined in your module, the Sync function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. Once all domains assigned to your module have been synced it will start from the beginning again.
+Domain syncing is performed in batches. When defined in your module, the *Sync* function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. After all of the domains that are assigned to your module have been synced, it will start from the beginning again.
+
+Domains are only checked when they are in **Active** or **Pending Transfer** status. 
 
 The below example shows the supported return values for the function.
 
