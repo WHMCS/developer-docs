@@ -11,7 +11,7 @@ Attempt to capture a payment on an unpaid CC Invoice
 | --------- | ---- | ----------- | -------- |
 | action | string | "CapturePayment" | Required |
 | invoiceid | int | The ID of the pending order | Required |
-| cvv |  | string The CVV Number for the card being attempted | Optional |
+| cvv | string | The CVV Number for the card being attempted | Optional |
 
 ### Response Parameters
 
