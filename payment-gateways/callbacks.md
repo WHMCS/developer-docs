@@ -152,6 +152,6 @@ Use this function to apply the payment to an invoice.
 * The second parameter should be the unique transaction ID provided by the payment gateway.
 * The third parameter should be the amount to be credited to the invoice. If this value is `0` or an empty string, the payment will be assumed to be the full balance due for the invoice.
 * The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to `0.00`.
-* The fifth parameter should be your gateway module name. You can use `$gatewayParams['name']` for this.
+* The fifth parameter should be your gateway module name. You can use `$gatewayParams['paymentmethod']` for this.
 
 This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.
