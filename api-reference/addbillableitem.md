@@ -13,8 +13,8 @@ Adds a Billable Item
 | clientid | int | The client to add the item to. | Required |
 | description | string | The description of the Billable Item. This will appear on the invoice. | Required |
 | amount | float | The total amount to invoice for. | Required |
-| quantity | float | The number of hours or quantity the item corresponds to. | Optional |
-| unit | string | Either 'hours' or 'quantity'. | Optional |
+| unit | string | Either 'hours' or 'quantity'. | Required |
+| quantity | float | The number of units the billable items represents. Defaults to 0. | Optional |
 | invoiceaction | string | One of 'noinvoice', 'nextcron', 'nextinvoice', 'duedate', or 'recur'. | Optional |
 | recur | int | When `$invoiceaction=recur`. The frequency of the recurrence. | Optional |
 | recurcycle | string | How often to recur the Billable Item. Days, Weeks, Months or Years. | Optional |
