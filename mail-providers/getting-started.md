@@ -7,24 +7,24 @@ weight = 10
 
 +++
 
-Mail Providers determine how WHMCS transmits email to admins and their customers.
+Mail providers determine how WHMCS transmits email to admins and their customers.
 
 ## Sample Module
 
-The `SenderModuleInterface` interface for Mail Providers ships with WHMCS. The class that you create must be in the `WHMCS\Module\Mail` namespace.
+The `SenderModuleInterface` interface for mail providers ships with WHMCS. The class that you create must be in the `WHMCS\Module\Mail` namespace.
 
 ## Choosing A Name
 
-Mail Provider Modules are in the `modules/mail` directory. Each module has its own subdirectory, which you should use to store the files relating to the module.
+Mail provider modules are in the `modules/mail` directory. Each module has its own subdirectory, which you should use to store the files relating to the module.
 
-Mail Provider modules are PHP files that contain a class that implements `SenderModuleInterface`.
+Mail provider modules are PHP files that contain a class that implements the `SenderModuleInterface` interface.
 
-To create a new Mail Provider module, perform these steps:
+To create a new mail provider module, perform these steps:
 
 1. Choose a name for your module. Module names must be a single string that consists of only alphanumeric characters (no spaces or other characters). Names must begin with a letter and must be unique.
 2. Create a new directory using your desired module name.
-3. Create a new file within the directory, using your module name as the filename, with the `.php` extension.
-Add the following code to the file, replacing `YourModuleName` with the name of your module:
+3. Create a new file within the directory, using your module name as the filename and the `.php` extension.
+4. Add the following code to the file, replacing `YourModuleName` with the name of your module:
 
 ```
 <?php
@@ -46,7 +46,7 @@ use WHMCS\Module\MailSender\DescriptionTrait;
 class YourModuleName implements SenderModuleInterface
 {
     use DescriptionTrait;
-    
+
     /**
      * Constructor
      *
@@ -98,4 +98,4 @@ class YourModuleName implements SenderModuleInterface
 }
 ```
 
-For more information on the SenderModuleInterface and Message class, see [our additional documentation](https://classdocs.whmcs.com/8.1/WHMCS/Mail_ns.html).
+For more information on the `SenderModuleInterface` and `Message` class, see [our additional documentation](https://classdocs.whmcs.com/8.1/WHMCS/Mail_ns.html).
