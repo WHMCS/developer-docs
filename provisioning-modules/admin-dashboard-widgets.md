@@ -7,9 +7,11 @@ weight = 100
 
 +++
 
-Admin Dashboard widgets display on the Admin Area homepage. They provide access to important module information and functionality on the Admin Area dashboard.
+Admin Dashboard Widgets are displayed on the admin area homepage.
 
-For example, the following code defines a dashboard widget:
+They allow you to provide convenient access to key information and functionality from your module within the admin homepage dashboard.
+
+Below is an example of how a dashboard widget is defined.
 
 ```
 <?php
@@ -47,4 +49,4 @@ EOF;
 }
 ```
 
-For more information on the `AbstractWidget` class, see [our class documentation](http://docs.whmcs.com/classes/7.1/WHMCS/Module/AbstractWidget.html).
+More information on the AbstractWidget class used in the above example can be found at http://docs.whmcs.com/classes/7.1/WHMCS/Module/AbstractWidget.html
