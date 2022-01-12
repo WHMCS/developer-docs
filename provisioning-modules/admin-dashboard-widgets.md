@@ -7,7 +7,7 @@ weight = 100
 
 +++
 
-Admin Dashboard widgets display on the Admin Area homepage. They allow you to provide access to important module information and functionality on the Admin Area dashboard.
+Admin Dashboard widgets display on the Admin Area homepage. They provide access to important module information and functionality on the Admin Area dashboard.
 
 For example, the following code defines a dashboard widget:
 
