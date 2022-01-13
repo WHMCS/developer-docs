@@ -7,18 +7,16 @@ weight = 70
 
 +++
 
-Custom functions allow definition of extra operations that run using the module.
-The custom functions can perform actions, or define extra client area pages/output.
-Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
+Custom functions allow you to define operations that run using the module.
+The custom functions can perform actions or define additional Client Area pages or output.
+Permissions can be granted for who can use each custom function (just clients, just admins, or both).
 
-The convention for custom function names follow the same as any other function of a module.
-It must begin with the module **filename_**, and then the custom function name.
-
-The easiest way to show this is with an example.
+The convention for custom function names is the same as any other module function.
+It must begin with the module filename (`filename_`) and the custom function name.
 
 ## Example Custom Function <a id="example-function"></a>
 
-Let’s take an example of a reboot & shutdown function in a VM/VPS system.
+Consider the following example of a reboot and shutdown function in a VM or VPS system:
 
 ```
 function mymodule_reboot($params) {
@@ -48,9 +46,10 @@ function mymodule_shutdown($params) {
 }
 ```
 
-The above shows how to define custom functions and to used the passed variables.
-The custom function returns either “success” or an error message to show a failure.
-If we wanted to allow clients to perform reboots, but only admins to be able to perform a shutdown, that would be defined like:
+The above example defines a custom function and uses the passed variables.
+The custom function returns either `success` or an error message to indicate failure.
+
+The following example allows clients to perform reboots but only allows admins to perform a reboot or shutdown:
 
 ```
 function mymodule_ClientAreaCustomButtonArray() {
@@ -69,10 +68,8 @@ function mymodule_AdminCustomButtonArray() {
 }
 ```
 
-The above allows a clients to run the “reboot” function, and admins “reboot” and “shutdown”.
-
-The key value of the array is what displays to admins/clients on the button or menu options for the commands.
-And the value is the custom function name excluding the **modulename_** prefix.
+The key value of the array is what displays to admins and clients on the button or menu options for the commands.
+The value is the custom function name without the `modulename_` prefix.
 
 A description of how to provide a button or way to invoke a custom function is in the Client Area Output section:
 
