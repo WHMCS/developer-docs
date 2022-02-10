@@ -36,5 +36,5 @@ When the hook code runs, the system will pass a selection of variables to your h
 Some hook points will also allow you to return values. In some cases, the response you provide can override default behaviours.
 
 {{% notice info %}}
-When using a named function, prefix your function name with something unique to you and your code in order to prevent potential naming conflicts with future code.
+When using a named function, prefix your function name with something unique to you and your code in order to prevent naming conflicts.
 {{% /notice %}}
