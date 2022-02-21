@@ -86,7 +86,7 @@ class YourModuleName implements SenderModuleInterface
      */
     public function getDisplayName()
     {
-        return 'Your Module Name (https://example.com)';
+        return 'Your Module Name';
     }
 
     /**
@@ -107,7 +107,7 @@ class YourModuleName implements SenderModuleInterface
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-            curl_setopt($ch, CURLOPT_URL, 'https://mymodule.com/api/messages');
+            curl_setopt($ch, CURLOPT_URL, 'https://example.com/api/messages');
             curl_setopt($ch, CURLOPT_POSTFIELDS, [
                 'from' => 'test@example.com',
                 'to' => $currentAdmin->email,
@@ -193,7 +193,7 @@ class YourModuleName implements SenderModuleInterface
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-            curl_setopt($ch, CURLOPT_URL, 'https://mymodule.com/api/messages');
+            curl_setopt($ch, CURLOPT_URL, 'https://example.com/api/messages');
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 
             curl_exec($ch);
