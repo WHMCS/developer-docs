@@ -8,29 +8,38 @@ weight = 20
 +++
 
 `/includes/hooks/samplehook.php`
+
+The hook below will execute whenever the `ClientAdd` event occurs:
+
 ```
 <?php
+
 /**
  * Register hook function call.
  *
- * @param string $hookPoint The hook point to call
- * @param integer $priority The priority for the given hook function
- * @param string|function Function name to call or anonymous function.
+ * @param string $hookPoint The hook point to call.
+ * @param integer $priority The priority for the hook function.
+ * @param string|function The function name to call or the anonymous function.
  *
- * @return Depends on hook function point.
+ * @return This depends on the hook function point.
  */
-add_hook('ClientAdd', 1, function ($vars)
-{
-    $userid = $vars['userid'];
-    $firstname = $vars['firstname'];
-    $lastname = $vars['lastname'];
-    $email = $vars['email'];
-    $password = $vars['password'];
 
-    // Run code to create remote forum account here...
-});
+ if (!defined('WHMCS'))
+     die('You cannot access this file directly.');
+
+ function create_forum_account($vars) {
+
+     $firstname = $vars['firstname'];
+     $lastname = $vars['lastname'];
+     $email = $vars['email'];
+
+     // Add the code to create a remote forum account here.
+
+ }
+
+ add_hook('ClientAdd', 1, 'create_forum_account');
 ```
 
 {{% notice note %}}
-For a full list of available hooks, please refer to the [Hooks Index](/hooks/hook-index/).
+For a full list of available hooks, see [Hooks Index](/hooks/hook-index/).
 {{% /notice %}}

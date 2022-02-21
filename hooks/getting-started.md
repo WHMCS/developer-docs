@@ -11,47 +11,30 @@ The following steps demonstrate how to create a hook function in WHMCS.
 
 ## Create your Hook File
 
-Hooks live inside files located within the `/includes/hooks/` directory (or as part of a module - see module hooks).
+Hooks in WHMCS exist in the `/includes/hooks/` directory. Alternately, they may be within a module (for more information, see [Module Hooks](/hooks/module-hooks/)).
 
-Begin by creating a file named `helloworld.php`:
+The example process below creates a WHMCS hook.
+
+## 1. Create the Hook File
+
+Create the `helloworld.php` file in the `/includes/hooks/` directory:
 
 ```
 touch ~/includes/hooks/helloworld.php
 ```
+The filename **cannot** begin with an underscore (`_`).
 
-## Add your Hook Function
+## 2. Add the Hook Function
 
-Hook functions can be either named functions or closures.
+Add the hook code to the new `.php` file. Hook functions can be either named functions or closures.
 
-Below is an example hook that will execute whenever the ClientAdd event occurs.
+* For an example of hook code, see [Sample Hook](/hooks/sample-hook).
+* Hook functions can be either named functions or closures.
 
-```
-<?php
-/**
- * Register hook function call.
- *
- * @param string $hookPoint The hook point to call
- * @param integer $priority The priority for the given hook function
- * @param string|function Function name to call or anonymous function.
- *
- * @return Depends on hook function point.
- */
-add_hook('ClientAdd', 1, function ($vars)
-{
-    $userid = $vars['userid'];
-    $firstname = $vars['firstname'];
-    $lastname = $vars['lastname'];
-    $email = $vars['email'];
-    $password = $vars['password'];
+When the hook code runs, the system will pass a selection of variables to your hook point. The variables you receive will depend on the invoked action and the data that is available to it.
 
-    // Run code to create remote forum account here...
-});
-```
-
-A selection of variables will be passed into your hook point. The variables you receive will depend upon the action being invoked and the data available to it.
-
-Some hook points will also allow you to return values, and in some cases, the response you provide can alter the program flow to allow you to override default behaviours.
+Some hook points will also allow you to return values. In some cases, the response you provide can override default behaviours.
 
 {{% notice info %}}
-When using a named function, we recommend you prefix your function name with something unique to you and your code to prevent potential naming conflicts with future code.
+When using a named function, prefix your function name with something unique to you and your code in order to prevent naming conflicts.
 {{% /notice %}}
