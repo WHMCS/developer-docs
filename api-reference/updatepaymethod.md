@@ -93,6 +93,7 @@ Possible error condition responses include:
 * Invalid Pay Method ID
 * Pay Method does not belong to passed Client ID
 * Unsupported Gateway Type for Update
+* No Details Provided for Update
 * Unable to Update Card Number for Assisted Gateway
 * Expiry Date is invalid
 * Start Date is invalid

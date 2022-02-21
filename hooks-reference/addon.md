@@ -41,9 +41,9 @@ Executes when a product addon becomes active as part of invoice payment or order
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | id | int | The addon ID (tblhostingaddons) |
-| userid | int | The currently logged in user |
-| clientid | int | The currently logged in client |
-| serviceid | int |  |
+| userid | int | An alias for $clientid maintained for backwards compatibility |
+| clientid | int | The client associated with the addon's service |
+| serviceid | int | The product service the addon is being activated for (tblhosting) |
 | addonid | int | The predefined addon ID (tbladdons) |
 
 #### Response
