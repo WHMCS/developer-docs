@@ -23,6 +23,9 @@ Adds a product to the system to be available for purchase
 | isFeatured | bool | Should the product be featured in the Product Group. | Optional |
 | proratabilling | bool | Is pro-rata billing enabled for this product. | Optional |
 | description | string | The description of the product to show on the product listing in the cart | Optional |
+| shortdescription | string | The short description of the product to show in specific areas of the cart. | Optional |
+| tagline | string | The tagline of the product to show in specific areas of the cart. | Optional |
+| color | string | The color to associate with the product in specific areas of the cart. | Optional |
 | welcomeemail | int | The id of the Email Template to use as the welcome email. Product/Service Messages only | Optional |
 | proratadate | int | See https://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
 | proratachargenextmonth | int | See https://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
@@ -38,6 +41,7 @@ Adds a product to the system to be available for purchase
 | configoption6 | mixed | The sixth module configuration value | Optional |
 | order | int | The order to in which to display on the order form | Optional |
 | pricing | array | The pricing array to associate with the product. Format: $pricing[currencyid][cycle]. See Example. | Optional |
+| recommendations | array | The recommendations array to associate with the product in the following format: ['id' => productid, 'order' => integer] (See example.) | Optional |
 
 ### Response Parameters
 
@@ -66,6 +70,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'welcomeemail' => '5',
             'paytype' => 'recurring',
             'pricing' => array(2 => array('monthly' => 8.00, 'annually' => 80.00)),
+            'recommendations' => array(array('id' => 1, 'order' => 0), array('id' => 2, 'order' => 1)),
             'responsetype' => 'json',
         )
     )
@@ -87,6 +92,7 @@ $postData = array(
     'welcomeemail' => '5',
     'paytype' => 'recurring',
     'pricing' => array(2 => array('monthly' => 8.00, 'annually' => 80.00)),
+    'recommendations' => array(array('id' => 1, 'order' => 0), array('id' => 2, 'order' => 1)),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -114,6 +120,8 @@ Possible error condition responses include:
 * Invalid product type. Must be one of "hostingaccount", "reselleraccount", "server" or "other"
 * Invalid pay type. Must be one of "free", "onetime" or "recurring"
 * Invalid autosetup value. Must be one of "", "on", "order" or "payment"
+* The color must be a valid hexadecimal value.
+* The recommendation product ID is invalid. This must be an existing product ID.
 
 
 ### Version History

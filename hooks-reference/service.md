@@ -63,8 +63,9 @@ Executes when the Service has been deleted.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| userid | int |  |
-| serviceid | int |  |
+| userid | int | An alias for $clientId maintained for backwards compatibility |
+| clientId | int | The client associated with the service |
+| serviceid | int | The product service ID |
 
 #### Response
 

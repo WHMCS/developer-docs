@@ -20,7 +20,7 @@ Not all registrars return the EPP code but send them directly to the client.
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
-| eppcode | string | If supported, the epp code. No returned EPP code without error suggests it is sent directly to client. |
+| eppcode | string | If supported, the EPP code. No returned EPP code without error suggests it is sent directly to client. A returned EPP code may include HTML character entities intended for display and should be decoded prior to any direct use. |
 
 
 ### Example Request (CURL)

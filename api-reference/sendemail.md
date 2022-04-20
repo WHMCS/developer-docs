@@ -125,6 +125,7 @@ Possible error condition responses include:
 * Invalid message type provided
 * A subject is required for a custom message
 * A message body is required for a custom message
+* The custom variables you provided are invalid.
 * A related ID is required
 * Email Template not found
 * Email Template is disabled
