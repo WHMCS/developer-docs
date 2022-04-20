@@ -12,7 +12,7 @@ Obtain the Activity Log that matches passed criteria
 | action | string | "GetActivityLog" | Required |
 | limitstart | int | The offset for the returned log data (default: 0) | Optional |
 | limitnum | int | The number of records to return (default: 25) | Optional |
-| userid | int | The ID of the user to obtain the log for | Optional |
+| clientid | int | The ID of the client to obtain the log for. | Optional |
 | date | string | The date of the activity log to retrieve in localised format (eg 01/01/2016) | Optional |
 | user | string | The name of the user to retrieve the log entries for | Optional |
 | description | string | Search the log for a specific string | Optional |
@@ -108,3 +108,5 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.0 | Added `userId` to response. Renamed `userid` response to `clientId`. `userid` may be removed in a future version. |
+| 8.5 | Renamed `userid` parameter to `clientid`. Backwards compatibility preserved for `userid`. |

@@ -73,7 +73,46 @@ print_r($results);
 ### Example Response JSON
 
 ```
-null
+{
+    "result": "success",
+    "totalresults": "1",
+    "startnumber": 0,
+    "numreturned": 1,
+    "tickets": {
+        "ticket": [
+            {
+                "id": "1",
+                "tid": "516757",
+                "deptid": "1",
+                "userid": "1",
+                "name": "Cynthia Reilly",
+                "owner_name": "Cynthia Reilly",
+                "email": "testuser@whmcs.com",
+                "requestor_name": "Cynthia Reilly",
+                "requestor_email": "testuser@whmcs.com",
+                "requestor_type": "Owner",
+                "cc": "",
+                "c": "KPqH7yG3",
+                "date": "2016-01-01 06:26:29",
+                "subject": "This is a sample ticket",
+                "status": "Answered",
+                "priority": "Medium",
+                "admin": "admin admin",
+                "attachment": "123456_attachment_name.png",
+                "attachments": [
+                    {
+                        "filename": "attachment_name.png",
+                        "index": 0
+                    }
+                ],
+                "attachments_removed": true,
+                "lastreply": "2016-01-01 06:30:16",
+                "flag": "0",
+                "service": ""
+            }
+        ]
+    }
+}
 ```
 
 

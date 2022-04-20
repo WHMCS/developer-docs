@@ -126,6 +126,13 @@ print_r($results);
         "isOptedInToMarketingEmails": true,
         "lastlogin": "Date: 03\/10\/2016 10:26<br>IP Address:<br>Host:",
         "currency_code": "USD",
+        "customfields": [
+            {
+                "id": 1,
+                "value": "Custom Field Value"
+            }
+        ],
+        "customfields1": "Custom Field Value",
         "users": {
             "user": [
                 {

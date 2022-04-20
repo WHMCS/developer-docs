@@ -14,7 +14,8 @@ Open a new ticket
 | subject | string | The subject of the ticket | Required |
 | message | string | The message of the ticket | Required |
 | clientid | int | If applicable, the Client ID to create the ticket for. | Optional |
-| contactid | int | If applicable, the Contact ID to create the ticket for (only if $clientid is passed). | Optional |
+| userid | int | If applicable, the user ID to create the ticket for (if $clientid is also passed). | Optional |
+| contactid | int | If applicable, the Contact ID to create the ticket for (if $clientid and no $userid is also passed). | Optional |
 | name | string | The name of the person opening the ticket (if not a client) | Optional |
 | email | string | The email address of the person opening the ticket (if not a client) | Optional |
 | priority | string | The priority of the ticket ('Low', 'Medium', 'High') | Optional |
@@ -104,6 +105,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Client ID Not Found
+* The system cannot find the provided user ID.
 * Contact ID Not Found
 * Name and email address are required if not a client
 * Department ID not found
@@ -126,3 +128,4 @@ Possible error condition responses include:
 | 8.0 | Added support for ticket creation date. |
 | 8.3 | Added support for stopping email from being sent. |
 | 8.3 | Added error message if a ticket number is unable to be generated. |
+| 8.5 | Added support for the $userid parameter. |
