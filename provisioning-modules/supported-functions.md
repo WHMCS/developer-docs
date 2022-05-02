@@ -116,4 +116,8 @@ This function handles the values submitted in any custom fields when a save occu
 Used to define a number of meta data configuration parameters.
 This function returns an array, consisting key-value pairs, where the key is the parameter name and the value is the parameter value.
 
+## QuickLaunchItems <a id="quick-launch-items"></a>
+
+Used to define a list of items that perform a defined function and redirect the user to a specified URL. Customers can invoke items from within the Client Area. The defined function can perform actions that need to take place before the customer is redirected. Currently usage is limited to adding buttons to the "Active Products/Services" panel on the Client Area homepage.
+
 [automation-settings-termination]: http://docs.whmcs.com/Automation_Settings#Enable_Termination "Automation Settings"
