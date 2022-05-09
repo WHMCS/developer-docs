@@ -1,0 +1,105 @@
++++
+prev = "/provisioning-modules/server-sync"
+next = ""
+title = "Custom Actions"
+toc = true
+weight = 130
++++
+
+`Compatibility: This functionality is available since v8.5`
+
+Custom actions allow you to define a list of items that perform a function and redirect the user to a specified URL. User level permissions can be granted for who can use the custom action. Currently, this is limited to the "productsso" permission.
+
+Customers can invoke items from within the Client Area. The defined function can perform actions that need to take place before redirecting the customer.
+
+These items can be utilized by various sections of the Client Area. Currently, this functionality is limited to adding buttons to the "Active Products/Services" panel on the Client Area homepage.
+
+## CustomActions Function
+
+The CustomActions function is responsible for returning the WHMCS\Module\Server\CustomActionCollection object.
+
+This object is a collection of WHMCS\Module\Server\CustomAction objects which in turn represent each individual item to be displayed in the Client Area.
+
+Both the CustomActionCollection and CustomAction classes are documented in the WHMCS\Module\Server namespace at https://classdocs.whmcs.com/
+
+The following illustrates how one might make a simple CustomActions function that returns a CustomActionCollection object.
+
+```
+<?php
+
+use WHMCS\Module\Server\CustomAction;
+use WHMCS\Module\Server\CustomActionCollection;
+
+/**
+ * Define a collection of Custom Action items to be displayed in the Client Area.
+ *
+ * Called when rendering Custom Action items in the Client Area; currently
+ * limited to the "Active Products/Services" Client Area homepage panel.
+ *
+ * Use to provide authenticated Client Area users with the ability to perform a predefined
+ * action at the click of a button. The action can be provided either in the form of a custom
+ * module function or an anonymous function. For example, this can be used to provide a
+ * Single Sign On button.
+ *
+ * @param array $params Common module parameters
+ *
+ * @see https://developers.whmcs.com/provisioning-modules/module-parameters/
+ *
+ * @return CustomActionCollection
+ */
+function provisioningmodule_CustomActions(array $params): CustomActionCollection
+{
+    // Instantiate a new CustomActionCollection to house the CustomAction objects.
+    $customActionCollection = new CustomActionCollection();
+
+    // Add a new CustomAction object to the collection.
+    $customActionCollection->add(
+        CustomAction::factory(
+            'provisioningmodule',
+            'Log in to Demo Provisioning Module',
+            'provisioningmodule_ServiceSingleSignOn',
+            [$params],
+            ['productsso']
+        )
+    );
+
+    // An anonymous function can be used in place of a custom module function.
+    $customActionCollection->add(
+        CustomAction::factory(
+            'provisioningmodule',
+            'Visit the WHMCS Website',
+            function () {
+                return [
+                    'success' => true,
+                    'redirectTo' => '//www.whmcs.com/',
+                ];
+            }
+        )
+    );
+
+    // Return the CustomActionCollection to be used when checking for CustomAction items to render.
+    return $customActionCollection;
+}
+```
+
+## Callable Function
+
+The CustomAction object expects a callable function to be provided upon creation. This is the logic that will be executed when a customer interacts with the item in the Client Area.
+
+The expected return for this function is an array that indicates success and provides either the redirect URL or error message.
+
+### Success Example
+```
+[
+	'success' => true,
+	'redirectTo' => 'https://whmcs.com/',
+]
+```
+
+### Failure Example
+```
+[
+	'success' => false,
+	'errorMsg' => 'This is an error message.',
+]
+```
