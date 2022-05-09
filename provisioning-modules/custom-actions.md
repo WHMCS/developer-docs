@@ -6,23 +6,23 @@ toc = true
 weight = 130
 +++
 
-`Compatibility: This functionality is available since v8.5`
+`Compatibility: We added this functionality in WHMCS 8.5.`
 
-Custom actions allow you to define a list of items that perform a function and redirect the user to a specified URL. User level permissions can be granted for who can use the custom action. Currently, this is limited to the "productsso" permission.
+Custom actions allow you to define a list of items that perform a function and redirect the user to a specified URL. You can grant the user-level `productsso` permission to use the custom action.
 
 Customers can invoke items from within the Client Area. The defined function can perform actions that need to take place before redirecting the customer.
 
-These items can be utilized by various sections of the Client Area. Currently, this functionality is limited to adding buttons to the "Active Products/Services" panel on the Client Area homepage.
+Currently, you can use this to add buttons to the **Active Products/Services** panel on the Client Area homepage.
 
 ## CustomActions Function
 
-The CustomActions function is responsible for returning the WHMCS\Module\Server\CustomActionCollection object.
+The `CustomActions` function is responsible for returning the `WHMCS\Module\Server\CustomActionCollection` object.
 
-This object is a collection of WHMCS\Module\Server\CustomAction objects which in turn represent each individual item to be displayed in the Client Area.
+This object is a collection of `WHMCS\Module\Server\CustomAction` objects that represent each individual item to display in the Client Area.
 
-Both the CustomActionCollection and CustomAction classes are documented in the WHMCS\Module\Server namespace at https://classdocs.whmcs.com/
+For more information on both the `CustomActionCollection` and `CustomAction` classes, see the `WHMCS\Module\Server` namespace at https://classdocs.whmcs.com/.
 
-The following illustrates how one might make a simple CustomActions function that returns a CustomActionCollection object.
+The following example creates a simple `CustomActions` function that returns a `CustomActionCollection` object.
 
 ```
 <?php
@@ -84,9 +84,9 @@ function provisioningmodule_CustomActions(array $params): CustomActionCollection
 
 ## Callable Function
 
-The CustomAction object expects a callable function to be provided upon creation. This is the logic that will be executed when a customer interacts with the item in the Client Area.
+The `CustomAction` object expects you to provide a callable function upon creation. This is the logic that the system will execute when a customer interacts with the item in the Client Area.
 
-The expected return for this function is an array that indicates success and provides either the redirect URL or error message.
+The expected return for this function is an array that indicates success and provides either the redirect URL or an error message.
 
 ### Success Example
 ```
