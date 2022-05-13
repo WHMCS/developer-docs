@@ -1,6 +1,6 @@
 +++
 prev = "/provisioning-modules/module-logging"
-next = ""
+next = "/provisioning-modules/custom-actions"
 title = "Server Sync"
 toc = true
 weight = 120
