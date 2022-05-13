@@ -675,14 +675,14 @@ Executes when a premium domain price is being automatically recalculated.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| domainName | string | The full domain name |
-| tld | string | The tld of the domain eg com in whmcs.com |
-| sld | string | The sld of the domain eg whmcs in whmcs.com |
+| domainName | string | The full domain name. |
+| tld | string | The TLD of the domain (E.g. com in whmcs.com) |
+| sld | string | The SLD of the domain (E.g. whmcs in whmcs.com) |
 | renew | float | The current renewal cost of the domain before any applied markup. |
 
 #### Response
 
-Return is accepted to override the renewal price or skip applying markup. eg: return array('renew' => 50.00, 'skipMarkup' => true);
+This return is accepted to override the renewal price or skip applying markup. E.g. return array('renew' => 50.00, 'skipMarkup' => true);
 
 #### Example Code
 
