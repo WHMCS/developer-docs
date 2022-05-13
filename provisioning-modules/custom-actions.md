@@ -8,9 +8,9 @@ weight = 130
 
 `Compatibility: We added this functionality in WHMCS 8.5.`
 
-Custom actions allow you to define a list of items that perform a function and redirect the user to a specified URL. You can grant the user-level `productsso` permission to use the custom action.
+Custom actions allow you to define a list of items that perform a function and redirect the user to a specified URL. You can limit access to a custom action based on the user-level `productsso` permission.
 
-Customers can invoke items from within the Client Area. The defined function can perform actions that need to take place before redirecting the customer.
+Clients can perform actions from within the Client Area. When a client does this, it invokes the defined function. After the function completes and returns the structured response, a browser window will open to the location in that response.
 
 Currently, you can use this to add buttons to the **Active Products/Services** panel on the Client Area homepage.
 
