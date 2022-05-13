@@ -22,7 +22,7 @@ Create the `helloworld.php` file in the `/includes/hooks/` directory:
 ```
 touch ~/includes/hooks/helloworld.php
 ```
-The filename **cannot** begin with an underscore (`_`).
+To exclude a hook file from execution, prefix the filename with an underscore (`_`).
 
 ## 2. Add the Hook Function
 
