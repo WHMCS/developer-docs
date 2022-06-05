@@ -60,7 +60,7 @@ It accepts a return of HTML for display on the product details page of the clien
 Output via a template file within the module folder named "clientarea.tpl" is also possible.
 Discussion of this function in more detail later on in the docs.
 
-## AdminArea <a id="admin-area"></a>
+## AdminLink <a id="admin-link"></a>
 
 Used to define HTML code that displays on server configuration page (**Setup** > **Products/Services** > **Servers**).
 Used to provide an automated shortcut/login link to the integrated server control panel.
