@@ -12,7 +12,7 @@ Custom actions allow you to define a list of items that perform a function and r
 
 Clients can perform actions from within the Client Area. When a client does this, it invokes the defined function. After the function completes and returns the structured response, a browser window will open to the location in that response.
 
-Currently, you can use this to add buttons to the **Active Products/Services** panel on the Client Area homepage.
+Currently, you can use this to add buttons to the **Active Products/Services** panel on the Client Area homepage and add items to the **Actions** sidebar menu.
 
 ## CustomActions Function
 
@@ -59,7 +59,8 @@ function provisioningmodule_CustomActions(array $params): CustomActionCollection
             'Log in to Demo Provisioning Module',
             'provisioningmodule_ServiceSingleSignOn',
             [$params],
-            ['productsso']
+            ['productsso'],
+            true
         )
     );
 
