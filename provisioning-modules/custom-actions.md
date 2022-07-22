@@ -6,7 +6,9 @@ toc = true
 weight = 130
 +++
 
-`Compatibility: We added this functionality in WHMCS 8.5.`
+{{% notice info %}}
+We added this functionality in WHMCS 8.5.
+{{% /notice %}}
 
 Custom actions allow you to define a list of items that perform a function and redirect the user to a specified URL. You can limit access to a custom action based on the user-level `productsso` permission.
 
