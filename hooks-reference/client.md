@@ -159,7 +159,7 @@ add_hook('ClientClose', 1, function($vars) {
 
 ## ClientDelete
 
-Executes as a client is deleted.
+DEPRECATED (since 8.0.0-beta.1): See PreDeleteClient hook as replacement.
 
 #### Parameters
 
