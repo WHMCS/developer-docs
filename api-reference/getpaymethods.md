@@ -100,21 +100,6 @@ print_r($results);
         },
         {
             "id": 3,
-            "type": "RemoteCreditCard",
-            "description": "A Third Remotely Stored Card",
-            "gateway_name": "eonlinedata",
-            "contact_type": "Client",
-            "contact_id": 1,
-            "card_last_four": "4242",
-            "expiry_date": "02\/23",
-            "start_date": "",
-            "issue_number": "",
-            "card_type": "Visa",
-            "remote_token": "1919214111,1832201236,33798e677c584bdcba0ad2d85d0a5d97",
-            "last_updated": "17\/05\/2019 10:01"
-        },
-        {
-            "id": 4,
             "type": "BankAccount",
             "description": "A Bank Account",
             "gateway_name": "",
@@ -125,7 +110,7 @@ print_r($results);
             "last_updated": "17\/05\/2019 10:01"
         },
         {
-            "id": 5,
+            "id": 4,
             "type": "RemoteBankAccount",
             "description": "A Remote Bank Account",
             "gateway_name": "gocardless",
