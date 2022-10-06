@@ -145,7 +145,7 @@ Possible error condition responses include:
 * You did not enter your phone number
 * Invalid telephone phone number
 * You did not provide required custom field value for
-* A client already exists with that email address
+* The email address entered is not available for use.
 * A user already exists with that email address
 
 

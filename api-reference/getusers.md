@@ -97,4 +97,4 @@ print_r($results);
 
 | Version | Changelog |
 | ------- | --------- |
-| 1.0 | Initial Version |
+| 8.1.0 | Initial Version |

@@ -155,6 +155,7 @@ Possible error condition responses include:
 * Domain status is set to 'Pending|Cancelled|Pending Transfer|Transferred|Fraud' and cannot be renewed
 * Domain not owned by Client ID provided
 * No items added to cart so order cannot proceed
+* Expecting parameter '<request-parameter>' to be an array
 
 
 ### Version History
@@ -164,3 +165,4 @@ Possible error condition responses include:
 | 1.0 | Initial Version |
 | 7.8 | Renamed `productids` response to `serviceids`. `productids` may be removed in a future version. |
 | 8.0 | Added IDN Language parameter |
+| 8.6 | Increase strictness of array/set data type parameters when requesting multiple 'domaintype' operations. |
