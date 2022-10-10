@@ -8,7 +8,7 @@ weight = 80
 
 In WHMCS 7.1 and later, domain registrar modules can take control of Domain Availability checks and lookups.
 
-There are two supported functions: `CheckAvailability` and `GetSuggestions`
+There are two supported functions: `CheckAvailability` and `GetDomainSuggestions`
 
 ## Check Availability
 
@@ -22,7 +22,7 @@ In addition to the regular [Common Module Parameters](/domain-registrars/module-
 | --------- | ----------- | ----------- |
 | searchTerm | string | The search term provided by the end user
 | punyCodeSearchTerm | string | For an IDN domain, the puny code encoded search term
-| tldsToInclude | array | An array of TLDs/extensions to perform the availability check for
+| tldsToInclude | array | An array of Spotlight TLDs/extensions to perform the availability check for
 | isIdnDomain | bool | If IDN Domains are enabled for this WHMCS installation
 | premiumEnabled | bool | If Premium Domains are enabled for this WHMCS installation
 
