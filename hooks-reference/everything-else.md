@@ -511,7 +511,7 @@ Executes prior to a notification being sent to allow for additional conditional 
 | eventName | string | Event name. |
 | rule | \WHMCS\Notification\Rule | Notification rule model that has been matched. |
 | hookParameters | array | Array of hook parameters. Will vary depending on the trigger. |
-| notification | \WHMCS\Notification\Notification | Notification object. See class documentation at https://docs.whmcs.com/classes |
+| notification | \WHMCS\Notification\Notification | Notification object. See class documentation at https://classdocs.whmcs.com |
 
 #### Response
 
