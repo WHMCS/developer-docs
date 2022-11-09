@@ -8,7 +8,7 @@ weight = 70
 
 <div class="notice info">This page describes a feature available in version 7.2 and above. WHMCS 7.2 introduced the ability to associate product addons with provisioning modules.</div>
 
-Many provisioning modules require you to store additional information relating to a product. To make it easier to work with this extra data and to aide module developers, WHMCS 7.2 introduced the concept of Service Properties.
+Many provisioning modules require you to store additional information relating to a product. To make it easier to work with this extra data and to aid module developers, WHMCS 7.2 introduced the concept of Service Properties.
 
 A service property is a key/value pair relating to a given instance of a product or addon. Stored in custom fields, service properties allow module developers to interact with these fields in a simple programmatic way that is consistent for both products and addons.
 

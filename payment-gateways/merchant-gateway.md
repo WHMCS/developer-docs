@@ -72,7 +72,7 @@ For payments that are pending and do not require an immediate payment in WHMCS, 
 
 For anything else, return a status that indicates the reason for failure. Common failure response status values include `declined` and `error`.
 
-The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or an array.
+The raw data you return will be recorded to the gateway log to aid in debugging. It can accept either a string or an array.
 
 ## Simple Example
 
