@@ -8,7 +8,7 @@ weight = 80
 
 In WHMCS 7.1 and later, domain registrar modules can take control of Domain Availability checks and lookups.
 
-There are two supported functions: `CheckAvailability` and `GetSuggestions`
+There are two supported functions: `CheckAvailability` and `GetDomainSuggestions`
 
 ## Check Availability
 
@@ -46,7 +46,7 @@ The purpose of this function is to return a list of alternative domain registrat
 
 ### Input Parameters
 
-In addition to the regular [Common Module Parameters](/domain-registrars/module-parameters/), the GetSuggestions function is passed the following input parameters.
+In addition to the regular [Common Module Parameters](/domain-registrars/module-parameters/), the GetDomainSuggestions function is passed the following input parameters.
 
 | Variable | Type | Description |
 | --------- | ----------- | ----------- |
