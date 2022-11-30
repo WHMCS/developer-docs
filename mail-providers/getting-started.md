@@ -141,16 +141,16 @@ class YourModuleName implements SenderModuleInterface
 
             // Retrieve recipients.
             foreach ($message->getRecipients('to') as $to) {
-                $postFields['toName'][] = $to[0];
-                $postFields['toEmail'][] = $to[1];
+                $postFields['toEmail'][] = $to[0];
+                $postFields['toName'][] = $to[1];
             }
             foreach ($message->getRecipients('cc') as $cc) {
-                $postFields['ccName'][] = $cc[0];
-                $postFields['ccEmail'][] = $cc[1];
+                $postFields['ccEmail'][] = $cc[0];
+                $postFields['ccName'][] = $cc[1];
             }
             foreach ($message->getRecipients('bcc') as $bcc) {
-                $postFields['bccName'][] = $bcc[0];
-                $postFields['bccEmail'][] = $bcc[1];
+                $postFields['bccEmail'][] = $bcc[0];
+                $postFields['bccName'][] = $bcc[1];
             }
 
             $replyTo = $message->getReplyTo();
