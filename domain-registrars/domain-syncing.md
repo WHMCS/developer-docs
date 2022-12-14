@@ -14,6 +14,8 @@ Domain syncing is performed in batches. When defined in your module, the *Sync* 
 
 Domains are only checked when they are in **Active** or **Pending Transfer** status. 
 
+Domains are only checked when they are in **Active**, **Pending Registration** or **Pending Transfer** status.
+
 The below example shows the supported return values for the function.
 
 ```
