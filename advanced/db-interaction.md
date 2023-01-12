@@ -159,11 +159,14 @@ try {
             ':isRequired' => (bool) $_POST['isRequired'],
         ]
     );
-
-    $pdo->commit();
+    if ($pdo->inTransaction()) {
+        $pdo->commit();
+    }
 } catch (\Exception $e) {
     echo "Uh oh! {$e->getMessage()}";
-    $pdo->rollBack();
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
 }
 ```
 
