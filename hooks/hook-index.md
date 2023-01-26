@@ -393,6 +393,7 @@ weight = 100
 <li> <a href="/hooks-reference/everything-else/#linktracker">LinkTracker</a>
 <li> <a href="/hooks-reference/everything-else/#logactivity">LogActivity</a>
 <li> <a href="/hooks-reference/everything-else/#notificationpresend">NotificationPreSend</a>
+<li> <a href="/hooks-reference/everything-else/#notificationpresend">NotificationPreSend</a>
 <li> <a href="/hooks-reference/everything-else/#paymethodmigration">PayMethodMigration</a>
 <li> <a href="/hooks-reference/everything-else/#preemailsendreducerecipients">PreEmailSendReduceRecipients</a>
 <li> <a href="/hooks-reference/everything-else/#preupgradecheckout">PreUpgradeCheckout</a>
