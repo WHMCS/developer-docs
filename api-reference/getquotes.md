@@ -44,7 +44,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'id' => '1',
             'responsetype' => 'json',
         )
     )
@@ -60,7 +59,6 @@ curl_close($ch);
 ```
 $command = 'GetQuotes';
 $postData = array(
-    'id' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -74,17 +72,27 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "1",
+    "totalresults": 2,
     "startnumber": 0,
-    "numreturned": 1,
+    "numreturned": 2,
     "quotes": {
         "quote": [
             {
-                "id": "1",
-                "subject": "Sample Quote",
+                "id": 2,
+                "subject": "",
                 "stage": "Draft",
-                "validuntil": "2016-02-01",
-                "userid": "1",
+                "validuntil": "2023-01-30",
+                "userid": 1,
+                "client": {
+                    "id": 1,
+                    "firstname": "Richard",
+                    "lastname": "Example",
+                    "companyname": "Example Inc.",
+                    "email": "amalia@example.com",
+                    "datecreated": "2022-12-30",
+                    "groupid": 0,
+                    "status": "Active"
+                },
                 "firstname": "",
                 "lastname": "",
                 "companyname": "",
@@ -96,29 +104,73 @@ print_r($results);
                 "postcode": "",
                 "country": "US",
                 "phonenumber": "",
-                "currency": "1",
-                "subtotal": "9.90",
+                "tax_id": "",
+                "currency": 1,
+                "subtotal": "15.86",
                 "tax1": "0.00",
                 "tax2": "0.00",
-                "total": "9.90",
-                "proposal": "This is Proposal Test",
-                "customernotes": "These are customer notes",
-                "adminnotes": "These are Admin Only notes",
-                "datecreated": "2016-01-01",
-                "lastmodified": "2016-01-01",
+                "total": "15.86",
+                "proposal": "",
+                "customernotes": "",
+                "adminnotes": "",
+                "datecreated": "2022-12-30",
+                "lastmodified": "2022-12-30",
                 "datesent": "0000-00-00",
                 "dateaccepted": "0000-00-00",
                 "items": {
                     "item": [
                         {
-                            "id": "1",
-                            "description": "This is a line item on a quote",
+                            "id": 1,
+                            "description": "Apple",
                             "quantity": "1",
-                            "unitprice": "10.00",
-                            "discount": "1.00",
-                            "taxable": "0"
+                            "unitprice": "1.23",
+                            "discount": "0.00",
+                            "taxable": 1
+                        },
+                        {
+                            "id": 2,
+                            "description": "Pear",
+                            "quantity": "3",
+                            "unitprice": "5.00",
+                            "discount": "2.50",
+                            "taxable": 0
                         }
                     ]
+                }
+            },
+            {
+                "id": 1,
+                "subject": "",
+                "stage": "Draft",
+                "validuntil": "2023-01-29",
+                "userid": 0,
+                "client": null,
+                "firstname": "William",
+                "lastname": "Smith",
+                "companyname": "",
+                "email": "",
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "postcode": "",
+                "country": "US",
+                "phonenumber": "",
+                "tax_id": "",
+                "currency": 1,
+                "subtotal": "0.00",
+                "tax1": "0.00",
+                "tax2": "0.00",
+                "total": "0.00",
+                "proposal": "",
+                "customernotes": "",
+                "adminnotes": "",
+                "datecreated": "2022-12-29",
+                "lastmodified": "2022-12-30",
+                "datesent": "0000-00-00",
+                "dateaccepted": "0000-00-00",
+                "items": {
+                    "item": []
                 }
             }
         ]
