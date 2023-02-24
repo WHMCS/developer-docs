@@ -136,53 +136,6 @@ add_hook('AfterRegistrarRegister', 1, function($vars) {
 });
 ```
 
-## AfterRegistrarRegistration
-
-Executes after a successful domain register command
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarRegistration', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AfterRegistrarRegistrationFailed
-
-Executes after a failed domain register command
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
-| error | string |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarRegistrationFailed', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AfterRegistrarRenew
 
 Executes upon completion of the registrar module function. Will execute regardless of success state.
@@ -205,53 +158,6 @@ No response supported
 ```
 <?php
 add_hook('AfterRegistrarRenew', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AfterRegistrarRenewal
-
-Executes after a successful domain renewal command
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarRenewal', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AfterRegistrarRenewalFailed
-
-Executes after a failed domain renewal command
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
-| error | string |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarRenewalFailed', 1, function($vars) {
     // Perform hook code here...
 });
 ```
@@ -356,56 +262,6 @@ No response supported
 ```
 <?php
 add_hook('AfterRegistrarSaveNameservers', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AfterRegistrarTransfer
-
-Executes upon completion of the registrar module function. Will execute regardless of success state.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Array of common module parameters. See https://developers.whmcs.com/domain-registrars/module-parameters/ |
-| results | array | An array of results returned from the registrar function call |
-| functionExists | bool | Returns true if the registrar module supports the given action |
-| functionSuccessful | bool | Returns true if the registrar function completed without error |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarTransfer', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AfterRegistrarTransferFailed
-
-Executes after a failed domain transfer command
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Common domain registrar parameters. See http://developers.whmcs.com/domain-registrars/module-parameters/ |
-| error | string |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterRegistrarTransferFailed', 1, function($vars) {
     // Perform hook code here...
 });
 ```

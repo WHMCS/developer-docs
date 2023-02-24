@@ -53,31 +53,6 @@ add_hook('AfterModuleChangePackageFailed', 1, function($vars) {
 });
 ```
 
-## AfterModuleChangePassword
-
-Executes upon successful completion of a remote module API password change.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| serviceid | int |  |
-| oldpassword | string |  |
-| newspassword | string |  |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterModuleChangePassword', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## AfterModuleChangePasswordFailed
 
 Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.
@@ -153,53 +128,6 @@ add_hook('AfterModuleCreateFailed', 1, function($vars)
         // Execute your post failure code here
     }
 );
-```
-
-## AfterModuleCustom
-
-Executes upon successful completion of the module custom function.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterModuleCustom', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
-## AfterModuleCustomFailed
-
-Executes upon failure of the module custom function to complete successfully. The failure reason is provided in the input parameters.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
-| failureResponseMessage | string | The failure reason error string returned by the provisioning module. |
-
-#### Response
-
-No response supported
-
-#### Example Code
-
-```
-<?php
-add_hook('AfterModuleCustomFailed', 1, function($vars) {
-    // Perform hook code here...
-});
 ```
 
 ## AfterModuleDeprovisionAddOnFeature
@@ -531,29 +459,6 @@ add_hook('AfterModuleUnsuspendFailed', 1, function($vars) {
 });
 ```
 
-## OverrideModuleUsernameGeneration
-
-Executes as a username is being generated on module creation.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | The parameters being passed to the module function call |
-
-#### Response
-
-Return the new username to be used.
-
-#### Example Code
-
-```
-<?php
-add_hook('OverrideModuleUsernameGeneration', 1, function($vars) {
-    // Perform hook code here...
-});
-```
-
 ## PreModuleChangePackage
 
 Executes prior to the module change package function being run for a service. Allows the action to be aborted.
@@ -625,29 +530,6 @@ add_hook('PreModuleCreate', 1, function($vars)
         );
     }
 );
-```
-
-## PreModuleCustom
-
-Executes prior to the module custom function being run for a service. Allows the action to be aborted.
-
-#### Parameters
-
-| Variable | Type | Notes |
-| -------- | ---- | ----- |
-| params | array | Array of common module parameters. See https://developers.whmcs.com/provisioning-modules/module-parameters/ |
-
-#### Response
-
-Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return `abortcmd=true` to abort the action.
-
-#### Example Code
-
-```
-<?php
-add_hook('PreModuleCustom', 1, function($vars) {
-    // Perform hook code here...
-});
 ```
 
 ## PreModuleDeprovisionAddOnFeature

@@ -184,3 +184,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.7 | Add the 'client' key to the quote response. If an existing client has been associated to the quote, select client information is returned. |
