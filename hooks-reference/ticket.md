@@ -39,7 +39,6 @@ add_hook('AdminAreaViewTicketPage', 1, function($vars) {
     }
     return $return;
 });
-
 ```
 
 ## AdminAreaViewTicketPageSidebar
