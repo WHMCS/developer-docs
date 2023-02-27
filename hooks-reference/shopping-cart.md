@@ -503,7 +503,6 @@ A float to override the first payment, or an array to override first and/or recu
 #### Example Code
 
 ```
-
 <?php
 
 add_hook('OrderDomainPricingOverride', 1, function($vars) {
