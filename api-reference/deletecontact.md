@@ -35,7 +35,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' => 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' => 'SECRET_OR_HASHED_PASSWORD',
-            'clientid' => '1',
+            'contactid' => '1',
             'responsetype' => 'json',
         )
     )
@@ -51,7 +51,7 @@ curl_close($ch);
 ```
 $command = 'DeleteContact';
 $postData = array(
-    'clientid' => '1',
+    'contactid' => '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
