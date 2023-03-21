@@ -523,7 +523,7 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 
 ## AdminServiceEdit
 
-Executes when the Service has been edited. After the changes have been made.
+Executes when the Service has been edited by an Admin. After the changes have been made.
 
 #### Parameters
 

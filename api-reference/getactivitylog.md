@@ -14,7 +14,7 @@ Obtain the Activity Log that matches passed criteria
 | limitnum | int | The number of records to return (default: 25) | Optional |
 | clientid | int | The ID of the client to obtain the log for. | Optional |
 | date | string | The date of the activity log to retrieve in localised format (eg 01/01/2016) | Optional |
-| user | string | The name of the user to retrieve the log entries for | Optional |
+| user | string | The Client|User email or Admin username to retrieve the log entries for. | Optional |
 | description | string | Search the log for a specific string | Optional |
 | ipaddress | string | The IP Address to search the activity log for | Optional |
 
