@@ -63,7 +63,7 @@ The use of the `Information` class causes the return from the `TransactionInform
 
 This class has no attribute requirements, but we recommend that you set `id`, `amount`, and `currency` as in the example above. The data that you set here determines what displays in the modal. Values that evaluate to false will not display in the modal.
 
-For more information about the `Information` class, see the [WHMCS Internal Class Documentation](https://classdocs.whmcs.com/8.2/WHMCS/Billing/Payment/Transaction/Information.html).
+For more information about the `Information` class, see the [WHMCS Internal Class Documentation](https://classdocs.whmcs.com/).
 
 ### Setting Additional Data
 
