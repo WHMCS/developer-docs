@@ -682,7 +682,7 @@ Executes as the order details page is being displayed
 | amount | float |  |
 | paymentmethod | string |  |
 | invoiceid | int |  |
-|  | string | status |
+| status | string |  |
 
 #### Response
 
