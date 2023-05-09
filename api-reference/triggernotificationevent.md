@@ -70,11 +70,15 @@ $postData = array(
     'url' => 'https://whmcs.example.test/admin/configservers.php?action=manage&id=3',
     'status' => 'Success',
     'statusStyle' => 'info',
-    'attributes[0][label]' => 'example',
-    'attributes[0][value]' => 'example',
-    'attributes[0][url]' => 'https://whmcs.example.test/admin/configservers.php?action=manage&id=3',
-    'attributes[0][style]' => 'success',
-    'attributes[0][icon]' => 'example',
+    'attributes' => [
+        [
+            'label' => 'example',
+            'value' => 'example',
+            'url' => 'https://whmcs.example.test/admin/configservers.php?action=manage&id=3',
+            'style' => 'success',
+            'icon' => 'example',
+        ],
+    ],
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
