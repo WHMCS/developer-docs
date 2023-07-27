@@ -74,6 +74,7 @@ print_r($results);
 Possible error condition responses include:
 
 * Client ID Not Found
+* An unexpected error occurred: xxx
 
 
 ### Version History

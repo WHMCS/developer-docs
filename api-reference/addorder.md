@@ -52,6 +52,7 @@ as an order is placed." option. When you call this method, you must make a subse
 | serviceid | int | The service ID for the addon only order | Optional |
 | addonids | int[] | An Array of addon ids for an Addon Only Order | Optional |
 | serviceids | int[] | An array of service ids to associate the addons for an Addon Only order | Optional |
+| servicerenewals | int[] | An array of service IDs to be on-demand renewed | Optional |
 
 ### Response Parameters
 
@@ -92,6 +93,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'nameserver1' => 'ns1.demo.com',
             'nameserver2' => 'ns2.demo.com',
             'paymentmethod' => 'mailin',
+            'servicerenewals' => array(3,10),
             'responsetype' => 'json',
         )
     )
@@ -121,6 +123,7 @@ $postData = array(
     'nameserver1' => 'ns1.demo.com',
     'nameserver2' => 'ns2.demo.com',
     'paymentmethod' => 'mailin',
+    'servicerenewals' => array(3,10),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -156,6 +159,7 @@ Possible error condition responses include:
 * Domain not owned by Client ID provided
 * No items added to cart so order cannot proceed
 * Expecting parameter '<request-parameter>' to be an array
+* Service ID xxx can not be renewed at this time.
 
 
 ### Version History
@@ -166,3 +170,4 @@ Possible error condition responses include:
 | 7.8 | Renamed `productids` response to `serviceids`. `productids` may be removed in a future version. |
 | 8.0 | Added IDN Language parameter |
 | 8.6 | Increase strictness of array/set data type parameters when requesting multiple 'domaintype' operations. |
+| 8.8 | Added `servicerenewals` parameter |

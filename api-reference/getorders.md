@@ -87,6 +87,10 @@ print_r($results);
                 "nameservers": "",
                 "transfersecret": "",
                 "renewals": "",
+                "renewalsByType": {
+                    "domains": [],
+                    "services": []
+                },
                 "promocode": "",
                 "promotype": "",
                 "promovalue": "",
