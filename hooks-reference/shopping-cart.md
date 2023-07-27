@@ -853,6 +853,7 @@ prevent order creation and present errors to the user.
 | city | string | Value present when client is new |
 | state | string | Value present when client is new |
 | country | string | Value present when client is new; two letter ISO code |
+| tax_id | string | The client's tax ID |
 | phonenumber | string | Value present when client is new |
 | password | string | Value present when client is new |
 | password2 | string | Value present when client is new |

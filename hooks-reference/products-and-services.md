@@ -96,6 +96,14 @@ Executes as a Product is being edited.
 | overagesbwlimit | int |  |
 | overagesdiskprice | float |  |
 | overagesbwprice | float |  |
+| ondemandrenewalconfigurationoverride | string |  |
+| ondemandrenewalsenabled | int |  |
+| ondemandrenewalperiodmonthly | int |  |
+| ondemandrenewalperiodquarterly | int |  |
+| ondemandrenewalperiodsemiannually | int |  |
+| ondemandrenewalperiodannually | int |  |
+| ondemandrenewalperiodbiennially | int |  |
+| ondemandrenewalperiodtriennially | int |  |
 | configoptionX | string|int|float|bool|mixed | X is 1 to 24 |
 
 #### Response

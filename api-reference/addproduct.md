@@ -42,6 +42,14 @@ Adds a product to the system to be available for purchase
 | order | int | The order to in which to display on the order form | Optional |
 | pricing | array | The pricing array to associate with the product. Format: $pricing[currencyid][cycle]. See Example. | Optional |
 | recommendations | array | The recommendations array to associate with the product in the following format: ['id' => productid, 'order' => integer] (See example.) | Optional |
+| ondemandrenewalconfigurationoverride | bool | Whether the product uses custom on-demand renewal settings. | Optional |
+| ondemandrenewalsenabled | bool | Whether on-demand renewals are enabled for the product. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
+| ondemandrenewalperiodmonthly | int | The period (in days) during which clients can place early renewal orders for the monthly billing cycle. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
+| ondemandrenewalperiodquarterly | int | The period (in days) during which clients can place early renewal orders for the quarterly billing cycle. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
+| ondemandrenewalperiodsemiannually | int | The period (in days) during which clients can place early renewal orders for the semi-annually billing cycle. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
+| ondemandrenewalperiodannually | int | The period (in days) during which clients can place early renewal orders for the annually billing cycle. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
+| ondemandrenewalperiodbiennially | int | The period (in days) during which clients can place early renewal orders for the biennially billing cycle. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
+| ondemandrenewalperiodtriennially | int | The period (in days) during which clients can place early renewal orders for the triennially billing cycle. Requires $ondemandrenewalconfigurationoverride be set to true. | Optional |
 
 ### Response Parameters
 
