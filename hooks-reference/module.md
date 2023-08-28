@@ -63,7 +63,7 @@ Executes upon successful completion of a remote module API password change.
 | -------- | ---- | ----- |
 | serviceid | int |  |
 | oldpassword | string |  |
-| newspassword | string |  |
+| newpassword | string |  |
 
 #### Response
 

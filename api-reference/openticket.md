@@ -22,7 +22,7 @@ Open a new ticket
 | created | string | The date and time the ticket message will show as sent. Format: ISO8601 or YYYY-MM-DD HH:mm:ss | Optional |
 | serviceid | int | The service to associate the ticket with (only one of $serviceid or $domainid) | Optional |
 | domainid | int | The domain to associate the ticket with (only one of $serviceid or $domainid) | Optional |
-| admin | bool | Is an Admin opening the ticket | Optional |
+| admin | bool | Whether the ticket opener is an Admin. If you pass this, you must also pass the admin's username with localAPI call arguments. Otherwise, the system still uses the client as the ticket opener. | Optional |
 | noemail | bool | Pass 'true' for this value to prevent the ticket email from being sent. | Optional |
 | markdown | bool | Should markdown be used on the ticket output | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
