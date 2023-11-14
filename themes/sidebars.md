@@ -17,7 +17,7 @@ There are two sidebars in WHMCS's client area. The primary sidebar contains side
 
 The sidebar elements and panels are controlled in a programmatic way, allowing modules and hooks to dynamically interact with the sidebar items.
 
-The look and feel of the navigation bar can be customised via the `/includes/header.tpl` and `/includes/navbar.tpl` system theme template files.
+The look and feel of the navigation bar can be customised via the `/header.tpl` and `/includes/navbar.tpl` system theme template files.
 
 ## Finding a Sidebar Name
 

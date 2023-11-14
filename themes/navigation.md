@@ -21,7 +21,7 @@ Responsive mode is activated when WHMCS's client area is viewed on a smaller scr
 
 The navigation bar elements are controlled in a programmatically, allowing modules and hooks to dynamically interact with the navigation menu elements.
 
-The look and feel of the navigation bar can be customised via the `/includes/header.tpl` and `/includes/navbar.tpl` system theme template files.
+The look and feel of the navigation bar can be customised via the `/header.tpl` and `/includes/navbar.tpl` system theme template files.
 
 ## Finding a Menu Name
 
