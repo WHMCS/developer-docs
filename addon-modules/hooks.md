@@ -15,4 +15,4 @@ The hook functions within that file should be defined in exactly the same way as
 
 Please refer to [Hook Documentation][hook-documentation] for more info on creating and working with hooks in WHMCS.
 
-[hook-documentation]: http://docs.whmcs.com/Hooks "Hooks"
+[hook-documentation]: https://developers.whmcs.com/hooks/ "Hooks"
