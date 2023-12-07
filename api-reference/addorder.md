@@ -53,6 +53,7 @@ as an order is placed." option. When you call this method, you must make a subse
 | addonids | int[] | An Array of addon ids for an Addon Only Order | Optional |
 | serviceids | int[] | An array of service ids to associate the addons for an Addon Only order | Optional |
 | servicerenewals | int[] | An array of service IDs to be on-demand renewed | Optional |
+| addonrenewals | int[] | An array of service addon IDs to be on-demand renewed | Optional |
 
 ### Response Parameters
 
@@ -93,7 +94,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'nameserver1' => 'ns1.demo.com',
             'nameserver2' => 'ns2.demo.com',
             'paymentmethod' => 'mailin',
-            'servicerenewals' => array(3,10),
+            'servicerenewals' => array(3, 10),
+            'addonrenewals' => array(3, 10),
             'responsetype' => 'json',
         )
     )
@@ -123,7 +125,8 @@ $postData = array(
     'nameserver1' => 'ns1.demo.com',
     'nameserver2' => 'ns2.demo.com',
     'paymentmethod' => 'mailin',
-    'servicerenewals' => array(3,10),
+    'servicerenewals' => array(3, 10),
+    'addonrenewals' => array(3, 10),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -171,3 +174,4 @@ Possible error condition responses include:
 | 8.0 | Added IDN Language parameter |
 | 8.6 | Increase strictness of array/set data type parameters when requesting multiple 'domaintype' operations. |
 | 8.8 | Added `servicerenewals` parameter |
+| 8.9 | Added `addonrenewals` parameter |

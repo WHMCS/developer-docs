@@ -89,7 +89,8 @@ print_r($results);
                 "renewals": "",
                 "renewalsByType": {
                     "domains": [],
-                    "services": []
+                    "services": [],
+                    "addons": []
                 },
                 "promocode": "",
                 "promotype": "",
