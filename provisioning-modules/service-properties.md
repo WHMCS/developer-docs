@@ -71,3 +71,5 @@ When using Service Properties against a service (for example, a directly-created
 * Last Update
 
 Using these field names with an addon will create a custom field.
+
+[db-interaction]: https://developers.whmcs.com/advanced/db-interaction/ "Interacting with the Database"
