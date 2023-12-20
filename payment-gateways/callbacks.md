@@ -29,7 +29,7 @@ Most callback files should use the following workflow:
 
 When a payment is received, a payment notification containing the transaction details may be sent to the gateway module's callback file. The URL of the callback file would be considered the `Callback URL` (e.g. https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php).
 
-Some gateways allow you to you pass a `Return URL` and a `Callback URL` in the payment button code. WHMCS can provide the `Return URL` during the initial payment submission to the gateway via the `$params['returnurl']` parameter, which is made available in the gateway module `_link` function.
+Some gateways allow you to pass a `Return URL` and a `Callback URL` in the payment button code. WHMCS can provide the `Return URL` during the initial payment submission to the gateway via the `$params['returnurl']` parameter, which is made available in the gateway module `_link` function.
 
 Other payment gateways require the `Return URL` to be specified in the payment gateway's control panel settings outside of WHMCS to return the client upon completion of a payment (e.g. a success/failure page or redirect to the paid invoice). Create the file for this page as required and place it at `/modules/gateways/yourgatewayname/`.
 The URL to this page will be considered the `Return URL` (e.g. https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php).
