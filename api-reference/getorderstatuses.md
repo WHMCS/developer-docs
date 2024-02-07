@@ -3,7 +3,7 @@ title = "GetOrderStatuses"
 toc = true
 +++
 
-Retrieve Order Status and number in those statuses
+Retrieve a list of order statuses and related counts
 
 ### Request Parameters
 
@@ -61,12 +61,27 @@ print_r($results);
 ```
 {
     "result": "success",
-    "totalresults": "4",
-    "statuses[status][0][Pending]": "1",
-    "statuses[status][1][Active]": "15",
-    "statuses[status][2][Fraud]": "0",
-    "statuses[status][3][Cancelled]": "1",
-    "statuses[status][4][My Custom Status]": "27"
+    "totalresults": 4,
+    "statuses": {
+        "status": [
+            {
+                "title": "Pending",
+                "count": 1
+            },
+            {
+                "title": "Active",
+                "count": 15
+            },
+            {
+                "title": "Fraud",
+                "count": 0
+            },
+            {
+                "title": "Cancelled",
+                "count": 1
+            }
+        ]
+    }
 }
 ```
 
