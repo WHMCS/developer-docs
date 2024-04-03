@@ -27,6 +27,7 @@ weight = 100
 <li> <a href="/hooks-reference/invoices-and-quotes/#invoiceunpaid">InvoiceUnpaid</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#logtransaction">LogTransaction</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#manualrefund">ManualRefund</a>
+<li> <a href="/hooks-reference/invoices-and-quotes/#preinvoiceautomaticcancellation">PreInvoiceAutomaticCancellation</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#preinvoicinggenerateinvoiceitems">PreInvoicingGenerateInvoiceItems</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#quotecreated">QuoteCreated</a>
 <li> <a href="/hooks-reference/invoices-and-quotes/#quotestatuschange">QuoteStatusChange</a>
