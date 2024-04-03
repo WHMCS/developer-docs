@@ -471,6 +471,29 @@ add_hook('ManualRefund', 1, function($vars) {
 });
 ```
 
+## PreInvoiceAutomaticCancellation
+
+Executes prior to an invoice being automatically cancelled. Allows the action to be aborted.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| invoiceid | int | The id of the invoice being automatically cancelled. |
+
+#### Response
+
+Accepts a return of key/value pairs. Return `abortCancel=true` to abort the automatic cancellation.
+
+#### Example Code
+
+```
+<?php
+add_hook('PreInvoiceAutomaticCancellation', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## PreInvoicingGenerateInvoiceItems
 
 Executes prior to invoice generation to allow for manipulation of stored data prior to aggregation of due items.
