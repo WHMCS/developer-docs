@@ -19,7 +19,7 @@ This function is available to all hooks, modules and template files throughout t
  * Log activity.
  *
  * @param string $message The message to log
- * @param int $userId An optional user id to which the log entry relates
+ * @param int $clientId An optional client id to which the log entry relates
  */
 logActivity('Message goes here', 0);
 ```
