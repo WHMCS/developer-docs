@@ -74,17 +74,24 @@ class MyMetricsProvider implements ProviderInterface
         ];
     }
 
+    // This function is called by WHMCS cron job, TenantUsageMetrics
+    // Applies to all Product/Service that has Metrics
     public function usage()
     {
         $serverData = $this->apiCall('stats');
         $usage = [];
         foreach ($serverData as $data) {
-            $usage[$data['username']] = $this->wrapUserData($data);
+            // Note that usage is indexed by domain name
+            $usage[$data['domain']] = $this->wrapUserData($data);
         }
         
+        // All domains on the server with metrics should be returned, indexed by domain name
         return $usage;
     }
     
+    // This function is called when the "Refresh Now" button is clicked in WHMCS
+    // Applies to a single Product/Service
+    // $tenant parameter is the Product/Service domain name    
     public function tenantUsage($tenant)
     {
         $userData = $this->apiCall('user_stats');
@@ -113,6 +120,31 @@ class MyMetricsProvider implements ProviderInterface
     private function apiCall($action)
     {
         // make remote call with $moduleParams
+
+        // Simulate an API call
+        // In WHMCS, create a Product/Service with domain name as shown below to collect these statistics
+
+        $response = [];
+        if ($action == 'stats') {
+            // Note domain is required to identify the tenant and metric
+            $response = [
+                [
+                    'domain' =>'example1.com',
+                    'emailaddr' => 10
+                ],
+                [
+                    'domain' =>'example2.com',
+                    'emailaddr' => 20
+                ]
+            ];
+        } elseif ($action == 'user_stats') {
+            $response = [
+                // Note domain is not required for a single tenant
+                'emailaddr' => 10
+            ];
+        }
+
+        return $response;
     }
 }
 ```
