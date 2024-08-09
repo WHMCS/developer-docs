@@ -16,7 +16,7 @@ a valid hash.
 
 Note: The login functionality provided by this API is superseded by
 CreateSsoToken (https://developers.whmcs.com/api-reference/createssotoken/) for remote login
-functionality and OpenID Connect (https://docs.whmcs.com/OpenID_Connect) for authentication
+functionality and OpenID Connect (https://go.whmcs.com/1993/openid-connect) for authentication
 services/credential verification. This API may be deprecated in the future given these more robust
 and modern implementations.
 

@@ -27,8 +27,8 @@ Adds a product to the system to be available for purchase
 | tagline | string | The tagline of the product to show in specific areas of the cart. | Optional |
 | color | string | The color to associate with the product in specific areas of the cart. | Optional |
 | welcomeemail | int | The id of the Email Template to use as the welcome email. Product/Service Messages only | Optional |
-| proratadate | int | See https://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
-| proratachargenextmonth | int | See https://docs.whmcs.com/Products_and_Services#Pricing_Tab | Optional |
+| proratadate | int | See https://go.whmcs.com/1981/products#pricing | Optional |
+| proratachargenextmonth | int | See https://go.whmcs.com/1981/products#pricing | Optional |
 | subdomain | string | A comma separated list of subdomains to offer on the domain register page. eg: .domain1.com,.domain2.com | Optional |
 | autosetup | string | When should the product be automatically setup. One of '' (never), 'on' (pending order), 'payment' (on payment), 'order' (on order) | Optional |
 | module | string | The server module system name to associate with the product. eg: cpanel, autorelease, plesk | Optional |

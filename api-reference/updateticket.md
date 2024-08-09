@@ -25,6 +25,7 @@ Updates an existing ticket
 | message | string | Update the ticket message | Optional |
 | markdown | bool | Should markdown be used on the ticket output. | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
+| preventClientClosure | bool | Whether the client should be allowed to close the ticket. If you do not pass this while also passing a department id, tickets moving to a department with the setting enabled will inherit the department setting. | Optional |
 
 ### Response Parameters
 
@@ -105,3 +106,4 @@ Possible error condition responses include:
 | 1.0 | Initial Version |
 | 7.7 | Added `message` parameter that allows updating primary ticket message. |
 | 8.0 | Added support for ticket creation date. |
+| 8.11 | Added optional `preventClientClosure` parameter to provide ability to allow client to close the ticket or not. |

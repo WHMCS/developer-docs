@@ -54,7 +54,7 @@ add_hook('ClientAreaHomepage', 1, function($vars) {
 
 ## ClientAreaHomepagePanels
 
-Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see [Working with ClientArea Homepage Panels](https://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels)
+Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see [Client Area Homepage Panels](https://go.whmcs.com/1965/client-area-homepage-panels)
 
 #### Parameters
 
