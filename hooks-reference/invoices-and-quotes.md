@@ -587,7 +587,7 @@ Executes when an invoice is updated with changes to or additions of line items. 
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| invoiceid | int | Invoice ID |
+| invoiceid | int | The invoice ID. |
 
 #### Response
 

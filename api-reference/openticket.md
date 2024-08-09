@@ -27,6 +27,7 @@ Open a new ticket
 | markdown | bool | Should markdown be used on the ticket output | Optional |
 | customfields | string | Base64 encoded serialized array of custom field values | Optional |
 | attachments | array | Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below). | Optional |
+| preventClientClosure | bool | Whether the client should be allowed to close the ticket. If you do not pass this, the ticket will inherit the department setting. | Optional |
 
 ### Response Parameters
 
@@ -58,6 +59,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'priority' => 'Medium',
             'markdown' => true,
             'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
+            'preventClientClosure' => true,
             'responsetype' => 'json',
         )
     )
@@ -80,6 +82,7 @@ $postData = array(
     'priority' => 'Medium',
     'markdown' => true,
     'attachments' => base64_encode(json_encode([['name' => 'sample_text_file.txt', 'data' => base64_encode('This is a sample text file contents')]])),
+    'preventClientClosure' => true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -124,6 +127,7 @@ Possible error condition responses include:
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.11 | Added optional `preventClientClosure` parameter to provide ability to define whether the client should be allowed to close the ticket. |
 | 7.5 | Added support for attachments. |
 | 8.0 | Added support for ticket creation date. |
 | 8.3 | Added support for stopping email from being sent. |

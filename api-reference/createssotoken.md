@@ -18,7 +18,7 @@ trusted tokens and will not attempt to enforce captcha or 2FA authorization
 controls common to the WHMCS login form.
 
 A valid destination is expressed using the short term like "clientarea:services".
-Possible destinations are documented at https://docs.whmcs.com/WHMCS_Single_Sign-On_Developer_Guide#Supported_Destinations
+Possible destinations are documented at https://go.whmcs.com/1989/single-sign-on-customization
 
 ### Request Parameters
 
