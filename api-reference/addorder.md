@@ -36,6 +36,7 @@ as an order is placed." option. When you call this method, you must make a subse
 | noemail | bool | Set to true to suppress the Order Confirmation email being sent | Optional |
 | addons | string[] | A comma separated list of addons to create on order with the products | Optional |
 | hostname | string[] | The hostname of the server for VPS/Dedicated Server orders | Optional |
+| notes | string | The admin notes for the service. | Optional |
 | ns1prefix | string[] | The first nameserver prefix for the VPS/Dedicated server. Eg. ns1 in ns1.hostname.com | Optional |
 | ns2prefix | string[] | The second nameserver prefix for the VPS/Dedicated server. Eg. ns2 in ns2.hostname.com | Optional |
 | rootpw | string[] | The desired root password for the VPS/Dedicated server. | Optional |
