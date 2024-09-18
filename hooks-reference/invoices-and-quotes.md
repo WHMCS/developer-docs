@@ -84,8 +84,8 @@ Executes when a transaction is created. Can be a payment or a refund.
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| id | int | Transaction ID |
-| userid | int | User ID |
+| id | int | Transaction reference ID |
+| userid | int | Client ID |
 | currency | int | Currency ID (if not related to a client, otherwise client currency) |
 | gateway | string |  |
 | date | \datetime |  |
@@ -94,9 +94,9 @@ Executes when a transaction is created. Can be a payment or a refund.
 | fees | float |  |
 | amountout | float |  |
 | rate | float | Exchange rate |
-| transid | string | Transaction ID provided by gateway or admin user |
+| transid | string | Transaction reference ID provided by gateway or admin user |
 | invocieid | int | Invoice ID to which the transaction was applied |
-| refundid | int | Refund ID if a refund |
+| refundid | int | ID of original Transaction, if this transaction is a refund |
 
 #### Response
 
@@ -291,6 +291,7 @@ Executes when an invoice is Paid following the email receipt having been sent an
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
 | invoiceid | int |  |
+| invoice | \WHMCS\Billing\Invoice |  |
 
 #### Response
 
