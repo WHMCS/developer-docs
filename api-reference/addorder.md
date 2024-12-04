@@ -14,6 +14,7 @@ as an order is placed." option. When you call this method, you must make a subse
 | clientid | int |  | Required |
 | paymentmethod | string | The payment method for the order in the system format. eg. paypal, mailin | Required |
 | pid | int[] | The array of product ids to add the order for | Optional |
+| qty | int[] | The array of product quantities | Optional |
 | domain | string[] | The array of domain names associated with the products/domains | Optional |
 | billingcycle | string[] | The array of billing cycles for the products | Optional |
 | domaintype | string[] | For domain registrations, an array of register or transfer values | Optional |
@@ -82,6 +83,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' => 'SECRET_OR_HASHED_PASSWORD',
             'clientid' => '1',
             'pid' => array(1,1),
+            'qty' => array(2, 3),
             'domain' => array('domain1.com', 'dómáin2.com'),
             'idnlanguage' => array('', 'fre'),
             'billingcycle' => array('monthly','semiannually'),
@@ -113,6 +115,7 @@ $command = 'AddOrder';
 $postData = array(
     'clientid' => '1',
     'pid' => array(1,1),
+    'qty' => array(2, 3),
     'domain' => array('domain1.com', 'dómáin2.com'),
     'idnlanguage' => array('', 'fre'),
     'billingcycle' => array('monthly','semiannually'),
@@ -175,3 +178,4 @@ Possible error condition responses include:
 | 8.6 | Increase strictness of array/set data type parameters when requesting multiple 'domaintype' operations. |
 | 8.8 | Added `servicerenewals` parameter |
 | 8.9 | Added `addonrenewals` parameter |
+| 8.12 | Added `qty` parameter |

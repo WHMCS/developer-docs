@@ -87,6 +87,7 @@ print_r($results);
         "product": [
             {
                 "id": "1",
+                "qty": "1",
                 "clientid": "1",
                 "orderid": "1",
                 "ordernumber": "456789",
@@ -134,6 +135,7 @@ print_r($results);
             },
             {
                 "id": "2",
+                "qty": "2",
                 "clientid": "1",
                 "orderid": "2",
                 "pid": "3",
@@ -196,3 +198,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.12 | Added `qty` parameter |

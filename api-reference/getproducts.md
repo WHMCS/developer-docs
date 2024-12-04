@@ -85,6 +85,8 @@ print_r($results);
                 "description": "This is our best hosting plan, with all the bells and whistles.",
                 "module": "cpanel",
                 "paytype": "recurring",
+                "allowqty": 2,
+                "quantity_available": 0,
                 "pricing": {
                     "USD": {
                         "prefix": "$",
@@ -119,6 +121,8 @@ print_r($results);
                             "id": 4,
                             "name": "MultiPHP Services",
                             "type": "3",
+                            "minqty": 1,
+                            "maxqty": 10,
                             "options": {
                                 "option": [
                                     {
@@ -161,4 +165,6 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
-| 8.3 | Added slug and product_url in response |
+| 8.3 | Added `slug` and `product_url` in response |
+| 8.12 | Added `allowqty` and `quantity_available` in response |
+| 8.12 | Added `minqty` and `maxqty` to configurable options |

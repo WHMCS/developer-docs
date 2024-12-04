@@ -72,6 +72,7 @@ print_r($results);
     "clientid": "1",
     "totalresults": "1",
     "addons[addon][0][id]": "1",
+    "addons[addon][0][qty]": "1",
     "addons[addon][0][userid]": "1",
     "addons[addon][0][orderid]": "0",
     "addons[addon][0][serviceid]": "1",
@@ -97,3 +98,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 8.12 | Added `qty` parameter |
