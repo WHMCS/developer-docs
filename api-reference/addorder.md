@@ -36,6 +36,7 @@ as an order is placed." option. When you call this method, you must make a subse
 | noinvoiceemail | bool | Set to true to suppress the Invoice Created email being sent for the order | Optional |
 | noemail | bool | Set to true to suppress the Order Confirmation email being sent | Optional |
 | addons | string[] | A comma separated list of addons to create on order with the products | Optional |
+| addonsqty | string[] | A comma-separated list of quantities for addons that are associated with products. | Optional |
 | hostname | string[] | The hostname of the server for VPS/Dedicated Server orders | Optional |
 | ns1prefix | string[] | The first nameserver prefix for the VPS/Dedicated server. Eg. ns1 in ns1.hostname.com | Optional |
 | ns2prefix | string[] | The second nameserver prefix for the VPS/Dedicated server. Eg. ns2 in ns2.hostname.com | Optional |
@@ -50,8 +51,10 @@ as an order is placed." option. When you call this method, you must make a subse
 | domainrenewals | array | A name -> value array of $domainName -> $renewalPeriod renewals to add an order for | Optional |
 | clientip | string | The ip address to associate with the order | Optional |
 | addonid | int | The Addon ID for an Addon Only Order | Optional |
+| addonidqty | int | The quantity of addons in an addon-only order. | Optional |
 | serviceid | int | The service ID for the addon only order | Optional |
 | addonids | int[] | An Array of addon ids for an Addon Only Order | Optional |
+| addonidsqty | int[] | An array of quantities for an addon-only order. | Optional |
 | serviceids | int[] | An array of service ids to associate the addons for an Addon Only order | Optional |
 | servicerenewals | int[] | An array of service IDs to be on-demand renewed | Optional |
 | addonrenewals | int[] | An array of service addon IDs to be on-demand renewed | Optional |
@@ -88,6 +91,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'idnlanguage' => array('', 'fre'),
             'billingcycle' => array('monthly','semiannually'),
             'addons' => array('1,3,9', ''),
+            '$addonsqty' => array('2,4,9', ''),
             'customfields' => array(base64_encode(serialize(array("1" => "Google"))), base64_encode(serialize(array("1" => "Google")))),
             'configoptions' => array(base64_encode(serialize(array("1" => 999))), base64_encode(serialize(array("1" => 999)))),
             'domaintype' => array('register', 'register'),
@@ -120,6 +124,7 @@ $postData = array(
     'idnlanguage' => array('', 'fre'),
     'billingcycle' => array('monthly','semiannually'),
     'addons' => array('1,3,9', ''),
+    '$addonsqty' => array('2,4,9', ''),
     'customfields' => array(base64_encode(serialize(array("1" => "Google"))), base64_encode(serialize(array("1" => "Google")))),
     'configoptions' => array(base64_encode(serialize(array("1" => 999))), base64_encode(serialize(array("1" => 999)))),
     'domaintype' => array('register', 'register'),
@@ -179,3 +184,6 @@ Possible error condition responses include:
 | 8.8 | Added `servicerenewals` parameter |
 | 8.9 | Added `addonrenewals` parameter |
 | 8.12 | Added `qty` parameter |
+| 8.12 | Added `$addonsqty` parameter |
+| 8.12 | Added `$addonidqty` parameter |
+| 8.12 | Added `$addonidsqty` parameter |
