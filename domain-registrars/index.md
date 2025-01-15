@@ -27,7 +27,7 @@ Other functionality a registrar module can provide includes the following:
 * management of Registrar Lock status
 * registering, modification and deletion of Private Nameservers
 * enable/disable of ID Protection
-* domain expiry date and status synchronisation
+* domain expiry date and status synchronization
 * transfer status monitoring
 * deletion requests
 
