@@ -65,7 +65,7 @@ The `_link` function should return an HTML code block that can be rendered to th
 
 ## Simple Example
 
-Below is a very simple demonstration of a link function that forwards the end user to `https://www.example.com/checkout` using a form post containing the invoice data. For a more complete example, please refer to the [Sample Third Party Gateway module on Github][githubsample].
+Below is a very simple demonstration of a link function that forwards the end user to `https://www.example.com/checkout` using a form post containing the invoice data. For a more complete example, please refer to the [Sample Third Party Gateway module on GitHub][githubsample].
 
 ```
 function yourmodulename_link($params) {
@@ -81,6 +81,6 @@ function yourmodulename_link($params) {
 
 [configuration]: /payment-gateways/configuration "Configuration Parameters"
 [merchantgateways]: /payment-gateways/merchant-gateway "Merchant Gateways"
-[githubsample]: https://github.com/WHMCS/sample-gateway-module "Sample Third Party Gateway module on Github"
+[githubsample]: https://github.com/WHMCS/sample-gateway-module "Sample Third Party Gateway module on GitHub"
 [callbacks]: /payment-gateways/callbacks "Callback Files"
 [refunds]: /payment-gateways/refunds "Refunding Transactions"

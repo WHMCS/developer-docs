@@ -97,7 +97,7 @@ If you are **only** making CSS customisations (via the `css/custom.css` file abo
 
 If you are customising files that exist in the Parent Theme, we recommend copying those files to your theme folder and then customising them as needed. Leave the Parent Theme's copy of the file unchanged.
 
-Any file you add to your Child Theme will override the same file in the Parent Theme. Commonly-overriden files include the header and footer template files, the homepage, client area home, and contact pages. For example, to customise the footer, you would copy the Parent Theme's `footer.tpl` file to the Child Theme's folder and customise it there.
+Any file you add to your Child Theme will override the same file in the Parent Theme. Commonly-overridden files include the header and footer template files, the homepage, client area home, and contact pages. For example, to customise the footer, you would copy the Parent Theme's `footer.tpl` file to the Child Theme's folder and customise it there.
 
 {{% notice info %}}
 Copying the file's contents and customising it rather than starting from an empty file is particularly important for customising the header and footer, which contain essential code required for the correct operation of the WHMCS Client Area.

@@ -33,7 +33,7 @@ For forwards compatibility with existing integrations, the `identifier` and `sec
 
 ## Authenticating with Login Credentials
 
-Prior to WHMCS verison 7.2, authentication was validated based on admin login credentials, and not API Authentication Credentials.
+Prior to WHMCS version 7.2, authentication was validated based on admin login credentials, and not API Authentication Credentials.
 This method of authentication is still supported for backwards compatibility but may be deprecated in a future version of WHMCS.
 
 To authenticate with the admin login credentials, pass the admin `username` and the MD5 hashed value of the respective admin's `password`.

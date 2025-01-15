@@ -38,7 +38,7 @@ Each SearchResult object consists of an SLD and TLD, a status (available, regist
 
 ### Code Sample
 
-Please refer to the example provided in the [Sample Registrar Module available via Github](https://github.com/WHMCS/sample-registrar-module) for an example implementation of the `CheckAvailability` function.
+Please refer to the example provided in the [Sample Registrar Module available via GitHub](https://github.com/WHMCS/sample-registrar-module) for an example implementation of the `CheckAvailability` function.
 
 ## Get Domain Suggestions
 
@@ -65,5 +65,5 @@ All domains returned by the suggestions function should be available for registr
 
 ### Code Sample
 
-Please refer to the example provided in the [Sample Registrar Module available via Github](https://github.com/WHMCS/sample-registrar-module) for an example implementation of the `GetDomainSuggestions` function.
+Please refer to the example provided in the [Sample Registrar Module available via GitHub](https://github.com/WHMCS/sample-registrar-module) for an example implementation of the `GetDomainSuggestions` function.
 

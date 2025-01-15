@@ -75,7 +75,7 @@ print_r($results);
             },
             {
                 "name": "Sample Sub-Support 1 Reply",
-                "reply": "Hello [NAME],\r\n\r\nMaecenas et vulputate magna. Mauris ac mi odio. Nam vel lacinia dolor. Suspendisse eu orci.\r\n\r\n"
+                "reply": "Hello [NAME],\r\n\r\nMaecenas et vulputate magna. Mauris ac mi odio. Name vel lacinia dolor. Suspendisse eu orci.\r\n\r\n"
             },
             {
                 "name": "Sample Support Reply",

@@ -1,6 +1,6 @@
 +++
 prev = "/themes/smarty/"
-title = "Github"
+title = "GitHub"
 toc = true
 weight = 150
 

@@ -1,12 +1,12 @@
 +++
 next = "/domain-registrars/metadata-params/"
 prev = "/domain-registrars/function-index/"
-title = "Domain Syncronisation"
+title = "Domain Synchronisation"
 weight = 40
 
 +++
 
-The domain syncronisation functions allow you to propagate any domain expiry date and status changes at the registry level to WHMCS.  This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.
+The domain synchronisation functions allow you to propagate any domain expiry date and status changes at the registry level to WHMCS.  This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.
 
 ## Domain Syncing
 

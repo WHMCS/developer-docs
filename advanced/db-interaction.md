@@ -45,7 +45,7 @@ The `Capsule::table(string $tableName)` method provides access to the query mana
 
 Capsule escapes all input, so it is not necessary to add escaping slashes to variables passed to these methods.
 
-All of Capsule's methods throw an exception on failure. Please place Capusle calls in try/catch blocks for graceful error handling and to avoid potential fatal errors in your hook, module, or other customization.
+All of Capsule's methods throw an exception on failure. Please place Capsule calls in try/catch blocks for graceful error handling and to avoid potential fatal errors in your hook, module, or other customization.
 
 ```
 <?php

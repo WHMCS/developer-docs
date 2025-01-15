@@ -31,4 +31,4 @@ If the cost price passed to the Register or Renew functions by WHMCS does not ma
 
 ### Code Sample
 
-Please refer to the example provided in the [Sample Registrar Module available via Github](https://github.com/WHMCS/sample-registrar-module) for an example implementation of the `CheckAvailability` and `Register` functions. Both include the appropriate parameters for Premium Domain handling.
+Please refer to the example provided in the [Sample Registrar Module available via GitHub](https://github.com/WHMCS/sample-registrar-module) for an example implementation of the `CheckAvailability` and `Register` functions. Both include the appropriate parameters for Premium Domain handling.

@@ -44,4 +44,4 @@ This makes debugging the external API calls your modules make easier and consist
 logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
 ```
 
-We recommend passing data strings such as usernames and passwords into the `$replaceVars` parameter to allow them to be automatically scrubbed and ommitted from module log entries.
+We recommend passing data strings such as usernames and passwords into the `$replaceVars` parameter to allow them to be automatically scrubbed and omitted from module log entries.

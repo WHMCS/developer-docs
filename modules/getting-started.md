@@ -21,7 +21,7 @@ The first step in creating a module for WHMCS is determining which type of modul
 
 * **[Registrar Modules](/domain-registrars/)** - Registrar Modules, also referred to as Domain Modules, allow you to create modules to allow for the registration and management of domains within WHMCS. [Learn more](/domain-registrars/)
 
-Sample modules demonstrating usage and functionality are made available for all types of modules via the [WHMCS Github page](https://github.com/whmcs).
+Sample modules demonstrating usage and functionality are made available for all types of modules via the [WHMCS GitHub page](https://github.com/whmcs).
 
 ## Recommended Reading
 

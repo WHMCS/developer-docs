@@ -6,7 +6,7 @@ weight = 20
 
 +++
 
-We make available sample code for each of our module types via [Github](https://github.com/whmcs).
+We make available sample code for each of our module types via [GitHub](https://github.com/whmcs).
 
 * Sample Gateway Module - https://github.com/WHMCS/sample-gateway-module
 * Sample Merchant Gateway - https://github.com/WHMCS/sample-merchant-gateway
