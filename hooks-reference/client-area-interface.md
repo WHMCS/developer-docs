@@ -2214,7 +2214,7 @@ add_hook('ClientAreaProductDetails', 1, function($vars) {
 
 ## ClientAreaProductDetailsPreModuleTemplate
 
-Executes when rendering the client area product details page prior to module template invocation allowing to define additional template parameters.
+Executes when rendering the client area product details page prior to module template invokation allowing to define additional template parameters.
 
 #### Parameters
 

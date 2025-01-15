@@ -20,7 +20,7 @@ Get Automation Task Log.
 | --------- | ---- | ----------- |
 | result | string | The result of the operation: success or error |
 | currentDatetime | string | The current system datetime. |
-| lastDailyCronInvocationTime | string | The last daily cron invocation time. |
+| lastDailyCronInvocationTime | string | The last daily cron invokation time. |
 | startdate | string | The start date/time filter applied |
 | enddate | string | The end date/time filter applied |
 | statistics | array | The log output, grouped by date and namespace |

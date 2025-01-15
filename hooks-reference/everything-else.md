@@ -378,7 +378,7 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 
 ## FetchCurrencyExchangeRates
 
-Executes when updating currency exchange rates. All supported automatic update currencies are returned
+Executes when updating currency exchange rates. All supported automatic update currencies are retured
 
 #### Parameters
 

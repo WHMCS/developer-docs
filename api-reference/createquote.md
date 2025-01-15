@@ -20,7 +20,7 @@ Creates a new quote
 | lineitems[x][up] | float | For $lineitems. The Unit Price of the line item | Optional |
 | lineitems[x][discount] | float | For $lineitems. The amount of discount to provide on the line items | Optional |
 | lineitems[x][taxable] | bool | For $lineitems. Is the line item taxable | Optional |
-| userid | int | If the quote is for an existing client, the client ID the quote is for | Optional |
+| userid | int | If the quote is for an exising client, the client ID the quote is for | Optional |
 | firstname | string | The first name of the client the quote is for if no $userid | Optional |
 | lastname | string | The last name of the client the quote is for if no $userid | Optional |
 | companyname | string | The company of the client the quote is for if no $userid | Optional |
