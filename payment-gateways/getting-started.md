@@ -27,7 +27,7 @@ There are 3 primary types of payment gateway module:
 
 ## Getting Started
 
-To get started, begin by downloading the appropriate sample module from our [Github page](https://github.com/whmcs).
+To get started, begin by downloading the appropriate sample module from our [GitHub page](https://github.com/whmcs).
 
 * Third Party Gateway: https://github.com/WHMCS/sample-gateway-module
 * Merchant Gateway: https://github.com/WHMCS/sample-merchant-gateway

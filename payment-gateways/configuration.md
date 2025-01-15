@@ -13,7 +13,7 @@ A payment gateway module can have user configurable settings that are set via th
 
 These are defined in the `yourmodulename_config` function of the module which is a required function for all gateway modules.
 
-This function should define both the display name for the module (for backwards compatiblity), and any settings that the gateway module requires.
+This function should define both the display name for the module (for backwards compatibility), and any settings that the gateway module requires.
 
 ### Defining configuration fields
 

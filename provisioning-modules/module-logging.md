@@ -34,4 +34,4 @@ To utilise this functionality, the module needs to make a call as follows:
 logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
 ```
 
-We recommend passing data strings such as usernames and passwords into the `$replaceVars` parameter to allow them to be automatically scrubbed and ommitted from module log entries.
+We recommend passing data strings such as usernames and passwords into the `$replaceVars` parameter to allow them to be automatically scrubbed and omitted from module log entries.
