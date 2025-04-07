@@ -64,7 +64,7 @@ Runs after tasks have completed but before email report is sent.
 
 #### Response
 
-Return true to surpress email report.
+Return true to suppress email report.
 
 #### Example Code
 

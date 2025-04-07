@@ -63,7 +63,7 @@ add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
 
 ## AdminAreaPage
 
-Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.
+Runs on every admin area page load. All template variables defined at the time the hook is invoked are made available to this hook point. This can vary by page. The list below is not an exhaustive list.
 
 #### Parameters
 
