@@ -11,7 +11,7 @@ Send an invite to manage a client.
 | --------- | ---- | ----------- | -------- |
 | action | string | "CreateClientInvite" | Required |
 | client_id | string | The ID of the client the invite is for | Required |
-| email | int | The email address to invite | Required |
+| email | string | The email address to invite | Required |
 | permissions | string | A comma separated list of permissions. | Required |
 
 ### Response Parameters
