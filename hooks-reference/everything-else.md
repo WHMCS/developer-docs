@@ -693,3 +693,26 @@ add_hook('PremiumPriceRecalculationOverride', 1, function($vars) {
 });
 ```
 
+## VatNumberVerification
+
+Verification of a VAT Number
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| vatNumber | \WHMCS\Billing\VAT\VatNumber |  |
+
+#### Response
+
+
+
+#### Example Code
+
+```
+<?php
+add_hook('VatNumberVerification', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
