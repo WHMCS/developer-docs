@@ -11,7 +11,7 @@ Applies the Client's Credit to an invoice
 | --------- | ---- | ----------- | -------- |
 | action | string | "ApplyCredit" | Required |
 | invoiceid | int | The ID of the invoice to apply credit | Required |
-| amount | float|string | The amount of credit to apply to the invoice. | Optional |
+| amount | float| The amount of credit to apply to the invoice. | Optional |
 | noemail | bool | Set to true to stop the invoice payment email being sent if the invoice becomes paid | Optional |
 
 ### Response Parameters
