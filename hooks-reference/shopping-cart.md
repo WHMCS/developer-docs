@@ -880,17 +880,19 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 
 ## ShoppingCartValidateDomain
 
-Executes when Domain Update is occurring
+Executes when Cart Domain Validation is occurring
 
 #### Parameters
 
 | Variable | Type | Notes |
 | -------- | ---- | ----- |
-| N/A | array | The REQUEST variables |
+| domainoption | string |  |
+| sld | string | eg whmcs in whmcs.com |
+| tld | string | eg com in whmcs.com |
 
 #### Response
 
-Return accepts both a `string` or an `array`. Use a string for `single` error message or an `array` of strings for multiple error messages.
+Return any validation errors. eg: return array('error1', 'error2',);
 
 #### Example Code
 
@@ -956,6 +958,56 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
         'Error message feedback error 1',
         'Error message feedback error 2',
     ];
+});
+```
+
+## ShoppingCartValidateUpgrade
+
+Executes during an upgrade/downgrade request to validate resource limits.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| id | int | ID of the existing hosting service |
+| pid | int | ID of the target product for upgrade |
+
+#### Response
+
+An array of error messages. Return an empty array to allow the upgrade.
+
+#### Example Code
+
+```
+<?php
+
+use WHMCS\Service\Service;
+use WHMCS\Product\Product;
+
+Hook::add('ShoppingCartValidateUpgrade', 1, function($vars) {
+    try {
+        $actualHosting = Service::findOrFail($vars['id']);
+        $requestedUpgrade = Product::findOrFail($vars['pid']);
+
+        if ($requestedUpgrade->overageDiskLimit == 0 && $requestedUpgrade->overageBandwidthLimit == 0) {
+            return [];
+        }
+
+        if (
+            $actualHosting->diskUsage > $requestedUpgrade->overageDiskLimit
+            || $actualHosting->bandwidthUsage > $requestedUpgrade->overageBandwidthLimit
+        ) {
+            return [
+                'Your current disk or bandwidth usage exceeds the limits of the chosen product. <br /><br />Please reduce usage or select a higher plan.',
+            ];
+        }
+        return [];
+    } catch (\Exception $e) {
+        return [
+            'Error message feedback error 1',
+            'Error message feedback error 2',
+        ];
+    }
 });
 ```
 

@@ -75,6 +75,7 @@ print_r($results);
     },
     "pricing": {
         "com": {
+            "tld": "com",
             "categories": [
                 "Popular"
             ],
@@ -97,6 +98,7 @@ print_r($results);
             "redemption_period": null
         },
         "net": {
+            "tld": "net",
             "categories": [
                 "Popular"
             ],
@@ -119,6 +121,7 @@ print_r($results);
             "redemption_period": null
         },
         "org": {
+            "tld": "org",
             "categories": [
                 "Popular"
             ],
@@ -141,6 +144,7 @@ print_r($results);
             "redemption_period": null
         },
         "biz": {
+            "tld": "biz",
             "categories": [
                 "Popular"
             ],
@@ -163,6 +167,7 @@ print_r($results);
             "redemption_period": null
         },
         "info": {
+            "tld": "info",
             "categories": [
                 "Popular"
             ],

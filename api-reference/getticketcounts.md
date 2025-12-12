@@ -11,7 +11,7 @@ Get ticket counts.
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetTicketCounts" | Required |
 | ignoreDepartmentAssignments | bool | Pass as true to not adhere to the departments the API user is a member of. | Optional |
-| includeCountsByStatus | bool | Pass as true to not adhere to the departments the API user is a member of. | Optional |
+| includeCountsByStatus | bool | Pass as true to include detailed counts by statuses | Optional |
 
 ### Response Parameters
 
@@ -108,3 +108,4 @@ print_r($results);
 | Version | Changelog |
 | ------- | --------- |
 | 1.0 | Initial Version |
+| 9.0 | Return only ticket counts assigned to the same support department as the logged-in admin, unless $ignoreDepartmentAssignments is set to true |
