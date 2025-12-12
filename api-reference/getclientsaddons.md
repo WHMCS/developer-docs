@@ -10,7 +10,7 @@ Obtain the Clients Product Addons that match passed criteria
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetClientsAddons" | Required |
-| serviceid | int|string | The service id(s) to obtain the client product addons for. Single number or comma separated list | Optional |
+| serviceid | int\|string | The service id(s) to obtain the client product addons for. Single number or comma separated list | Optional |
 | clientid | int | The client to obtain the client product addons for | Optional |
 | addonid | int | The predefined product addon id from tbladdons (tbladdons.id) to obtain client addons for. | Optional |
 

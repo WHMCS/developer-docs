@@ -327,7 +327,7 @@ Runs prior to any templated email being sent.
 
 #### Response
 
-An array of key/value pairs to be made available as additional email template merged fields. To abort the sending, return the key/value pair `abortsend=true`
+An array of key/value pairs to be made available as additional email template merged fields. To abort the sending, return the key/value pair `abortsend=true`. To attach a file(s) to the email return an array of the following structure `['attachments'=>[['filename'=>'file1.pdf','data'=>'<file_content_1>'],['filename'=>'file2.png','data'=>'<file_content_2>'],...]]`.
 
 #### Example Code
 
@@ -344,6 +344,13 @@ add_hook('EmailPreSend', 1, function($vars) {
         //Stop the email from sending a specific message and related id.
         $merge_fields['abortsend'] = true;
     }
+    $merge_fields['attachments'] = [
+        [
+            'filename' => 'invoice.pdf',
+            'data' => file_get_contents('path/to/file.pdf'),
+        ],
+    ];
+
     return $merge_fields;
 });
 ```

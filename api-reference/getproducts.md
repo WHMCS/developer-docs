@@ -14,7 +14,7 @@ setting enabled will be returned for a given product.
 | Parameter | Type | Description | Required |
 | --------- | ---- | ----------- | -------- |
 | action | string | "GetProducts" | Required |
-| pid | int|string | Obtain a specific product id configuration. Can be a list of ids comma separated | Optional |
+| pid | int\|string | Obtain a specific product id configuration. Can be a list of ids comma separated | Optional |
 | gid | int | Retrieve products in a specific group id | Optional |
 | module | string | Retrieve products utilising a specific module | Optional |
 

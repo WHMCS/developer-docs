@@ -66,6 +66,7 @@ weight = 100
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidatedomain">ShoppingCartValidateDomain</a>
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidatedomainsconfig">ShoppingCartValidateDomainsConfig</a>
 <li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidateproductupdate">ShoppingCartValidateProductUpdate</a>
+<li> <a href="/hooks-reference/shopping-cart/#shoppingcartvalidateupgrade">ShoppingCartValidateUpgrade</a>
 </ul>
 <h3>Service</h3>
 
@@ -77,7 +78,8 @@ weight = 100
 </ul>
 <h3>Module</h3>
 
-<ul><li> <a href="/hooks-reference/module/#aftermodulechangepackage">AfterModuleChangePackage</a>
+<ul><li> <a href="/hooks-reference/module/#addonmoduleconfigsave">AddonModuleConfigSave</a>
+<li> <a href="/hooks-reference/module/#aftermodulechangepackage">AfterModuleChangePackage</a>
 <li> <a href="/hooks-reference/module/#aftermodulechangepackagefailed">AfterModuleChangePackageFailed</a>
 <li> <a href="/hooks-reference/module/#aftermodulechangepassword">AfterModuleChangePassword</a>
 <li> <a href="/hooks-reference/module/#aftermodulechangepasswordfailed">AfterModuleChangePasswordFailed</a>
@@ -190,7 +192,8 @@ weight = 100
 </ul>
 <h3>User</h3>
 
-<ul><li> <a href="/hooks-reference/user/#useradd">UserAdd</a>
+<ul><li> <a href="/hooks-reference/user/#preuseradd">PreUserAdd</a>
+<li> <a href="/hooks-reference/user/#useradd">UserAdd</a>
 <li> <a href="/hooks-reference/user/#userchangepassword">UserChangePassword</a>
 <li> <a href="/hooks-reference/user/#useredit">UserEdit</a>
 <li> <a href="/hooks-reference/user/#useremailverificationcomplete">UserEmailVerificationComplete</a>

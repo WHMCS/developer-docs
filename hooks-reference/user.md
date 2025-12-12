@@ -6,6 +6,34 @@ weight = 10
 
 The following hooks are provided for User related events.
 
+## PreUserAdd
+
+Executes just prior to a user being added to WHMCS. Changes to hook variables will not be honored.
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| user_id | int | The id of the user that has been added |
+| firstname | string |  |
+| lastname | string |  |
+| email | string |  |
+| password | string |  |
+| language | string |  |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('PreUserAdd', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## UserAdd
 
 Executes as a user is being added to WHMCS.

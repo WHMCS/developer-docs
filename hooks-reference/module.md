@@ -6,6 +6,27 @@ weight = 10
 
 The following hooks are provided for Module related events.
 
+## AddonModuleConfigSave
+
+#### Parameters
+
+| Variable | Type | Notes |
+| -------- | ---- | ----- |
+| No input parameters for this hook point. |
+
+#### Response
+
+No response supported
+
+#### Example Code
+
+```
+<?php
+add_hook('AddonModuleConfigSave', 1, function($vars) {
+    // Perform hook code here...
+});
+```
+
 ## AfterModuleChangePackage
 
 Executes upon successful completion of the module function.
