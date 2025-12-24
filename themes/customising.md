@@ -1,6 +1,6 @@
 +++
 next = "/themes/css-styling/"
-prev = "/themes/order-form-templates"
+prev = "/themes/nexus-cart/"
 title = "Customising"
 toc = true
 weight = 20
@@ -22,7 +22,7 @@ The header and footer system theme template files are common to every page and a
 
 ## Custom Logo
 
-The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the `$assetLogoPath` variable contains the relative path to the logo file. 
+The Nexus, Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the `$assetLogoPath` variable contains the relative path to the logo file. 
 
 To set a custom logo, you can upload the logo in the **Setup Wizard** or at **Configuration > System Settings > General Settings** in the **General** tab.
 
@@ -41,7 +41,7 @@ The following list of include files is accurate for WHMCS 8.1 and later:
 * `head.tpl` — Defines the CSS and Javascript files included within the `<head>` section of a page.
 * `modal.tpl` — Controls the display of all Client Area modals.
 * `navbar.tpl` — Controls the rendering of the primary navigation bar menu items.
-* `social-accounts.tpl` — Controls the display of any configured social media icons in the footer. This include file is specific to Twenty-One.
+* `social-accounts.tpl` — Controls the display of any configured social media icons in the footer. This include file is specific to Nexus or Twenty-One.
 * `verifyemail.tpl` — Controls the display of the email verification notice below the header.
 
 **Used as Required**
@@ -53,7 +53,7 @@ The following list of include files is accurate for WHMCS 8.1 and later:
 * `generate-password.tpl` — Controls the display of the password generation modal when a user opens it.
 * `index.tpl` — Controls the display of store landing pages.
 * `linkedaccounts.tpl` — Controls the display of the page for configuring third-party services like Facebook and Google.
-* `network-issues-notifications.tpl` — Controls the display of the network status alert bar under the header. This include file is specific to Twenty-One.
+* `network-issues-notifications.tpl` — Controls the display of the network status alert bar under the header. This include file is specific to Nexus or Twenty-One.
 * `panel.tpl` — Controls the display of a card-style display panel.
 * `pwstrength.tpl` — Controls the display of the password strength meter and tooltip.
 * `sidebar.tpl` — Controls the display of the sidebar menu items.

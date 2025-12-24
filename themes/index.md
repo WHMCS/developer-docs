@@ -15,12 +15,13 @@ System themes and order form templates let you control the Client Area, the clie
 
 Themes, or *System Themes*, in WHMCS control the client-facing user interface. WHMCS allows you to provide a seamless experience for your website visitors by using system themes to customise the Client Area to match the rest of your website.
 
-WHMCS currently ships with two system themes for the Client Area:
+WHMCS currently ships with three system themes for the Client Area:
 
+* **Nexus** was introduced in WHMCS 9.0.
 * **Twenty-One** was introduced in WHMCS 8.1 and is currently the default system theme for new installations.
 * **Six** was the default theme for WHMCS 6.0 through 8.0.
 
-We recommend using and customising **Twenty-One**. We will remove **Six** in a future version of WHMCS.
+We recommend using and customising **Twenty-One** or **Nexus**. We will remove **Six** in a future version of WHMCS.
 
 {{% notice tip %}}
 We recommend using [Child Themes](/themes/child-themes/) for your customisations.
