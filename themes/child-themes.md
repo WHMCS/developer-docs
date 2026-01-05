@@ -28,7 +28,7 @@ There are two main reasons to use Child Themes:
 
 A parent theme is a complete theme that includes all of the WHMCS template files and assets that the theme requires in order to work.
 
-The `Twenty-One`, `Nexus`, and `Six` themes that ship by default with WHMCS are both Parent Themes.
+The `Twenty-One`, `Nexus`, and `Six` themes that ship by default with WHMCS are Parent Themes.
 
 ## Getting Started
 
