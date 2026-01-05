@@ -22,7 +22,7 @@ The header and footer system theme template files are common to every page and a
 
 ## Custom Logo
 
-The Nexus, Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the `$assetLogoPath` variable contains the relative path to the logo file. 
+The Nexus, Twenty-One, and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the `$assetLogoPath` variable contains the relative path to the logo file. 
 
 To set a custom logo, you can upload the logo in the **Setup Wizard** or at **Configuration > System Settings > General Settings** in the **General** tab.
 
