@@ -12,12 +12,13 @@ For example, you may wish to fork these system themes and order form templates:
 
 ## System Templates
 
-WHMCS ships with two Client Area themes:
+WHMCS ships with three Client Area themes:
 
+* [Nexus](https://github.com/WHMCS/templates-nexus) (WHMCS 9.0 and later)
 * [Twenty-One](https://github.com/WHMCS/templates-twenty-one) (WHMCS 8.1 and later)
 * [Six](https://github.com/WHMCS/templates-six)
 
-We recommend using **Twenty-One** for new development.
+We recommend using **Twenty-One** or **Nexus** for new development.
 
 ## Order Form Templates
 

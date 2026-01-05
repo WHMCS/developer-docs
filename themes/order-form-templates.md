@@ -1,6 +1,6 @@
 +++
 prev = "/themes/theme-parameters/"
-next = "/themes/customising/"
+next = "/themes/nexus-cart/"
 title = "Order Form Templates"
 toc = true
 weight = 19
@@ -16,6 +16,10 @@ Order Form Templates control the way products and the shopping cart appear when 
 
 {{% notice tip %}}
 To customise other aspects of the WHMCS Client Area, we recommend creating a [Child Theme](/themes/child-themes/).
+{{% /notice %}}
+
+{{% notice info %}}
+For customization instructions specific to the Nexus Cart template, please see the [Nexus Cart](/themes/nexus-cart/) page.
 {{% /notice %}}
 
 You can set the system default Order Form Template at **Configuration > System Settings > General Settings** in the **Ordering** tab. This is where errors will display if there's a compatibility issue between the current **System Theme** and the default Order Form Template.
